@@ -12,5 +12,6 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 doill nam
+우리 모두 화이팅해오ㅛ
 </body>
 </html>
