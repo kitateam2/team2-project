@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<<<<<<< HEAD
 이름변경 ㄴㅇㄹㄴㅁㅇㄻㄴㅇㄹ
+=======
+이름변경
+가나다라마바사
+>>>>>>> junil
 </body>
 </html>
