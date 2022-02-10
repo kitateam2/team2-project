@@ -10,9 +10,12 @@
 	Hello world!  
 </h1>
 
-<P>  The time on the server is ${serverTime}. </P>
-doill nam
-우리 모두 화이팅해오ㅛ
-가나다라
+<a href="join">회원 가입</a>
+<a href="login">로그인</a>
+<a href="myblog">개인 블로그</a>
+<a href="blogmain">블로그 메인</a>
+<a href="bookinfo">책 상세정보</a>
+<a href="customerservice">고객센터</a>
+
 </body>
 </html>
