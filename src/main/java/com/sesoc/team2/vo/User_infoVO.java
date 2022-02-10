@@ -1,6 +1,6 @@
 package com.sesoc.team2.vo;
 
-public class User_info {
+public class User_infoVO {
 String user_id;
 String user_pw;
 String user_name;
@@ -9,22 +9,13 @@ int user_phone;
 String user_address;
 String user_genre;
 int user_grade;
-public User_info() {
+
+
+public User_infoVO() {
 	super();
-	// TODO Auto-generated constructor stub
+
 }
-public User_info(String user_id, String user_pw, String user_name, int user_birth, int user_phone, String user_address,
-		String user_genre, int user_grade) {
-	super();
-	this.user_id = user_id;
-	this.user_pw = user_pw;
-	this.user_name = user_name;
-	this.user_birth = user_birth;
-	this.user_phone = user_phone;
-	this.user_address = user_address;
-	this.user_genre = user_genre;
-	this.user_grade = user_grade;
-}
+
 public String getUser_id() {
 	return user_id;
 }
@@ -73,12 +64,15 @@ public int getUser_grade() {
 public void setUser_grade(int user_grade) {
 	this.user_grade = user_grade;
 }
+
+
 @Override
 public String toString() {
-	return "User_info [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_birth="
+	return "User_infoVO [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_birth="
 			+ user_birth + ", user_phone=" + user_phone + ", user_address=" + user_address + ", user_genre="
 			+ user_genre + ", user_grade=" + user_grade + "]";
 }
+
 
 
 }

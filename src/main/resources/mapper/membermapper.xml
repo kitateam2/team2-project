@@ -5,6 +5,28 @@
   
   <mapper namespace="com.sesoc.team2.dao.MemberMapper">
   
- <insert id="insertMember" parameterType="User_infoVO">
-		insert into cashbook_member values (#{user_id}, #{user_pw},#{user_name},#{user_birth},#{user_phone},#{user_address},#{user_genre},#{user_grade},) 
-	</insert>
+
+<insert id="insertMember" parameterType="User_infoVO">
+insert into user_info 
+	(
+	 user_id
+	,user_pw
+	,user_name
+	,user_birth
+	,user_phone
+	,user_address
+	,user_genre
+	,user_grade)
+					values (
+							#{user_id}
+							,#{user_pw}
+							,#{user_name}
+							,#{user_birth}
+							,#{user_phone}
+							,#{user_address}
+							,#{user_genre}
+							,#{user_grade}
+							)
+</insert>
+
+</mapper>
