@@ -23,6 +23,18 @@
 	
 	<context:component-scan base-package="com.sesoc.team2" />
 	
+	<!-- interceptor 등록 -->
+	<beans:bean id="loginInterceptor" class="com.sesoc.team2.interceptor.LoginInterceptor" />
 	
+	<!-- 아래 주석을 제거하여 interceptor 적용 -->
+
+	<interceptors>
+		<interceptor>
+			<mapping path="/login"/>
+	
+			
+			<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+	</interceptors> 
 	
 </beans:beans>

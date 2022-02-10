@@ -44,6 +44,18 @@
 				<td>비밀번호 확인</td><td><input type="password" id="password-check"></td>
 			</tr>
 			<tr>
+				<td>이름</td><td><input type="password" id="password-check"></td>
+			</tr>
+			<tr>
+				<td>생년월일/성별</td><td><input type="select" id="password-check"></td>
+			</tr>
+			<tr>
+				<td>휴대폰번호</td><td><input type="password" id="password-check"></td>
+			</tr>
+			<tr>
+				<td>선호장르</td><td><input type="password" id="password-check"></td>
+			</tr>
+			<tr>
 				<td colspan="2"><input type="submit" value="가입">
 				<input type="button" value="취소" onclick="javascript:location.href='./'"></td>
 			</tr>
