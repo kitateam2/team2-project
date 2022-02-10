@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<script src='<c:url value="/js/jquery-3.6.0.js" />'></script>
 <script>
 	function validationCheck() {
 		var id = document.getElementById('id');
@@ -31,17 +30,34 @@
 </head>
 <body>
 	<h1>[회원가입]</h1>
-	<form action="signup" method="post" onsubmit="return validationCheck();">
+	<form action="join" method="post" onsubmit="return validationCheck();">
 	<table>
 		<tbody>
 			<tr>
-				<td>아이디</td><td><input type="text" id="id" name="userid"></td>
+				<td>아이디</td><td><input type="text" id="id" name="user_id"></td>
 			</tr>
 			<tr>
-				<td>비밀번호</td><td><input type="password" id="password" name="userpwd"></td>
+				<td>비밀번호</td><td><input type="password" id="password" name="user_pw"></td>
 			</tr>
 			<tr>
 				<td>비밀번호 확인</td><td><input type="password" id="password-check"></td>
+			</tr>
+			<tr>
+				<td>이름</td><td><input type="text" id="name" name="user_name"></td>
+			</tr>
+			
+			<tr>
+				<td>생년월일</td><td><input type="text" id="birth" name="user_birth"></td>
+			</tr>
+			<tr>
+				<td>휴대폰번호</td><td><input type="tel" id="phone_number" name="user_phone"></td>
+			</tr>
+			
+			<tr>
+				<td>주소</td><td><input type="text" id="adress" name="user_address"></td>
+			</tr>
+			<tr>
+				<td>선호장르</td><td><input type="text" id="genre" name="user_genre"></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="가입">

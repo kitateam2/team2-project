@@ -4,10 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<!-- <typeAlias type="global.sesoc.web4.vo.Guestbook" alias="guestbook" /> -->
+		<typeAlias type="com.sesoc.team2.vo.User_infoVO" alias="User_infoVO"/> 
 	</typeAliases>
 	
 	<mappers>
-		<!-- <mapper resource="guestbookMapper.xml" /> -->
+		<mapper resource="mapper/membermapper.xml" />
 	</mappers>
 </configuration>
