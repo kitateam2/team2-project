@@ -9,6 +9,6 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class OrderController {
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 	
 }

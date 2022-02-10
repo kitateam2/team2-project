@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class BookController {
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	private static final Logger logger = LoggerFactory.getLogger(BookController.class);
 	
 	//책 상세정보
 	@RequestMapping (value="bookinfo", method=RequestMethod.GET)

@@ -11,6 +11,6 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class MainPageController {
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MainPageController.class);
 	
 }

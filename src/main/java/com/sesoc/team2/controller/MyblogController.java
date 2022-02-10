@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 //게시글 쓰기, 게시글 읽기, 팔로우 리스트
 @Controller
 public class MyblogController {
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MyblogController.class);
 	
 	//개인블로그의 메인 (글 목록 나열)(개인 정보 나열)(친구목록)
 	//(글 목록 나열) - 제목, 한줄, 날짜, 조회수 ??

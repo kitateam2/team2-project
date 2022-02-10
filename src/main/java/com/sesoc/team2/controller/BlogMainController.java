@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class BlogMainController {
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	private static final Logger logger = LoggerFactory.getLogger(BlogMainController.class);
 	
 		//내 블로그 가기
 		@RequestMapping (value="myblog", method=RequestMethod.GET)
