@@ -11,7 +11,7 @@
     padding: 0;
   }
   body{
-    background-image: url(../image/riot.jpeg);
+    background-color: white;
     background-size:auto
 }
   body {
@@ -21,20 +21,20 @@
     min-height: 100vh;
   }
   form {
-    background-color: #47473d;
+    background-color: ivory;
     padding: 20px;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    width: 300px;
+    width: 500px;
     height: 400px;
   }
   form h2 {
     margin-top: 20px;
     font-size: 2.5rem;
-    color: white;
+    color: black;
   }
   form input {
     border: none;
@@ -43,15 +43,16 @@
     outline: none;
     padding: 10px;
     margin: 20px;
-    color: white;
+    color: black;
     height: 30px;
     width: 70%;
     border-radius: 40px;
     transition: 0.2s ease-in;
   }
   form input[type="text"],
+  form input[type="tel"],
   form input[type="password"] {
-    border: solid 2px #ffc400;
+    border: solid 2px green;
   }
   form input[type="submit"] {
     border: solid 2px #ec3b3b;
@@ -59,15 +60,6 @@
     height: 50px;
     width: 50%;
     cursor: pointer;
-  }
-  form input[type="text"]:focus,
-  form input[type="password"]:focus {
-    width: 80%;
-    border: solid 2px #ec3b3b;
-  }
-  form input[type="submit"]:hover {
-    background: #ec3b3b;
-    color: #000;
   }
   
 </style>

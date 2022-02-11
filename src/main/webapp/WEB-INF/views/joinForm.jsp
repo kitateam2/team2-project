@@ -5,6 +5,67 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    background-color: white;
+    background-size:auto
+}
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  form {
+    background-color: ivory;
+    padding: 20px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    width: 500px;
+    height: 800px;
+  }
+  form h2 {
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: black;
+  }
+  form input {
+    border: none;
+    background: none;
+    text-align: center;
+    outline: none;
+    padding: 10px;
+    margin: 20px;
+    color: black;
+    height: 30px;
+    width: 70%;
+    border-radius: 40px;
+    transition: 0.2s ease-in;
+  }
+  form input[type="text"],
+  form input[type="tel"],
+  form input[type="password"] {
+    border: solid 2px green;
+  }
+  form input[type="submit"] {
+    border: solid 2px #ec3b3b;
+    box-sizing: border-box;
+    height: 50px;
+    width: 50%;
+    cursor: pointer;
+  }
+ 
+  
+ 
+  
+</style>
 <script>
 	function validationCheck() {
 		var id = document.getElementById('id');
@@ -29,43 +90,18 @@
 	</script>
 </head>
 <body>
-	<h1 align="center">[회원가입]</h1>
-	<form action="join" method="post" onsubmit="return validationCheck();">
-	<table border="1" align="center">
-		<tbody>
-			<tr>
-				<td>아이디</td><td><input type="text" id="id" name="user_id"></td>
-			</tr>
-			<tr>
-				<td>비밀번호</td><td ><input type="password" id="password" name="user_pw"></td>
-			</tr>
-			<tr>
-				<td>비밀번호 확인</td><td><input type="password" id="password-check"></td>
-			</tr>
-			<tr>
-				<td>이름</td><td><input type="text" id="name" name="user_name"></td>
-			</tr>
-			
-			<tr>
-				<td>생년월일</td><td><input type="text" id="birth" name="user_birth"></td>
-			</tr>
-			<tr>
-				<td>휴대폰번호</td><td><input type="tel" id="phone_number" name="user_phone"></td>
-			</tr>
-			
-			<tr>
-				<td>주소</td><td><input type="text" id="adress" name="user_address"></td>
-			</tr>
-			<tr>
-				<td>선호장르</td><td><input type="text" id="genre" name="user_genre"></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" value="가입">
-				<input type="button" value="취소" onclick="javascript:location.href='./'"></td>
-			</tr>
-		</tbody>
-	</table>
 	
+	<form action="join" method="post" onsubmit="return validationCheck();">
+	<h2>[회원가입]</h2>
+			<input type="text" placeholder="Enter Userid" id="id" name="user_id">
+			<input type="password" placeholder="Enter password" id="password" name="user_pw">
+			<input type="password" placeholder="Enter password" id="password-check">
+			<input type="text" placeholder="Enter Username" id="name" name="user_name">
+			<input type="text" placeholder="Enter Userbirth" id="birth" name="user_birth">
+			<input type="text" placeholder="Enter Userphone" id="phone_number" name="user_phone">
+			<input type="text" placeholder="Enter Useraddress" id="adress" name="user_address">
+			<input type="text" placeholder="Enter Usergenre" id="genre" name="user_genre">
+			<input type="submit" value="가입">
 	</form>
 	
 </body>

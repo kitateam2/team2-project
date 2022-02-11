@@ -60,6 +60,11 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	
+	@RequestMapping (value="home", method=RequestMethod.GET)
+	public String home() {
+		return "home";
+	}
 
 	
 }
