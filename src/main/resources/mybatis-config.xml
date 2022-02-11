@@ -5,9 +5,12 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.sesoc.team2.vo.User_infoVO" alias="User_infoVO"/> 
+		<typeAlias type="com.sesoc.team2.vo.BlogPost" alias="BlogPostVO"/> 
+		
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mapper/membermapper.xml" />
+		<mapper resource="mapper/BlogPostMapper.xml" />
 	</mappers>
 </configuration>

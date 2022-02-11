@@ -1,35 +1,54 @@
 package com.sesoc.team2.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sesoc.team2.dao.BlogPostDAO;
+import com.sesoc.team2.vo.BlogPost;
+
 //게시글 쓰기, 게시글 읽기, 팔로우 리스트
 @Controller
-@RequestMapping("myBlog")
+@RequestMapping("myblog")
 public class MyblogController {
 	private static final Logger logger = LoggerFactory.getLogger(MyblogController.class);
 	
+	@Autowired
+	BlogPostDAO dao;
 	//개인블로그의 메인 (글 목록 나열)(개인 정보 나열)(친구목록)
 	//(글 목록 나열) - 제목, 한줄, 날짜, 조회수 ??
 	//(개인정보 나열에 - 세션의 사진, 세션의 회원등급, 회원의 팔로우 수)
 	//(친구목록 나열에 - 세션으로 친구를 불러오는데 그 친구의 이름, 아이디)
 	
 	//글쓰기 페이지로 이동
-	@RequestMapping(value = "myblog/newPost", method = RequestMethod.GET)
+	@RequestMapping(value = "newPost", method = RequestMethod.GET)
 	public String myblogWrite() {
 		return "myblog/myblogWrite";
 	}
 	//게시글 작성(저장)
+	@RequestMapping (value="post_write", method=RequestMethod.POST)
+	public String write(BlogPost blogpost, HttpSession session,	Model model) {
+		
+		//세션에서 로그인한 사용자의 아이디를 읽어서 Board객체의 작성자 정보에 세팅
+		//String id = (String) session.getAttribute("loginId");
+		//board.setId(id);
+		
+		dao.post_write(blogpost);
+		return "redirect";
+	}
 	//게시글 읽기(전체 페이지, 1개 불러오기)
 	//게시글 삭제
 	
 	//쪽지로 이동
-		@RequestMapping(value = "myblog/messageWindow", method = RequestMethod.GET)
+		@RequestMapping(value = "messageWindow", method = RequestMethod.GET)
 		public String messageWindow() {
-			return "myblog/messageWindow";
+			return "messageWindow";
 		}
 	
 	//댓글 작성(저장, 등록)
