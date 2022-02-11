@@ -15,23 +15,26 @@
 
 
 <div><!-- 글 목록 한덩어리- 글목록 조회수  -->
-	<table>
+	<table border="1">
 		<tr>
 			<th colspan="4">게시글 목록</th>
 		</tr>
-	
-	<c:forEach var="board" items="${list}"> <!-- 리스트 저장한 거 가지고 오는 거  -->
+	<!-- https://freehoon.tistory.com/106 -->
+	<c:forEach var="postlist" items="${postlist}"> <!-- 리스트 저장한 거 가지고 오는 거  -->
 		<tr>
-			<td>post_no</td>
-			<td>post_title 타이틀에도 링크</td>
+			<td>게시글 번호 : ${postlist.post_no}</td>
+			<td>
+			<a href="one_post?post_no=${postlist.post_no}">
+						게시글 제목 : ${postlist.post_title}</a>
+			</td>
 			<td>blank</td>
-			<td>post_updatedtime</td>
+			<td>게시 시간 : ${postlist.post_uploaddate}</td>
 		</tr>
 		<tr>
-			<td colspan="4">post_contents 내용에 링크</td>
+			<td colspan="4">게시글 내용 : ${postlist.post_contents} 내용에 링크</td>
 		</tr>
 		<tr>
-			<td colspan="4">post_hits 오른쪽 정렬로 보여주기 </td>
+			<td colspan="4">조회수 : ${postlist.post_hits} 오른쪽 정렬로 보여주기 </td>
 		</tr>
 	</c:forEach>
 	</table>

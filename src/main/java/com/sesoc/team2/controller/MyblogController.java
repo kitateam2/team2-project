@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sesoc.team2.dao.BlogPostDAO;
 import com.sesoc.team2.vo.BlogPost;
@@ -55,6 +56,16 @@ public class MyblogController {
 		return "myblog/myblogWrite";
 	}
 	//게시글 읽기(전체 페이지, 1개 불러오기)
+	@RequestMapping(value = "one_post", method = RequestMethod.GET)
+	public String onepost(BlogPost blogpost, Model model,
+			@RequestParam(value="post_no", defaultValue="1") int post_no) {
+		blogpost.setPost_no(post_no);
+		BlogPost one_post = dao.onepost(post_no);
+		model.addAttribute("one_post" , one_post);
+		logger.debug("결과 값 : ", one_post);
+		return "myblog/myblogOnePost";
+	}
+	
 	//게시글 삭제
 	
 	//쪽지로 이동

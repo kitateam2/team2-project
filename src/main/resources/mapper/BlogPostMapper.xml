@@ -35,4 +35,13 @@
   		order by
   			post_no desc
   	</select>
+  	
+  	<select id="onepost" parameterType="java.lang.Integer" resultType="BlogPostVO">
+  	select
+  		*
+  	from
+  		blog_post
+  	where
+  		post_no = #{post_no}
+  	</select>
   </mapper>

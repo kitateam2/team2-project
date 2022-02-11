@@ -11,6 +11,8 @@ public interface BlogPostMapper {
 
 	public ArrayList<BlogPost> postlist();
 
+	public BlogPost onepost();
+
 	
 
 }

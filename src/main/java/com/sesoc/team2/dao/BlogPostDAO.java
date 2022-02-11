@@ -28,4 +28,10 @@ public class BlogPostDAO {
 		return postlist;
 	}
 
+	public BlogPost onepost(int post_no) {
+		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
+		BlogPost one_post = mapper.onepost();
+		return one_post;
+	}
+
 }
