@@ -1,5 +1,7 @@
 package com.sesoc.team2.dao;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,6 +20,12 @@ public class BlogPostDAO {
 		
 		result = mapper.post_write(blogpost);
 		return result;
+	}
+
+	public ArrayList<BlogPost> postlist() {
+		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
+		ArrayList<BlogPost> postlist = mapper.postlist();
+		return postlist;
 	}
 
 }

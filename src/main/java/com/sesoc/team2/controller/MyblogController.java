@@ -1,5 +1,7 @@
 package com.sesoc.team2.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -22,6 +24,12 @@ public class MyblogController {
 	@Autowired
 	BlogPostDAO dao;
 	//개인블로그의 메인 (글 목록 나열)(개인 정보 나열)(친구목록)
+	/*
+	 * @RequestMapping(value = "main", method = RequestMethod.GET) public String
+	 * myblog(Model model) { ArrayList<BlogPost> postlist =dao.postlist();
+	 * logger.info("DB에서 가져온 목록{}", postlist); model.addAttribute("postlist",
+	 * postlist); return "myblog/myblogMain"; }
+	 */
 	//(글 목록 나열) - 제목, 한줄, 날짜, 조회수 ??
 	//(개인정보 나열에 - 세션의 사진, 세션의 회원등급, 회원의 팔로우 수)
 	//(친구목록 나열에 - 세션으로 친구를 불러오는데 그 친구의 이름, 아이디)
