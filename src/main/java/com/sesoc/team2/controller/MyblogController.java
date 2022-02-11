@@ -18,12 +18,16 @@ public class MyblogController {
 	//(친구목록 나열에 - 세션으로 친구를 불러오는데 그 친구의 이름, 아이디)
 	
 	//글쓰기 페이지로 이동
+	@RequestMapping(value = "myblog/newPost", method = RequestMethod.GET)
+	public String myblogWrite() {
+		return "myblog/myblogWrite";
+	}
 	//게시글 작성(저장)
 	//게시글 읽기(전체 페이지, 1개 불러오기)
 	//게시글 삭제
 	
 	//쪽지로 이동
-		@RequestMapping(value = "messageWindow", method = RequestMethod.GET)
+		@RequestMapping(value = "myblog/messageWindow", method = RequestMethod.GET)
 		public String messageWindow() {
 			return "myblog/messageWindow";
 		}
