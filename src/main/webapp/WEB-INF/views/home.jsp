@@ -17,7 +17,8 @@
 <c:if test="${sessionScope.loginId != null}">
 		<h2>${sessionScope.loginId}님 환영합니다.</h2>
 
-<p><a href="logout">로그아웃</a></p>
+<a href="logout">로그아웃</a>
+<a href="cart">장바구니</a>
 <a href="myblog">개인 블로그</a>
 <a href="blogmain">블로그 메인</a>
 <a href="bookinfo">책 상세정보</a>
