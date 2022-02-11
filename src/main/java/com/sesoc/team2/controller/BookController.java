@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.w3c.dom.Element;
 
 import com.sesoc.team2.dao.BookDBMapper;
 
@@ -45,6 +46,10 @@ public class BookController {
 //			result += 
 //			}
 //		}
+	}
+	
+	private void parseDetailXml(Element root, Map<String, String> map) {
+		
 	}
 	
 	
