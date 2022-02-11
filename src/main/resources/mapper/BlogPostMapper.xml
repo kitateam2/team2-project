@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 내 블로그 처리 SQL -->
+  <mapper namespace="global.sesoc.team2.dao.BlogPostMapper">
+  
+  	<insert id="post_write" parameterType="BlogPostVO">
+  		insert into blog_post (
+  			post_title
+  			, post_contents
+  		value(
+  			#{post_title}
+  			, #{post_contents}
+  			)
+  			
+  	</insert>
+  </mapper>
