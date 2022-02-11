@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <!-- 내 블로그 처리 SQL -->
-  <mapper namespace="global.sesoc.team2.dao.BlogPostMapper">
+  <mapper namespace="com.sesoc.team2.dao.BlogPostMapper">
   
   	<insert id="post_write" parameterType="BlogPostVO">
   		insert into blog_post (
