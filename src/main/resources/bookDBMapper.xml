@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 책 API 불러와서 DB 저장 SQL -->
+<mapper namespace="com.sesoc.team2.dao.BookDBMapper">
+
+
+</mapper>

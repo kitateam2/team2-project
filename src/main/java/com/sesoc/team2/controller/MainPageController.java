@@ -3,6 +3,8 @@ package com.sesoc.team2.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 
 /**
@@ -11,6 +13,11 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class MainPageController {
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MainPageController.class);
 	
+	
+	@RequestMapping(value = "myblog/main", method = RequestMethod.GET)
+	public String myblog() {
+		return "myblog/myblogMain";
+	}
 }
