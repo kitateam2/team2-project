@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +8,9 @@
 <title>카카오 도서 검색</title>
 
 <script
-  src="https://code.jquery.com/jquery-3.6.0.js"
-  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  crossorigin="anonymous"></script>
+  src="https://code.jquery.com/jquery-3.6.0.js"></script>
+   <!-- integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous" -->
 <script>
 $(document).ready(function () {
 	$("#search").click(function () {
@@ -17,7 +18,7 @@ $(document).ready(function () {
  	 		method: "GET",
   			url: "https://dapi.kakao.com/v3/search/book",
   			data: { query:$("#bookName").val() },
-			headers: {Authorization: "KakaoAK {90e1d3216d963adfc7f754516725431f}"}
+			headers: {Authorization: "KakaoAK {0f14a064cc04cd5b0b026b6f11a8b5e6}"}
 		})
   			.done(function(res) {
   				$("coverimg").append("<img src='" + res.documents[0].thumbnail + "'/>");
@@ -33,6 +34,7 @@ $(document).ready(function () {
 
 </head>
 <body>
+
 	<br>
 		<h1>도서 검색 실습</h1>
 
