@@ -17,7 +17,7 @@ $(document).ready(function () {
  	 		method: "GET",
   			url: "https://dapi.kakao.com/v3/search/book",
   			data: { query: $("#bookName").val() },
-			headers: { Authorization: "KakaoAK {90e1d3216d963adfc7f754516725431f}"}
+			headers: { Authorization: "KakaoAK 90e1d3216d963adfc7f754516725431f"}
 		})
   			.done(function(res) {
   				$("coverimg").append("<img src='" + res.documents[0].thumbnail + "'/>");
