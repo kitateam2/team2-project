@@ -3,9 +3,12 @@ package com.sesoc.team2.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 //게시글 쓰기, 게시글 읽기, 팔로우 리스트
 @Controller
+@RequestMapping("myBlog")
 public class MyblogController {
 	private static final Logger logger = LoggerFactory.getLogger(MyblogController.class);
 	
@@ -20,6 +23,10 @@ public class MyblogController {
 	//게시글 삭제
 	
 	//쪽지로 이동
+		@RequestMapping(value = "messageWindow", method = RequestMethod.GET)
+		public String messageWindow() {
+			return "myblog/messageWindow";
+		}
 	
 	//댓글 작성(저장, 등록)
 	//댓글 좋아요
