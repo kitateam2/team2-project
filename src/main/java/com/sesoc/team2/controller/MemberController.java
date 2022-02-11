@@ -1,5 +1,7 @@
 package com.sesoc.team2.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sesoc.team2.dao.MemberDAO;
 import com.sesoc.team2.vo.User_infoVO;
+
+
 
 		
 /**
@@ -38,6 +42,22 @@ public class MemberController {
 	@RequestMapping (value="login", method=RequestMethod.GET)
 	public String loginForm() {
 		return "loginForm";
+	}
+	
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public String login(User_infoVO member, HttpSession session) {
+		User_infoVO resultMember = memberDAO.getMember(member.getUser_id());
+		
+		if (resultMember != null && member.getUser_pw().equals(resultMember.getUser_pw())) {
+			session.setAttribute("loginId", member.getUser_id());
+		}
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.removeAttribute("loginId");
+		return "redirect:/";
 	}
 	
 

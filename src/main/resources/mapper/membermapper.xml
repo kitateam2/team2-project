@@ -29,4 +29,7 @@ insert into user_info
 							)
 </insert>
 
+	<select id="selectMember" parameterType="string" resultType="User_infoVO">
+		select * from user_info where user_id = #{user_id} 
+	</select>
 </mapper>

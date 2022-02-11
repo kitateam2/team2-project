@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sesoc.team2.vo.User_infoVO;
+
 @Repository
 public class MemberDAO {
 	@Autowired
@@ -14,5 +15,11 @@ public class MemberDAO {
 		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
 		int result = mapper.insertMember(user_info);
 		return result;
+	}
+
+	public User_infoVO getMember(String user_id) {
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		User_infoVO member = mapper.selectMember(user_id);
+		return member;
 	}
 }
