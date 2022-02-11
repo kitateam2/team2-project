@@ -60,7 +60,9 @@
 		<textarea rows="10" cols="10" class="summernote" id="post_contents" name="post_contents" ></textarea>
 		</div>
 		<button type="submit" id="post_save">글 저장하기</button>
+	<!-- 나중에 ajex로 쓸 수 있겠지만 일단은 페이지가 바뀌는 것으로 하자 -->
 	</form>
+		<button onclick="location.href='main';">목록으로 돌아가기</button>
 </div>
 	<script>
       $('.summernote').summernote({

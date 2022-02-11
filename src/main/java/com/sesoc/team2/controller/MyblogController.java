@@ -32,22 +32,19 @@ public class MyblogController {
 		return "myblog/myblogWrite";
 	}
 	
-	//임시 페이지로 이동
-		@RequestMapping(value = "test", method = RequestMethod.GET)
-		public String test() {
-			return "myblog/test";
-		}
-	
+		
 	//게시글 작성(저장)
 	@RequestMapping (value="post_write", method=RequestMethod.POST)
 	public String write(BlogPost blogpost, HttpSession session,	Model model) {
 		
 		//세션에서 로그인한 사용자의 아이디를 읽어서 Board객체의 작성자 정보에 세팅
-		//String id = (String) session.getAttribute("loginId");
-		//board.setId(id);
+		String id = (String) session.getAttribute("loginId");
+		blogpost.setPost_id(id);
 		
 		int result = dao.post_write(blogpost);
-		return "redirect:/";
+		logger.debug("결과 값 : ", result);
+
+		return "myblog/myblogWrite";
 	}
 	//게시글 읽기(전체 페이지, 1개 불러오기)
 	//게시글 삭제

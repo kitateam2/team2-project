@@ -19,7 +19,7 @@
   			, #{post_title}
   			, #{post_contents}
   			, sysdate
-  			, 'aaa'
+  			, #{post_id}
   			)
   			
   	</insert>
