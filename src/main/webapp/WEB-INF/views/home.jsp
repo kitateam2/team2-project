@@ -241,6 +241,8 @@ header {
 </h1>
 
 <a href="myblog/main">개인 블로그</a> 로그인 하지 않은 상태에서도 개인블로그 내에서 잘 되는지 확인하려고 만든 임시 링크 입니다.
+<hr>
+<a href="bookInfo">책 상세정보</a> 로그인 하지 않은 상태에서도 검색 잘 되는지 확인하려고 만든 임시 링크 입니다.
 
 <c:if test="${sessionScope.loginId != null}">
 		<h2>${sessionScope.loginId}님 환영합니다.</h2>
@@ -249,7 +251,7 @@ header {
 <a href="myblog">개인 블로그</a>
 <a href="myblog/main">개인 블로그</a>
 <a href="blogmain">블로그 메인</a>
-<a href="bookinfo">책 상세정보</a>
+<a href="bookInfo">책 상세정보</a>
 <a href="customerservice">고객센터</a>
 </c:if>
 </body>

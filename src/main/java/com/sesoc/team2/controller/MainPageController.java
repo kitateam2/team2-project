@@ -20,4 +20,9 @@ public class MainPageController {
 	public String myblog() {
 		return "myblog/myblogMain";
 	}
+	
+	@RequestMapping(value = "bookInfo", method = RequestMethod.GET)
+	public String bookinfo() {
+		return "bookInfo";
+	}
 }
