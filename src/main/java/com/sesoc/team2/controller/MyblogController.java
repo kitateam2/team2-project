@@ -47,7 +47,7 @@ public class MyblogController {
 		//board.setId(id);
 		
 		int result = dao.post_write(blogpost);
-		return "redirect";
+		return "redirect:/";
 	}
 	//게시글 읽기(전체 페이지, 1개 불러오기)
 	//게시글 삭제

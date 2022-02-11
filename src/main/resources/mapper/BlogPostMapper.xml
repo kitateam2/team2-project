@@ -8,11 +8,18 @@
   
   	<insert id="post_write" parameterType="BlogPostVO">
   		insert into blog_post (
-  			post_title
+  			post_no
+  			, post_title
   			, post_contents
-  		value(
-  			#{post_title}
+  			, post_uploaddate
+  			, user_id
+  			)
+  		values(
+  			post_no_seq.nextval
+  			, #{post_title}
   			, #{post_contents}
+  			, sysdate
+  			, 'aaa'
   			)
   			
   	</insert>
