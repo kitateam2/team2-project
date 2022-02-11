@@ -20,5 +20,18 @@
 아니면 글 쓸 때 쓰는 툴들 이미지로?)
 
 글쓰기 폼 덩어리
+<div>
+	<form>
+		<div>
+			<label> 글 제목</label>
+			<input type="text" name="post_title" placeholder="제목을 입력하세요">
+		</div>
+		<div>
+		<label> 내용</label>
+		<textarea rows="10" cols="10" name="post_contents" placeholder="내용을 입력하세요"></textarea>
+		</div>
+		<button id="post_save">글 저장하기</button>
+	</form>
+</div>
 </body>
 </html>

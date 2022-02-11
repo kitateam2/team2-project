@@ -47,8 +47,14 @@
 		<tr><td>회원등급 이모티콘</td>
 			<td>팔로우 수 가지고 오기</td></tr>
 		<tr><td colspan="2">팔로우 버튼</td></tr>
-		<tr><td colspan="2"><a href="/myBlog/messageWindow">쪽지로 이동</td></tr>
+		<tr><td colspan="2"><a href="myBlog/messageWindow">쪽지로 이동</a></td></tr>
 	</table>
+</div>
+
+<div>
+새글 작성하기 한덩어리
+개인 정보 목록 아래 따로 버튼 형식으로 
+<a href="myblog/newPost">글쓰기로 이동 --> 나중에 이름 그냥 글쓰기 버튼으로</a>
 </div>
 
 <div><!-- 친구목록 한덩어리  -->
