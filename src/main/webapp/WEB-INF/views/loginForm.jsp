@@ -5,7 +5,73 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-<script src='<c:url value="/js/jquery-3.4.1.js" />'></script>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    background-image: url(../image/riot.jpeg);
+    background-size:auto
+}
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  form {
+    background-color: #47473d;
+    padding: 20px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    width: 300px;
+    height: 400px;
+  }
+  form h2 {
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: white;
+  }
+  form input {
+    border: none;
+    background: none;
+    text-align: center;
+    outline: none;
+    padding: 10px;
+    margin: 20px;
+    color: white;
+    height: 30px;
+    width: 70%;
+    border-radius: 40px;
+    transition: 0.2s ease-in;
+  }
+  form input[type="text"],
+  form input[type="password"] {
+    border: solid 2px #ffc400;
+  }
+  form input[type="submit"] {
+    border: solid 2px #ec3b3b;
+    box-sizing: border-box;
+    height: 50px;
+    width: 50%;
+    cursor: pointer;
+  }
+  form input[type="text"]:focus,
+  form input[type="password"]:focus {
+    width: 80%;
+    border: solid 2px #ec3b3b;
+  }
+  form input[type="submit"]:hover {
+    background: #ec3b3b;
+    color: #000;
+  }
+  
+</style>
+
 <script>
 		function validationCheck() {
 			var id = document.getElementById('id');
@@ -25,22 +91,16 @@
 	</script>
 </head>
 <body>
-	<h1>[로그인]</h1>
+	
 	<form action="login" method="post" onsubmit="return validationCheck();">
-	<table>
-		<tbody>
-			<tr>
-				<td>아이디</td><td><input type="text" id="id" name="user_id"></td>
-			</tr>
-			<tr>
-				<td>비밀번호</td><td><input type="password" id="password" name="user_pw"></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="로그인"></td>
-				<td><input type="button" value="취소" onclick="javascript:location.href='./'"></td>
-			</tr>
-		</tbody>
-	</table>
+	  <h2>Login</h2>
+      <input type="text" placeholder="Enter Username" id="username" name="user_id">
+      <input type="password" placeholder="Enter password" id="password" name="user_pw">
+      <input type="submit" name="" value="Login">
+      <input type="submit" value="취소">
+    </form>
+	
+	
 </body>
 </html>
 

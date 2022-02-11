@@ -11,14 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class OrderController {
-<<<<<<< HEAD
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	@RequestMapping (value="cart", method=RequestMethod.GET)
 	public String joinForm() {
-		return "cartForm";
+		return "cart/cartForm";
 	}
-=======
-	private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
-	
->>>>>>> master
 }
+

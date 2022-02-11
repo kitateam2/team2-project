@@ -20,14 +20,12 @@
 <c:if test="${sessionScope.loginId != null}">
 		<h2>${sessionScope.loginId}님 환영합니다.</h2>
 
-<<<<<<< HEAD
+
 <a href="logout">로그아웃</a>
 <a href="cart">장바구니</a>
 <a href="myblog">개인 블로그</a>
-=======
-<p><a href="logout">로그아웃</a></p>
 <a href="myblog/main">개인 블로그</a>
->>>>>>> master
+
 <a href="blogmain">블로그 메인</a>
 <a href="bookinfo">책 상세정보</a>
 <a href="customerservice">고객센터</a>

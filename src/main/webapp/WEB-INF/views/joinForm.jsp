@@ -29,15 +29,15 @@
 	</script>
 </head>
 <body>
-	<h1>[회원가입]</h1>
+	<h1 align="center">[회원가입]</h1>
 	<form action="join" method="post" onsubmit="return validationCheck();">
-	<table>
+	<table border="1" align="center">
 		<tbody>
 			<tr>
 				<td>아이디</td><td><input type="text" id="id" name="user_id"></td>
 			</tr>
 			<tr>
-				<td>비밀번호</td><td><input type="password" id="password" name="user_pw"></td>
+				<td>비밀번호</td><td ><input type="password" id="password" name="user_pw"></td>
 			</tr>
 			<tr>
 				<td>비밀번호 확인</td><td><input type="password" id="password-check"></td>
