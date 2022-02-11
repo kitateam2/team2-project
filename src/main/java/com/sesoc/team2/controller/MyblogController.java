@@ -31,6 +31,13 @@ public class MyblogController {
 	public String myblogWrite() {
 		return "myblog/myblogWrite";
 	}
+	
+	//임시 페이지로 이동
+		@RequestMapping(value = "test", method = RequestMethod.GET)
+		public String test() {
+			return "myblog/test";
+		}
+	
 	//게시글 작성(저장)
 	@RequestMapping (value="post_write", method=RequestMethod.POST)
 	public String write(BlogPost blogpost, HttpSession session,	Model model) {
@@ -39,7 +46,7 @@ public class MyblogController {
 		//String id = (String) session.getAttribute("loginId");
 		//board.setId(id);
 		
-		dao.post_write(blogpost);
+		int result = dao.post_write(blogpost);
 		return "redirect";
 	}
 	//게시글 읽기(전체 페이지, 1개 불러오기)
