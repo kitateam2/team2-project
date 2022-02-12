@@ -36,6 +36,7 @@ $(document).ready(function () {
 
 </head>
 <body>
+
 <br>
 		<h1>도서 검색 실습</h1>
 
@@ -58,5 +59,6 @@ $(document).ready(function () {
 	</div>
 	</div>
 	</div>
+	
 </body>
 </html>
