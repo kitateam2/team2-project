@@ -39,7 +39,7 @@ public class HomeController {
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String home() {
 		
-		return "searchPage";
+		return "book/searchPage";
 	}
 	
 }

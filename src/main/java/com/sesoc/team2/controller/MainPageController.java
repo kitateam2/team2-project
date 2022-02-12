@@ -35,6 +35,6 @@ public class MainPageController {
 	
 	@RequestMapping(value = "bookInfo", method = RequestMethod.GET)
 	public String bookinfo() {
-		return "bookInfo";
+		return "bookjsp/bookInfo";
 	}
 }
