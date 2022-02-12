@@ -30,13 +30,17 @@ public class BlogPostDAO {
 	public BlogPost one_post(int post_no) {
 		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
 		BlogPost one_post = mapper.one_post(post_no);
+		
+		//조회수 1증가
+				mapper.add_hits(post_no);
 		return one_post;
 	}
 
-	public void post_delete(BlogPost blogpost) {
+	public int post_delete(BlogPost blogpost) {
 		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
 		int result = 0;
 		result = mapper.post_delete(blogpost);
+		return result;
 	}
 
 }

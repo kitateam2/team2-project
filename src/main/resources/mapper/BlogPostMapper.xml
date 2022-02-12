@@ -6,6 +6,7 @@
   <!-- 내 블로그 처리 SQL -->
   <mapper namespace="com.sesoc.team2.dao.BlogPostMapper">
   
+  	<!-- 게시글 쓰기 -->
   	<insert id="post_write" parameterType="BlogPostVO">
   		insert into blog_post (
   			post_no
@@ -23,6 +24,7 @@
   			)
   	</insert>
   	
+  	<!-- 게시글 목록 읽기 -->
   	<select id="postlist" resultType="BlogPostVO">
   		select
   			post_no
@@ -36,7 +38,8 @@
   			post_no desc
   	</select>
   	
-  	<select id="onepost" parameterType="java.lang.Integer" resultType="BlogPostVO">
+  	<!-- 게시글 하나 읽기 -->
+  	<select id="one_post" parameterType="java.lang.Integer" resultType="BlogPostVO">
   	select
   		*
   	from
@@ -44,4 +47,25 @@
   	where
   		post_no = #{post_no}
   	</select>
+  	
+  	<!-- 게시글 삭제 -->
+  	<delete id="post_delete" parameterType="BlogPostVO">
+		delete
+		from
+			blog_post
+		where
+			post_no = #{post_no}
+			and post_id = #{post_id}
+	</delete>
+	
+	<!-- 조회수 1 증가 -->
+	<update id="add_hits" parameterType="int">
+		update
+			blog_post
+		set
+			post_hits = post_hits + 1
+		where
+			post_no = #{post_no}
+	</update>
+	
   </mapper>

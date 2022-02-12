@@ -15,6 +15,8 @@ public interface BlogPostMapper {
 
 	public int post_delete(BlogPost blogpost);
 
+	public void add_hits(int post_no);
+
 	
 
 }

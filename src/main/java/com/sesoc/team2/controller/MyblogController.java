@@ -88,20 +88,20 @@ public class MyblogController {
 	//게시글 삭제
 	@RequestMapping (value="post_delete", method=RequestMethod.GET)
 	public String post_delete(int post_no, HttpSession session) {
-		String id = (String) session.getAttribute("loginId");
+		String post_id = (String) session.getAttribute("loginId");
 		BlogPost blogpost = new BlogPost();
 		blogpost.setPost_no(post_no);
-		blogpost.setPost_id(id);
+		blogpost.setPost_id(post_id);
 		
 		dao.post_delete(blogpost);
 		
-		return "redirect:myblog/myblogMain?id=" +id;
+		return "redirect:myblog/myblogMain";
 		
 	}
 	//쪽지로 이동
 		@RequestMapping(value = "messageWindow", method = RequestMethod.GET)
 		public String messageWindow() {
-			return "messageWindow";
+			return "myblog/messageWindow"; //의문인 것이 블로그 메인이랑 메시지는 같은 위치에 잇는데 왜 앞에 마이블로그를 붙여줘야하지
 		}
 	
 	//댓글 작성(저장, 등록)
