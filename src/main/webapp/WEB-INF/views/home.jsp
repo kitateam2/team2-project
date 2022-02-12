@@ -4,6 +4,44 @@
 <html>
 <head>
 	<title>Home</title>
+	<header id="container">
+<div id="nav-bar">
+	<div id="nav-belt">
+		<div class="nav-left">
+			<div id="nav-logo">
+				<a href="home">book</a>
+			</div>
+		</div>
+		<div class="nav-fill">
+			<div id="nav-search">
+				<form id="nav-search-bar-form">
+					<div class="nav-left">
+						<a href="">ALL</a>
+					</div>
+					<div class="nav-fill">
+						<input type="text">
+					</div>
+					<div class="nav-right">
+						<button type="submit">Search</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="nav-right">
+			<div id="nav-tools">
+			<c:if test="${sessionScope.loginId == null}">
+				<a href="join">sign up</a>
+				<a href="login">Log in</a>
+				</c:if>
+				<a href="logout">Log out</a>
+				<a href="cart">Cart</a>
+			</div>
+		</div>
+	</div>
+		
+	</div>
+</div>
+</header>
 </head>
 <style>
 :root {
@@ -195,47 +233,14 @@ header {
 	box-shadow: 0rem 0rem 0.3rem var(--main-border-shadow);
 }
 
+h2 {
+float: right;
+}
+
 </style>
 <body>
 
-<header id="container">
-<div id="nav-bar">
-	<div id="nav-belt">
-		<div class="nav-left">
-			<div id="nav-logo">
-				<a href="home">book</a>
-			</div>
-		</div>
-		<div class="nav-fill">
-			<div id="nav-search">
-				<form id="nav-search-bar-form">
-					<div class="nav-left">
-						<a href="">ALL</a>
-					</div>
-					<div class="nav-fill">
-						<input type="text">
-					</div>
-					<div class="nav-right">
-						<button type="submit">Search</button>
-					</div>
-				</form>
-			</div>
-		</div>
-		<div class="nav-right">
-			<div id="nav-tools">
-			<c:if test="${sessionScope.loginId == null}">
-				<a href="join">sign up</a>
-				<a href="login">Log in</a>
-				</c:if>
-				<a href="logout">Log out</a>
-				<a href="cart">Cart</a>
-			</div>
-		</div>
-	</div>
-		
-	</div>
-</div>
-</header>
+
 <h1>
 	Hello world!  
 </h1>
@@ -247,7 +252,6 @@ header {
 <c:if test="${sessionScope.loginId != null}">
 		<h2>${sessionScope.loginId}님 환영합니다.</h2>
 
-<a href="cart">장바구니</a>
 <a href="myblog">개인 블로그</a>
 <a href="myblog/main">개인 블로그</a>
 <a href="blogmain">블로그 메인</a>
