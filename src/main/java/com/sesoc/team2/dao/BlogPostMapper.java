@@ -11,7 +11,9 @@ public interface BlogPostMapper {
 
 	public ArrayList<BlogPost> postlist();
 
-	public BlogPost onepost();
+	public BlogPost one_post(int post_no);
+
+	public int post_delete(BlogPost blogpost);
 
 	
 

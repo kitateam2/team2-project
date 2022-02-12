@@ -5,6 +5,18 @@
 
 <html>
 <head>
+<script>
+//삭제하기
+function deleteBoard() {
+	if (confirm('삭제하시겠습니까?')) {
+		location.href = 'post_delete?post_no=${BlogPost.post_no}';
+	}
+}
+//수정하기
+function updateBoard() {
+	location.href = 'post_update?post_no=${BlogPost.post_no}';
+}
+</script>
 	<title>게시글 상세보기</title>
 </head>
 <body>
@@ -15,7 +27,7 @@
 			<tr>
 				<th>작성자</th>
 				<td>
-					${onepost.post_id}
+					${BlogPost.post_id}
 				</td>
 			</tr>
 			<tr>
@@ -39,6 +51,15 @@
 	</table>
 <!-- 	https://chobopark.tistory.com/159 -->
 		<button onclick="location.href='main';">목록으로 돌아가기</button>
+
+<c:if test="${sessionScope.loginId == BlogPost.post_id}">
+<tr>
+<th colspan="2" style="height:50px;">
+	<input id="btUpdate" type="button" value="수정">
+	<input id="btDelete" type="button" value="삭제">
+</th>
+</tr>
+</c:if>
 
 포스트 전체 페이지
 </body>

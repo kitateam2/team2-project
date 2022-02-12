@@ -56,18 +56,48 @@ public class MyblogController {
 		return "myblog/myblogWrite";
 	}
 	//게시글 읽기(전체 페이지, 1개 불러오기)
-	@RequestMapping(value = "one_post", method = RequestMethod.GET)
-	public String onepost(BlogPost blogpost, Model model,
-			@RequestParam(value="post_no", defaultValue="1") int post_no) {
-		blogpost.setPost_no(post_no);
-		BlogPost one_post = dao.onepost(post_no);
-		model.addAttribute("one_post" , one_post);
+	/*
+	 * @RequestMapping(value = "one_post", method = RequestMethod.GET) 
+	 * public String onepost(BlogPost blogpost, Model model,
+	 * @RequestParam(value="post_no", defaultValue="1") int post_no) {
+	 * blogpost.setPost_no(post_no); 
+	 * BlogPost one_post = dao.onepost(post_no);
+	 * model.addAttribute("one_post" , one_post); 
+	 * logger.debug("결과 값 : ", one_post);
+	 * return "myblog/myblogOnePost"; }
+	 */
+	@RequestMapping(value = "one_post", method = RequestMethod.GET) 
+	public String one_post(int post_no, Model model) {
+		//전달된 글 번호로 해장 글정보를 읽기
+		BlogPost one_post = dao.one_post(post_no);
+		
+		//해당 번호의 글이 없으면 글목록으로 이동
+		if (one_post == null) {
+			return "redirect:myblog/myblogMain";
+		}
+		
+		//글 정보를 모델에 저장?
+		model.addAttribute("one_post", one_post);
+		model.addAttribute("post_id", one_post.getPost_id());
 		logger.debug("결과 값 : ", one_post);
+		
 		return "myblog/myblogOnePost";
 	}
 	
-	//게시글 삭제
 	
+	//게시글 삭제
+	@RequestMapping (value="post_delete", method=RequestMethod.GET)
+	public String post_delete(int post_no, HttpSession session) {
+		String id = (String) session.getAttribute("loginId");
+		BlogPost blogpost = new BlogPost();
+		blogpost.setPost_no(post_no);
+		blogpost.setPost_id(id);
+		
+		dao.post_delete(blogpost);
+		
+		return "redirect:myblog/myblogMain?id=" +id;
+		
+	}
 	//쪽지로 이동
 		@RequestMapping(value = "messageWindow", method = RequestMethod.GET)
 		public String messageWindow() {

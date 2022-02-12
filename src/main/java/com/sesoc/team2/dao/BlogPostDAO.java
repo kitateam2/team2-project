@@ -17,7 +17,6 @@ public class BlogPostDAO {
 	public int post_write(BlogPost blogpost) {
 		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
 		int result = 0;
-		
 		result = mapper.post_write(blogpost);
 		return result;
 	}
@@ -28,10 +27,16 @@ public class BlogPostDAO {
 		return postlist;
 	}
 
-	public BlogPost onepost(int post_no) {
+	public BlogPost one_post(int post_no) {
 		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
-		BlogPost one_post = mapper.onepost();
+		BlogPost one_post = mapper.one_post(post_no);
 		return one_post;
+	}
+
+	public void post_delete(BlogPost blogpost) {
+		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
+		int result = 0;
+		result = mapper.post_delete(blogpost);
 	}
 
 }
