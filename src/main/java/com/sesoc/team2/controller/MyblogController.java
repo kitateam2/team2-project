@@ -56,16 +56,6 @@ public class MyblogController {
 		return "myblog/myblogWrite";
 	}
 	//게시글 읽기(전체 페이지, 1개 불러오기)
-	/*
-	 * @RequestMapping(value = "one_post", method = RequestMethod.GET) 
-	 * public String onepost(BlogPost blogpost, Model model,
-	 * @RequestParam(value="post_no", defaultValue="1") int post_no) {
-	 * blogpost.setPost_no(post_no); 
-	 * BlogPost one_post = dao.onepost(post_no);
-	 * model.addAttribute("one_post" , one_post); 
-	 * logger.debug("결과 값 : ", one_post);
-	 * return "myblog/myblogOnePost"; }
-	 */
 	@RequestMapping(value = "one_post", method = RequestMethod.GET) 
 	public String one_post(int post_no, Model model) {
 		//전달된 글 번호로 해장 글정보를 읽기
@@ -77,9 +67,9 @@ public class MyblogController {
 		}
 		
 		//글 정보를 모델에 저장?
-		model.addAttribute("one_post", one_post);
+		model.addAttribute("one_post", one_post.getPost_no());
 		model.addAttribute("post_id", one_post.getPost_id());
-		logger.debug("결과 값 : ", one_post);
+		logger.debug("결과 값 : ", one_post);  
 		
 		return "myblog/myblogOnePost";
 	}

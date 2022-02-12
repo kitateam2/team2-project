@@ -39,7 +39,7 @@
   	</select>
   	
   	<!-- 게시글 하나 읽기 -->
-  	<select id="one_post" parameterType="java.lang.Integer" resultType="BlogPostVO">
+  	<select id="one_post" parameterType="int" resultType="BlogPostVO">
   	select
   		*
   	from

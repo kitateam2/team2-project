@@ -33,19 +33,19 @@ function updateBoard() {
 			<tr>
 				<th>제목</th>
 				<td>
-					${onepost.post_title}
+					${BlogPost.post_title}
 				</td>
 			</tr>
 			<tr>
 				<th>내용</th>
 				<td>
-					${onepost.post_contents}
+					${BlogPost.post_contents}
 				</td>
 			</tr>
 			<tr>
 				<th>작성날짜</th>
 				<td>
-					${onepost.post_uploaddate}
+					${BlogPost.post_uploaddate}
 				</td>
 			</tr>
 	</table>
