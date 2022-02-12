@@ -65,6 +65,7 @@ public class MemberController {
 	public String home() {
 		return "home";
 	}
+	
 
 	
 }

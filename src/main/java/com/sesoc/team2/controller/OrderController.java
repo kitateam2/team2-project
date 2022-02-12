@@ -18,5 +18,10 @@ public class OrderController {
 	}
 	
 	
+	@RequestMapping (value="check", method=RequestMethod.GET)
+	public String checkForm() {
+	return "checkForm";
+	}
+	
 }
 
