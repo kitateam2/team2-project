@@ -13,10 +13,10 @@ public class BookController {
 private static final Logger logger = LoggerFactory.getLogger(BookController.class);
 	
 	//책 상세정보
-	@RequestMapping (value="bookinfo", method=RequestMethod.GET)
-	public String bookinfoForm() {
-		return "bookinfoForm";
-	}
+//	@RequestMapping (value="/bookInfo", method=RequestMethod.GET)
+//	public String bookinfoForm() {
+//		return "bookjsp/bookInfo";
+//	}
 	
 	@Autowired
 	private BookDBMapper bookDBMapper;
