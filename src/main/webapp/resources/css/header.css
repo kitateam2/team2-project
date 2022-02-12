@@ -195,3 +195,12 @@ footer {
   background-color: #ddd;
 }
 
+a2 {
+	float: right;
+	height: 80px;
+	position: relative;
+	top: 70px;
+	left: 200px;
+	
+}
+
