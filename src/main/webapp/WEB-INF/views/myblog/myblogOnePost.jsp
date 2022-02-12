@@ -3,8 +3,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
+
 <html>
 <head>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 <script>
 //삭제하기
 function deleteBoard() {
@@ -20,6 +25,7 @@ function updateBoard() {
 	<title>게시글 상세보기</title>
 </head>
 <body>
+<div class="container" >
 <h1>
 	Hello world!  
 </h1>
@@ -60,7 +66,28 @@ function updateBoard() {
 </th>
 </tr>
 </c:if>
+<br><br>
+댓글 자리
 
+	<div class="card">
+		<div class="card-body"><textarea class="form-control" rows="1"></textarea></div>
+		<div class="card-footer"><button>댓글등록</button></div>
+	</div>
+	
+	<br>
+	<div class="card">
+		<div class="card-header">댓글 리스트</div>
+		<ul class="list-group">
+			<li class="list-group-item d-flex justify-content-between">
+			  	<div>댓글 내용 오는 곳</div>
+			  	<div class="d-flex">
+				  	<div>작성자 : {이렇게 해서 글 쓴 사라}  </div>
+				  	<button class="badge">삭제</button>
+			  	</div>
+		  	</li>
+		</ul>
+	</div>
 포스트 전체 페이지
+</div>
 </body>
 </html>
