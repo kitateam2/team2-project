@@ -1,117 +1,144 @@
-html,
 body {
-  height: 100%;
-  margin: 0px;
+	font-family: "Open Sans", sans-serif;
 }
-
-.slider-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 160px;
+h2 {
+	color: #000;
+	font-size: 26px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	margin: 30px 0 80px;
 }
-
-.slider {
-  width: 100%;
-  max-width: 600px;
-  height: 200px;
-  margin: 20px;
-  text-align: center;
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
+h2 b {
+	color: #ffc000;
 }
-
-.slides {
-  display: flex;
-  overflow-x: scroll;
-  position: relative;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
+h2::after {
+	content: "";
+	width: 100px;
+	position: absolute;
+	margin: 0 auto;
+	height: 4px;
+	background: rgba(0, 0, 0, 0.2);
+	left: 0;
+	right: 0;
+	bottom: -20px;
 }
-
-.slide:nth-of-type(even) {
-  background-color: rgb(250, 246, 212);
+.carousel {
+	margin: 50px auto;
+	padding: 0 70px;
 }
-
-.slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  width: 100%;
-  height: 200px;
-  scroll-snap-align: center;
-  margin-right: 0px;
-  box-sizing: border-box;
-  background: white;
-  transform-origin: center center;
-  transform: scale(1);
+.carousel .item {
+	min-height: 330px;
+    text-align: center;
+	overflow: hidden;
 }
-
-.slide__text {
-  font-size: 40px;
-  font-weight: bold;
-  font-family: sans-serif;
+.carousel .item .img-box {
+	height: 160px;
+	width: 100%;
+	position: relative;
 }
-
-.slide a {
-  background: none;
-  border: none;
+.carousel .item img {	
+	max-width: 100%;
+	max-height: 100%;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
 }
-
-a.slide__prev,
-.slider::before {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-  left: 5%;
+.carousel .item h4 {
+	font-size: 18px;
+	margin: 10px 0;
 }
-
-a.slide__next,
-.slider::after {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  right: 5%;
+.carousel .item .btn {
+	color: #333;
+    border-radius: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: none;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-top: 5px;
+    line-height: 16px;
 }
-
-.slider::before,
-.slider::after,
-.slide__prev,
-.slide__next {
-  position: absolute;
-  top: 48%;
-  width: 35px;
-  height: 35px;
-  border: solid black;
-  border-width: 0 4px 4px 0;
-  padding: 3px;
-  box-sizing: border-box;
+.carousel .item .btn:hover, .carousel .item .btn:focus {
+	color: #fff;
+	background: #000;
+	border-color: #000;
+	box-shadow: none;
 }
-
-.slider::before,
-.slider::after {
-  content: "";
-  z-index: 1;
-  background: none;
-  pointer-events: none;
+.carousel .item .btn i {
+	font-size: 14px;
+    font-weight: bold;
+    margin-left: 5px;
 }
-
-.slider__nav {
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  width: 200px;
-  margin-left: -100px;
-  text-align: center;
+.carousel .thumb-wrapper {
+	text-align: center;
 }
-
-.slider__navlink {
-  display: inline-block;
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  background-color: black;
-  margin: 0 10px 0 10px;
+.carousel .thumb-content {
+	padding: 15px;
 }
-
+.carousel .carousel-control {
+	height: 100px;
+    width: 40px;
+    background: none;
+    margin: auto 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+.carousel .carousel-control i {
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    margin: -16px 0 0 0;
+    z-index: 5;
+    left: 0;
+    right: 0;
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: none;
+    font-weight: bold;
+}
+.carousel .item-price {
+	font-size: 13px;
+	padding: 2px 0;
+}
+.carousel .item-price strike {
+	color: #999;
+	margin-right: 5px;
+}
+.carousel .item-price span {
+	color: #86bd57;
+	font-size: 110%;
+}
+.carousel .carousel-control.left i {
+	margin-left: -3px;
+}
+.carousel .carousel-control.left i {
+	margin-right: -3px;
+}
+.carousel .carousel-indicators {
+	bottom: -50px;
+}
+.carousel-indicators li, .carousel-indicators li.active {
+	width: 10px;
+	height: 10px;
+	margin: 4px;
+	border-radius: 50%;
+	border-color: transparent;
+}
+.carousel-indicators li {	
+	background: rgba(0, 0, 0, 0.2);
+}
+.carousel-indicators li.active {	
+	background: rgba(0, 0, 0, 0.6);
+}
+.star-rating li {
+	padding: 0;
+}
+.star-rating i {
+	font-size: 14px;
+	color: #ffc000;
+}
