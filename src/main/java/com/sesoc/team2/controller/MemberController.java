@@ -66,6 +66,9 @@ public class MemberController {
 		return "home";
 	}
 	
-
+	@RequestMapping (value="condition", method=RequestMethod.GET)
+	public String condition() {
+		return "condition";
+	}
 	
 }

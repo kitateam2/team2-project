@@ -4,17 +4,29 @@
 <html>
 <head>
 	<title>Home</title>
-<<<<<<< HEAD
-=======
-	<link href="resources/css/slide.css" rel="stylesheet"/>
 	<link href="resources/css/header.css" rel="stylesheet"/>
->>>>>>> my
-	<header id="container">
+	<link href="resources/css/slide.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+	<body>
+    <div class="container">
+	
+<header id="container">
 <div id="nav-bar">
 	<div id="nav-belt">
 		<div class="nav-left">
 			<div id="nav-logo">
-				<a href="home">book</a>
+				<a href="home">GO</a>
 			</div>
 		</div>
 		<div class="nav-fill">
@@ -29,528 +41,632 @@
 					<div class="nav-right">
 						<button type="submit">Search</button>
 					</div>
+					
 				</form>
 			</div>
 		</div>
 		<div class="nav-right">
 			<div id="nav-tools">
-			<c:if test="${sessionScope.loginId == null}">
-				<a href="join">sign up</a>
+				<c:if test="${sessionScope.loginId == null}">
+				<a href="condition">sign up</a>
 				<a href="login">Log in</a>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-				<a href="condition">condition</a>
->>>>>>> my
-=======
-
-				<a href="condition">condition</a>
-
->>>>>>> my
 				</c:if>
+				<c:if test="${sessionScope.loginId != null}">
 				<a href="logout">Log out</a>
+				</c:if>
 				<a href="cart">Cart</a>
 			</div>
 		</div>
 	</div>
-		
+	<div id="nav-main">
 	</div>
 </div>
-<<<<<<< HEAD
 </header>
-</head>
-<style>
-:root {
-	--main-header-bg: #232f3e;
-	--second-header-bg: #131921;
-	--main-border: #ff9000;
-	--main-border-shadow: #febd69;
-	--main-text: #f3a847;
-	--second-text: white;
-	--main-search-opt: #cdcdcd;
-	--second-search-opt: #f3f3f3;
-	--border-radius: 0.2rem;
-	background: white;
-}
-a {
-	text-decoration: none;
-	color: black;
-}
-header {
-	background: var(--main-header-bg);
-	height: 5rem;
-	font-size: 1rem;
-	display: flex;
-}
-
-#nav-bar {
-	display: flex;
-	flex-flow: column nowrap;
-	flex: 1;
-}
-
-#nav-belt {
-	display: flex;
-	height: 3.5rem;
-	width: 100%;
-	background: var(--second-header-bg);
-}
-
-#nav-belt > .nav-left {
-	box-sizing: border-box;
-	display: flex;
-}
-
-#nav-logo {
-	box-sizing: border-box;
-	display: flex;
-	padding: 0.5rem 0 0.5rem 0.5rem;
-}
-
-#nav-logo > a {
-	box-sizing: content-box;
-	display: flex;
-	align-items: center;
-	padding: 0 0.5rem 0 0.5rem;
-	margin: 0.1rem;
-}
-
-#nav-logo > a:hover {
-	border: 0.1rem solid var(--main-border);
-	border-radius: var(--border-radius);
-	margin: 0;
-	color: var(--main-text);
-	box-shadow: 0rem 0rem 0.3rem var(--main-border-shadow);
-}
-
-#nav-belt > .nav-fill {
-	box-sizing: border-box;
-	display: flex;
-	flex: 1 1 auto;
-}
-
-#nav-search {
-	box-sizing: border-box;
-	width: auto;
-	display: flex;
-	flex: 1 1 auto;
-	padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-	overflow: hidden;
-}
-
-#nav-search-bar-form {
-	box-sizing: border-box;
-	display: flex;
-	flex: 1 1 auto;
-	border-radius: var(--border-radius);
-	overflow: hidden;
-}
-
-#nav-search-bar-form:focus-within {
-	box-sizing: border-box;
-	border: 0.2rem solid var(--main-border);
-	margin: 0 -0.2rem 0 -0.2rem;
-	box-shadow: 0rem 0rem 0.3rem var(--main-border-shadow);
-}
-
-#nav-search-bar-form .nav-left {
-	box-sizing: border-box;
-	display: flex;
-	background: var(--second-search-opt);
-	align-items: center;
-}
-
-#nav-search-bar-form .nav-left a {
-	display: flex;
-	color: black;
-	padding: 0 0.5rem 0 0.5rem;
-	flex: 1 1 auto;
-	width: 100%;
-	height: 100%;
-	align-items: center;
-}
-
-#nav-search-bar-form .nav-left a:hover {
-	background: var(--main-search-opt);
-}
-
-#nav-search-bar-form .nav-fill {
-	box-sizing: border-box;
-	display: flex;
-	flex: 1 1 auto;
-	overflow-x: hidden;
-	overflow-y: hidden;
-	background: white;
-	border-left: 0.1rem solid var(--main-search-opt);
-	border-right: 0.1rem solid var(--main-text);
-}
-
-#nav-search-bar-form .nav-fill input {
-	box-sizing: border-box;
-	flex: 1 1 auto;
-	padding: 0;
-	font-size: 1rem;
-	text-indent: 0.5rem;
-	border: 0;
-}
-
-#nav-search-bar-form .nav-fill > input:focus {
-	outline: none;
-}
-
-#nav-search-bar-form .nav-right {
-	box-sizing: border-box;
-	display: flex;
-	background: var(--main-border-shadow);
-	align-items: center;
-}
-
-#nav-search-bar-form .nav-right > button {
-	display: flex;
-	flex: 1 1 auto;
-	align-items: center;
-	border: 0;
-	background: var(--main-border-shadow);
-	width: 100%;
-	height: 100%;
-	padding: 0 0.5rem 0 0.5rem;
-	cursor: pointer;
-}
-
-#nav-search-bar-form .nav-right > button:hover {
-	background: var(--main-text);
-}
-
-#nav-belt > .nav-right {
-	box-sizing: border-box;
-	display: flex;
-}
-
-#nav-tools {
-	display: flex;
-	flex: 1 1 auto;
-	padding: 0.5rem 0.5rem 0.5rem 0;
-}
-
-#nav-tools > a {
-	box-sizing: border-box;
-	display: flex;
-	flex: 1 1 auto;
-	align-items: center;
-	padding: 0 0.5rem 0 0.5rem;
-	margin: 0.1rem;
-}
-
-#nav-tools > a:hover {
-	border: 0.1rem solid var(--main-border);
-	border-radius: var(--border-radius);
-	margin: 0;
-	color: var(--main-text);
-	box-shadow: 0rem 0rem 0.3rem var(--main-border-shadow);
-}
-
-h2 {
-float: right;
-}
-
-</style>
-<body>
-
-</header>
-</head>
-<style>
-:root {
-	--main-header-bg: #232f3e;
-	--second-header-bg: #131921;
-	--main-border: #ff9000;
-	--main-border-shadow: #febd69;
-	--main-text: #f3a847;
-	--second-text: white;
-	--main-search-opt: #cdcdcd;
-	--second-search-opt: #f3f3f3;
-	--border-radius: 0.2rem;
-	background: white;
-}
-a {
-	text-decoration: none;
-	color: black;
-}
-header {
-	background: var(--main-header-bg);
-	height: 5rem;
-	font-size: 1rem;
-	display: flex;
-}
-
-#nav-bar {
-	display: flex;
-	flex-flow: column nowrap;
-	flex: 1;
-}
-
-#nav-belt {
-	display: flex;
-	height: 3.5rem;
-	width: 100%;
-	background: var(--second-header-bg);
-}
-
-#nav-belt > .nav-left {
-	box-sizing: border-box;
-	display: flex;
-}
-
-#nav-logo {
-	box-sizing: border-box;
-	display: flex;
-	padding: 0.5rem 0 0.5rem 0.5rem;
-}
-
-#nav-logo > a {
-	box-sizing: content-box;
-	display: flex;
-	align-items: center;
-	padding: 0 0.5rem 0 0.5rem;
-	margin: 0.1rem;
-}
-
-#nav-logo > a:hover {
-	border: 0.1rem solid var(--main-border);
-	border-radius: var(--border-radius);
-	margin: 0;
-	color: var(--main-text);
-	box-shadow: 0rem 0rem 0.3rem var(--main-border-shadow);
-}
-
-#nav-belt > .nav-fill {
-	box-sizing: border-box;
-	display: flex;
-	flex: 1 1 auto;
-}
-
-#nav-search {
-	box-sizing: border-box;
-	width: auto;
-	display: flex;
-	flex: 1 1 auto;
-	padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-	overflow: hidden;
-}
-
-#nav-search-bar-form {
-	box-sizing: border-box;
-	display: flex;
-	flex: 1 1 auto;
-	border-radius: var(--border-radius);
-	overflow: hidden;
-}
-
-#nav-search-bar-form:focus-within {
-	box-sizing: border-box;
-	border: 0.2rem solid var(--main-border);
-	margin: 0 -0.2rem 0 -0.2rem;
-	box-shadow: 0rem 0rem 0.3rem var(--main-border-shadow);
-}
-
-#nav-search-bar-form .nav-left {
-	box-sizing: border-box;
-	display: flex;
-	background: var(--second-search-opt);
-	align-items: center;
-}
-
-#nav-search-bar-form .nav-left a {
-	display: flex;
-	color: black;
-	padding: 0 0.5rem 0 0.5rem;
-	flex: 1 1 auto;
-	width: 100%;
-	height: 100%;
-	align-items: center;
-}
-
-#nav-search-bar-form .nav-left a:hover {
-	background: var(--main-search-opt);
-}
-
-#nav-search-bar-form .nav-fill {
-	box-sizing: border-box;
-	display: flex;
-	flex: 1 1 auto;
-	overflow-x: hidden;
-	overflow-y: hidden;
-	background: white;
-	border-left: 0.1rem solid var(--main-search-opt);
-	border-right: 0.1rem solid var(--main-text);
-}
-
-#nav-search-bar-form .nav-fill input {
-	box-sizing: border-box;
-	flex: 1 1 auto;
-	padding: 0;
-	font-size: 1rem;
-	text-indent: 0.5rem;
-	border: 0;
-}
-
-#nav-search-bar-form .nav-fill > input:focus {
-	outline: none;
-}
-
-#nav-search-bar-form .nav-right {
-	box-sizing: border-box;
-	display: flex;
-	background: var(--main-border-shadow);
-	align-items: center;
-}
-
-#nav-search-bar-form .nav-right > button {
-	display: flex;
-	flex: 1 1 auto;
-	align-items: center;
-	border: 0;
-	background: var(--main-border-shadow);
-	width: 100%;
-	height: 100%;
-	padding: 0 0.5rem 0 0.5rem;
-	cursor: pointer;
-}
-
-#nav-search-bar-form .nav-right > button:hover {
-	background: var(--main-text);
-}
-
-#nav-belt > .nav-right {
-	box-sizing: border-box;
-	display: flex;
-}
-
-#nav-tools {
-	display: flex;
-	flex: 1 1 auto;
-	padding: 0.5rem 0.5rem 0.5rem 0;
-}
-
-#nav-tools > a {
-	box-sizing: border-box;
-	display: flex;
-	flex: 1 1 auto;
-	align-items: center;
-	padding: 0 0.5rem 0 0.5rem;
-	margin: 0.1rem;
-}
-
-#nav-tools > a:hover {
-	border: 0.1rem solid var(--main-border);
-	border-radius: var(--border-radius);
-	margin: 0;
-	color: var(--main-text);
-	box-shadow: 0rem 0rem 0.3rem var(--main-border-shadow);
-}
-
-h2 {
-float: right;
-}
-
-</style>
+</div>
 
 
-
-<a href="myblog/main">개인 블로그</a> 로그인 하지 않은 상태에서도 개인블로그 내에서 잘 되는지 확인하려고 만든 임시 링크 입니다.
-<hr>
-<a href="bookInfo">책 상세정보</a> 로그인 하지 않은 상태에서도 검색 잘 되는지 확인하려고 만든 임시 링크 입니다.
-
-<<<<<<< HEAD
-
-=======
->>>>>>> b7e11f650002ef89cdad4cf06c3f4b45a81ed2ac
 <c:if test="${sessionScope.loginId != null}">
-		<h2>${sessionScope.loginId}님 환영합니다.</h2>
-<a2>
-<a href="myblog">개인 블로그</a>
-<a href="myblog/main">개인 블로그</a><br>
-<a href="blogmain">블로그 메인</a>
-<a href="bookInfo">책 상세정보</a><br>
-<a href="customerservice">고객센터</a>
-<a href="bookInfo">책 상세정보</a><br>
+		<div style="max-width: 23ex;position: relative; left: 1090px;">
+		${sessionScope.loginId}님 환영합니다.</div>
+		</c:if>
+		
+<c:if test="${sessionScope.loginId != null}">		
+
+<div style="max-width: 23ex; border: solid red; position: relative; left: 1090px; top: 24px;">
+<a href="myblog" style="color:red;">개인 블로그</a>
+<a href="myblog/main" style="color:red;">개인 블로그</a>
+
+
+<a href="blogmain" style="color:red;">블로그 메인</a>
+<a href="bookInfo" style="color:red;">책 상세정보</a>
+
+
+
+<a href="blogmain" style="color:red;">고객센터</a>
+<a href="bookInfo" style="color:red;">책 상세정보</a>
+
+
 </c:if>
-</a2>
-</body>
-	
-</head>
-
-<body>
-
-<main>
-<div class="container">
-	
-	<input type="radio" id="i1" name="images" checked />
-	<input type="radio" id="i2" name="images" />
-	<input type="radio" id="i3" name="images" />
-	<input type="radio" id="i4" name="images" />
-	<input type="radio" id="i5" name="images" />	
-	
-	<div class="slide_img" id="one">			
-			
-			<img src="http://www.bhmpics.com/wallpapers/little_pony_art-800x480.jpg">
-			
-				<label class="prev" for="i5"><span>&#x2039;</span></label>
-				<label class="next" for="i2"><span>&#x203a;</span></label>	
-		
-	</div>
-	
-	<div class="slide_img" id="two">
-		
-			<img src="https://preview.ibb.co/e5OShF/cropped_800_480_111290.jpg " >
-			
-				<label class="prev" for="i1"><span>&#x2039;</span></label>
-				<label class="next" for="i3"><span>&#x203a;</span></label>
-		
-	</div>
-			
-	<div class="slide_img" id="three">
-			<img src="http://wallpaperswide.com/download/up_house-wallpaper-1280x800.jpg">	
-			
-				<label class="prev" for="i2"><span>&#x2039;</span></label>
-				<label class="next" for="i4"><span>&#x203a;</span></label>
-	</div>
-
-	<div class="slide_img" id="four">
-			<img src="http://wallpaperswide.com/download/big_hero_6_baymax-wallpaper-1152x720.jpg">	
-			
-				<label class="prev" for="i3"><span>&#x2039;</span></label>
-				<label class="next" for="i5"><span>&#x203a;</span></label>
-	</div>
-
-	<div class="slide_img" id="five">
-			<img src="http://www.wallpapereast.com/static/images/toys-wallpaper-hd-16339-17046-hd-wallpapers.jpg">	
-			
-				<label class="prev" for="i4"><span>&#x2039;</span></label>
-				<label class="next" for="i1"><span>&#x203a;</span></label>
-
-	</div>
-
-	<div id="nav_slide">
-		<label for="i1" class="dots" id="dot1"></label>
-		<label for="i2" class="dots" id="dot2"></label>
-		<label for="i3" class="dots" id="dot3"></label>
-		<label for="i4" class="dots" id="dot4"></label>
-		<label for="i5" class="dots" id="dot5"></label>
-	</div>
-		
 </div>
 
-</main>
+<div class="container">
+	<div class="row">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+			<!-- Carousel indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>   
+			<!-- Wrapper for carousel items -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Apple iPad</h4>
+									<p class="item-price"><strike>$400.00</strike> <span>$369.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Sony Headphone</h4>
+									<p class="item-price">3333원</p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>		
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Macbook Air</h4>
+									<p class="item-price"><strike>$899.00</strike> <span>$649.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>								
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Nikon DSLR</h4>
+									<p class="item-price"><strike>$315.00</strike> <span>$250.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Sony Play Station</h4>
+									<p class="item-price"><strike>$289.00</strike> <span>$269.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="resources/img/gtgf.PNG" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Macbook Pro</h4>
+									<p class="item-price"><strike>$1099.00</strike> <span>$869.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Bose Speaker</h4>
+									<p class="item-price"><strike>$109.00</strike> <span>$99.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="/examples/images/products/galaxy.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Samsung Galaxy S8</h4>
+									<p class="item-price"><strike>$599.00</strike> <span>$569.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>						
+					</div>
+				</div>
+				<div class="item">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="/examples/images/products/iphone.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Apple iPhone</h4>
+									<p class="item-price"><strike>$369.00</strike> <span>$349.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="/examples/images/products/canon.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Canon DSLR</h4>
+									<p class="item-price"><strike>$315.00</strike> <span>$250.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="/examples/images/products/pixel.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Google Pixel</h4>
+									<p class="item-price"><strike>$450.00</strike> <span>$418.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>	
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="/examples/images/products/watch.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Apple Watch</h4>
+									<p class="item-price"><strike>$350.00</strike> <span>$330.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Carousel controls -->
+			<a class="carousel-control left" href="#myCarousel" data-slide="prev">
+				<i class="fa fa-angle-left"></i>
+			</a>
+			<a class="carousel-control right" href="#myCarousel" data-slide="next">
+				<i class="fa fa-angle-right"></i>
+			</a>
+		</div>
+		</div>
+	</div>
+</div>
 
 
-  <div class="footer">
-    <p>
-      <span>풋터입니다</span>
-    </p>
-  </div>
-
-
-
-
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>신간 <b>책정보</b></h2><br><br>
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+			<!-- Carousel indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>   
+			<!-- Wrapper for carousel items -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Apple iPad</h4>
+									<p class="item-price"><strike>$400.00</strike> <span>$369.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Sony Headphone</h4>
+									<p class="item-price"><strike>$25.00</strike> <span>$23.99</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>		
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Macbook Air</h4>
+									<p class="item-price"><strike>$899.00</strike> <span>$649.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>								
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Nikon DSLR</h4>
+									<p class="item-price"><strike>$315.00</strike> <span>$250.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Sony Play Station</h4>
+									<p class="item-price"><strike>$289.00</strike> <span>$269.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="resources/img/gtgf.PNG" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Macbook Pro</h4>
+									<p class="item-price"><strike>$1099.00</strike> <span>$869.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Bose Speaker</h4>
+									<p class="item-price"><strike>$109.00</strike> <span>$99.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="/examples/images/products/galaxy.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Samsung Galaxy S8</h4>
+									<p class="item-price"><strike>$599.00</strike> <span>$569.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>						
+					</div>
+				</div>
+				<div class="item">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="/examples/images/products/iphone.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Apple iPhone</h4>
+									<p class="item-price"><strike>$369.00</strike> <span>$349.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="/examples/images/products/canon.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Canon DSLR</h4>
+									<p class="item-price"><strike>$315.00</strike> <span>$250.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="/examples/images/products/pixel.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Google Pixel</h4>
+									<p class="item-price"><strike>$450.00</strike> <span>$418.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>	
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="/examples/images/products/watch.jpg" class="img-responsive" alt="">
+								</div>
+								<div class="thumb-content">
+									<h4>Apple Watch</h4>
+									<p class="item-price"><strike>$350.00</strike> <span>$330.00</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="#" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Carousel controls -->
+			<a class="carousel-control left" href="#myCarousel" data-slide="prev">
+				<i class="fa fa-angle-left"></i>
+			</a>
+			<a class="carousel-control right" href="#myCarousel" data-slide="next">
+				<i class="fa fa-angle-right"></i>
+			</a>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="card-footer">Footer</div>
 </body>
 </html>

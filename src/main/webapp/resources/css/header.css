@@ -8,11 +8,12 @@
 	--main-search-opt: #cdcdcd;
 	--second-search-opt: #f3f3f3;
 	--border-radius: 0.2rem;
-	background: white;
+	
 }
+
 a {
 	text-decoration: none;
-	color: green;
+	color: white;
 }
 header {
 	background: var(--main-header-bg);
@@ -187,20 +188,7 @@ header {
 	box-shadow: 0rem 0rem 0.3rem var(--main-border-shadow);
 }
 
-footer {
-  position: fixed;
-  bottom: 0; left: 0;
-  height: 100px;
-  width: 100%;
-  background-color: #ddd;
-}
 
-a2 {
-	float: right;
-	height: 80px;
-	position: relative;
-	top: 70px;
-	left: 200px;
-	
-}
+
+
 
