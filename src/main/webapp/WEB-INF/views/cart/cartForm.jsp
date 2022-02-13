@@ -6,5 +6,8 @@
 	<title>Home</title>
 </head>
 <body>
+
+  
+</div>
 <a href="check">결제</a>
 </body>

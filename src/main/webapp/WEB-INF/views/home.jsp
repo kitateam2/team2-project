@@ -5,7 +5,7 @@
 <head>
 	<title>Home</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 	<link href="resources/css/header.css" rel="stylesheet"/>
@@ -43,7 +43,9 @@
 				<a href="condition">sign up</a>
 				<a href="login">Log in</a>
 				</c:if>
+				<c:if test="${sessionScope.loginId != null}">
 				<a href="logout">Log out</a>
+				</c:if>
 				<a href="cart">Cart</a>
 			</div>
 		</div>
@@ -54,19 +56,28 @@
 </header>
 </div>
 
+
 <c:if test="${sessionScope.loginId != null}">
 		<h3>${sessionScope.loginId}님 환영합니다.</h3>
-<b>
-<a href="myblog" style="color:red;">개인 블로그</a>
-<a href="myblog/main" style="color:red;">개인 블로그</a><br>
-<a href="blogmain" style="color:red;">블로그 메인</a>
-<a href="bookInfo" style="color:red;">책 상세정보</a><br>
-<a href="customerservice" style="color:red;">고객센터</a>
-<a href="bookInfo" style="color:red;">책 상세정보</a><br>
-</c:if>
-</b>
+		</c:if>
+<table>		
+<c:if test="${sessionScope.loginId != null}">		
+<tr>
+<td><a href="myblog" style="color:red;">개인 블로그</a></td>
+<td><a href="myblog/main" style="color:red;">개인 블로그</a></td>
+</tr>
+<tr>
+<td><a href="blogmain" style="color:red;">블로그 메인</a></td>
+<td><a href="bookInfo" style="color:red;">책 상세정보</a></td>
+</tr>
+<tr>
+<td><a href="blogmain" style="color:red;">고객센터</a></td>
+<td><a href="bookInfo" style="color:red;">책 상세정보</a></td>
+</tr>
 
-<div class="card-body">
+</c:if>
+</table>
+
 
 <div class="container">
 <div class="slider-container">
@@ -105,7 +116,7 @@
 </div> 
 
 
-</div>
+
 <div class="card-footer">Footer</div>
 </body>
 </html>
