@@ -66,11 +66,13 @@
 
 
 <c:if test="${sessionScope.loginId != null}">
-		<h3>${sessionScope.loginId}님 환영합니다.</h3>
+		<div style="max-width: 23ex;position: relative; left: 1090px;">
+		${sessionScope.loginId}님 환영합니다.</div>
 		</c:if>
 		
 <c:if test="${sessionScope.loginId != null}">		
 
+<div style="max-width: 23ex; border: solid red; position: relative; left: 1090px; top: 24px;">
 <a href="myblog" style="color:red;">개인 블로그</a>
 <a href="myblog/main" style="color:red;">개인 블로그</a>
 
@@ -79,17 +81,16 @@
 <a href="bookInfo" style="color:red;">책 상세정보</a>
 
 
+
 <a href="blogmain" style="color:red;">고객센터</a>
 <a href="bookInfo" style="color:red;">책 상세정보</a>
 
 
 </c:if>
-
+</div>
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
-			<h2>신간 <b>책정보</b></h2><br><br>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
 			<!-- Carousel indicators -->
 			<ol class="carousel-indicators">
@@ -129,7 +130,7 @@
 								</div>
 								<div class="thumb-content">
 									<h4>Sony Headphone</h4>
-									<p class="item-price"><strike>$25.00</strike> <span>$23.99</span></p>
+									<p class="item-price">3333원</p>
 									<div class="star-rating">
 										<ul class="list-inline">
 											<li class="list-inline-item"><i class="fa fa-star"></i></li>
@@ -581,7 +582,7 @@
 											<li class="list-inline-item"><i class="fa fa-star"></i></li>
 											<li class="list-inline-item"><i class="fa fa-star"></i></li>
 											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
 											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
 										</ul>
 									</div>
