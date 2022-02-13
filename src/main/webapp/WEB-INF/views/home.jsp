@@ -18,7 +18,7 @@
 	<div id="nav-belt">
 		<div class="nav-left">
 			<div id="nav-logo">
-				<a href="/">LOGO</a>
+				<a href="home">GO</a>
 			</div>
 		</div>
 		<div class="nav-fill">
@@ -40,7 +40,7 @@
 		<div class="nav-right">
 			<div id="nav-tools">
 				<c:if test="${sessionScope.loginId == null}">
-				<a href="join">sign up</a>
+				<a href="condition">sign up</a>
 				<a href="login">Log in</a>
 				</c:if>
 				<a href="logout">Log out</a>

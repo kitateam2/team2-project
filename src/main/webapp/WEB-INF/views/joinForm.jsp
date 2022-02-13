@@ -90,7 +90,6 @@
 	</script>
 </head>
 <body>
-	
 	<form action="join" method="post" onsubmit="return validationCheck();">
 	<h2>[회원가입]</h2>
 			<input type="text" placeholder="Enter Userid" id="id" name="user_id">
