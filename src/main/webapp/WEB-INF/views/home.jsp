@@ -103,8 +103,9 @@
 </div>
 
 </div> 
-<div class="card-footer">Footer</div>
-</div>
 
+
+</div>
+<div class="card-footer">Footer</div>
 </body>
 </html>
