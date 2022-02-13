@@ -53,16 +53,18 @@
 </div>
 </header>
 </div>
-<c:if test="${sessionScope.loginId != null}">
-		<h2>${sessionScope.loginId}님 환영합니다.</h2>
 
+<c:if test="${sessionScope.loginId != null}">
+		<h3>${sessionScope.loginId}님 환영합니다.</h3>
+<b>
 <a href="myblog" style="color:red;">개인 블로그</a>
-<a href="myblog/main" style="color:red;">개인 블로그</a>
+<a href="myblog/main" style="color:red;">개인 블로그</a><br>
 <a href="blogmain" style="color:red;">블로그 메인</a>
-<a href="bookInfo" style="color:red;">책 상세정보</a>
+<a href="bookInfo" style="color:red;">책 상세정보</a><br>
 <a href="customerservice" style="color:red;">고객센터</a>
-<a href="bookInfo" style="color:red;">책 상세정보</a>
+<a href="bookInfo" style="color:red;">책 상세정보</a><br>
 </c:if>
+</b>
 
 <div class="card-body">
 
