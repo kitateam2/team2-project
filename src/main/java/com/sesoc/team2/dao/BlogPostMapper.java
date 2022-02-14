@@ -18,9 +18,11 @@ public interface BlogPostMapper {
 
 	public void add_hits(int post_no);
 
-	public ArrayList<PostComment> post_reply(int post_no);
-
 	public int post_comment_insert(PostComment postcomment);
+
+	public ArrayList<PostComment> post_comment_list(int post_no);
+
+	public int post_comment_delete(PostComment postcomment);
 
 	
 
