@@ -210,7 +210,7 @@
 								</div>
 								<div class="thumb-content">
 									<h4>Bose Speaker</h4>
-									<p class="item-price"><strike>$109.00</strike> <span>$99.00</span></p>
+									<p class="item-price"><strike>$1000009.00</strike> <span>$99.00</span></p>
 									<div class="star-rating">
 										<ul class="list-inline">
 											<li class="list-inline-item"><i class="fa fa-star"></i></li>
