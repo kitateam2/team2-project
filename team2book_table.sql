@@ -38,8 +38,10 @@ CREATE TABLE BLOG_POST
 	post_uploaddate date DEFAULT sysdate NOT NULL,
 	-- 게시글 추천
 	post_hits number DEFAULT 0,
-	-- 게시글 파일
-	post_file varchar2(50),
+	-- 업로드된 파일
+	post_originalfile varchar2(200),
+	-- 저장된 파일
+	post_savedfile varchar2(200),
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
 	PRIMARY KEY (post_no)
@@ -251,7 +253,7 @@ CREATE TABLE USER_INFO
 	-- 회원주소
 	user_address varchar2(200) NOT NULL,
 	-- 유저선호장르
-	user_genre varchar2(20) NOT NULL,
+	user_genre varchar2(20),
 	-- 유저 등급
 	-- 0-bronze
 	-- 1-silver
@@ -319,126 +321,168 @@ CREATE TABLE USER_WISHLIST
 ALTER TABLE POST_COMMENT
 	ADD FOREIGN KEY (post_no)
 	REFERENCES BLOG_POST (post_no)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE BOOK_INFO
 	ADD FOREIGN KEY (book_author_no)
 	REFERENCES BOOK_AUTHOR (book_author_no)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE BOOK_REVIEW
 	ADD FOREIGN KEY (book_isbn)
 	REFERENCES BOOK_INFO (book_isbn)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE CART_BOOK
 	ADD FOREIGN KEY (book_isbn)
 	REFERENCES BOOK_INFO (book_isbn)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE ORDER_DETAIL
 	ADD FOREIGN KEY (book_isbn)
 	REFERENCES BOOK_INFO (book_isbn)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE USER_WISHLIST
 	ADD FOREIGN KEY (book_isbn)
 	REFERENCES BOOK_INFO (book_isbn)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE BOOK_INFO
 	ADD FOREIGN KEY (book_public_no)
 	REFERENCES BOOK_PUBLIC (book_public_no)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE ORDER_DETAIL
 	ADD FOREIGN KEY (order_no)
 	REFERENCES ORDER_LIST (order_no)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE USER_PAY
 	ADD FOREIGN KEY (order_no)
 	REFERENCES ORDER_LIST (order_no)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE USER_TRANSFER
 	ADD FOREIGN KEY (order_no)
 	REFERENCES ORDER_LIST (order_no)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE CART_BOOK
 	ADD FOREIGN KEY (user_cart_no)
 	REFERENCES USER_CART (user_cart_no)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE BLOG_POST
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE EVENT
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE FOLLOW_INFO
 	ADD FOREIGN KEY (follow_ed_id)
 	REFERENCES USER_INFO (user_id)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE FOLLOW_INFO
 	ADD FOREIGN KEY (folllow_ing_id)
 	REFERENCES USER_INFO (user_id)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE MESSAGE
 	ADD FOREIGN KEY (message_sent_id)
 	REFERENCES USER_INFO (user_id)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE MESSAGE
 	ADD FOREIGN KEY (message_recv_id)
 	REFERENCES USER_INFO (user_id)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE ORDER_LIST
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE USER_CART
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE USER_REWARD_HISTORY
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
+	on delete cascade
+	on update cascade
 ;
 
 
 ALTER TABLE USER_WISHLIST
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
+	on delete cascade
+	on update cascade
 ;
 
 
@@ -450,7 +494,8 @@ COMMENT ON COLUMN BLOG_POST.post_title IS '게시글 제목';
 COMMENT ON COLUMN BLOG_POST.post_contents IS '게시글 내용';
 COMMENT ON COLUMN BLOG_POST.post_uploaddate IS '게시글 날짜';
 COMMENT ON COLUMN BLOG_POST.post_hits IS '게시글 추천';
-COMMENT ON COLUMN BLOG_POST.post_file IS '게시글 파일';
+COMMENT ON COLUMN BLOG_POST.post_originalfile IS '업로드된 파일';
+COMMENT ON COLUMN BLOG_POST.post_savedfile IS '저장된 파일';
 COMMENT ON COLUMN BLOG_POST.user_id IS '회원ID';
 COMMENT ON COLUMN BOOK_INFO.book_isbn IS '책 인덱스
 ';
