@@ -14,54 +14,25 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
-
 	<body>
     <div class="container">
 	
-<header id="container">
-<div id="nav-bar">
-	<div id="nav-belt">
-		<div class="nav-left">
-			<div id="nav-logo">
-				<a href="home">GO</a>
-			</div>
-		</div>
-		<div class="nav-fill">
-			<div id="nav-search">
-				<form id="nav-search-bar-form">
-					<div class="nav-left">
-						<a href="">ALL</a>
-					</div>
-					<div class="nav-fill">
-						<input type="text">
-					</div>
-					<div class="nav-right">
-						<button type="submit">Search</button>
-					</div>
-					
-				</form>
-			</div>
-		</div>
-		<div class="nav-right">
-			<div id="nav-tools">
-				<c:if test="${sessionScope.loginId == null}">
-				<a href="condition">sign up</a>
-				<a href="login">Log in</a>
-				</c:if>
-				<c:if test="${sessionScope.loginId != null}">
-				<a href="logout">Log out</a>
-				</c:if>
-				<a href="cart">Cart</a>
-			</div>
-		</div>
-	</div>
-	<div id="nav-main">
-	</div>
-</div>
-</header>
+ <div class="header">
+        <h1 class="logo">Website Logo</h1>
+        <form style="display:inline-block;line-height:52px;padding-right:14px; ">
+            <input type="text" name="searchbar" placeholder="search.." size="70">
+            <input type="button" name="button" value="search">
+            <c:if test="${sessionScope.loginId == null}">
+                    <a href="condition">sign up</a>
+                    <a href="login">Log in</a>
+                    </c:if>
+                    <c:if test="${sessionScope.loginId != null}">
+                    <a href="logout">Log out</a>
+                    </c:if>
+                    <a href="cart">Cart</a>
+        </form>
+    </div>
+</body>
 </div>
 
 
