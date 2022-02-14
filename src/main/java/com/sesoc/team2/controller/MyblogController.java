@@ -49,7 +49,7 @@ public class MyblogController {
 		
 		//세션에서 로그인한 사용자의 아이디를 읽어서 Board객체의 작성자 정보에 세팅
 		String id = (String) session.getAttribute("loginId");
-		blogpost.setPost_id(id);
+		blogpost.setUser_id(id);
 		
 		int result = dao.post_write(blogpost);
 		logger.info("결과 값 result: ", result);
@@ -75,7 +75,7 @@ public class MyblogController {
 		//글 정보를 모델에 저장?
 		model.addAttribute("one_post", one_post);
 		//아이디를 따로 입력하지 않아도 자동으로 로그인 한 값이 들어가게 하는 코드
-		model.addAttribute("post_id", one_post.getPost_id());
+		model.addAttribute("post_id", one_post.getUser_id());
 		logger.info("결과 값 one_post: ", one_post.getPost_no());  
 		
 		return "myblog/myblogOnePost";
@@ -85,14 +85,14 @@ public class MyblogController {
 	//게시글 삭제
 	@RequestMapping (value="post_delete", method=RequestMethod.GET)
 	public String post_delete(int post_no, HttpSession session) {
-		String post_id = (String) session.getAttribute("loginId");
+		String user_id = (String) session.getAttribute("loginId");
 		BlogPost blogpost = new BlogPost();
 		blogpost.setPost_no(post_no);
-		blogpost.setPost_id(post_id);
+		blogpost.setUser_id(user_id);
 		
 		dao.post_delete(blogpost);
 		
-		return "redirect:myblog/myblogMain";
+		return "redirect:main";
 		
 	}
 	
@@ -103,12 +103,15 @@ public class MyblogController {
 				                      ,  Model model){
 		/* 로그인한 사람의 정보를 저장 */
 		String id = (String) session.getAttribute("loginId");	
+		logger.info("컨트롤러{}",id);
 		postcomment.setPost_comment_writter(id);
-		
+		logger.info("컨트롤러{}",postcomment);
 		dao.post_comment_insert(postcomment);
-		
-		return "myblog/myblogOnePost?post_no=" + postcomment.getPost_no();
+		return "redirect:one_post?post_no=" + postcomment.getPost_no();
 	}
+	
+	
+	
 	//리플 불러오기 --는 상세보기에 넣어야하고
 	//리플 삭제
 	

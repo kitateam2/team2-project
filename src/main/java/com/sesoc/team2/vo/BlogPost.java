@@ -7,18 +7,18 @@ public class BlogPost {
 	private String post_uploaddate;
 	private int post_hits;
 	private String post_file;
-	private String post_id;
+	private String user_id;
 	
 	public BlogPost() {
 	}
 	
-	public String getPost_id() {
-		return post_id;
+	public String getUser_id() {
+		return user_id;
 	}
 
 
-	public void setPost_id(String post_id) {
-		this.post_id = post_id;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
 
@@ -84,7 +84,7 @@ public class BlogPost {
 
 	@Override
 	public String toString() {
-		return "BlogPost [post_no=" + post_no + ", post_id="+ post_id +", post_title=" + post_title + ", post_contents=" + post_contents
+		return "BlogPost [post_no=" + post_no + ", post_id="+ user_id +", post_title=" + post_title + ", post_contents=" + post_contents
 				+ ", post_uploaddate=" + post_uploaddate + ", post_hits=" + post_hits + ", post_file=" + post_file
 				+ "]";
 	}

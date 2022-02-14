@@ -20,7 +20,7 @@
   			, #{post_title}
   			, #{post_contents}
   			, sysdate
-  			, #{post_id}
+  			, #{user_id}
   			)
   	</insert>
   	
@@ -55,7 +55,7 @@
 			blog_post
 		where
 			post_no = #{post_no}
-			and post_id = #{post_id}
+			and user_id = #{user_id}
 	</delete>
 	
 	<!-- 조회수 1 증가 -->
@@ -75,14 +75,13 @@
 		, post_no
 		, post_comment_writter
 	 	, post_comment_content
-		, post_comment_date
 		  )
 		values(
 		post_comment_seq.nextval
 		, #{post_no}
 		, #{post_comment_writter}
 		, #{post_comment_content}
-		, sysdate
+		)
 	</insert>
 	
   </mapper>
