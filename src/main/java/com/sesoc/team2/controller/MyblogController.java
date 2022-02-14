@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sesoc.team2.dao.BlogPostDAO;
 import com.sesoc.team2.vo.BlogPost;
+import com.sesoc.team2.vo.PostComment;
 
 //게시글 쓰기, 게시글 읽기, 팔로우 리스트
 @Controller
@@ -66,8 +67,14 @@ public class MyblogController {
 			return "redirect:myblog/myblogMain";
 		}
 		
+		//해당 글에 달린 리플목록 읽기
+		ArrayList<PostComment> replylist = dao.post_reply(post_no);
+	
+		
 		//글 정보를 모델에 저장?
 		model.addAttribute("one_post", one_post);
+		//아이디를 따로 입력하지 않아도 자동으로 로그인 한 값이 들어가게 하는 코드
+		model.addAttribute("post_id", one_post.getPost_id());
 		logger.info("결과 값 : ", one_post);  
 		
 		return "myblog/myblogOnePost";
@@ -87,6 +94,11 @@ public class MyblogController {
 		return "redirect:myblog/myblogMain";
 		
 	}
+	
+	//리플저장
+	//리플 불러오기 --는 상세보기에 넣어야하고
+	//리플 삭제
+	
 	//쪽지로 이동
 		@RequestMapping(value = "messageWindow", method = RequestMethod.GET)
 		public String messageWindow() {

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sesoc.team2.vo.BlogPost;
+import com.sesoc.team2.vo.PostComment;
 
 @Repository
 public class BlogPostDAO {
@@ -41,6 +42,13 @@ public class BlogPostDAO {
 		int result = 0;
 		result = mapper.post_delete(blogpost);
 		return result;
+	}
+
+	public ArrayList<PostComment> post_reply(int post_no) {
+		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
+		ArrayList<PostComment> replylist = mapper.post_reply(post_no);
+
+		return null;
 	}
 
 }
