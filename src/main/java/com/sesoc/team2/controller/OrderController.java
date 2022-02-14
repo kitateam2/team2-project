@@ -12,8 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sesoc.team2.dao.cartDAO;
+import com.sesoc.team2.dao.CartDAO;
 import com.sesoc.team2.vo.cart_book;
 
 
@@ -28,14 +29,24 @@ public class OrderController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 @Autowired
-cartDAO dao;	
+CartDAO dao;	
 	
-	@RequestMapping(value = "cart", method = RequestMethod.GET)
+	@ResponseBody
+	@RequestMapping(value = "ajaxcart", method = RequestMethod.POST)
+	public String list(cart_book cart_book1) {
+		logger.info("전달된 장바구니 데이터: {}", cart_book1);
+		//dao.insert(cart_book1);
+		return "1";
+	}
+
+@RequestMapping(value = "cart", method = RequestMethod.GET)
 	public String list(cart_book cart_book1, HttpSession session) {
 		String id = (String) session.getAttribute("loginId");
 		ArrayList<cart_book> list = dao.listcart(id);
 	
 		return "cart/cartForm";
+		
+		
 		
 	}
 	
@@ -44,14 +55,7 @@ cartDAO dao;
 	public String checkForm() {
 	return "checkForm";
 	}
-	
-	@RequestMapping(value = "ajaxcart", method = RequestMethod.POST)
-	public void ajaxcart(String isbn) {
-		
-		
-		logger.info("ajaxtest1 실행");
-	}
-	
+
 	
 }
 

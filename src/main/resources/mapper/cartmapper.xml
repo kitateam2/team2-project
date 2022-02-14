@@ -5,6 +5,7 @@
 
 <mapper namespace="com.sesoc.team2.dao.CartMapper">
 
+
 <select id ="list" parameterType="string">
 	select * from cart_book where cart_book_no
 	,cart_book_inputdate

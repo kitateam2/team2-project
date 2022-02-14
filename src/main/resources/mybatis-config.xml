@@ -7,10 +7,12 @@
 		<typeAlias type="com.sesoc.team2.vo.User_infoVO" alias="User_infoVO"/> 
 		<typeAlias type="com.sesoc.team2.vo.BlogPost" alias="BlogPostVO"/> 
 		<typeAlias type="com.sesoc.team2.vo.PostComment" alias="PostCommentVO"/> 
+		<typeAlias type="com.sesoc.team2.vo.cart_book" alias="cart_bookVO"/> 
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mapper/membermapper.xml" />
 		<mapper resource="mapper/BlogPostMapper.xml" />
+		<mapper resource="mapper/cartmapper.xml" />
 	</mappers>
 </configuration>

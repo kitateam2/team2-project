@@ -18,8 +18,6 @@
 	
 <script>
 $(document).ready(function() {
-	$('#bt1').on('click',bt1Click);
-	$('#').on('click',bt1Click);
 	
 });   
 
@@ -30,10 +28,10 @@ function bt1Click(n){
 	$.ajax({
 		url:'ajaxcart',
 		type:'post',
-		data: {isbn: n},
+		data: {cart_book_no: n},
 		dataType:'text',
-		success: output, //jason은 객체 text는 문자열
-		error: error //succe.error는 함수 이름을 쓴다
+		success: function() { alert('장바구니에 담았습니다.'); },
+		error: function() { alert('error'); }
 	});
 }
 </script>
@@ -72,13 +70,8 @@ function bt1Click(n){
 <div style="max-width: 23ex; border: solid red; position: relative; left: 1090px; top: 24px;">
 <a href="myblog" style="color:red;">개인 블로그</a>
 <a href="myblog/main" style="color:red;">개인 블로그</a>
-
-
 <a href="blogmain" style="color:red;">블로그 메인</a>
 <a href="bookInfo" style="color:red;">책 상세정보</a>
-
-
-
 <a href="blogmain" style="color:red;">고객센터</a>
 <a href="bookInfo" style="color:red;">책 상세정보</a>
 
@@ -116,7 +109,7 @@ function bt1Click(n){
 											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click(1);" class="btn btn-primary" >Add to Cart</a>
+									<a href="#" onclick="bt1Click('1');" class="btn btn-primary" >Add to Cart</a>
 								</div>						
 							</div>
 						</div>

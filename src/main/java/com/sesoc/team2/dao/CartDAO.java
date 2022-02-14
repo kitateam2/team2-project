@@ -9,16 +9,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sesoc.team2.vo.cart_book;
+
 @Repository
-public class cartDAO {
+public class CartDAO {
 	
 	
 	@Autowired
 	SqlSession sqlSession;
+	
 	public ArrayList<cart_book> listcart(String user_id) {
 		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
 		ArrayList<cart_book> list = mapper.list(user_id);
 		return list;
+	}
+	public int insert(cart_book cart_book1) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.insertcart_book(cart_book1);
+		return result;
+		
 	}
 
 }
