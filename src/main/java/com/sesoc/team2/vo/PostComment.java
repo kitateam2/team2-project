@@ -7,8 +7,17 @@ public class PostComment {
  	private String post_comment_content;
 	private String post_comment_date;
 	private int post_comment_like;
+	private int post_no;
 	
 	public PostComment() {
+	}
+
+	public int getPost_no() {
+		return post_no;
+	}
+
+	public void setPost_no(int post_no) {
+		this.post_no = post_no;
 	}
 
 	public int getPost_comment_no() {
@@ -55,8 +64,9 @@ public class PostComment {
 	public String toString() {
 		return "PostComment [post_comment_no=" + post_comment_no + ", post_comment_writter=" + post_comment_writter
 				+ ", post_comment_content=" + post_comment_content + ", post_comment_date=" + post_comment_date
-				+ ", post_comment_like=" + post_comment_like + "]";
+				+ ", post_comment_like=" + post_comment_like + ", post_no=" + post_no + "]";
 	}
+
 	
 	
 }
