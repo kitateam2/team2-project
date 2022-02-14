@@ -10,6 +10,11 @@
 	
 	<websocket:handlers>
 		<websocket:mapping handler="chatHandler" path="/chat" />
+		<websocket:handshake-interceptors>
+
+	       <bean class="com.sesoc.team2.interceptor.HandshakeInterceptor"/>
+
+		</websocket:handshake-interceptors>
 	</websocket:handlers>	
 	
 	<bean id="chatHandler" class="com.sesoc.team2.controller.ChatHandler" />

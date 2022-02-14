@@ -20,7 +20,7 @@
   			, #{post_title}
   			, #{post_contents}
   			, sysdate
-  			, #{post_id}
+  			, #{user_id}
   			)
   	</insert>
   	
@@ -36,6 +36,7 @@
   			blog_post
   		order by
   			post_no desc
+  			<!-- 아이디로 불러온 사람 글만 보이게 해야하는 where줘야함 -->
   	</select>
   	
   	<!-- 게시글 하나 읽기 -->
@@ -55,7 +56,7 @@
 			blog_post
 		where
 			post_no = #{post_no}
-			and post_id = #{post_id}
+			and user_id = #{user_id}
 	</delete>
 	
 	<!-- 조회수 1 증가 -->
@@ -75,14 +76,38 @@
 		, post_no
 		, post_comment_writter
 	 	, post_comment_content
-		, post_comment_date
 		  )
 		values(
 		post_comment_seq.nextval
 		, #{post_no}
 		, #{post_comment_writter}
 		, #{post_comment_content}
-		, sysdate
+		)
 	</insert>
 	
+	<!-- 게시글에 댓글 불러오기 -->
+	<select id="post_comment_list" parameterType="int" resultType="PostCommentVO">
+		select
+			post_comment_no
+			, post_no
+			, post_comment_writter
+	 		, post_comment_content
+	 		, to_char(post_comment_date, 'YYYY-MM-DD') post_comment_date
+	 	from
+	 		post_comment
+	 	where
+	 		post_no = #{post_no}
+	 	order by
+	 		post_comment_no desc
+	</select>
+	
+	<!-- 게시글 댓글 삭제 -->
+	<delete id="post_comment_delete" parameterType="PostCommentVO">
+		delete
+		from
+			post_comment
+		where
+			post_comment_no = #{post_comment_no}
+			and post_comment_writter = #{post_comment_writter}
+	</delete>
   </mapper>

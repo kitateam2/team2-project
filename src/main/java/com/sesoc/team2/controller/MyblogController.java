@@ -49,7 +49,7 @@ public class MyblogController {
 		
 		//세션에서 로그인한 사용자의 아이디를 읽어서 Board객체의 작성자 정보에 세팅
 		String id = (String) session.getAttribute("loginId");
-		blogpost.setPost_id(id);
+		blogpost.setUser_id(id);
 		
 		int result = dao.post_write(blogpost);
 		logger.info("결과 값 result: ", result);
@@ -67,17 +67,19 @@ public class MyblogController {
 			return "redirect:myblog/myblogMain";
 		}
 		
-		/*
-		 * //해당 글에 달린 리플목록 읽기 ArrayList<PostComment> replylist =
-		 * dao.post_reply(post_no);
-		 */
+		
+		//해당 글에 달린 리플목록 읽기
+		ArrayList<PostComment> post_comment_list = dao.post_comment_list(post_no);
+		
 		
 		//글 정보를 모델에 저장?
 		model.addAttribute("one_post", one_post);
 		//아이디를 따로 입력하지 않아도 자동으로 로그인 한 값이 들어가게 하는 코드
-		model.addAttribute("post_id", one_post.getPost_id());
+		model.addAttribute("post_id", one_post.getUser_id());
+		//리플을 모델에 저장
+		model.addAttribute("post_comment_list", post_comment_list);
 		logger.info("결과 값 one_post: ", one_post.getPost_no());  
-		
+		logger.info("결과는 컨트롤러에 댓글 리스트: ");
 		return "myblog/myblogOnePost";
 	}
 	
@@ -85,14 +87,14 @@ public class MyblogController {
 	//게시글 삭제
 	@RequestMapping (value="post_delete", method=RequestMethod.GET)
 	public String post_delete(int post_no, HttpSession session) {
-		String post_id = (String) session.getAttribute("loginId");
+		String user_id = (String) session.getAttribute("loginId");
 		BlogPost blogpost = new BlogPost();
 		blogpost.setPost_no(post_no);
-		blogpost.setPost_id(post_id);
+		blogpost.setUser_id(user_id);
 		
 		dao.post_delete(blogpost);
 		
-		return "redirect:myblog/myblogMain";
+		return "redirect:main";
 		
 	}
 	
@@ -103,14 +105,27 @@ public class MyblogController {
 				                      ,  Model model){
 		/* 로그인한 사람의 정보를 저장 */
 		String id = (String) session.getAttribute("loginId");	
+		logger.info("컨트롤러{}",id);
+		postcomment.setPost_comment_writter(id);
+		logger.info("컨트롤러{}",postcomment);
+		dao.post_comment_insert(postcomment);
+		return "redirect:one_post?post_no=" + postcomment.getPost_no();
+	}
+	
+	
+	
+	//리플 불러오기 --는 게시글 상세보기에서 같이 실행
+	//리플 삭제
+	@RequestMapping (value="post_comment_delete", method=RequestMethod.GET)
+	public String post_comment_delete(PostComment postcomment
+				                      , HttpSession session){
+		/* 로그인한 사람의 정보를 저장 */
+		String id = (String) session.getAttribute("loginId");
 		postcomment.setPost_comment_writter(id);
 		
-		dao.post_comment_insert(postcomment);
-		
-		return "myblog/myblogOnePost?post_no=" + postcomment.getPost_no();
+		dao.post_comment_delete(postcomment);
+	return "redirect:one_post?post_no=" + postcomment.getPost_no();
 	}
-	//리플 불러오기 --는 상세보기에 넣어야하고
-	//리플 삭제
 	
 	//쪽지로 이동
 		@RequestMapping(value = "messageWindow", method = RequestMethod.GET)
