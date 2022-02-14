@@ -19,7 +19,7 @@ public class CustomerServiceController {
 	 */
 	@RequestMapping(value = "/chathome", method = RequestMethod.GET)
 	public String home() {
-		return "chathome";
+		return "chat/chathome";
 	}
 	
 	/**
@@ -27,6 +27,6 @@ public class CustomerServiceController {
 	 */
 	@RequestMapping(value="chatView", method=RequestMethod.GET)
 	public String chatView() {
-		return "chat";
+		return "chat/chat";
 	}
 }

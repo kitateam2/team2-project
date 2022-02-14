@@ -2,6 +2,8 @@ package com.sesoc.team2.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.socket.CloseStatus;
@@ -12,7 +14,8 @@ import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 //클라이언트와 WebSocket을 이용한 메시지 송수신
 public class ChatHandler extends AbstractWebSocketHandler {
 	private static final Logger logger = LoggerFactory.getLogger(ChatHandler.class);
-
+	HttpSession session1;
+	
 	//채팅에 참여한 클라이언트들과의 연결
 	ArrayList<WebSocketSession> list = new ArrayList<>();
 	
@@ -33,7 +36,7 @@ public class ChatHandler extends AbstractWebSocketHandler {
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 		logger.info("서버측 수신 : {}, ID: {}", message.getPayload(), session.getId());
-		
+		String id = (String)session1.getAttribute("loginId");
 		TextMessage msg = new TextMessage("클라이언트" + session.getId() + ": " + message.getPayload());
 		for(WebSocketSession ss: list) {
 			ss.sendMessage(msg);
