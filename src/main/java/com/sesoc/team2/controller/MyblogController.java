@@ -51,7 +51,7 @@ public class MyblogController {
 		blogpost.setPost_id(id);
 		
 		int result = dao.post_write(blogpost);
-		logger.debug("결과 값 : ", result);
+		logger.info("결과 값 : ", result);
 
 		return "myblog/myblogWrite";
 	}
@@ -67,9 +67,8 @@ public class MyblogController {
 		}
 		
 		//글 정보를 모델에 저장?
-		model.addAttribute("one_post", one_post.getPost_no());
-		model.addAttribute("post_id", one_post.getPost_id());
-		logger.debug("결과 값 : ", one_post);  
+		model.addAttribute("one_post", one_post);
+		logger.info("결과 값 : ", one_post);  
 		
 		return "myblog/myblogOnePost";
 	}
