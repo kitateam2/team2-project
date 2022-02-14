@@ -12,14 +12,14 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 <script>
-//삭제하기
+//게시글 삭제하기
 function bt_delete(post_no) {
 	if (confirm('삭제하시겠습니까?')) {
 		location.href = 'post_delete?post_no=${one_post.post_no}';
 	}
 }
 
-//리플 쓰기 폼 체크
+//댓글 쓰기 폼 체크
 function post_comment_form() {
 	var text = document.getElementById('post_comment_content');
 
@@ -30,6 +30,13 @@ function post_comment_form() {
 		return false;
 	}
 	return true;			
+}
+
+//댓글 삭제하기
+function post_comment_delete( post_comment_no, post_no){
+	if (confirm('리플을 삭제하시겠습니까?')){
+		location.href='post_comment_delete?post_comment_no=' + post_comment_no + '&post_no' + post_no;
+		}
 }
 
 </script>
@@ -94,18 +101,26 @@ function post_comment_form() {
 	<!-- 댓글 리스트 -->
 	<table>
 		<tr><th> 댓글 리스트 </th></tr>
-		<c:forEach var=post_comment items="">
-		<ul>
-			
-			<li>
-			  	<div>댓글 내용 오는 곳</div>
-			  	<div >
-				  	<div>작성자 : {이렇게 해서 글 쓴 사람}  </div>
-				  	<button class="badge">삭제</button>
-			  	</div>
-		  	</li>
-		  	
-		</ul>
+		<c:forEach var="post_comment" items="${post_comment_list}">
+		<tr>
+			<td>
+				${post_comment.post_comment_writter}
+			</td>
+			<td>
+				${post_comment.post_comment_content}
+			</td>
+			<td>
+				<c:if test="${loginId == post_comment.post_comment_writter}">
+					[<a href="javascript:replyEditForm(${post_comment.post_comment_no}, ${post_comment.post_no}, '${post_comment.post_comment_content}')">수정</a>]
+				</c:if>
+			</td>
+			<td>
+				<c:if test="${loginId == post_comment.post_comment_writter}">
+					[<a href="javascript:post_comment_delete(${post_comment.post_comment_no}, ${post_comment.post_no})">삭제</a>]
+				</c:if>
+			</td>
+		</tr>	
+		
 		</c:forEach>
 </table>
 </body>
