@@ -13,15 +13,28 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 <script>
 //삭제하기
-function deleteBoard() {
+function delete_board() {
 	if (confirm('삭제하시겠습니까?')) {
 		location.href = 'post_delete?post_no=${BlogPost.post_no}';
 	}
 }
 //수정하기
-function updateBoard() {
+function update_board() {
 	location.href = 'post_update?post_no=${BlogPost.post_no}';
 }
+
+//리플 쓰기 폼 체크
+function post_comment_form() {
+	var retext = document.getElementById('post_comment_content');
+	if (retext.value.length < 3) {
+		alert('리플 내용 3글자 이상 입력하세요.');
+		retext.focus();
+		retext.select();
+		return false;
+	}
+	return true;			
+}
+
 </script>
 	<title>게시글 상세보기</title>
 </head>
@@ -68,21 +81,30 @@ function updateBoard() {
 </tr>
 </c:if>
 <br><br>
-댓글 자리
 
-	<div class="card">
-		<div class="card-body"><textarea class="form-control" rows="1"></textarea></div>
-		<div class="card-footer"><button>댓글등록</button></div>
-	</div>
+<!-- 댓글 자리 -->
+<form class="card" id="post_comment_form" action="post_comment" method="post"  onsubmit="return post_comment_form">
+	<input type="hidden" name="post_no" value="${one_post.post_no} }"/>
+		<input type="hidden" name="post_comment_no" value="${postcomment.post_comment_no} }"/>
+	
+	<!-- 로그인 한 사람의 정보가 들어와야해 writter가 로그인 아이디라는 것을 컨트롤러에서 줘야해-->
+	<input type="hidden" name="post_comment_writter" value="${postcomment.post_comment_writter} }"/>
+	<input type="hidden" name="post_comment_date" value="${postcomment.post_comment_date} }"/>
+	
+	<div class="card-body"><textarea name="post_comment_content" id="post_comment_content" class="form-control" rows="1"></textarea></div>
+	<input type="submit" value="댓글등록" />
+</form>
 	
 	<br>
+	
+	<!-- 댓글 리스트 -->
 	<div class="card">
 		<div class="card-header">댓글 리스트</div>
 		<ul class="list-group">
 			<li class="list-group-item d-flex justify-content-between">
 			  	<div>댓글 내용 오는 곳</div>
 			  	<div class="d-flex">
-				  	<div>작성자 : {이렇게 해서 글 쓴 사라}  </div>
+				  	<div>작성자 : {이렇게 해서 글 쓴 사람}  </div>
 				  	<button class="badge">삭제</button>
 			  	</div>
 		  	</li>

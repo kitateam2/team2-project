@@ -20,6 +20,8 @@ public interface BlogPostMapper {
 
 	public ArrayList<PostComment> post_reply(int post_no);
 
+	public int post_comment_insert(PostComment postcomment);
+
 	
 
 }

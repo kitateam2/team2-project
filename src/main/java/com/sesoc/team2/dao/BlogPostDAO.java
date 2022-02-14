@@ -43,12 +43,20 @@ public class BlogPostDAO {
 		result = mapper.post_delete(blogpost);
 		return result;
 	}
+	
+	
+	//리플저장
+	public int post_comment_insert(PostComment postcomment) {
+		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
+		int result = mapper.post_comment_insert(postcomment);
+		return result;
+	}
 
+	//리플 리스트
 	public ArrayList<PostComment> post_reply(int post_no) {
 		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
 		ArrayList<PostComment> replylist = mapper.post_reply(post_no);
-
-		return null;
+		
+		return replylist;
 	}
-
 }
