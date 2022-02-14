@@ -17,58 +17,27 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
 </head>
 <body>
-	 <div class="container">
-	
-<header id="container">
-<div id="nav-bar">
-	<div id="nav-belt">
-		<div class="nav-left">
-			<div id="nav-logo">
-				<a href="home">GO</a>
-			</div>
+
+<div id="header" data-role="header" data-theme="a" style="text-align: center;">	
+		<div>
+			<a href="/blog/blogmain" class="ui-btn-left ui-btn ui-shadow ui-corner-all" data-role="button">블로그</a>
 		</div>
-		<div class="nav-fill">
-			<div id="nav-search">
-				<form id="nav-search-bar-form">
-					<div class="nav-left">
-						<a href="">ALL</a>
-					</div>
-					<div class="nav-fill">
-						<input type="text">
-					</div>
-					<div class="nav-right">
-						<button type="submit">Search</button>
-					</div>
-					
-				</form>
-			</div>
-		</div>
-		<div class="nav-right">
-			<div id="nav-tools">
-				<c:if test="${sessionScope.loginId == null}">
-				<a href="condition">sign up</a>
-				<a href="login">Log in</a>
-				</c:if>
-				<c:if test="${sessionScope.loginId != null}">
-				<a href="logout">Log out</a>
-				</c:if>
-				<a href="cart">Cart</a>
-			</div>
-		</div>
+		<div style="width: 30%; display: inline-block;">
+			<form id="pagingForm" method="get" action="${pageContext.request.contextPath}/blogmain">
+				<input type="hidden" name="page" id="page">
+				<input type="text" name="searchText" value="${searchText}" onkeypress="if( event.keyCode == 13 ){pagingFormSubmit(1);}" data-type="search">				
+			</form>
+		</div>		
+		
+		<a href="#panel" class="ui-btn-right ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-inline"></a>	
 	</div>
-	<div id="nav-main">
-	</div>
-</div>
-</header>
-</div>
 
 
 <c:if test="${sessionScope.loginId != null}">
@@ -108,25 +77,25 @@
     </thead>
     <tbody>
       <tr>
-        <td><img src="../resources/img/book/x9791130679822.jpg"></td>
+        <td><img src="resources/img/book/x9791130679822.jpg"></td>
         <td>Doe</td>
         <td>john@example.com</td>
         <td>Doe</td>
-        <td><img src="../resources/img/book/구매.jpg"></td>
+        <td><img src="resources/img/book/구매.JPG"></td>
       </tr>
       <tr>
-        <td><img src="../resources/img/book/x9791159095887.jpg"></td>
+        <td><img src="resources/img/book/x9791159095887.jpg"></td>
         <td>Moe</td>
         <td>mary@example.com</td>
         <td>Doe</td>
-        <td><img src="../resources/img/book/구매.jpg"></td>
+        <td><img src="resources/img/book/구매.JPG"></td>
       </tr>
       <tr>
-        <td><img src="../resources/img/book/x9791190885928.jpg"></td>
+        <td><img src="resources/img/book/x9791190885928.jpg"></td>
         <td>Dooley</td>
         <td>july@example.com</td>
         <td>Doe</td>
-        <td><img src="../resources/img/book/구매.jpg"></td>
+        <td><img src="resources/img/book/구매.JPG"></td>
       </tr>
     </tbody>
   </table>
