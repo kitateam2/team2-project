@@ -123,14 +123,13 @@
 
 쪽지 보내기
 <form id="message_new" action="new" method="post" onsubmit="return message_new_formCheck()">
-<input type="hidden" name="message_no" />
 <table  border="1">
 	<tr>
-		<td colspan="2">
+		<td>
 						<table  border="1">
 							<tr>
 								<td>발신인  </td>
-								<td colspan="2">로그인 아이디 고정하기</td>
+								<td colspan="2">${message_sent_id}</td>
 							</tr>
 							<tr>
 								<td>수신인  </td>
@@ -143,8 +142,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2"><textarea name="message_contents" id="message_contents" rows="20"  placeholder="전송 할 내용을 입력하세요. 나중에 기회가 있으면 첨부파일도 추가하기">
-						</textarea></td>
+		<td><textarea name="message_contents" id="message_contents" rows="20"></textarea></td>
 	</tr>
 	<tr><td><input type="submit" value="보내기"></td></tr>
 </table>

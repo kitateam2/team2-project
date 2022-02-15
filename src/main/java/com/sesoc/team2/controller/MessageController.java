@@ -26,7 +26,13 @@ public class MessageController {
 	
 	//쪽지로 이동
 			@RequestMapping(value = "window", method = RequestMethod.GET)
-			public String messageWindow() {
+			public String messageWindow(Message message
+										, HttpSession session
+										,  Model model) {
+				String id = (String) session.getAttribute("loginId");	
+				message.setMessage_sent_id(id);
+				model.addAttribute("message_sent_id", id);
+				logger.info("쪽지 qnddjresult: {}", id);
 				return "myblog/messageWindow"; //의문인 것이 블로그 메인이랑 메시지는 같은 위치에 잇는데 왜 앞에 마이블로그를 붙여줘야하지
 			}
 			
@@ -35,11 +41,15 @@ public class MessageController {
 			public String message_new(Message message
 										, HttpSession session
 										,  Model model) {
+				logger.info("쪽지 저장 me result: {}", message);
 				//보내는 사람의 정보 = 로그인 한 아이디
 				String id = (String) session.getAttribute("loginId");	
+				message.setMessage_sent_id(id);
 				
-				return "redirect:window"; //의문인 것이 블로그 메인이랑 메시지는 같은 위치에 잇는데 왜 앞에 마이블로그를 붙여줘야하지
+				int result = dao.message_new(message);
+				logger.info("쪽지 저장 result: {}", result);
+				return "myblog/messageWindow";
 			}
 	//쪽지 불러오기
-	
+	//쪽지를 불러오는 마지막 xml에 조건을 줘야해 받는 사람이 내가 되는 것들만 불러오게 
 }
