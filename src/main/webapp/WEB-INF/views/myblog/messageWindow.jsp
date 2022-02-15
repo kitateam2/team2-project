@@ -69,24 +69,24 @@
 쪽지 리스트
 
 <table  border="1">
-<tr><td> 메시지 목록</td></tr>
-<tr><td> 메시지 목록</td></tr>
-<tr><td> 메시지 목록</td></tr>
-<tr><td> 메시지 목록</td></tr>
-<tr><td> 메시지 목록</td></tr>
-<tr><td> 메시지 목록</td></tr>
-<tr><td> 메시지 목록</td></tr>
-<tr><td> 메시지 목록</td></tr>
-<tr><td> 메시지 목록</td></tr>
-<tr><td> 메시지 목록</td></tr>
+<c:forEach var="message_list" items="${message_list}">
+<div >
+<tr><td>보낸사람:  ${message_list.message_sent_id}</td>
+</tr>
+<tr><td>내용:  ${message_list.message_contents}</td>
+</tr>
+</div>
+</c:forEach>
 </table>
 
 
 </div><!-- 쪽지 리스트 div -->
 <div class="col-sm-8" style="background-color:lavenderblush;">
-쪽지 보이기 
 
 <table  border="1">
+쪽지 보이기 
+
+
 	<tr>
 		<td colspan="2">
 						<table  border="1">
@@ -96,24 +96,25 @@
 							</tr>
 							<tr>
 								<td>발신인 : </td>
-								<td colspan="2">로그인 아이디 고정하기</td>
+								<td colspan="2"></td>
 							</tr>
 							<tr>
 								<td>수신인 : </td>
-								<td>수신인 아이디 받아오기</td>
-								<td>시간 sys로</td>
+								<td></td>
+								<td></td>
 							</tr>
 						</table>
 		
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2">내용 받아오기 높이 사이즈 고정하게</td>
+		<td colspan="2"></td>
 	</tr>
 	<tr>
 		<td>첨부파일 : </td>
 		<td>파일목록불러오기</td>
 	</tr>
+
 </table>
 
 
@@ -129,7 +130,7 @@
 						<table  border="1">
 							<tr>
 								<td>발신인  </td>
-								<td colspan="2">${message_sent_id}</td>
+								<td colspan="2">${message_recv_id}</td>
 							</tr>
 							<tr>
 								<td>수신인  </td>

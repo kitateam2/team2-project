@@ -6,7 +6,7 @@
    <mapper namespace="com.sesoc.team2.dao.MessageMapper">
    
    <!-- 메시지를 쓰면 저장 -->
-   <insert id="message_new" parameterType="messageVO">
+   <insert id="message_new" parameterType="messageVO" >
    		insert into message(
    			message_no
    			,	message_sent_id
@@ -22,4 +22,20 @@
    			,	sysdate
    			)
    </insert>
+   
+   <select id="message_list" parameterType="String" resultType="messageVO">
+   	<!-- 로그인 한 값 받아와야해 그리고 또 값을 내보내야해 -->
+   		select
+   			message_no
+   			,	message_contents
+   			,	message_date
+   			, 	message_sent_id
+   			,	message_recv_id
+   		from
+   			message
+   		where
+   			message_recv_id=#{message_recv_id}
+   		order by
+   			message_no desc
+   </select>
    </mapper>
