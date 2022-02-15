@@ -168,14 +168,10 @@ CREATE TABLE MESSAGE
 (
 	-- 메세지 번호
 	message_no number DEFAULT 0 NOT NULL,
-	-- 받은 메세지
-	message_recv_contents varchar2(200) NOT NULL,
-	-- 보낸메세지
-	message_sent_contents varchar2(200) NOT NULL,
-	-- 메세지 받은 날짜
-	message_recv_date date DEFAULT sysdate NOT NULL,
+	-- 메세지 내용
+	message_contents varchar2(200) NOT NULL,
 	-- 메세지 보낸 날짜
-	message_sent_date date DEFAULT sysdate NOT NULL,
+	message_date date DEFAULT sysdate NOT NULL,
 	-- 메세지 보낸 아이디
 	message_sent_id varchar2(20) NOT NULL,
 	-- 메세지 받은 아이디
@@ -253,7 +249,7 @@ CREATE TABLE USER_INFO
 	-- 회원주소
 	user_address varchar2(200) NOT NULL,
 	-- 유저선호장르
-	user_genre varchar2(20),
+	user_genre varchar2(20) NOT NULL,
 	-- 유저 등급
 	-- 0-bronze
 	-- 1-silver
@@ -321,168 +317,126 @@ CREATE TABLE USER_WISHLIST
 ALTER TABLE POST_COMMENT
 	ADD FOREIGN KEY (post_no)
 	REFERENCES BLOG_POST (post_no)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE BOOK_INFO
 	ADD FOREIGN KEY (book_author_no)
 	REFERENCES BOOK_AUTHOR (book_author_no)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE BOOK_REVIEW
 	ADD FOREIGN KEY (book_isbn)
 	REFERENCES BOOK_INFO (book_isbn)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE CART_BOOK
 	ADD FOREIGN KEY (book_isbn)
 	REFERENCES BOOK_INFO (book_isbn)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE ORDER_DETAIL
 	ADD FOREIGN KEY (book_isbn)
 	REFERENCES BOOK_INFO (book_isbn)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE USER_WISHLIST
 	ADD FOREIGN KEY (book_isbn)
 	REFERENCES BOOK_INFO (book_isbn)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE BOOK_INFO
 	ADD FOREIGN KEY (book_public_no)
 	REFERENCES BOOK_PUBLIC (book_public_no)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE ORDER_DETAIL
 	ADD FOREIGN KEY (order_no)
 	REFERENCES ORDER_LIST (order_no)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE USER_PAY
 	ADD FOREIGN KEY (order_no)
 	REFERENCES ORDER_LIST (order_no)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE USER_TRANSFER
 	ADD FOREIGN KEY (order_no)
 	REFERENCES ORDER_LIST (order_no)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE CART_BOOK
 	ADD FOREIGN KEY (user_cart_no)
 	REFERENCES USER_CART (user_cart_no)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE BLOG_POST
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE EVENT
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
-	on delete cascade
-	on update cascade
-;
-
-
-ALTER TABLE FOLLOW_INFO
-	ADD FOREIGN KEY (follow_ed_id)
-	REFERENCES USER_INFO (user_id)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE FOLLOW_INFO
 	ADD FOREIGN KEY (folllow_ing_id)
 	REFERENCES USER_INFO (user_id)
-	on delete cascade
-	on update cascade
+;
+
+
+ALTER TABLE FOLLOW_INFO
+	ADD FOREIGN KEY (follow_ed_id)
+	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE MESSAGE
 	ADD FOREIGN KEY (message_sent_id)
 	REFERENCES USER_INFO (user_id)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE MESSAGE
 	ADD FOREIGN KEY (message_recv_id)
 	REFERENCES USER_INFO (user_id)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE ORDER_LIST
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE USER_CART
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE USER_REWARD_HISTORY
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
-	on delete cascade
-	on update cascade
 ;
 
 
 ALTER TABLE USER_WISHLIST
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
-	on delete cascade
-	on update cascade
 ;
 
 
@@ -532,10 +486,8 @@ COMMENT ON COLUMN FOLLOW_INFO.follow_ing IS '내가 할로우했을 때';
 COMMENT ON COLUMN MANAGER.manager_id IS '관리자 아이디';
 COMMENT ON COLUMN MANAGER.manager_pw IS '관리자 비밀번호';
 COMMENT ON COLUMN MESSAGE.message_no IS '메세지 번호';
-COMMENT ON COLUMN MESSAGE.message_recv_contents IS '받은 메세지';
-COMMENT ON COLUMN MESSAGE.message_sent_contents IS '보낸메세지';
-COMMENT ON COLUMN MESSAGE.message_recv_date IS '메세지 받은 날짜';
-COMMENT ON COLUMN MESSAGE.message_sent_date IS '메세지 보낸 날짜';
+COMMENT ON COLUMN MESSAGE.message_contents IS '메세지 내용';
+COMMENT ON COLUMN MESSAGE.message_date IS '메세지 보낸 날짜';
 COMMENT ON COLUMN MESSAGE.message_sent_id IS '메세지 보낸 아이디';
 COMMENT ON COLUMN MESSAGE.message_recv_id IS '메세지 받은 아이디';
 COMMENT ON COLUMN ORDER_DETAIL.book_isbn IS '책 인덱스
