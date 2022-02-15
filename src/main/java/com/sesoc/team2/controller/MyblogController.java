@@ -26,12 +26,6 @@ public class MyblogController {
 	@Autowired
 	BlogPostDAO dao;
 	//개인블로그의 메인 (글 목록 나열)(개인 정보 나열)(친구목록)
-	/*
-	 * @RequestMapping(value = "main", method = RequestMethod.GET) public String
-	 * myblog(Model model) { ArrayList<BlogPost> postlist =dao.postlist();
-	 * logger.info("DB에서 가져온 목록{}", postlist); model.addAttribute("postlist",
-	 * postlist); return "myblog/myblogMain"; }
-	 */
 	//(글 목록 나열) - 제목, 한줄, 날짜, 조회수 ??
 	//(개인정보 나열에 - 세션의 사진, 세션의 회원등급, 회원의 팔로우 수)
 	//(친구목록 나열에 - 세션으로 친구를 불러오는데 그 친구의 이름, 아이디)
@@ -98,7 +92,7 @@ public class MyblogController {
 		
 	}
 	
-	//리플저장
+	//게시글 댓글 저장
 	@RequestMapping (value="post_comment", method=RequestMethod.POST)
 	public String post_comment_insert(PostComment postcomment
 				                      , HttpSession session
@@ -114,8 +108,8 @@ public class MyblogController {
 	
 	
 	
-	//리플 불러오기 --는 게시글 상세보기에서 같이 실행
-	//리플 삭제
+	//게시글 댓글 불러오기 --는 게시글 상세보기에서 같이 실행
+	//게시글 댓글 삭제
 	@RequestMapping (value="post_comment_delete", method=RequestMethod.GET)
 	public String post_comment_delete(PostComment postcomment
 				                      , HttpSession session){
@@ -127,15 +121,10 @@ public class MyblogController {
 	return "redirect:one_post?post_no=" + postcomment.getPost_no();
 	}
 	
-	//쪽지로 이동
-		@RequestMapping(value = "messageWindow", method = RequestMethod.GET)
-		public String messageWindow() {
-			return "myblog/messageWindow"; //의문인 것이 블로그 메인이랑 메시지는 같은 위치에 잇는데 왜 앞에 마이블로그를 붙여줘야하지
-		}
-	
-	//댓글 작성(저장, 등록)
 	//댓글 좋아요
-	//댓글 삭제 (글을 쓴 사람만 지울 수 잇음, 블로그의 주인이 아니야, 주인도 바꿀 수 있게 할 것인가)
+
+	
+	
 	
 	//팔로우하기
 	//팔로우취소(한번 더 누르면?)- 누르기 전에는 팔로잉이라고 뜨기

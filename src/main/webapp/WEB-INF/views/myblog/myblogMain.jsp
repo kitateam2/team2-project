@@ -55,7 +55,7 @@
 		<tr><td>회원등급 이모티콘</td>
 			<td>팔로우 수 가지고 오기</td></tr>
 		<tr><td colspan="2">팔로우 버튼</td></tr>
-		<tr><td colspan="2"><a href="messageWindow">쪽지로 이동</a></td></tr>
+		<tr><td colspan="2"><a href="message/Window">쪽지로 이동</a></td></tr>
 	</table>
 </div>
 
@@ -73,7 +73,6 @@
 <!-- 카테고리 한덩어리(글 목록들을 보여줄지 카테고리로 이미지를 보여줄지) -->
 </div>
 
-<a href="test">임시 테스트</a>
 
 
 </body>
