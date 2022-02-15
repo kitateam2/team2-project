@@ -28,5 +28,10 @@ public class CartDAO {
 		return result;
 		
 	}
+	public ArrayList<cart_book> select(String cart_book_no) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		ArrayList<cart_book> list = mapper.list(cart_book_no);
+		return list;
+	}
 
 }

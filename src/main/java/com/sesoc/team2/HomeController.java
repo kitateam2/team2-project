@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 /**
  * Handles requests for the application home page.
@@ -41,17 +41,6 @@ public class HomeController {
 		return "book/searchPage";
 	}
 	
-	@RequestMapping (value="list", method=RequestMethod.GET)
-	public String list(
-			@RequestParam(value="page", defaultValue="1") int page
-			, @RequestParam(value="searchText", defaultValue="") String searchText
-			, Model model) {
-		
-		logger.debug("page: {}, searchText: {}", page, searchText);
-		//ArrayList<cart_book> list = dao.list(searchText, navi.getStartRecord(), navi.getCountPerPage());	
-		//model.addAttribute("list", list);
-		
-		return "boardjsp/boardList";
-	}
+	
 	
 }

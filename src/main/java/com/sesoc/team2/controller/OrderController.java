@@ -35,6 +35,7 @@ CartDAO dao;
 	@RequestMapping(value = "ajaxcart", method = RequestMethod.POST)
 	public String list(cart_book cart_book1) {
 		logger.info("전달된 장바구니 데이터: {}", cart_book1);
+		//세션의 ID읽어서 장바구니 번호 검색해서 cart_book1에 저장
 		//dao.insert(cart_book1);
 		return "1";
 	}
