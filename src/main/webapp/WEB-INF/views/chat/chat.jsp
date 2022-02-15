@@ -21,7 +21,7 @@
 <script>
 var url;
 var sock;
-
+var id;
 $(document).ready(function() {
 	openSession();
 	$('#sendBt').on('click', sendMessage);
@@ -31,6 +31,8 @@ $(document).ready(function() {
 //웹 소켓 오픈
 function openSession() {
 	url = 'ws://192.168.137.1:8888/team2/chat';
+	id = ${id};
+	url += id;
 	sock = new WebSocket(url);
 	sock.onopen = function() {
 		alert('Open');

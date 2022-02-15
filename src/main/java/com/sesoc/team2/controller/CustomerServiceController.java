@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -28,9 +29,16 @@ public class CustomerServiceController {
 	 * 채팅 화면으로 이동
 	 */
 	@RequestMapping(value="chatView", method=RequestMethod.GET)
-	public String chatView() {
+	public String chatView(HttpSession session, Model model) {
+		String id = (String)session.getAttribute("loginId");
+		model.addAttribute("id",id);
 		return "chat/chat";
 	}
 	
+	//stomp
+	@RequestMapping(value="chatView1", method=RequestMethod.GET)
+	public String chatting() {
+		return "chat/chatting";
+	}
 	
 }
