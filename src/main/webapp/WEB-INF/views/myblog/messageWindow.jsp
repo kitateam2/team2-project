@@ -2,7 +2,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%
+	Date nowTime = new Date();
+	SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh시 mm분 ss초");
+	SimpleDateFormat sf2 = new SimpleDateFormat("yyyy/ MM/ dd hh:mm:ss a");
+%>
 <html>
 <head>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -16,7 +22,30 @@
 	
 	<script>
 		function message_new_formCheck(){
+			var message_recv_id = document.getElementById('message_recv_id');
+			var message_contents = document.getElementById('message_contents');
+			
+			if (message_recv_id.value == '') {
+				alert("받으시는 분 아이디를 입력하세요.");
+				message_recv_id.focus();
+				message_recv_id.select();
+				return false;
+			}
+			if (message_recv_id.value.length < 3) {
+				alert("ID는 3자 이상 일 것 같아요, 확인 후 다시 입력하세요.");
+				message_recv_id.focus();
+				message_recv_id.select();
+				return false;
+			}
+			if (message_contents.value == '') {
+				alert("내용을 입력하세요.");
+				message_contents.focus();
+				message_contents.select();
+				return false;
+			}
 
+			alert("<%= sf.format(nowTime) %>에 님께 쪽지를 전송합니다.");
+			return true;
 			}
 	</script>
 	<title>Home</title>
@@ -93,35 +122,31 @@
 <div>
 
 쪽지 보내기
-<form id="message_new" action="message/new" metod="post" onsubmit="message_new_formCheck()">
+<form id="message_new" action="new" method="post" onsubmit="return message_new_formCheck()">
+<input type="hidden" name="message_no" />
 <table  border="1">
 	<tr>
 		<td colspan="2">
 						<table  border="1">
 							<tr>
-								<td>제목 : </td>
-								<td colspan="2"><input type="text" id=""/>어떤 내용의 앞부분 조금만 가지고 올 수 없나 제목 받아오기</td>
-							</tr>
-							<tr>
-								<td>발신인 : </td>
+								<td>발신인  </td>
 								<td colspan="2">로그인 아이디 고정하기</td>
 							</tr>
 							<tr>
-								<td>수신인 : </td>
-								<td>수신인 아이디 받아오기</td>
-								<td>시간 sys로</td>
+								<td>수신인  </td>
+								<td><input type="text" name="message_recv_id" id="message_recv_id" placeholder="받는 분 아이디"/>
+									</td>
+								<td><%= sf2.format(nowTime) %></td>
 							</tr>
 						</table>
 		
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2">내용 받아오기 높이 사이즈 고정하게</td>
+		<td colspan="2"><textarea name="message_contents" id="message_contents" rows="20"  placeholder="전송 할 내용을 입력하세요. 나중에 기회가 있으면 첨부파일도 추가하기">
+						</textarea></td>
 	</tr>
-	<tr>
-		<td>첨부파일 : </td>
-		<td>인풋으로 파일 받아오기</td>
-	</tr>
+	<tr><td><input type="submit" value="보내기"></td></tr>
 </table>
 </form><!-- 쪽지 보내기 폼 -->
 
