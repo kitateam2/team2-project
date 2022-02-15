@@ -18,5 +18,4 @@
 	</websocket:handlers>	
 	
 	<bean id="chatHandler" class="com.sesoc.team2.controller.ChatHandler" />
-
 </beans>

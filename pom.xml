@@ -184,6 +184,8 @@
 		    <artifactId>spring-integration-stomp</artifactId>
 		    <version>5.3.2.RELEASE</version>
 		</dependency>  
+		
+
 	</dependencies>
     <build>
         <plugins>

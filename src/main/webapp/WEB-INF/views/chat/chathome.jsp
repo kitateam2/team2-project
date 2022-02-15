@@ -16,6 +16,7 @@
 
 <ol>
 	<li><a href="chatView">WebSocket을 이용한 메시지 전송</a>
+	<li><a href="chatView1">WebSocket과 sockjs, stomp이용한 메세지 전송</a>
 </ol>
 
 </body>
