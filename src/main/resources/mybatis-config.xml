@@ -8,11 +8,13 @@
 		<typeAlias type="com.sesoc.team2.vo.BlogPost" alias="BlogPostVO"/> 
 		<typeAlias type="com.sesoc.team2.vo.PostComment" alias="PostCommentVO"/> 
 		<typeAlias type="com.sesoc.team2.vo.cart_book" alias="cart_bookVO"/> 
+		<typeAlias type="com.sesoc.team2.vo.Message" alias="messageVO"/> 
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mapper/membermapper.xml" />
 		<mapper resource="mapper/BlogPostMapper.xml" />
 		<mapper resource="mapper/cartmapper.xml" />
+		<mapper resource="mapper/messageMapper.xml" />
 	</mappers>
 </configuration>
