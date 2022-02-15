@@ -50,31 +50,33 @@ public class MyblogController {
 
 		return "myblog/myblogWrite";
 	}
+	
+	
 	//게시글 읽기(전체 페이지, 1개 불러오기)
 	@RequestMapping(value = "one_post", method = RequestMethod.GET) 
 	public String one_post(int post_no, Model model) {
-		//전달된 글 번호로 해장 글정보를 읽기
-		BlogPost one_post = dao.one_post(post_no);
-		
-		//해당 번호의 글이 없으면 글목록으로 이동
-		if (one_post == null) {
-			return "redirect:myblog/myblogMain";
-		}
-		
-		
-		//해당 글에 달린 리플목록 읽기
-		ArrayList<PostComment> post_comment_list = dao.post_comment_list(post_no);
-		
-		
-		//글 정보를 모델에 저장?
-		model.addAttribute("one_post", one_post);
-		//아이디를 따로 입력하지 않아도 자동으로 로그인 한 값이 들어가게 하는 코드
-		model.addAttribute("post_id", one_post.getUser_id());
-		//리플을 모델에 저장
-		model.addAttribute("post_comment_list", post_comment_list);
-		logger.info("결과 값 one_post: ", one_post.getPost_no());  
-		logger.info("결과는 컨트롤러에 댓글 리스트: ");
-		return "myblog/myblogOnePost";
+			//전달된 글 번호로 해장 글정보를 읽기
+			BlogPost one_post = dao.one_post(post_no);
+			
+			//해당 번호의 글이 없으면 글목록으로 이동
+			if (one_post == null) {
+				return "myblog/myblogMain";
+			} //목록에서 누르는 거니까 이게 사실 없어도 되는 건가?
+			
+			
+			//해당 글에 달린 리플목록 읽기
+			ArrayList<PostComment> post_comment_list = dao.post_comment_list(post_no);
+			
+			
+			//글 정보를 모델에 저장?
+			model.addAttribute("one_post", one_post);
+			//아이디를 따로 입력하지 않아도 자동으로 로그인 한 값이 들어가게 하는 코드
+			model.addAttribute("post_id", one_post.getUser_id());
+			//리플을 모델에 저장
+			model.addAttribute("post_comment_list", post_comment_list);
+			logger.info("결과 값 one_post: ", one_post.getPost_no());  
+			logger.info("결과는 컨트롤러에 댓글 리스트: ");
+			return "myblog/myblogOnePost";
 	}
 	
 	
@@ -110,7 +112,7 @@ public class MyblogController {
 	
 	//게시글 댓글 불러오기 --는 게시글 상세보기에서 같이 실행
 	//게시글 댓글 삭제
-	@RequestMapping (value="post_comment_delete", method=RequestMethod.GET)
+	@RequestMapping (value="post_comment_delete", method=RequestMethod.GET) 
 	public String post_comment_delete(PostComment postcomment
 				                      , HttpSession session){
 		/* 로그인한 사람의 정보를 저장 */
@@ -118,6 +120,7 @@ public class MyblogController {
 		postcomment.setPost_comment_writter(id);
 		
 		dao.post_comment_delete(postcomment);
+		logger.info("ㅇㅇ{}", postcomment.getPost_no());
 	return "redirect:one_post?post_no=" + postcomment.getPost_no();
 	}
 	

@@ -10,6 +10,12 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+function message_window(){
+	var w = window.open('../message/window', '메시지', 'top=200,left=500,width=1200,height=600');
+}
+</script>
+
 <title>Home</title>
 </head>
 <body>
@@ -55,7 +61,7 @@
 		<tr><td>회원등급 이모티콘</td>
 			<td>팔로우 수 가지고 오기</td></tr>
 		<tr><td colspan="2">팔로우 버튼</td></tr>
-		<tr><td colspan="2"><a href="message/Window">쪽지로 이동</a></td></tr>
+		<tr><td colspan="2" ><button onclick="message_window()">쪽지로 이동</button></td></tr>
 	</table>
 </div>
 

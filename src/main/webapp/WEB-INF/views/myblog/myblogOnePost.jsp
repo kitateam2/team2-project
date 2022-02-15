@@ -35,7 +35,7 @@ function post_comment_form() {
 //댓글 삭제하기
 function post_comment_delete( post_comment_no, post_no){
 	if (confirm('리플을 삭제하시겠습니까?')){
-		location.href='post_comment_delete?post_comment_no=' + post_comment_no + '&post_no' + post_no;
+		location.href='post_comment_delete?post_comment_no=' + post_comment_no + '&post_no=' + post_no;
 		}
 }
 
