@@ -21,7 +21,9 @@ public class CustomerServiceController {
 	 * 메인 화면으로 이동
 	 */
 	@RequestMapping(value = "/chathome", method = RequestMethod.GET)
-	public String home() {
+	public String home(HttpSession session, Model model) {
+		String id = (String)session.getAttribute("loginId");
+		logger.info("챗홈{}",id);
 		return "chat/chathome";
 	}
 	
@@ -31,7 +33,7 @@ public class CustomerServiceController {
 	@RequestMapping(value="chatView", method=RequestMethod.GET)
 	public String chatView(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("loginId");
-		model.addAttribute("id",id);
+		logger.info("챗뷰{}",id);
 		return "chat/chat";
 	}
 	

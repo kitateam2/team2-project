@@ -21,7 +21,6 @@ public class ChatHandler extends AbstractWebSocketHandler {
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		logger.info("세션 오픈 : {}, ID: {}", session.getLocalAddress(), session.getId());
-		logger.info("세션 전체 : {}", session);
 		list.add(session);		//연결된 세션들을 보관
 		logger.info(list.toString());
 	}

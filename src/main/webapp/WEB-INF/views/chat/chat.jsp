@@ -31,8 +31,6 @@ $(document).ready(function() {
 //웹 소켓 오픈
 function openSession() {
 	url = 'ws://192.168.137.1:8888/team2/chat';
-	id = ${id};
-	url += id;
 	sock = new WebSocket(url);
 	sock.onopen = function() {
 		alert('Open');
@@ -42,6 +40,7 @@ function openSession() {
 	}
 	sock.onmessage = receiveMessage;
 }
+
 
 //입력란에서 엔터쳤을 때 서버로 메시지 전송
 function textKeyPress(event) {
@@ -62,7 +61,7 @@ function receiveMessage(msg) {
 </script>
 </head>
 <body>
-
+<p>${sessionScope.loginId}세션아이디</p>
 <div id="outputDiv"></div>
 
 <input type="text" id="text">

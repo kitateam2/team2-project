@@ -50,6 +50,7 @@ public class MemberController {
 		
 		if (resultMember != null && member.getUser_pw().equals(resultMember.getUser_pw())) {
 			session.setAttribute("loginId", member.getUser_id());
+			logger.info("{}",session.getAttribute("loginId"));
 		}
 		return "redirect:/";
 	}
