@@ -31,12 +31,13 @@ function bt1Click(n){
 	$.ajax({
 		url:'ajaxcart',
 		type:'post',
-		data: {cart_book_no: n},
+		data: {book_isbn: n},
 		dataType:'text',
 		success: function() { alert('장바구니에 담았습니다.'); },
 		error: function() { alert('error'); }
 	});
 }
+</script>
 
 function pagingFormSubmit(currentPage) {
 	var form = document.getElementById('pagingForm');
@@ -369,6 +370,9 @@ function pagingFormSubmit(currentPage) {
 	</div>
 
 
+        <c:forEach var="cart" items="${Cart_book1}">
+		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
+		</c:forEach>	
 </div> <!-- box3 -->
 
 <div class="card-footer">Footer</div>

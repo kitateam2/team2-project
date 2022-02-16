@@ -7,7 +7,6 @@ int cart_book_count;
 String book_isbn;
 int user_cart_no;
 public cart_book() {
-	super();
 }
 public int getCart_book_no() {
 	return cart_book_no;

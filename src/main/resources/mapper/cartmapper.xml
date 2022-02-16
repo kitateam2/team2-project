@@ -6,13 +6,35 @@
 <mapper namespace="com.sesoc.team2.dao.CartMapper">
 
 
-<select id ="list" parameterType="string">
-	select * from cart_book where cart_book_no
-	,cart_book_inputdate
-	,cart_book_count
-	,book_isbn
-	,user_cart_no = #{cart_book_no},#{cart_book_inputdate},#{cart_book_count},#{user_cart_no}
-	</select>
+<select id ="list" resultType="cart_bookVO">
+	select * from book_info
+</select>
+
+<select id ="selectbook" parameterType="String" resultType="String" >
+select book_isbn from book_info where book_isbn = #{book_isbn}
+</select>
+
+<select id ="selectuser_cart_no" parameterType="String" resultType="int">
+select user_cart_no from USER_cart where user_id = #{user_id1}
+</select> 
+
+<insert id ="insertcart_book" parameterType="cart_bookVO">
+insert into cart_book 
+(
+cart_book_no
+,cart_book_inputdate
+,cart_book_count
+,book_isbn
+,user_cart_no
+)
+values (
+cart_book_seq.nextval
+,sysdate
+,4
+,#{book_isbn}
+,#{user_cart_no}
+)
+</insert>
 
 
 

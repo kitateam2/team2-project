@@ -10,6 +10,7 @@
 		<typeAlias type="com.sesoc.team2.vo.cart_book" alias="cart_bookVO"/> 
 		<typeAlias type="com.sesoc.team2.vo.Message" alias="messageVO"/>
 		<typeAlias type="com.sesoc.team2.vo.BlogMain" alias="BlogMain" /> 
+		
 	</typeAliases>
 	
 	<mappers>

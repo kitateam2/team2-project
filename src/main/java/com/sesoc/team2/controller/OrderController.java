@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sesoc.team2.dao.CartDAO;
+import com.sesoc.team2.vo.User_infoVO;
 import com.sesoc.team2.vo.cart_book;
 
 
@@ -26,29 +27,31 @@ import com.sesoc.team2.vo.cart_book;
 
 @Controller
 public class OrderController {
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
 @Autowired
 CartDAO dao;	
 	
 	@ResponseBody
 	@RequestMapping(value = "ajaxcart", method = RequestMethod.POST)
-	public String list(cart_book cart_book1) {
-		logger.info("전달된 장바구니 데이터: {}", cart_book1);
-		//세션의 ID읽어서 장바구니 번호 검색해서 cart_book1에 저장
-		//dao.insert(cart_book1);
-		return "1";
+	public String list(HttpSession session,String book_isbn) {
+		String user_id1 = (String) session.getAttribute("loginId");
+		int user_cart_no = dao.selectuser_cart_no(user_id1);
+		logger.info("카트넘버{}",user_cart_no);
+		String bookisbn = dao.selectbook(book_isbn);
+		logger.info("북isbn{}",bookisbn);
+		cart_book book = new cart_book();;
+		book.setUser_cart_no(user_cart_no);
+		book.setBook_isbn(bookisbn);
+		logger.info("book{}",book);
+		dao.insert(book);
+		return "cart/cartForm";
 	}
 
-@RequestMapping(value = "cart", method = RequestMethod.GET)
-	public String list(cart_book cart_book1, HttpSession session) {
-		String id = (String) session.getAttribute("loginId");
-		ArrayList<cart_book> list = dao.listcart(id);
+	@RequestMapping(value = "cart", method = RequestMethod.GET)
+	public String list(cart_book cart_book1) {
 	
-		return "cart/cartForm";
-		
-		
-		
+		return "cart/cartForm";	
 	}
 	
 	

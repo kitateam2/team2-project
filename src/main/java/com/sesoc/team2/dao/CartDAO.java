@@ -17,21 +17,38 @@ public class CartDAO {
 	@Autowired
 	SqlSession sqlSession;
 	
-	public ArrayList<cart_book> listcart(String user_id) {
-		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
-		ArrayList<cart_book> list = mapper.list(user_id);
-		return list;
-	}
+	/*
+	 * public ArrayList<cart_book> listcart(String user_id) { CartMapper mapper =
+	 * sqlSession.getMapper(CartMapper.class); ArrayList<cart_book> list =
+	 * mapper.list(user_id); return list; }
+	 */
 	public int insert(cart_book cart_book1) {
 		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
 		int result = mapper.insertcart_book(cart_book1);
 		return result;
 		
 	}
-	public ArrayList<cart_book> select(String cart_book_no) {
+	public ArrayList<cart_book> select() {
 		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
-		ArrayList<cart_book> list = mapper.list(cart_book_no);
+		ArrayList<cart_book> list = mapper.list();
 		return list;
 	}
+	
+	 public ArrayList<cart_book> listcart() { 
+		 CartMapper mapper = sqlSession.getMapper(CartMapper.class); 
+		 ArrayList<cart_book> list = mapper.list(); 
+		 return list; 
+		 }
+	public String selectbook(String book_isbn) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class); 
+		String result = mapper.selectbook(book_isbn);
+		return result;
+	}
+	public int selectuser_cart_no(String user_id1) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.selectuser_cart_no(user_id1);
+		return result;
+	}
+
 
 }
