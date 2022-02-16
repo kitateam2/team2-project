@@ -81,29 +81,6 @@ function pagingFormSubmit(currentPage) {
 	</table>
 	</div> <!-- navigation bar -->
 
-
-<<<<<<< HEAD
-<c:if test="${sessionScope.loginId != null}">
-		<div style="max-width: 23ex;position: relative; left: 1090px;">
-		${sessionScope.loginId}님 환영합니다.</div>
-		</c:if>
-		
-<c:if test="${sessionScope.loginId != null}">		
-
-<div style="max-width: 23ex; border: solid red; position: relative; left: 1090px; top: 24px;">
-<a href="myblog" style="color:red;">개인 블로그</a>
-<a href="myblog/main" style="color:red;">개인 블로그</a>
-<a href="blogmain" style="color:red;">블로그 메인</a>
-<a href="bookInfo" style="color:red;">책 상세정보</a>
-<a href="blogmain" style="color:red;">고객센터</a>
-<a href="bookInfo" style="color:red;">책 상세정보</a>
-
-
-</c:if>
-</div>
-=======
->>>>>>> BookController
-
 <div class="container">
 	<div class="row">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
