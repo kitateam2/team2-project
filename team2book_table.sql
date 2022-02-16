@@ -50,9 +50,10 @@ CREATE TABLE BLOG_POST
 
 CREATE TABLE BOOK_AUTHOR
 (
-	book_author_no number DEFAULT 0 NOT NULL,
+	-- 저자
+	book_author varchar2(50) DEFAULT '0' NOT NULL,
 	book_author_name varchar2(20) NOT NULL,
-	PRIMARY KEY (book_author_no)
+	PRIMARY KEY (book_author)
 );
 
 
@@ -74,17 +75,20 @@ CREATE TABLE BOOK_INFO
 	-- 책 이미지 저장
 	-- 저장은 서버 컴퓨터에
 	book_image varchar2(50),
-	book_author_no number DEFAULT 0 NOT NULL,
-	book_public_no number DEFAULT 0 NOT NULL,
+	-- 저자
+	book_author varchar2(50) NOT NULL,
+	-- 출판사
+	book_public varchar2(50) NOT NULL,
 	PRIMARY KEY (book_isbn)
 );
 
 
 CREATE TABLE BOOK_PUBLIC
 (
-	book_public_no number DEFAULT 0 NOT NULL,
+	-- 출판사
+	book_public varchar2(50) DEFAULT '0' NOT NULL,
 	book_public_name varchar2(30) NOT NULL,
-	PRIMARY KEY (book_public_no)
+	PRIMARY KEY (book_public)
 );
 
 
@@ -383,13 +387,13 @@ ALTER TABLE EVENT
 
 
 ALTER TABLE FOLLOW_INFO
-	ADD FOREIGN KEY (folllow_ing_id)
+	ADD FOREIGN KEY (follow_ed_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE FOLLOW_INFO
-	ADD FOREIGN KEY (follow_ed_id)
+	ADD FOREIGN KEY (folllow_ing_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
@@ -441,6 +445,7 @@ COMMENT ON COLUMN BLOG_POST.post_hits IS '게시글 추천';
 COMMENT ON COLUMN BLOG_POST.post_originalfile IS '업로드된 파일';
 COMMENT ON COLUMN BLOG_POST.post_savedfile IS '저장된 파일';
 COMMENT ON COLUMN BLOG_POST.user_id IS '회원ID';
+COMMENT ON COLUMN BOOK_AUTHOR.book_author IS '저자';
 COMMENT ON COLUMN BOOK_INFO.book_isbn IS '책 인덱스
 ';
 COMMENT ON COLUMN BOOK_INFO.book_title IS '책 제목';
@@ -449,6 +454,9 @@ COMMENT ON COLUMN BOOK_INFO.book_inputdate IS '책 입고날짜';
 COMMENT ON COLUMN BOOK_INFO.book_reward IS '책 구매시 주는 포인트';
 COMMENT ON COLUMN BOOK_INFO.book_image IS '책 이미지 저장
 저장은 서버 컴퓨터에';
+COMMENT ON COLUMN BOOK_INFO.book_author IS '저자';
+COMMENT ON COLUMN BOOK_INFO.book_public IS '출판사';
+COMMENT ON COLUMN BOOK_PUBLIC.book_public IS '출판사';
 COMMENT ON COLUMN BOOK_REVIEW.book_review_no IS '책 리뷰 번호';
 COMMENT ON COLUMN BOOK_REVIEW.book_review_writer IS '책 리뷰 작성자';
 COMMENT ON COLUMN BOOK_REVIEW.book_review_short IS '책 한줄리뷰';
