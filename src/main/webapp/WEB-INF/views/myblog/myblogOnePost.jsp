@@ -34,7 +34,7 @@ function post_comment_form() {
 
 //댓글 삭제하기
 function post_comment_delete( post_comment_no, post_no){
-	if (confirm('리플을 삭제하시겠습니까?')){
+	if (confirm('댓글을 삭제하시겠습니까?')){
 		location.href='post_comment_delete?post_comment_no=' + post_comment_no + '&post_no=' + post_no;
 		}
 }
@@ -81,7 +81,7 @@ function post_comment_delete( post_comment_no, post_no){
 <c:if test="${sessionScope.loginId == one_post.user_id}">
 <tr>
 	<th colspan="2" style="height:50px;">
-		<input id="btUpdate" type="button" value="수정">
+			<a href="javascript:bt_edit(${one_post.post_no})">수정</a>
 			<a href="javascript:bt_delete(${one_post.post_no})">삭제</a>
 		
 	</th>

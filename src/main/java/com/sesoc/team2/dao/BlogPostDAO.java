@@ -74,4 +74,11 @@ public class BlogPostDAO {
 		int result = mapper.post_comment_delete(postcomment);
 		return result;
 	}
+
+	public int post_edit(BlogPost blogpost) {
+		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
+		int result = mapper.post_edit(blogpost);
+		return result;
+	}
+
 }

@@ -24,6 +24,9 @@ public interface BlogPostMapper {
 
 	public int post_comment_delete(PostComment postcomment);
 
+	public int post_edit(BlogPost blogpost);
+
+
 	
 
 }

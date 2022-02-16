@@ -8,6 +8,7 @@ public interface MessageMapper {
 
 	public int message_new(Message message);
 
-	public ArrayList<Message> message_list(String message_recv_id);
+	public ArrayList<Message> message_list();
+
 
 }

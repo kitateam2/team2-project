@@ -94,6 +94,36 @@ public class MyblogController {
 		
 	}
 	
+	//게시글 수정 폼으로 이동
+	@RequestMapping (value="post_edit", method=RequestMethod.GET)
+	public String myblog_edit(int post_no, Model model, HttpSession session) {
+
+		BlogPost blogpost = dao.one_post(post_no);
+		model.addAttribute("blogpost", blogpost);
+		
+		return "myblog/myblogEdit";
+	}
+	
+	//게시글 수정하기
+	@RequestMapping (value="post_edit", method=RequestMethod.POST)
+	public String post_edit(BlogPost blogpost, HttpSession session) {
+		//본인글인지 확인
+		String user_id = (String) session.getAttribute("loginId");
+		BlogPost old_blogpost = dao.one_post(blogpost.getPost_no());
+		//만약에 가지고 온 값이 없거나 내 글이 아니면 리스트로 돌아가라
+		if( old_blogpost == null || !old_blogpost.getUser_id().equals(user_id)) {
+			return "redirect: one_post";
+		}
+		
+		//맞으면
+		blogpost.setUser_id(user_id);
+		int result = dao.post_edit(blogpost);
+		
+		logger.info("수정된 값{}", result);
+		
+		return "redirect:one_post?post_no=" + blogpost.getPost_no();
+	}
+	
 	//게시글 댓글 저장
 	@RequestMapping (value="post_comment", method=RequestMethod.POST)
 	public String post_comment_insert(PostComment postcomment
@@ -126,8 +156,19 @@ public class MyblogController {
 	
 	//댓글 좋아요
 
-	
-	
+	//댓글 수정
+	@RequestMapping (value="post_comment_edit", method=RequestMethod.POST)
+	public String post_comment_edit(HttpSession session, PostComment postcomment) {
+		
+		//삭제할 리플 정보와 본인 글인지 확인할 로그인아이디
+		String id = (String) session.getAttribute("loginId");
+		postcomment.setPost_comment_writter(id);
+		
+		//리플  수정 처리
+		dao.post_comment_edit(postcomment);
+		//원래의 글읽기 화면으로 이동 
+		return "redirect:one_post?post_no=" + postcomment.getPost_no();
+	}
 	
 	//팔로우하기
 	//팔로우취소(한번 더 누르면?)- 누르기 전에는 팔로잉이라고 뜨기

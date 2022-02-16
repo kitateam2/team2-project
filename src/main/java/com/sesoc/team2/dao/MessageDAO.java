@@ -28,8 +28,9 @@ public class MessageDAO {
 
 	public ArrayList<Message> message_list(String message_recv_id) {
 		MessageMapper mapper = sqlSession.getMapper(MessageMapper.class);
-		ArrayList<Message> message_list = mapper.message_list(message_recv_id);
+		ArrayList<Message> message_list = mapper.message_list();
 		return message_list;
 	}
+
 
 }
