@@ -14,13 +14,13 @@ import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 public class ChatHandler extends AbstractWebSocketHandler {
 	private static final Logger logger = LoggerFactory.getLogger(ChatHandler.class);
 
-	
 	//채팅에 참여한 클라이언트들과의 연결
 	ArrayList<WebSocketSession> list = new ArrayList<>();
 	
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		logger.info("세션 오픈 : {}, ID: {}", session.getLocalAddress(), session.getId());
+		logger.info("세션 전체 : {}", session);
 		list.add(session);		//연결된 세션들을 보관
 		logger.info(list.toString());
 	}
@@ -37,7 +37,8 @@ public class ChatHandler extends AbstractWebSocketHandler {
 		logger.info("서버측 수신 : {}, ID: {}", message.getPayload(), session.getId());
 		Map<String, Object> map = session.getAttributes();
 	    String userId = (String)map.get("userId");
-	    
+	    //handshakerinterceptor에서 사용자와 방에대한 정보를 가져와서 list를 다뿌리는게 아니라 조건을 줘야됨
+	    //결국 아래 for문을 뿌셔야된다.
 		TextMessage msg = new TextMessage(userId + ": " + message.getPayload());
 		for(WebSocketSession ss: list) {
 			ss.sendMessage(msg);

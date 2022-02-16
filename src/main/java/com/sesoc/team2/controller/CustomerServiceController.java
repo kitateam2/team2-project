@@ -37,10 +37,6 @@ public class CustomerServiceController {
 		return "chat/chat";
 	}
 	
-	//stomp
-	@RequestMapping(value="chatView1", method=RequestMethod.GET)
-	public String chatting() {
-		return "chat/chatting";
-	}
+
 	
 }
