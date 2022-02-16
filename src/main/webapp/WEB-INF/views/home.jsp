@@ -74,7 +74,7 @@ function pagingFormSubmit(currentPage) {
 			<c:if test="${sessionScope.loginId != null}">
 				<td class="class_item2"><a href="logout">로그아웃</a></td><td>&nbsp;</td>
 				<td class="class_item2"><a href="cart">장바구니</a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="myblog" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="myblog/main" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
 				<td class="class_item3">${sessionScope.loginId}님 환영합니다.</td>
 			</c:if>
 		</tr>	
