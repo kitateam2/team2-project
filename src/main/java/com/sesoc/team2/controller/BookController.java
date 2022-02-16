@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import com.sesoc.team2.vo.BookDB;
 import com.sesoc.team2.vo.BookReview;
 import com.sesoc.team2.vo.PostComment;
 
+@Controller
 public class BookController {
 
 private static final Logger logger = LoggerFactory.getLogger(BookController.class);
@@ -43,11 +45,11 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	public String insert(BookReview review, HttpSession session, Model model) {
 		/* 로그인한 사람들 정보 저장 */
 		String id = (String) session.getAttribute("loginId");
-		logger.info("컨트롤러{}", id);
+		logger.info("컨트롤러 id체크{}", id);
 		review.setBook_review_writer(id);
 		logger.info("컨트롤러{}", review);
 		bookdao.insert(review);
-		return "home"; //나중에 고치기!!!!!!!
+		return "redirect:bookInfo"; //나중에 고치기!!!!!!!
 	}
 
 
