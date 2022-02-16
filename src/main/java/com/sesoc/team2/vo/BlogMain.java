@@ -6,6 +6,7 @@ public class BlogMain {
 	String post_title;
 	String post_contents;
 	String post_uploaddate;
+	int post_hits;
 	String post_originalfile;
 	String post_savedfile;
 	
@@ -50,6 +51,14 @@ public class BlogMain {
 
 	public void setPost_uploaddate(String post_uploaddate) {
 		this.post_uploaddate = post_uploaddate;
+	}
+
+	public int getPost_hits() {
+		return post_hits;
+	}
+
+	public void setPost_hits(int post_hits) {
+		this.post_hits = post_hits;
 	}
 
 	public String getPost_originalfile() {

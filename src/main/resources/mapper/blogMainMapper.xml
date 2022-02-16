@@ -12,10 +12,11 @@
 			, post_title
 			, post_contents
 			, to_char(post_uploaddate, 'YYYY.MM.DD') post_uploaddate
+			, post_hits
 			, post_originalfile
 			, post_savedfile
 		from
-			blog_post
+			blog_post		
 		<if test="_parameter != null">
 		where 
 			post_title like '%' || #{searchText} || '%'
@@ -24,4 +25,18 @@
 		order by
 			post_no desc
 	</select>
+	
+	<select id="ranklist" resultType="BlogMain">
+		select * from(
+    		select 
+        		user_id 
+        		, sum(post_hits)
+			from
+				blog_post
+    		group by grouping sets(user_id)    		
+    		order by
+            	sum(post_hits) desc)
+		where <![CDATA[rownum <= 5]]>
+	</select>	
+		
  </mapper>
