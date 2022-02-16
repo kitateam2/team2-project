@@ -8,6 +8,7 @@
 		http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
+	<!-- chat.jsp에서 path경로로 이동하면 ChatHandler로 이동. 이때 인터셉터로 세션에 저장된 아이디 줄 수있음 -->
 	<bean id="chatHandler" class="com.sesoc.team2.controller.ChatHandler" />
 	<websocket:handlers>
 		<websocket:mapping handler="chatHandler" path="/chat" />
@@ -17,5 +18,6 @@
 
 		</websocket:handshake-interceptors>
 	</websocket:handlers>	
-
+	
+	
 </beans>

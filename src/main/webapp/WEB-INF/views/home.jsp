@@ -370,10 +370,10 @@ function pagingFormSubmit(currentPage) {
 	</div>
 
 
+</div> <!-- box3 -->
         <c:forEach var="cart" items="${Cart_book1}">
 		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
 		</c:forEach>	
-</div> <!-- box3 -->
 
 <div class="card-footer">Footer</div>
 

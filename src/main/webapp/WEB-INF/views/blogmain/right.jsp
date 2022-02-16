@@ -32,8 +32,7 @@
 		
 	.postlist {
 		margin: 0 auto;
-		border-spacing: 20px;
-		border: 2px solid red;			
+		border-spacing: 20px;					
 	}	
 	
 	.scroll {
@@ -58,7 +57,7 @@
 		overflow: hidden;
 		text-overflow: ellipsis;		
   		display: -webkit-box;
-  		-webkit-line-clamp: 2;
+  		-webkit-line-clamp: 3;
   		-webkit-box-orient: vertical;
 	}
 		
@@ -108,7 +107,8 @@
 							 		<div style="height:250px;"><img class="img" alt="" src="resources/img/background.png"></div><br> <!-- ${blog.post_savedfile} -->					
 									<div style="color:rgb(117, 117,117);">@${blog.user_id}</div><br>
 									<div class="ellipsis">${blog.post_contents}</div><br><br>
-									<div style="float:right; color:rgb(117, 117,117);">${blog.post_uploaddate}</div>									
+									<div style="float:left; color:rgb(117, 117,117); font-size:12px;">조회수: ${blog.post_hits}</div>
+									<div style="float:right; color:rgb(117, 117,117); font-size:12px;">${blog.post_uploaddate}</div>									
 								</td>
 						<c:if test="${i%j == j-1}">					
 							</tr>
