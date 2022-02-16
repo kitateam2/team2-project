@@ -34,8 +34,20 @@
    		from
    			message
    		where
-   			message_recv_id=#{message_recv_id}
+   			message_sent_id = 'bbb'
    		order by
    			message_no desc
    </select>
+<!--  이따가 보낸 메시지  select
+   			message_no
+   			,	message_contents
+   			,	message_date
+   			, 	message_sent_id
+   			,	message_recv_id
+   		from
+   			message
+   		where
+   			message_recv_id = 'bbb'
+   		order by
+   			message_no desc -->
    </mapper>

@@ -35,16 +35,14 @@ public class MessageController {
 				String id = (String) session.getAttribute("loginId");
 				//보내는 값에 내 아이디를 고정해서 보내야 하니까 고정값을 하나만 주는 거지  
 				//딱 열렸을 때 불러오는 받은사람에는 로그인 한 아이디가 그 값이니까 
-				message.setMessage_recv_id(id);
+				//message.setMessage_recv_id(id); 이거 없어도 되고, sql에서 조건절로 주니까 자동으로 불러올 수 있다.
 				
+				logger.info("쪽지 로그인 된 아이디: {}", id);
 				ArrayList<Message> message_list = dao.message_list(message.getMessage_recv_id());
 				
 				model.addAttribute("message_list", message_list);
 				//받을 때 나한테 온거, 보낼 때 내가 보낸거를 내부적으로만 통일하려고
-				model.addAttribute("message_recv_id", id);
 				
-				logger.info("쪽지 로그인 된 아이디: {}", id);
-				logger.info("recv 아이디: {}", message.getMessage_recv_id());
 				logger.info("리스트: {}", message_list);
 
 				return "myblog/messageWindow"; //의문인 것이 블로그 메인이랑 메시지는 같은 위치에 잇는데 왜 앞에 마이블로그를 붙여줘야하지
@@ -64,7 +62,7 @@ public class MessageController {
 				logger.info("쪽지 저장 result: {}", result);
 				return "redirect:window";
 			}
-	//쪽지 불러오기
+	//쪽지 불러오기는 펼칠 때 같이 
 	//쪽지를 불러오는 마지막 xml에 조건을 줘야해 받는 사람이 내가 되는 것들만 불러오게 
 	
 	//쪽지 하나 보기

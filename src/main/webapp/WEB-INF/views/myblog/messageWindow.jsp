@@ -118,10 +118,10 @@
 </table>
 
 
-</div><!-- 쪽지 읽기 div -->
+</div>쪽지 읽기 div
 
 <div>
-
+ -->
 쪽지 보내기
 <form id="message_new" action="new" method="post" onsubmit="return message_new_formCheck()">
 <table  border="1">
@@ -130,7 +130,7 @@
 						<table  border="1">
 							<tr>
 								<td>발신인  </td>
-								<td colspan="2">${message_recv_id}</td>
+								<td colspan="2">${sessionScope.loginId}</td>
 							</tr>
 							<tr>
 								<td>수신인  </td>
