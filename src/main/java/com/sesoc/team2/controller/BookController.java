@@ -34,7 +34,7 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	
 	//도서 API 정보 저장
 	@ResponseBody
-	@RequestMapping (value="insert_db", method=RequestMethod.POST)
+	@RequestMapping (value="insert_db", method=RequestMethod.GET)
 	public void insert_db(@RequestBody BookDB bookDB) {
 		logger.info("전달된 객체 : {}", bookDB);
 		bookdao.insert_db(bookDB);

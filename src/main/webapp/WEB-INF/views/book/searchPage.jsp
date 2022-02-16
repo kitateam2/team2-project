@@ -50,13 +50,13 @@ $(document).ready(function () {
 				data: JSON.stringify({book_title: item.title, book_isbn: item.isbn, book_author: item.authors, book_publisher: item.publisher, 
 										book_price: item.price, book_image: item.thumbnail, book_desc: item.contents, book_pubDate: item.datetime}),
 				success: function() {
-					console.log();
+					console.log("yes");
 				},
 				error: function(e) {
 					alert(JSON.stringify(e));
 				}
 			});
-		}
+		});
 	}
 		
 		/* $.each(list, function(key, item) {
