@@ -70,12 +70,11 @@
 
 <table  border="1">
 <c:forEach var="message_list" items="${message_list}">
-<div >
-<tr><td>보낸사람:  ${message_list.message_sent_id}</td>
-</tr>
-<tr><td>내용:  ${message_list.message_contents}</td>
-</tr>
-</div>
+	<tr><td>보낸사람:  ${message_list.message_sent_id}</td></tr>
+	<tr><td><a href="one_message?message_no=?${message_list.message_no}">
+	내용: 나중에 내용의 10글자만 가지고 오게 절삭  ${message_list.message_contents}</a></td>
+	</tr>
+	<tr><td>조회수:  ${message_list.message_hits}</td></tr>
 </c:forEach>
 </table>
 
@@ -84,8 +83,6 @@
 <div class="col-sm-8" style="background-color:lavenderblush;">
 
 <table  border="1">
-쪽지 보이기 
-
 
 	<tr>
 		<td colspan="2">
@@ -96,11 +93,11 @@
 							</tr>
 							<tr>
 								<td>발신인 : </td>
-								<td colspan="2"></td>
+								<td colspan="2">${one_message.message_sent_id}</td>
 							</tr>
 							<tr>
 								<td>수신인 : </td>
-								<td></td>
+								<td>${one_message.message_recv_id}</td>
 								<td></td>
 							</tr>
 						</table>

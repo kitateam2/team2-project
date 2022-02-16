@@ -28,8 +28,17 @@ public class MessageDAO {
 
 	public ArrayList<Message> message_list(String message_recv_id) {
 		MessageMapper mapper = sqlSession.getMapper(MessageMapper.class);
-		ArrayList<Message> message_list = mapper.message_list();
+		ArrayList<Message> message_list = mapper.message_list(message_recv_id);
+		logger.info("DAO 에 스트링 {}:", message_recv_id);
 		return message_list;
+	}
+
+	public Message one_message(int message_no) {
+		MessageMapper mapper = sqlSession.getMapper(MessageMapper.class);
+		Message message = mapper.one_message(message_no);
+		
+		mapper.add_message_hits(message_no);
+		return message;
 	}
 
 

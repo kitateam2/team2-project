@@ -38,7 +38,7 @@ public class MessageController {
 				//message.setMessage_recv_id(id); 이거 없어도 되고, sql에서 조건절로 주니까 자동으로 불러올 수 있다.
 				
 				logger.info("쪽지 로그인 된 아이디: {}", id);
-				ArrayList<Message> message_list = dao.message_list(message.getMessage_recv_id());
+				ArrayList<Message> message_list = dao.message_list(id);
 				
 				model.addAttribute("message_list", message_list);
 				//받을 때 나한테 온거, 보낼 때 내가 보낸거를 내부적으로만 통일하려고
@@ -66,4 +66,14 @@ public class MessageController {
 	//쪽지를 불러오는 마지막 xml에 조건을 줘야해 받는 사람이 내가 되는 것들만 불러오게 
 	
 	//쪽지 하나 보기
+			
+			@RequestMapping(value = "one_message", method = RequestMethod.GET)
+			public String one_messsage(int message_no,  Model model) {
+				//전달된 메시지 넘버 가지고 오기
+				Message one_message = dao.one_message(message_no);
+				 
+				model.addAttribute("one_message", one_message);
+				logger.info("메시지 하나 자세히 보기 {}", one_message);
+				return "redirect:window";
+			}
 }

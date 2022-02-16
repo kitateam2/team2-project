@@ -34,10 +34,28 @@
    		from
    			message
    		where
-   			message_sent_id = 'bbb'
+   			message_sent_id = #{loginiddd}
    		order by
    			message_no desc
    </select>
+   
+   <select id="one_message" parameterType="int" resultType="messageVO">
+   		select
+			*
+		from
+			message
+		where
+			message_no = #{message_no}  			
+   </select>
+   
+   <update id="add_message_hits" parameterType="int">
+   		update
+   			message
+   		set
+   			message_hits = message_hits + 1
+   		where
+   			 message_no = #{message_no}
+   </update>
 <!--  이따가 보낸 메시지  select
    			message_no
    			,	message_contents
@@ -50,4 +68,6 @@
    			message_recv_id = 'bbb'
    		order by
    			message_no desc -->
+   			
+   			
    </mapper>
