@@ -18,4 +18,10 @@ public class BlogMainDAO {
 		ArrayList<BlogMain> list = mapper.list(searchText);
 		return list;
 	}
+
+	public ArrayList<BlogMain> ranklist() {
+		BlogMainMapper mapper = sqlSession.getMapper(BlogMainMapper.class);
+		ArrayList<BlogMain> ranklist = mapper.ranklist();
+		return ranklist;
+	}
 }

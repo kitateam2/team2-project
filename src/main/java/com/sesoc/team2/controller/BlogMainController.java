@@ -39,10 +39,11 @@ public class BlogMainController {
 				@RequestParam(value="page", defaultValue="1") int page
 				, @RequestParam(value="searchText", defaultValue="") String searchText				
 				, Model model) {
-			ArrayList<BlogMain> list = blogmaindao.list(searchText);				
+			ArrayList<BlogMain> list = blogmaindao.list(searchText);
+			ArrayList<BlogMain> ranklist = blogmaindao.ranklist();
 			model.addAttribute("list", list);
+			model.addAttribute("ranklist", ranklist);
 			model.addAttribute("searchText", searchText);			
 			return "blogmain/blogmainForm";
 		}
-
 }
