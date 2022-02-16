@@ -24,6 +24,12 @@
 	
 	<context:component-scan base-package="com.sesoc.team2" />
 	
-	
-	
+	<beans:bean id="loginInterceptor" class="com.sesoc.team2.interceptor.LoginInterceptor"></beans:bean>
+	<mvc:interceptors>
+		<mvc:interceptor>
+		<mvc:mapping path="/message/window" />
+		<mvc:mapping path="/myblog/newPost" />
+		<beans:ref bean="loginInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans:beans>
