@@ -41,12 +41,12 @@
   	
   	<!-- 게시글 하나 읽기 -->
   	<select id="one_post" parameterType="int" resultType="BlogPostVO">
-  	select
-  		*
-  	from
-  		blog_post
-  	where
-  		post_no = #{post_no}
+	  	select
+	  		*
+	  	from
+	  		blog_post
+	  	where
+	  		post_no = #{post_no}
   	</select>
   	
   	<!-- 게시글 삭제 -->
