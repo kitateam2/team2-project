@@ -6,5 +6,34 @@
   <!-- 책 API 불러와서 DB 저장 SQL -->
 <mapper namespace="com.sesoc.team2.dao.BookDBMapper">
 
+<!-- 데이터 입력 -->
+<insert id="insert_db" parameterType="Comment">
+	insert 
+	into 
+		book_info
+	(
+		book_title; 					<!-- 책 이름 -->
+		book_isbn;	 					<!--ISBN 번호-->
+		book_author;	 				<!--저자 이름-->
+		book_publisher; 				<!--출판사-->
+		book_price; 					<!--가격-->
+		book_image; 					<!--책 표지-->
+		book_desc;						<!--책 내용-->
+		book_pubDate; 					<!--출판일자-->
+	)
+	values 
+	(
+		book_info_seq.nextval
+		, #{book_title}
+		, #{book_isbn}
+		, #{book_author}
+		, #{book_publisher}
+		, #{book_price}
+		, #{book_image}
+		, #{book_desc}
+		, #{book_pubDate}
+	)
+</insert>
+
 
 </mapper>

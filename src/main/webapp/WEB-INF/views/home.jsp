@@ -15,6 +15,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	
 	
 <script>
 $(document).ready(function() {
@@ -36,55 +39,51 @@ function bt1Click(n){
 		error: error //succe.error는 함수 이름을 쓴다
 	});
 }
+
+function pagingFormSubmit(currentPage) {
+	var form = document.getElementById('pagingForm');
+	var page = document.getElementById('page');
+	page.value = currentPage;
+	form.submit();
+}
 </script>
-	
-	
-	<body>
-    <div class="container">
-
+<body>
+    
 <!-- header부분 -->
- <div class="header">
-        <h1 class="logo">book store</h1>
-        <form style="display:inline-block;line-height:52px;padding-right:14px; ">
-            <input type="text" name="searchbar" placeholder="search.." size="80">
-            <input type="button" name="button" value="search">
-            <c:if test="${sessionScope.loginId == null}">
-                    <a href="condition">회원가입</a>
-                    <a href="login">로그인</a>
-                    </c:if>
-                    <c:if test="${sessionScope.loginId != null}">
-                    <a href="logout">로그아웃</a>
-                    </c:if>
-                    <a href="cart">장바구니</a>
-        </form>
-    </div>
-</body>
-</div>
+<div class="box3">
+
+<br>
+	<h1><center>
+	<p style="type">Book Store &nbsp; &nbsp;
+	<!-- 검색폼 -->
+		<input id="bookName" type="text" placeholder="검색어 입력" value="${searchText}">
+		<button id="search" onclick="pagingFormSubmit" value="검색">검색</button>	</p></center>
+	</h1>
+	<br>
+	<div class="navigation_bar">
+	<table class="gnb_main add_1">
+		<tr colspan="5" id="blank"></tr>
+		<tr> 
+				<td class="class_item"><a href="url" class="text">국내도서</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="url" class="text">외국도서</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="bookInfo" class="text">책 상세정보</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="blogmain" class="text">블로그 메인</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="blogmain" class="text">고객센터</a></td><td>&nbsp;</td>
+			<c:if test="${sessionScope.loginId == null}">
+				<td class="class_item2"><a href="condition">회원가입</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="login">로그인</a></td><td>&nbsp;</td>
+			</c:if>
+			<c:if test="${sessionScope.loginId != null}">
+				<td class="class_item2"><a href="logout">로그아웃</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="cart">장바구니</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="myblog" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
+				<td class="class_item3">${sessionScope.loginId}님 환영합니다.</td>
+			</c:if>
+		</tr>	
+	</table>
+	</div> <!-- navigation bar -->
 
 
-<c:if test="${sessionScope.loginId != null}">
-		<div style="max-width: 23ex;position: relative; left: 1090px;">
-		${sessionScope.loginId}님 환영합니다.</div>
-		</c:if>
-		
-<c:if test="${sessionScope.loginId != null}">		
-
-<div style="max-width: 23ex; border: solid red; position: relative; left: 1090px; top: 24px;">
-<a href="myblog" style="color:red;">개인 블로그</a>
-<a href="myblog/main" style="color:red;">개인 블로그</a>
-
-
-<a href="blogmain" style="color:red;">블로그 메인</a>
-<a href="bookInfo" style="color:red;">책 상세정보</a>
-
-
-
-<a href="blogmain" style="color:red;">고객센터</a>
-<a href="bookInfo" style="color:red;">책 상세정보</a>
-
-
-</c:if>
-</div>
 
 <div class="container">
 	<div class="row">
@@ -374,7 +373,7 @@ function bt1Click(n){
 	</div>
 
 
-
+</div> <!-- box3 -->
 
 <div class="card-footer">Footer</div>
 

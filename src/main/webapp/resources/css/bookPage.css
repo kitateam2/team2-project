@@ -1,22 +1,5 @@
 @charset "UTF-8";
 
-body {
-	font-family: "나눔스퀘어";
-}
-
-.box1 {
-	box-sizing: content-box;
-	width:300px;
-	height: 100px;
-	margin: 0 auto;
-	padding: 0;
-	
-}
-
-.box2 {
-	
-}
-
 .box3 {
 	box-sizing: border-box;
 	width: 900px;
@@ -24,3 +7,58 @@ body {
 	padding: 0;
 
 }
+
+.navigation_bar {
+    position: relative;
+    z-index: 9998;
+    width:900px;
+    height:50px;
+    background-color: #5e6b9e;
+}
+
+body {
+	font-family: "나눔스퀘어";
+}
+
+p {
+	font-size: bold;
+}
+
+.box2 {
+	width: 900px;
+    padding: 0;
+    float: left;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: "나눔스퀘어";
+}
+
+
+.box4 {
+	width: 900px;
+	text-size: 20px;
+    padding: 0;
+    margin: 0 auto;
+    float: center;
+    text-align: center;
+    font-family: "나눔스퀘어";
+}
+
+.navigation_bar .gnb_main {
+    float: left;
+    height: 50px;
+    color: #f4ffff;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: bold;
+}
+
+
+.class_item  {
+	color: #ffffff;
+	display: block;
+	margin: 15px 0px 5px 20px;
+
+}
+
+
