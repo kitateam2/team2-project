@@ -37,7 +37,7 @@ function bt1Click(n){
 		error: function() { alert('error'); }
 	});
 }
-</script>
+
 
 function pagingFormSubmit(currentPage) {
 	var form = document.getElementById('pagingForm');
