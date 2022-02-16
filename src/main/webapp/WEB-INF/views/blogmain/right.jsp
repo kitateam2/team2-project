@@ -9,15 +9,31 @@
 <title>Insert title here</title>
 <style>
 	#right {		
-		background-color: pink;	
+		background-color: white;	
 		float: left;
-		width: calc(100% - 266px);					
+		width: calc(100% - 266px);							
 		height: 100%;		
 	}
+	
+	.header {
+		background-color: white;
+		margin-top: 10px;
+		margin-right: 10px;			
+	}
+	
+	.headerbtn {
+		background-Color: white;
+		border-radius: 5px;			
+		border: 2px solid rgb(210, 210, 230);
+		font-size: 20px;
+		padding: 10px;
+		cursor: pointer;		
+	}
 		
-	table {
-		margin: auto;
-		border-spacing: 20px;			
+	.postlist {
+		margin: 0 auto;
+		border-spacing: 20px;
+		border: 2px solid red;			
 	}	
 	
 	.scroll {
@@ -30,20 +46,25 @@
 	}
 	
 	.td {
-		cursor: pointer;		
+		cursor: pointer;
+		border: 2px solid rgb(210, 210, 230);
+		padding: 0;
+		word-break: break-all;		
+		margin: 0;	
 	}
 	
 	.ellipsis {
 		width: 300px;
 		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
+		text-overflow: ellipsis;		
+  		display: -webkit-box;
+  		-webkit-line-clamp: 2;
+  		-webkit-box-orient: vertical;
 	}
 		
 	.img {		
-		width:300px;
-		height:250px;			
-  		border-radius:5%;		
+		width: 300px;
+		height: 250px;  				
 	}	
 </style>
 </head>
@@ -51,22 +72,22 @@
 <div id="right">
 
 <!-- 헤더 -->
-	<div style="background-color:yellow;">
+	<div class="header">
 		<div style="float:right;">          
 			<c:if test="${sessionScope.loginId == null}">
-				<a href="condition">회원가입</a>
+				<input class="headerbtn" type="button" onclick="location.href='condition'" value="회원가입">				
 			</c:if>
 			<c:if test="${sessionScope.loginId == null}">
-				<a href="${pageContext.request.contextPath}/blogmain/login">로그인</a>					
+				<input class="headerbtn" type="button" onclick="location.href='${pageContext.request.contextPath}/blogmain/login'" value="로그인">									
 			</c:if>
 			<c:if test="${sessionScope.loginId != null}">
-				<span>${sessionScope.loginId}님 접속중</span>&nbsp;
+				<span style="font-size: 18px; font-weight: bold;">${sessionScope.loginId}님 접속중</span>&nbsp;&nbsp;&nbsp;
 			</c:if>
 			<c:if test="${sessionScope.loginId != null}">
-				<a href="">내블로그</a>
+				<input class="headerbtn" type="button" onclick="location.href=''" value="내블로그">				
 			</c:if>	
 			<c:if test="${sessionScope.loginId != null}">
-				<a href="${pageContext.request.contextPath}/blogmain/logout">로그아웃</a>
+				<input class="headerbtn" type="button" onclick="location.href='${pageContext.request.contextPath}/blogmain/logout'" value="로그아웃">				
 			</c:if>		
 		</div>
 	</div>
@@ -76,7 +97,7 @@
 	<c:set var="i" value="0" />
 	<c:set var="j" value="3" />
 	
-		<table>
+		<table class="postlist">
 			<c:choose>
 				<c:when test="${list != null && fn:length(list) > 0}">
 					<c:forEach var="blog" items="${list}">
@@ -84,9 +105,10 @@
 							<tr>
 						</c:if>
 								<td class="td" onClick="location.href='${pageContext.request.contextPath}/board/read?boardnum=${blog.post_no}'">
-							 		<div><img class="img" alt="" src="resources/img/background.png"></div><br> <!-- ${blog.post_savedfile} -->					
-									<div><span>${blog.post_uploaddate}</span>&nbsp;<span>${blog.user_id}</span></div><br>
-									<div class="ellipsis">${blog.post_title}</div><br><br>
+							 		<div style="height:250px;"><img class="img" alt="" src="resources/img/background.png"></div><br> <!-- ${blog.post_savedfile} -->					
+									<div style="color:rgb(117, 117,117);">@${blog.user_id}</div><br>
+									<div class="ellipsis">${blog.post_contents}</div><br><br>
+									<div style="float:right; color:rgb(117, 117,117);">${blog.post_uploaddate}</div>									
 								</td>
 						<c:if test="${i%j == j-1}">					
 							</tr>

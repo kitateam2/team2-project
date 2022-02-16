@@ -6,4 +6,6 @@ import com.sesoc.team2.vo.BlogMain;
 
 public interface BlogMainMapper {
 	public ArrayList<BlogMain> list(String searchText);
+
+	public ArrayList<BlogMain> ranklist();
 }
