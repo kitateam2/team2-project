@@ -29,9 +29,9 @@ public class BlogPostDAO {
 	}
 	
 	//게시글 정렬하기
-	public ArrayList<BlogPost> postlist() {
+	public ArrayList<BlogPost> postlist(String user_id) {
 		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
-		ArrayList<BlogPost> postlist = mapper.postlist();
+		ArrayList<BlogPost> postlist = mapper.postlist(user_id);
 		return postlist;
 	}
 	

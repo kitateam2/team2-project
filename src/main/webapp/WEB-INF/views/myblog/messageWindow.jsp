@@ -100,6 +100,11 @@
 								<td>${one_message.message_recv_id}</td>
 								<td></td>
 							</tr>
+							<tr>
+								<td>내용 : </td>
+								<td>${one_message.message_contents}</td>
+								<td></td>
+							</tr>
 						</table>
 		
 		</td>

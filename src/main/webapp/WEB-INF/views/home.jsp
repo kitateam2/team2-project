@@ -26,15 +26,15 @@ $(document).ready(function() {
 
 //bt1 버튼 클릭했을때 실행될 함수
 function bt1Click(n){
-	alert('장바구니 이동');
 	
+	alert('장바구니 이동');
 	$.ajax({
 		url:'ajaxcart',
 		type:'post',
 		data: {book_isbn: n},
 		dataType:'text',
 		success: function() { alert('장바구니에 담았습니다.'); },
-		error: function() { alert('error'); }
+		error: function() { alert('로그인을 해주세요'); }
 	});
 }
 
@@ -75,7 +75,7 @@ function pagingFormSubmit(currentPage) {
 			<c:if test="${sessionScope.loginId != null}">
 				<td class="class_item2"><a href="logout">로그아웃</a></td><td>&nbsp;</td>
 				<td class="class_item2"><a href="cart">장바구니</a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="myblog/main" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="myblog/${sessionScope.loginId}" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
 				<td class="class_item3">${sessionScope.loginId}님 환영합니다.</td>
 			</c:if>
 		</tr>	
@@ -133,7 +133,7 @@ function pagingFormSubmit(currentPage) {
 											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click();" class="btn btn-primary">Add to Cart</a>
+									<a href="#" onclick="bt1Click(2);" class="btn btn-primary">Add to Cart</a>
 								</div>						
 							</div>
 						</div>		
@@ -154,7 +154,7 @@ function pagingFormSubmit(currentPage) {
 											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click();" class="btn btn-primary" >Add to Cart</a>
+									<a href="#" onclick="bt1Click(3);" class="btn btn-primary" >Add to Cart</a>
 								</div>						
 							</div>
 						</div>								
@@ -175,7 +175,7 @@ function pagingFormSubmit(currentPage) {
 											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click();" class="btn btn-primary">Add to Cart</a>
+									<a href="#" onclick="bt1Click(4);" class="btn btn-primary">Add to Cart</a>
 								</div>						
 							</div>
 						</div>
@@ -200,7 +200,7 @@ function pagingFormSubmit(currentPage) {
 											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click();" class="btn btn-primary">Add to Cart</a>
+									<a href="#" onclick="bt1Click(5);" class="btn btn-primary">Add to Cart</a>
 								</div>						
 							</div>
 						</div>
@@ -221,7 +221,7 @@ function pagingFormSubmit(currentPage) {
 											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click();" class="btn btn-primary" >Add to Cart</a>
+									<a href="#" onclick="bt1Click(6);" class="btn btn-primary" >Add to Cart</a>
 								</div>						
 							</div>
 						</div>
@@ -242,7 +242,7 @@ function pagingFormSubmit(currentPage) {
 											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click();" class="btn btn-primary">Add to Cart</a>
+									<a href="#" onclick="bt1Click(7);" class="btn btn-primary">Add to Cart</a>
 								</div>						
 							</div>
 						</div>

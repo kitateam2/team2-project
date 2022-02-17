@@ -84,7 +84,7 @@
 				<span style="font-size: 18px; font-weight: bold;">${sessionScope.loginId}님 접속중</span>&nbsp;&nbsp;&nbsp;
 			</c:if>
 			<c:if test="${sessionScope.loginId != null}">
-				<input class="headerbtn" type="button" onclick="location.href='${pageContext.request.contextPath}/myblog/main=?${sessionScope.loginId}'" value="내블로그">				
+				<input class="headerbtn" type="button" onclick="location.href='${pageContext.request.contextPath}/myblog/${sessionScope.loginId}'" value="내블로그">				
 			</c:if>	
 			<c:if test="${sessionScope.loginId != null}">
 				<input class="headerbtn" type="button" onclick="location.href='${pageContext.request.contextPath}/blogmain/logout'" value="로그아웃">				
