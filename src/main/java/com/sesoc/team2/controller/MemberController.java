@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -46,14 +47,19 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String login(User_infoVO member, HttpSession session) {
+	public String login(User_infoVO member, HttpSession session, Model model) {
 		User_infoVO resultMember = memberDAO.getMember(member.getUser_id());
 		
 		if (resultMember != null && member.getUser_pw().equals(resultMember.getUser_pw())) {
 			session.setAttribute("loginId", member.getUser_id());
 			logger.info("{}",session.getAttribute("loginId"));
-		}
-		return "redirect:/";
+			return "redirect:/";
+		}		
+		
+		else {
+			model.addAttribute("errorMsg", "ID 또는 비밀번호가 틀립니다.");
+			return "loginForm";
+		}		
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

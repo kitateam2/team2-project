@@ -79,6 +79,8 @@ CREATE TABLE BOOK_INFO
 	book_author varchar2(50) NOT NULL,
 	-- 출판사
 	book_public varchar2(50) NOT NULL,
+	-- 책 번호
+	book_no number DEFAULT 0 NOT NULL,
 	PRIMARY KEY (book_isbn)
 );
 
@@ -399,13 +401,13 @@ ALTER TABLE FOLLOW_INFO
 
 
 ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_sent_id)
+	ADD FOREIGN KEY (message_recv_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_recv_id)
+	ADD FOREIGN KEY (message_sent_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
@@ -456,6 +458,7 @@ COMMENT ON COLUMN BOOK_INFO.book_image IS '책 이미지 저장
 저장은 서버 컴퓨터에';
 COMMENT ON COLUMN BOOK_INFO.book_author IS '저자';
 COMMENT ON COLUMN BOOK_INFO.book_public IS '출판사';
+COMMENT ON COLUMN BOOK_INFO.book_no IS '책 번호';
 COMMENT ON COLUMN BOOK_PUBLIC.book_public IS '출판사';
 COMMENT ON COLUMN BOOK_REVIEW.book_review_no IS '책 리뷰 번호';
 COMMENT ON COLUMN BOOK_REVIEW.book_review_writer IS '책 리뷰 작성자';

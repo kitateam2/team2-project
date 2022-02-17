@@ -11,15 +11,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.getElementsByTagName("html")[0].className += " js";</script>
   
+    <link href="resources/css/header.css" rel="stylesheet"/>
   <link rel="stylesheet" href="resources/css/faq.css"/>
   <title>자주 묻는 질문</title>
 </head>
 <body>
-<header class="cd-header flex flex-column flex-center" style="background-color:#04B4AE !important">
-  <div class="text-component text-center">
-    <h1>자주 묻는 질문</h1>
- </div>
-</header>
+<!-- header부분 -->
+<div class="box3">
+
+<br>
+	<h1><center>
+	<p style="type">Book Store &nbsp; &nbsp;
+	<!-- 검색폼 -->
+		<input id="bookName" type="text" placeholder="검색어 입력" value="${searchText}">
+		<button id="search" onclick="pagingFormSubmit" value="검색">검색</button>	</p></center>
+	</h1>
+	<br>
+	<div class="navigation_bar">
+	<table class="gnb_main add_1">
+		<tr colspan="5" id="blank"></tr>
+		<tr> 
+				<td class="class_item"><a href="url" class="text">국내도서</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="url" class="text">외국도서</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="bookInfo" class="text">책 상세정보</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="blogmain" class="text">블로그 메인</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="userService" class="text">고객센터</a></td><td>&nbsp;</td>
+			<c:if test="${sessionScope.loginId == null}">
+				<td class="class_item2"><a href="condition">회원가입</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="login">로그인</a></td><td>&nbsp;</td>
+			</c:if>
+			<c:if test="${sessionScope.loginId != null}">
+				<td class="class_item2"><a href="logout">로그아웃</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="cart">장바구니</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="myblog/${sessionScope.loginId}" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
+				<td class="class_item3">${sessionScope.loginId}님 환영합니다.</td>
+			</c:if>
+		</tr>	
+	</table>
+	</div> <!-- navigation bar -->
+	</div>
 
 <section class="cd-faq js-cd-faq container max-width-md margin-top-lg margin-bottom-lg">
 	<ul class="cd-faq__categories">
