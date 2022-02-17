@@ -17,10 +17,10 @@
 		,	book_title 					<!-- 책 이름 -->
 		,	book_isbn	 				<!--ISBN 번호-->
 		,	book_author	 				<!--저자 이름-->
-		,	book_publisher 				<!--출판사-->
+		,	book_public					<!--출판사-->
 		,	book_price 					<!--가격-->
 		,	book_image 					<!--책 표지-->
-		,	book_desc					<!--책 내용-->
+		,	book_contents				<!--책 내용-->
 		,	book_inputdate 				<!--출판일자-->
 	)
 	values 
