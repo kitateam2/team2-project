@@ -78,6 +78,7 @@
 				alert('비밀번호는 3~10 글자를 입력하세요');
 				return false;
 			}
+			
 			return true;
 		}
 	</script>
@@ -91,6 +92,10 @@
       <input type="submit" name="" value="Login">
       <input type="submit" value="취소">
     </form>
+    
+    <div class="errorMsg">
+			${errorMsg}
+		</div>
 	
 	
 </body>

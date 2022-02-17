@@ -42,9 +42,12 @@ function btClick(n){
 		<tr>
 			<th>${cart.cart_book_no}</th>
 			<th>${cart.cart_book_inputdate}</th>                                
-			<th>${cart.cart_book_count}</th>
+			<th>
+				<input type="number" value="${cart.cart_book_count}">
+			</th>
 			<th>${cart.user_cart_no}</th>
 			<th><a href="delete?cart_book_no=${cart.cart_book_no}"  class="btn btn-primary">삭제</a></th>
+			<th><a href="delete?cart_book_no=${cart.cart_book_no}&cart_book_count=${cart.cart_book_count}"  class="btn btn-primary">수정</a></th>
 		</c:forEach>
 		</table>
 </body>

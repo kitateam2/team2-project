@@ -17,4 +17,8 @@ public interface CartMapper {
 	ArrayList<cart_book> list1(String user_id1);
 
 	int deletecart(int cart_book_no);
+
+	cart_book getCart_book_count(int cart_book_count);
+
+	int update(cart_book cart_book);
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.sesoc.team2.vo.cart_book;
 
 
+
 @Repository
 public class CartDAO {
 	
@@ -55,6 +56,13 @@ public class CartDAO {
 		int result = mapper.deletecart(cart_book_no);
 		return result;
 	}
+	public int updatecart(cart_book cart_book) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.update(cart_book);
+		return result;
+		
+	}
+	
 	
 
 
