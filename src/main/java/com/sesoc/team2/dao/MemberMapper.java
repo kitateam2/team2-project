@@ -7,6 +7,8 @@ public interface MemberMapper {
 	public int insertMember(User_infoVO user_info);
 
 	public User_infoVO selectMember(String user_id);
+
+	public int insertusercart(User_infoVO user_info);
 	
 	
 

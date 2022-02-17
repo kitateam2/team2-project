@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import com.sesoc.team2.vo.BookReview;
 
-public interface BookDBMapper {
-	
+public interface ReviewMapper {
+
 	//public String createDocument();
 	public int insert(BookReview review); 
 	

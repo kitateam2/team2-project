@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,8 +27,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.sesoc.team2.dao.apiDAO;
 import com.sesoc.team2.vo.API;
 
-
-public class APIController<BookDB> {
+@Controller
+public class APIController {
 	private static final Logger logger = LoggerFactory.getLogger(APIController.class);
 	
 	@Autowired
@@ -38,10 +39,10 @@ public class APIController<BookDB> {
 	final String dir = "/bookimage/"; //경로 바꿀것!
 	
 	//카카오 책 API 요청 페이지로 이동
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String home() throws Exception {
 		
-		return "searchPage";
+		return "book/searchPage";
 	}
 
 	
@@ -49,17 +50,17 @@ public class APIController<BookDB> {
 		@ResponseBody
 		@RequestMapping(value = "/insert_db", method = RequestMethod.POST)
 		public void insert_db(API api) throws Exception {
-			logger.debug("전달된 값 >>> {}", api);
+			logger.info("전달된 값 >>> {}", api);
 			
-			String filename = imageSave(api.getBook_image(), api.getBook_isbn()); 
-			
-			if (filename != null) {
-				api.setBook_image(filename);
-			}
+//			String filename = imageSave(api.getBook_image(), api.getBook_isbn()); 
+//			
+//			if (filename != null) {
+//				api.setBook_image(filename);
+//			}
 			int result = dao.insert_db(api);
 			
 			if (result == 0) {
-				logger.debug("저장실패 === {}", api);
+				logger.info("저장실패 === {}", api);
 			}
 		}
 		
@@ -101,11 +102,11 @@ public class APIController<BookDB> {
 		public String view(Model model) {
 			//테스트 하기 위한 임시 코드임. 아래 정보 DB에서 불러오는 것으로 수정할 것
 			API api = new API();
-			api.setBook_author("book_author");
-			api.setBook_title("book_title");
-			//보여줄 이미지 파일명 (실제 /bookimage 폴더에 있는 파일명으로 테스트
-			api.setBook_image("book_image");
-			
+//			api.setBook_author("book_author");
+//			api.setBook_title("book_title");
+//			//보여줄 이미지 파일명 (실제 /bookimage 폴더에 있는 파일명으로 테스트
+//			api.setBook_image("book_image");
+		
 			model.addAttribute("api", api);
 			return "bookInfo";
 		}

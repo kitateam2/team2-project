@@ -84,7 +84,7 @@
 				<span style="font-size: 18px; font-weight: bold;">${sessionScope.loginId}님 접속중</span>&nbsp;&nbsp;&nbsp;
 			</c:if>
 			<c:if test="${sessionScope.loginId != null}">
-				<input class="headerbtn" type="button" onclick="location.href='${pageContext.request.contextPath}/myblog/main'" value="내블로그">				
+				<input class="headerbtn" type="button" onclick="location.href='${pageContext.request.contextPath}/myblog/${sessionScope.loginId}'" value="내블로그">				
 			</c:if>	
 			<c:if test="${sessionScope.loginId != null}">
 				<input class="headerbtn" type="button" onclick="location.href='${pageContext.request.contextPath}/blogmain/logout'" value="로그아웃">				
@@ -105,7 +105,7 @@
 							<tr>
 						</c:if>
 								<td class="td" onClick="location.href='${pageContext.request.contextPath}/myblog/one_post?post_no=${blog.post_no}'">
-							 		<div style="height:250px;"><img class="img" alt="" src="resources/img/background.png"></div><br> <!-- ${blog.post_savedfile} -->					
+							 		<div style="height:250px;"><img class="img" alt="" src="resources/img/background.png"></div><br> <!-- ${blog.post_savedfile} --><!-- "/workspaceSTS/team2/src/main/webapp/resources/img" -->					
 									<div style="color:rgb(117, 117,117);">@${blog.user_id}</div><br>
 									<div class="ellipsis">${blog.post_contents}</div><br><br>
 									<div style="float:left; color:rgb(117, 117,117); font-size:12px;">조회수: ${blog.post_hits}</div>

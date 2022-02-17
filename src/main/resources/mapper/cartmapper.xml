@@ -18,6 +18,7 @@ select book_isbn from book_info where book_isbn = #{book_isbn}
 select user_cart_no from USER_cart where user_id = #{user_id1}
 </select> 
 
+
 <select id ="list1" resultType="cart_bookVO" parameterType="String">
 select * 
 from cart_book cb, user_cart uc 
@@ -37,12 +38,20 @@ cart_book_no
 values (
 cart_book_seq.nextval
 ,sysdate
-,1
+,#{cart_book_count}
 ,#{book_isbn}
 ,#{user_cart_no}
 )
 </insert>
 
+<!-- 글 삭제 -->
+<delete id="deletecart" parameterType="int" >
+	delete
+	from
+		cart_book
+	where
+		cart_book_no = #{cart_book_no}
+</delete>
 
 
 </mapper>

@@ -22,6 +22,5 @@
 		<mapper resource="mapper/messageMapper.xml" />
 		<mapper resource="mapper/blogMainMapper.xml" />
 		<mapper resource="mapper/apiMapper.xml" />
-		<mapper resource="mapper/bookDBMapper.xml" />
 	</mappers>
 </configuration>

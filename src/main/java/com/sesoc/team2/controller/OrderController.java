@@ -21,6 +21,7 @@ import com.sesoc.team2.vo.cart_book;
 
 
 
+
 /**
  * 주문, 장바구니, 위시리스트, 결제 등 주문상세에 대한 컨트롤러
  */
@@ -56,6 +57,13 @@ CartDAO dao;
 		return "cart/cartForm";	
 	}
 	
+	@RequestMapping (value="delete", method=RequestMethod.GET)
+	public String delete(HttpSession session, int cart_book_no) {
+		logger.debug("cart_book_no : {} ", cart_book_no);
+		dao.deletecart(cart_book_no);
+		
+		return "redirect:/cart";
+	}
 	
 	@RequestMapping (value="check", method=RequestMethod.GET)
 	public String checkForm() {

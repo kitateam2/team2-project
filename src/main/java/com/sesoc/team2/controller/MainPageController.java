@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -25,11 +26,12 @@ public class MainPageController {
 	@Autowired
 	BlogPostDAO dao;
 	
-	@RequestMapping(value = "myblog/main", method = RequestMethod.GET)
-	public String myblog(Model model) {
-		ArrayList<BlogPost> postlist =dao.postlist();
+	@RequestMapping(value = "myblog/{user_id}", method = RequestMethod.GET)
+	public String myblog(@PathVariable String user_id, Model model) {
+		ArrayList<BlogPost> postlist =dao.postlist(user_id);
 		logger.info("DB에서 가져온 목록{}", postlist);
 		model.addAttribute("postlist", postlist);
+		model.addAttribute("user_id", user_id);
 		return "myblog/myblogMain";
 	}
 	

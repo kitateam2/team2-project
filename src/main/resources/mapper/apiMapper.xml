@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -7,7 +8,7 @@
 <mapper namespace="com.sesoc.team2.dao.apiMapper">
 
 <!-- 데이터 입력 -->
-<insert id="insert_db" parameterType="BookDBVO">
+<insert id="insert_db" parameterType="APIVO">
 	insert 
 	into 
 		book_info
@@ -20,7 +21,7 @@
 		,	book_price 					<!--가격-->
 		,	book_image 					<!--책 표지-->
 		,	book_desc					<!--책 내용-->
-		,	book_pubDate 				<!--출판일자-->
+		,	book_inputdate 				<!--출판일자-->
 	)
 	values 
 	(
@@ -28,11 +29,11 @@
 		, #{book_title}
 		, #{book_isbn}
 		, #{book_author}
-		, #{book_publisher}
+		, #{book_public}
 		, #{book_price}
 		, #{book_image}
-		, #{book_desc}
-		, #{book_pubDate}
+		, #{book_contents}
+		, #{book_inputdate}
 	)
 </insert>
 

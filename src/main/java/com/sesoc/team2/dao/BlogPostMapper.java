@@ -10,7 +10,7 @@ public interface BlogPostMapper {
 	//게시글 저장
 	public int post_write(BlogPost blogpost);
 
-	public ArrayList<BlogPost> postlist();
+	public ArrayList<BlogPost> postlist(String user_id);
 
 	public BlogPost one_post(int post_no);
 

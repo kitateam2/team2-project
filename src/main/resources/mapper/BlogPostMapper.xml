@@ -25,15 +25,13 @@
   	</insert>
   	
   	<!-- 게시글 목록 읽기 -->
-  	<select id="postlist" resultType="BlogPostVO">
+  	<select id="postlist" parameterType="String" resultType="BlogPostVO">
   		select
-  			post_no
-  			, post_title
-  			, post_contents
-  			, post_uploaddate
-  			, post_hits
+  			*
   		from
   			blog_post
+  		where
+  			user_id = #{user_id}
   		order by
   			post_no desc
   			<!-- 아이디로 불러온 사람 글만 보이게 해야하는 where줘야함 -->

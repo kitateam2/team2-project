@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sesoc.team2.dao.BookDBDAO;
-import com.sesoc.team2.dao.BookDBMapper;
+import com.sesoc.team2.dao.ReviewDAO;
 import com.sesoc.team2.vo.BookReview;
 
 @Controller
@@ -28,7 +27,7 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 //	}
 	
 	@Autowired
-	BookDBDAO bookdao;
+	ReviewDAO dao;
 	
 	//댓글 저장
 	@RequestMapping (value="book_review", method=RequestMethod.POST)
@@ -38,7 +37,7 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 		logger.info("컨트롤러 id체크{}", id);
 		review.setBook_review_writer(id);
 		logger.info("컨트롤러{}", review);
-		bookdao.insert(review);
+		dao.insert(review);
 		return "redirect:bookInfo"; //나중에 고치기!!!!!!!
 	}
 
