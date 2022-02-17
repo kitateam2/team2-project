@@ -67,7 +67,7 @@ function pagingFormSubmit(currentPage) {
 				<td class="class_item"><a href="url" class="text">외국도서</a></td><td>&nbsp;</td>
 				<td class="class_item"><a href="bookInfo" class="text">책 상세정보</a></td><td>&nbsp;</td>
 				<td class="class_item"><a href="blogmain" class="text">블로그 메인</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="blogmain" class="text">고객센터</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="userService" class="text">고객센터</a></td><td>&nbsp;</td>
 			<c:if test="${sessionScope.loginId == null}">
 				<td class="class_item2"><a href="condition">회원가입</a></td><td>&nbsp;</td>
 				<td class="class_item2"><a href="login">로그인</a></td><td>&nbsp;</td>

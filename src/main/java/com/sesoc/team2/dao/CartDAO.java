@@ -17,11 +17,6 @@ public class CartDAO {
 	@Autowired
 	SqlSession sqlSession;
 	
-	/*
-	 * public ArrayList<cart_book> listcart(String user_id) { CartMapper mapper =
-	 * sqlSession.getMapper(CartMapper.class); ArrayList<cart_book> list =
-	 * mapper.list(user_id); return list; }
-	 */
 	public int insert(cart_book cart_book1) {
 		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
 		int result = mapper.insertcart_book(cart_book1);
@@ -49,6 +44,12 @@ public class CartDAO {
 		int result = mapper.selectuser_cart_no(user_id1);
 		return result;
 	}
+	public ArrayList<cart_book> selectbook1(String user_id1) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		ArrayList<cart_book> list1 = mapper.list1(user_id1);
+		return list1;
+	}
+	
 
 
 }

@@ -49,8 +49,10 @@ CartDAO dao;
 	}
 
 	@RequestMapping(value = "cart", method = RequestMethod.GET)
-	public String list(cart_book cart_book1) {
-	
+	public String list1(cart_book cart_book1,Model model,HttpSession session) {
+		String user_id1 = (String) session.getAttribute("loginId");
+		ArrayList<cart_book> cart = dao.selectbook1(user_id1);
+		model.addAttribute("Cart_book1",cart);
 		return "cart/cartForm";	
 	}
 	
