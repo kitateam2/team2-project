@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sesoc.team2.dao.ReviewDAO;
 import com.sesoc.team2.vo.BookReview;
-import com.sesoc.team2.vo.PostComment;
 
 @Controller
 public class BookController {
@@ -29,14 +28,6 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	
 	@Autowired
 	ReviewDAO dao;
-	
-//	//도서 API 정보 저장
-//	@ResponseBody
-//	@RequestMapping (value="insert_db", method=RequestMethod.GET)
-//	public void insert_db(@RequestBody BookDB bookDB) {
-//		logger.info("전달된 객체 : {}", bookDB);
-//		bookdao.insert_db(bookDB);
-//	}
 	
 	//댓글 저장
 	@RequestMapping (value="book_review", method=RequestMethod.POST)
