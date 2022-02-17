@@ -18,6 +18,13 @@ select book_isbn from book_info where book_isbn = #{book_isbn}
 select user_cart_no from USER_cart where user_id = #{user_id1}
 </select> 
 
+<select id ="list1" resultType="cart_bookVO" parameterType="String">
+select * 
+from cart_book cb, user_cart uc 
+where cb.user_cart_no = uc.user_cart_no 
+and uc.user_id = #{user_id1}
+</select>
+
 <insert id ="insertcart_book" parameterType="cart_bookVO">
 insert into cart_book 
 (
@@ -30,7 +37,7 @@ cart_book_no
 values (
 cart_book_seq.nextval
 ,sysdate
-,4
+,1
 ,#{book_isbn}
 ,#{user_cart_no}
 )

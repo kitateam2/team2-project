@@ -29,6 +29,7 @@
 		<mvc:interceptor>
 		<mvc:mapping path="/message/window" />
 		<mvc:mapping path="/myblog/newPost" />
+		<mvc:mapping path="/cart" />
 		<beans:ref bean="loginInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
