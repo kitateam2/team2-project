@@ -48,7 +48,7 @@ public class APIController<BookDB> {
 	
 	//카카오로부터 받은 책 정보를 하나씩 DB에 저장
 		@ResponseBody
-		@RequestMapping(value = "/book/insert_db", method = RequestMethod.POST)
+		@RequestMapping(value = "/insert_db", method = RequestMethod.POST)
 		public void insert_db(API api) throws Exception {
 			logger.info("전달된 값 >>> {}", api);
 			
