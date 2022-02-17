@@ -15,8 +15,14 @@
 //게시글 삭제하기
 function bt_delete(post_no) {
 	if (confirm('삭제하시겠습니까?')) {
-		location.href = 'post_delete?post_no=${one_post.post_no}';
+		location.href = '../post_delete?post_no=${one_post.post_no}';
 	}
+}
+
+//게시글 수정하기
+function bt_edit(){
+	if (confirm('수정하시겠습니까?'))
+		location.href = '../post_edit?post_no=${one_post.post_no}';
 }
 
 //댓글 쓰기 폼 체크
@@ -33,12 +39,24 @@ function post_comment_form() {
 }
 
 //댓글 삭제하기
-function post_comment_delete( post_comment_no, post_no){
+function post_comment_delete(post_comment_no, post_no){
 	if (confirm('댓글을 삭제하시겠습니까?')){
-		location.href='post_comment_delete?post_comment_no=' + post_comment_no + '&post_no=' + post_no;
+		location.href='../post_comment_delete?post_comment_no=' + post_comment_no + '&post_no=' + post_no;
 		}
 }
 
+function post_comment_edit(post_comment_no, post_no, retext){
+
+		var div = document.getElementById("div"+replynum);
+	<!-- 댓글 자리 -->
+	
+	var str = '<form class="card" id="post_comment_form" action="post_comment" method="post"  onsubmit="return post_comment_form()">';
+		str += '<input type="hidden" name="post_no" value="${one_post.post_no}"/>';
+		str += '<div class="card-body"><textarea name="post_comment_content" id="retext" class="form-control" rows="1"></textarea></div>';
+		str += '<input type="submit" value="댓글등록" />';
+		str += '</form>';
+		div.innerHTML = str;
+}
 </script>
 	<title>게시글 상세보기</title>
 </head>
@@ -76,7 +94,7 @@ function post_comment_delete( post_comment_no, post_no){
 			<!-- 나중에 이미지도 들어가게 해야해 -->
 	</table>
 <!-- 	https://chobopark.tistory.com/159 -->
-		<button onclick="location.href='main';">목록으로 돌아가기</button>
+		<button onclick="location.href='../${one_post.user_id}';">목록으로 돌아가기</button>
 
 <c:if test="${sessionScope.loginId == one_post.user_id}">
 <tr>
@@ -90,9 +108,9 @@ function post_comment_delete( post_comment_no, post_no){
 <br><br>
 
 <!-- 댓글 자리 -->
-<form class="card" id="post_comment_form" action="post_comment" method="post"  onsubmit="return post_comment_form()">
+<form class="card" id="post_comment_form" action="../post_comment" method="post"  onsubmit="return post_comment_form()">
 	<input type="hidden" name="post_no" value="${one_post.post_no}"/>
-	<div class="card-body"><textarea name="post_comment_content" id="post_comment_content" class="form-control" rows="1"></textarea></div>
+	<div class="card-body"><textarea name="post_comment_content" id="retext" class="form-control" rows="1"></textarea></div>
 	<input type="submit" value="댓글등록" />
 </form>
 	
@@ -111,7 +129,7 @@ function post_comment_delete( post_comment_no, post_no){
 			</td>
 			<td>
 				<c:if test="${loginId == post_comment.post_comment_writter}">
-					[<a href="javascript:replyEditForm(${post_comment.post_comment_no}, ${post_comment.post_no}, '${post_comment.post_comment_content}')">수정</a>]
+					[<a href="javascript:post_comment_edit(${post_comment.post_comment_no}, ${post_comment.post_no}, '${post_comment.post_comment_content}')">수정</a>]
 				</c:if>
 			</td>
 			<td>
@@ -120,7 +138,9 @@ function post_comment_delete( post_comment_no, post_no){
 				</c:if>
 			</td>
 		</tr>	
-		
+		<!-- 리플 수정 폼이 나타날 위치  -->
+		<td><div id="div${post_comment.post_comment_no}"></div></td>
+		<tr><td></td></tr>
 		</c:forEach>
 </table>
 </body>

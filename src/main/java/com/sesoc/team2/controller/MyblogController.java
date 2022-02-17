@@ -91,7 +91,7 @@ public class MyblogController {
 		
 		dao.post_delete(blogpost);
 		
-		return "redirect:main";
+		return "redirect:"+ user_id;
 		
 	}
 	
@@ -113,7 +113,7 @@ public class MyblogController {
 		BlogPost old_blogpost = dao.one_post(blogpost.getPost_no());
 		//만약에 가지고 온 값이 없거나 내 글이 아니면 리스트로 돌아가라
 		if( old_blogpost == null || !old_blogpost.getUser_id().equals(user_id)) {
-			return "redirect: one_post";
+			return "redirect: "+user_id+"/one_post";
 		}
 		
 		//맞으면
@@ -122,7 +122,7 @@ public class MyblogController {
 		
 		logger.info("수정된 값{}", result);
 		
-		return "redirect:one_post?post_no=" + blogpost.getPost_no();
+		return "redirect:"+user_id+"/one_post?post_no=" + blogpost.getPost_no();
 	}
 	
 	//게시글 댓글 저장
@@ -136,7 +136,7 @@ public class MyblogController {
 		postcomment.setPost_comment_writter(id);
 		logger.info("컨트롤러{}",postcomment);
 		dao.post_comment_insert(postcomment);
-		return "redirect:one_post?post_no=" + postcomment.getPost_no();
+		return "redirect:" +id+ "/one_post?post_no=" + postcomment.getPost_no();
 	}
 	
 	
@@ -152,7 +152,7 @@ public class MyblogController {
 		
 		dao.post_comment_delete(postcomment);
 		logger.info("ㅇㅇ{}", postcomment.getPost_no());
-	return "redirect:one_post?post_no=" + postcomment.getPost_no();
+	return "redirect:"+ id +"/one_post?post_no=" + postcomment.getPost_no();
 	}
 	
 	//댓글 좋아요
