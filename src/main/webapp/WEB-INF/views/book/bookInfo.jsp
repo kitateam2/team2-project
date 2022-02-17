@@ -98,6 +98,11 @@ function book_review_delete(book_review_no, book_review_star){
 
 <div class="container">
       book information
+      
+<p>저자 : ${api.book_author}</p>
+<p>제목 : ${api.book_title}</p>
+<p>표지 이미지 : </p>
+<p><img src="download?filename=${api.book_image}"></p>
   
 </div>
 

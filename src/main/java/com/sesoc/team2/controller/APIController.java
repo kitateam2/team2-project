@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +27,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.sesoc.team2.dao.apiDAO;
 import com.sesoc.team2.vo.API;
 
-
+@Controller
 public class APIController<BookDB> {
 	private static final Logger logger = LoggerFactory.getLogger(APIController.class);
 	
@@ -38,18 +39,18 @@ public class APIController<BookDB> {
 	final String dir = "/bookimage/"; //경로 바꿀것!
 	
 	//카카오 책 API 요청 페이지로 이동
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String home() throws Exception {
 		
-		return "searchPage";
+		return "book/searchPage";
 	}
 
 	
 	//카카오로부터 받은 책 정보를 하나씩 DB에 저장
 		@ResponseBody
-		@RequestMapping(value = "/insert_db", method = RequestMethod.POST)
+		@RequestMapping(value = "/book/insert_db", method = RequestMethod.POST)
 		public void insert_db(API api) throws Exception {
-			logger.debug("전달된 값 >>> {}", api);
+			logger.info("전달된 값 >>> {}", api);
 			
 			String filename = imageSave(api.getBook_image(), api.getBook_isbn()); 
 			
@@ -59,7 +60,7 @@ public class APIController<BookDB> {
 			int result = dao.insert_db(api);
 			
 			if (result == 0) {
-				logger.debug("저장실패 === {}", api);
+				logger.info("저장실패 === {}", api);
 			}
 		}
 		
