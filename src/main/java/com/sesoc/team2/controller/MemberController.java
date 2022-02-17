@@ -35,6 +35,7 @@ public class MemberController {
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String signup(User_infoVO user_info) {
 		memberDAO.insertMember(user_info);
+		memberDAO.insertusercart(user_info);
 		return "redirect:/";
 	}
 	
