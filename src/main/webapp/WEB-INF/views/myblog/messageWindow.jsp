@@ -87,27 +87,21 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Hello world! 
+	${sessionScope.loginId} 님 오늘도 친구들과 즐거운 소통하세요~ 
 </h1>
 
 쪽지 메인페이지
--- 쪽지 확인? 기능 나중에 추가
 
-왼쪽에 쪽지 리스트
-오른쪽에 쪽지 보이고
-아래쪽에 새로운 쪽지 쓰기 -?? 쪽지 내용이 보이던 곳이 글쓰는 곳으로 바뀌는게 어떻게 되지?
-
-
-또하나의 윈도우 인가?
 <div class="container-fluid row">
 	<div class="col-sm-4" style="background-color:lavender;"> 
-	쪽지 리스트
+	쪽지 리스트(받은 목록)
 	
 			<table  border="1">
 			<c:forEach var="message_list" items="${message_list}">
 				<tr><td>보낸사람:  ${message_list.message_sent_id}</td></tr>
 				<tr><td><a href="window?message_no=${message_list.message_no}">
-				내용: 나중에 내용의 10글자만 가지고 오게 절삭  ${message_list.message_contents}</a></td>
+				내용: 나중에절삭  ${message_list.message_contents}</a></td>
 				</tr>
 				<tr><td>조회수:  ${message_list.message_hits}</td></tr>
 			</c:forEach>
@@ -159,38 +153,6 @@
 			
 			</div><!-- 쪽지 읽기 div -->
 	</div><!-- 페이지 좌우로 나누기 위한 값주는 div -->
-			<div>
-			
-			쪽지 보내기
-					<form id="message_new" action="new" method="post" onsubmit="return message_new_formCheck()">
-					<table  border="1">
-						<tr>
-							<td>
-											<table  border="1">
-												<tr>
-													<td>발신인  </td>
-													<td colspan="2">${sessionScope.loginId}</td>
-												</tr>
-												<tr>
-													<td>수신인  </td>
-													<td><input type="text" name="message_recv_id" id="message_recv_id" placeholder="받는 분 아이디"/>
-														</td>
-													<td><%= sf2.format(nowTime) %></td>
-												</tr>
-											</table>
-							
-							</td>
-						</tr>
-						<tr>
-							<td><textarea name="message_contents" id="message_contents" rows="20"></textarea></td>
-						</tr>
-						<tr><td><input type="submit" value="보내기"></td></tr>
-					</table>
-					</form><!-- 쪽지 보내기 폼 -->
-			
-			</div><!-- 쪽지보내기 div -->
-	
-	
 </div>
 </body>
 </html>
