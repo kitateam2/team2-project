@@ -15,4 +15,6 @@ public interface CartMapper {
 	int selectuser_cart_no(String user_id1);
 	
 	ArrayList<cart_book> list1(String user_id1);
+
+	int deletecart(int cart_book_no);
 }

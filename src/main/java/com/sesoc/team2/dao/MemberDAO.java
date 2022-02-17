@@ -22,4 +22,11 @@ public class MemberDAO {
 		User_infoVO member = mapper.selectMember(user_id);
 		return member;
 	}
+
+	public int insertusercart(User_infoVO user_info) {
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		int result = mapper.insertusercart(user_info);
+		return result;
+		
+	}
 }
