@@ -42,11 +42,19 @@
 		
 	.idlist {
 		margin: auto;		
-		width:170px;
-		text-align:center;
+		width: 170px;
+		text-align: center;
 		border: 4px solid rgb(210, 210, 230);
 		border-collapse: collapse;		
   		border-radius: 10px;  		
+	}
+	
+	.footer {
+		position: absolute;
+		bottom: 20px;
+		left: 20px;
+		height: 30px;
+		cursor: pointer;	
 	}
 </style>
 <script>
@@ -94,6 +102,11 @@
 				</tr>	
 			</c:forEach>
 		</table>
+	</div>
+	
+<!-- 푸터 -->
+	<div class="footer" onclick="location.href='${pageContext.request.contextPath}/chathome'" title="고객센터">		
+		<img src="resources/img/customer.png" width="30px" height="30px">
 	</div>
 	
 </div>
