@@ -31,10 +31,11 @@
    			,	message_date
    			, 	message_sent_id
    			,	message_recv_id
+   			, 	message_hits
    		from
    			message
    		where
-   			message_sent_id = #{loginiddd}
+   			message_recv_id = #{loginiddd}
    		order by
    			message_no desc
    </select>

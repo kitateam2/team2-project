@@ -71,7 +71,7 @@
 <table  border="1">
 <c:forEach var="message_list" items="${message_list}">
 	<tr><td>보낸사람:  ${message_list.message_sent_id}</td></tr>
-	<tr><td><a href="one_message?message_no=${message_list.message_no}">
+	<tr><td><a href="window?message_no=${message_list.message_no}">
 	내용: 나중에 내용의 10글자만 가지고 오게 절삭  ${message_list.message_contents}</a></td>
 	</tr>
 	<tr><td>조회수:  ${message_list.message_hits}</td></tr>
@@ -93,7 +93,7 @@
 							</tr>
 							<tr>
 								<td>발신인 : </td>
-								<td colspan="2">${one_message.message_sent_id}</td>
+								<td colspan="2">${message.message_sent_id}</td>
 							</tr>
 							<tr>
 								<td>수신인 : </td>
