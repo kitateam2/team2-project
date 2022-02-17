@@ -18,13 +18,13 @@ public class CustomerServiceController {
 	private static final Logger logger = LoggerFactory.getLogger(CustomerServiceController.class);
 	static HttpSession session;
 	/**
-	 * 메인 화면으로 이동
+	 * FAQ 화면으로 이동
 	 */
-	@RequestMapping(value = "/chathome", method = RequestMethod.GET)
+	@RequestMapping(value = "/userService", method = RequestMethod.GET)
 	public String home(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("loginId");
-		logger.info("챗홈{}",id);
-		return "chat/chathome";
+		logger.info("FAQ{}",id);
+		return "service/userService";
 	}
 	
 	/**
@@ -34,9 +34,14 @@ public class CustomerServiceController {
 	public String chatView(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("loginId");
 		logger.info("챗뷰{}",id);
-		return "chat/chat";
+		return "service/chat";
 	}
 	
-
+	@RequestMapping(value = "/chatTest", method = RequestMethod.GET)
+	public String chaTest(HttpSession session, Model model) {
+		String id = (String)session.getAttribute("loginId");
+		logger.info("FAQ{}",id);
+		return "service/test";
+	}
 	
 }

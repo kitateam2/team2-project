@@ -177,6 +177,12 @@
 		    <artifactId>spring-messaging</artifactId>
 		    <version>${org.springframework-version}</version>
 		</dependency>
+		<!-- api 안쓰면 필요없음 -->
+		<dependency>
+		    <groupId>javax.websocket</groupId>
+		    <artifactId>javax.websocket-api</artifactId>
+		    <version>1.1</version>
+		</dependency>
 		<!-- stomp -->
 		<dependency>
 		    <groupId>org.springframework.integration</groupId>
