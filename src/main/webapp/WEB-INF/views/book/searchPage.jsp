@@ -45,7 +45,7 @@ $(document).ready(function () {
 		$.each(list, function(key, item) {
 			
 			let book = {"book_title": item.title, "book_isbn": item.isbn, "book_author": item.authors[0], "book_public": item.publisher, 
-			"book_price": item.price, "book_image": item.thumbnail, "book_contents": item.contents, "book_inputDate": item.datetime};
+			"book_price": item.price, "book_image": item.thumbnail, "book_contents": item.contents, "book_inputdate": item.datetime};
 			console.log(JSON.stringify(book));
 			
 			$.ajax({
