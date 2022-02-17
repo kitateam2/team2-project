@@ -64,8 +64,8 @@ public class MessageController {
 			}
 			
 	//쪽지 저장
-			@RequestMapping(value = "new", method = RequestMethod.POST)
-			public String message_new(Message message
+			@RequestMapping(value = "{user_id}/new", method = RequestMethod.POST)
+			public String message_new(@PathVariable String user_id, Message message
 										, HttpSession session
 										,  Model model) {
 				logger.info("쪽지 저장 me result: {}", message);

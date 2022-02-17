@@ -47,6 +47,41 @@
 			alert("<%= sf.format(nowTime) %>에 님께 쪽지를 전송합니다.");
 			return true;
 			}
+
+		function message_new(login_id){
+
+			var div = document.getElementById("message_new_form");
+
+			var str = '<div>'
+			
+				str += '쪽지 보내기'
+				str += '<form id="message_new" action="new" method="post" onsubmit="return message_new_formCheck()">'
+				str += '<table  border="1">'
+				str += '<tr>'
+				str += '<td>'
+				str += '<table  border="1">'
+				str += '<tr>'
+				str += '<td>발신인  </td>'
+				str += '<td colspan="2">${sessionScope.loginId}</td>'
+				str += '</tr>'
+				str += '<tr>'
+				str += '<td>수신인  </td>'
+				str += '<td><input type="text" name="message_recv_id" id="message_recv_id" placeholder="받는 분 아이디"/>'
+				str += '</td>'
+				str += '<td><%= sf2.format(nowTime) %></td>'
+				str += '</tr>'
+				str += '</table>'
+				str += '</td>'
+				str += '</tr>'
+				str += '<tr>'
+				str += '<td><textarea name="message_contents" id="message_contents" rows="20"></textarea></td>'
+				str += '</tr>'
+				str += '<tr><td><input type="submit" value="보내기"></td></tr>'
+				str += '</table>'
+				str += '</form><!-- 쪽지 보내기 폼 -->'
+				str += '</div>'
+				div.innerHTML = str;
+			}
 	</script>
 	<title>Home</title>
 </head>
@@ -65,94 +100,97 @@
 
 또하나의 윈도우 인가?
 <div class="container-fluid row">
-<div class="col-sm-4" style="background-color:lavender;">
-쪽지 리스트
-
-<table  border="1">
-<c:forEach var="message_list" items="${message_list}">
-	<tr><td>보낸사람:  ${message_list.message_sent_id}</td></tr>
-	<tr><td><a href="window?message_no=${message_list.message_no}">
-	내용: 나중에 내용의 10글자만 가지고 오게 절삭  ${message_list.message_contents}</a></td>
-	</tr>
-	<tr><td>조회수:  ${message_list.message_hits}</td></tr>
-</c:forEach>
-</table>
-
-
-</div><!-- 쪽지 리스트 div -->
-<div class="col-sm-8" style="background-color:lavenderblush;">
-
-<table  border="1">
-
-	<tr>
-		<td colspan="2">
-						<table  border="1">
-							<tr>
-								<td>제목 : </td>
-								<td colspan="2">제목 받아오기</td>
-							</tr>
-							<tr>
-								<td>발신인 : </td>
-								<td colspan="2">${message.message_sent_id}</td>
-							</tr>
-							<tr>
-								<td>수신인 : </td>
-								<td>${one_message.message_recv_id}</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>내용 : </td>
-								<td>${one_message.message_contents}</td>
-								<td></td>
-							</tr>
-						</table>
-		
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2"></td>
-	</tr>
-	<tr>
-		<td>첨부파일 : </td>
-		<td>파일목록불러오기</td>
-	</tr>
-
-</table>
-
-
-</div>쪽지 읽기 div
-
-<div>
- -->
-쪽지 보내기
-<form id="message_new" action="new" method="post" onsubmit="return message_new_formCheck()">
-<table  border="1">
-	<tr>
-		<td>
-						<table  border="1">
-							<tr>
-								<td>발신인  </td>
-								<td colspan="2">${sessionScope.loginId}</td>
-							</tr>
-							<tr>
-								<td>수신인  </td>
-								<td><input type="text" name="message_recv_id" id="message_recv_id" placeholder="받는 분 아이디"/>
-									</td>
-								<td><%= sf2.format(nowTime) %></td>
-							</tr>
-						</table>
-		
-		</td>
-	</tr>
-	<tr>
-		<td><textarea name="message_contents" id="message_contents" rows="20"></textarea></td>
-	</tr>
-	<tr><td><input type="submit" value="보내기"></td></tr>
-</table>
-</form><!-- 쪽지 보내기 폼 -->
-
-</div><!-- 쪽지보내기 div -->
-
-</div><!-- 페이지 좌우로 나누기 위한 값주는 div -->
+	<div class="col-sm-4" style="background-color:lavender;"> 
+	쪽지 리스트
+	
+			<table  border="1">
+			<c:forEach var="message_list" items="${message_list}">
+				<tr><td>보낸사람:  ${message_list.message_sent_id}</td></tr>
+				<tr><td><a href="window?message_no=${message_list.message_no}">
+				내용: 나중에 내용의 10글자만 가지고 오게 절삭  ${message_list.message_contents}</a></td>
+				</tr>
+				<tr><td>조회수:  ${message_list.message_hits}</td></tr>
+			</c:forEach>
+			</table>
+			<a href="javascript:message_new()">새글 쓰기</a>
+	</div> 
+	
+	
+	<div id="message_new_form" class="col-sm-8" style="background-color:lavenderblush;"> 
+	
+			<div>
+					<table  border="1">
+					
+						<tr>
+							<td colspan="2">
+											<table  border="1">
+												<tr>
+													<td>제목 : </td>
+													<td colspan="2">제목 받아오기</td>
+												</tr>
+												<tr>
+													<td>발신인 : </td>
+													<td colspan="2">${message.message_sent_id}</td>
+												</tr>
+												<tr>
+													<td>수신인 : </td>
+													<td>${one_message.message_recv_id}</td>
+													<td></td>
+												</tr>
+												<tr>
+													<td>내용 : </td>
+													<td>${one_message.message_contents}</td>
+													<td></td>
+												</tr>
+											</table>
+							
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2"></td>
+						</tr>
+						<tr>
+							<td>첨부파일 : </td>
+							<td>파일목록불러오기</td>
+						</tr>
+					
+					</table>
+			
+			
+			</div><!-- 쪽지 읽기 div -->
+	</div><!-- 페이지 좌우로 나누기 위한 값주는 div -->
+			<div>
+			
+			쪽지 보내기
+					<form id="message_new" action="new" method="post" onsubmit="return message_new_formCheck()">
+					<table  border="1">
+						<tr>
+							<td>
+											<table  border="1">
+												<tr>
+													<td>발신인  </td>
+													<td colspan="2">${sessionScope.loginId}</td>
+												</tr>
+												<tr>
+													<td>수신인  </td>
+													<td><input type="text" name="message_recv_id" id="message_recv_id" placeholder="받는 분 아이디"/>
+														</td>
+													<td><%= sf2.format(nowTime) %></td>
+												</tr>
+											</table>
+							
+							</td>
+						</tr>
+						<tr>
+							<td><textarea name="message_contents" id="message_contents" rows="20"></textarea></td>
+						</tr>
+						<tr><td><input type="submit" value="보내기"></td></tr>
+					</table>
+					</form><!-- 쪽지 보내기 폼 -->
+			
+			</div><!-- 쪽지보내기 div -->
+	
+	
+</div>
 </body>
 </html>
