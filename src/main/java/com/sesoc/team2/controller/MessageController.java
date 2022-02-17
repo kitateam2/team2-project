@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sesoc.team2.dao.MessageDAO;
 import com.sesoc.team2.vo.Message;
@@ -29,8 +30,8 @@ public class MessageController {
 	
 	//쪽지로 이동
 			@RequestMapping(value = "window", method = RequestMethod.GET)
-			public String messageWindow(Message message
-										, HttpSession session
+			public String messageWindow(
+					@RequestParam(value="message_no", defaultValue="0" )int message_no, HttpSession session
 										,  Model model) {
 				String id = (String) session.getAttribute("loginId");
 				//보내는 값에 내 아이디를 고정해서 보내야 하니까 고정값을 하나만 주는 거지  
@@ -44,6 +45,18 @@ public class MessageController {
 				//받을 때 나한테 온거, 보낼 때 내가 보낸거를 내부적으로만 통일하려고
 				
 				logger.info("리스트: {}", message_list);
+				
+				if(message_no == 0 ) {}
+				
+				else {
+				//전달된 메시지 넘버 가지고 오기
+				logger.info("메시지 하나 자세히 보기 {}", message_no);
+				Message one_message = dao.one_message(message_no);
+				logger.info("메시지 하나 자세히 보기 2222 {}", message_no);
+ 
+				model.addAttribute("one_message", one_message);
+				
+				}
 
 				return "myblog/messageWindow"; //의문인 것이 블로그 메인이랑 메시지는 같은 위치에 잇는데 왜 앞에 마이블로그를 붙여줘야하지
 			}
@@ -67,14 +80,5 @@ public class MessageController {
 	
 	//쪽지 하나 보기
 			
-			@RequestMapping(value = "one_message", method = RequestMethod.GET)
-			public String one_messsage(int message_no,  Model model) {
-				//전달된 메시지 넘버 가지고 오기
-				logger.info("메시지 하나 자세히 보기 {}", message_no);
-				Message one_message = dao.one_message(message_no);
-				logger.info("메시지 하나 자세히 보기 2222 {}", message_no);
- 
-				model.addAttribute("one_message", one_message);
-				return "redirect:window";
-			}
+			
 }
