@@ -9,19 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sesoc.team2.vo.BookReview;
-import com.sesoc.team2.vo.PostComment;
 
 @Repository
-public class BookDBDAO {
+public class ReviewDAO {
 	@Autowired
 	SqlSession sqlsession;
 	
-	private static final Logger logger = LoggerFactory.getLogger(BookDBDAO.class);
+	private static final Logger logger = LoggerFactory.getLogger(ReviewDAO.class);
 	
 
 	//댓글 저장
 	public int insert(BookReview review) {
-		BookDBMapper mapper = sqlsession.getMapper(BookDBMapper.class);
+		ReviewMapper mapper = sqlsession.getMapper(ReviewMapper.class);
 		int result = mapper.insert(review);
 		logger.info("DAO{}", result);
 		return result;
@@ -29,7 +28,7 @@ public class BookDBDAO {
 	
 	//댓글 목록 읽기
 	public ArrayList<BookReview> BookReviewList(int book_review_no) {
-		BookDBMapper mapper = sqlsession.getMapper(BookDBMapper.class);
+		ReviewMapper mapper = sqlsession.getMapper(ReviewMapper.class);
 		ArrayList<BookReview> BookReviewList = mapper.BookReviewList(book_review_no);
 		logger.info("댓글리스트 dao :", BookReviewList);
 		return BookReviewList;
@@ -37,7 +36,7 @@ public class BookDBDAO {
 	
 	//댓글 삭제
 	public int bookReview_delete (BookReview review) {
-		BookDBMapper mapper = sqlsession.getMapper(BookDBMapper.class);
+		ReviewMapper mapper = sqlsession.getMapper(ReviewMapper.class);
 		int result = mapper.bookReview_delete(review);
 		return result;
 	}
