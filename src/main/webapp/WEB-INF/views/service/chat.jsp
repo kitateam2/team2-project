@@ -39,6 +39,7 @@ function openSession() {
 		alert('Close');
 	}
 	sock.onmessage = receiveMessage;
+	
 }
 
 
@@ -62,6 +63,7 @@ function receiveMessage(msg) {
 </head>
 <body>
 <p>${sessionScope.loginId}세션아이디</p>
+
 <div id="outputDiv"></div>
 
 <input type="text" id="text">
