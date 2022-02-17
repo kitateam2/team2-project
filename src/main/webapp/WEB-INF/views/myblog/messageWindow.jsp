@@ -47,41 +47,6 @@
 			alert("<%= sf.format(nowTime) %>에 님께 쪽지를 전송합니다.");
 			return true;
 			}
-
-		function message_new(login_id){
-
-			var div = document.getElementById("message_new_form");
-
-			var str = '<div>'
-			
-				str += '쪽지 보내기'
-				str += '<form id="message_new" action="new" method="post" onsubmit="return message_new_formCheck()">'
-				str += '<table  border="1">'
-				str += '<tr>'
-				str += '<td>'
-				str += '<table  border="1">'
-				str += '<tr>'
-				str += '<td>발신인  </td>'
-				str += '<td colspan="2">${sessionScope.loginId}</td>'
-				str += '</tr>'
-				str += '<tr>'
-				str += '<td>수신인  </td>'
-				str += '<td><input type="text" name="message_recv_id" id="message_recv_id" placeholder="받는 분 아이디"/>'
-				str += '</td>'
-				str += '<td><%= sf2.format(nowTime) %></td>'
-				str += '</tr>'
-				str += '</table>'
-				str += '</td>'
-				str += '</tr>'
-				str += '<tr>'
-				str += '<td><textarea name="message_contents" id="message_contents" rows="20"></textarea></td>'
-				str += '</tr>'
-				str += '<tr><td><input type="submit" value="보내기"></td></tr>'
-				str += '</table>'
-				str += '</form><!-- 쪽지 보내기 폼 -->'
-				str += '</div>'
-				div.innerHTML = str;
-			}
 	</script>
 	<title>Home</title>
 </head>
