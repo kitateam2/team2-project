@@ -28,7 +28,7 @@ import com.sesoc.team2.dao.apiDAO;
 import com.sesoc.team2.vo.API;
 
 @Controller
-public class APIController<BookDB> {
+public class APIController {
 	private static final Logger logger = LoggerFactory.getLogger(APIController.class);
 	
 	@Autowired
@@ -52,11 +52,11 @@ public class APIController<BookDB> {
 		public void insert_db(API api) throws Exception {
 			logger.info("전달된 값 >>> {}", api);
 			
-			String filename = imageSave(api.getBook_image(), api.getBook_isbn()); 
-			
-			if (filename != null) {
-				api.setBook_image(filename);
-			}
+//			String filename = imageSave(api.getBook_image(), api.getBook_isbn()); 
+//			
+//			if (filename != null) {
+//				api.setBook_image(filename);
+//			}
 			int result = dao.insert_db(api);
 			
 			if (result == 0) {
@@ -102,11 +102,11 @@ public class APIController<BookDB> {
 		public String view(Model model) {
 			//테스트 하기 위한 임시 코드임. 아래 정보 DB에서 불러오는 것으로 수정할 것
 			API api = new API();
-			api.setBook_author("book_author");
-			api.setBook_title("book_title");
-			//보여줄 이미지 파일명 (실제 /bookimage 폴더에 있는 파일명으로 테스트
-			api.setBook_image("book_image");
-			
+//			api.setBook_author("book_author");
+//			api.setBook_title("book_title");
+//			//보여줄 이미지 파일명 (실제 /bookimage 폴더에 있는 파일명으로 테스트
+//			api.setBook_image("book_image");
+		
 			model.addAttribute("api", api);
 			return "bookInfo";
 		}

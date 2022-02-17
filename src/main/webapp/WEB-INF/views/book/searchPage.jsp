@@ -44,20 +44,20 @@ $(document).ready(function () {
 		
 		$.each(list, function(key, item) {
 			
-			//let book = {"book_title": item.title, "book_isbn": item.isbn, "book_author": item.authors, "book_publisher": item.publisher, 
-				//	"book_price": item.price, "book_image": item.thumbnail, "book_desc": item.contents, "book_pubDate": item.datetime}
+			let book = {"book_title": item.title, "book_isbn": item.isbn, "book_author": item.authors[0], "book_public": item.publisher, 
+			"book_price": item.price, "book_image": item.thumbnail, "book_contents": item.contents, "book_inputDate": item.datetime};
+			console.log(JSON.stringify(book));
 			
 			$.ajax({
 				url: 'insert_db',
 				type: 'POST',
-				contentType : "application/json; charset=utf-8",
-				data: JSON.stringify({"book_title": item.title, "book_isbn": item.isbn, "book_author": item.authors, "book_publisher": item.publisher, 
-										"book_price": item.price, "book_image": item.thumbnail, "book_desc": item.contents, "book_pubDate": item.datetime}),
+				data: book,
 				success: function() {
 					console.log('저장됨 -> ' + item.title);
 				},
 				error: function(e) {
 					console.log(JSON.stringify(e));
+					return false;
 				}
 			});
 		});

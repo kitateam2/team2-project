@@ -5,11 +5,11 @@ public class API {
 	private String book_title; 					//책 이름
 	private String book_isbn;	 					//ISBN 번호
 	private String book_author;	 				//저자 이름
-	private String book_publisher; 				//출판사
+	private String book_public; 				//출판사
 	private int book_price; 					//가격
 	private String book_image; 					//책 표지
-	private String book_desc;					//책 내용
-	private String book_pubDate; 				//출판일자
+	private String book_contents;					//책 내용
+	private String book_inputdate; 				//출판일자
 	
 	public API() {
 	}
@@ -38,12 +38,12 @@ public class API {
 		this.book_author = book_author;
 	}
 
-	public String getBook_publisher() {
-		return book_publisher;
+	public String getBook_public() {
+		return book_public;
 	}
 
-	public void setBook_publisher(String book_publisher) {
-		this.book_publisher = book_publisher;
+	public void setBook_public(String book_public) {
+		this.book_public = book_public;
 	}
 
 	public int getBook_price() {
@@ -62,26 +62,26 @@ public class API {
 		this.book_image = book_image;
 	}
 
-	public String getBook_desc() {
-		return book_desc;
+	public String getBook_contents() {
+		return book_contents;
 	}
 
-	public void setBook_desc(String book_desc) {
-		this.book_desc = book_desc;
+	public void setBook_contents(String book_contents) {
+		this.book_contents = book_contents;
 	}
 
-	public String getBook_pubDate() {
-		return book_pubDate;
+	public String getBook_inputdate() {
+		return book_inputdate;
 	}
 
-	public void setBook_pubDate(String book_pubDate) {
-		this.book_pubDate = book_pubDate;
+	public void setBook_inputdate(String book_inputdate) {
+		this.book_inputdate = book_inputdate;
 	}
 
 	@Override
 	public String toString() {
-		return "BookDB [book_title=" + book_title + ", book_isbn=" + book_isbn + ", book_author=" + book_author
-				+ ", book_publisher=" + book_publisher + ", book_price=" + book_price + ", book_image=" + book_image
-				+ ", book_desc=" + book_desc + ", book_pubDate=" + book_pubDate + "]";
+		return "API [book_title=" + book_title + ", book_isbn=" + book_isbn + ", book_author=" + book_author
+				+ ", book_public=" + book_public + ", book_price=" + book_price + ", book_image=" + book_image
+				+ ", book_contents=" + book_contents + ", book_inputdate=" + book_inputdate + "]";
 	}
 }
