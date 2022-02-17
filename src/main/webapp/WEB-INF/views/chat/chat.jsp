@@ -17,11 +17,11 @@
 	width: 300px;
 }
 </style>
-<script src="resources/js/jquery-3.6.0.min.js"></script>
+<script src="./resources/js/jquery-3.6.0.min.js"></script>
 <script>
 var url;
 var sock;
-var id;
+
 $(document).ready(function() {
 	openSession();
 	$('#sendBt').on('click', sendMessage);
@@ -30,7 +30,7 @@ $(document).ready(function() {
 
 //웹 소켓 오픈
 function openSession() {
-	url = 'ws://192.168.137.1:8888/team2/chat';
+	url = 'ws://localhost:8888/team2/chat';
 	sock = new WebSocket(url);
 	sock.onopen = function() {
 		alert('Open');

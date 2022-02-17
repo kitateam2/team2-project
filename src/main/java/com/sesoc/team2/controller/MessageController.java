@@ -70,10 +70,11 @@ public class MessageController {
 			@RequestMapping(value = "one_message", method = RequestMethod.GET)
 			public String one_messsage(int message_no,  Model model) {
 				//전달된 메시지 넘버 가지고 오기
+				logger.info("메시지 하나 자세히 보기 {}", message_no);
 				Message one_message = dao.one_message(message_no);
-				 
+				logger.info("메시지 하나 자세히 보기 2222 {}", message_no);
+ 
 				model.addAttribute("one_message", one_message);
-				logger.info("메시지 하나 자세히 보기 {}", one_message);
 				return "redirect:window";
 			}
 }

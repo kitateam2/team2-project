@@ -10,6 +10,7 @@
 		<typeAlias type="com.sesoc.team2.vo.cart_book" alias="cart_bookVO"/> 
 		<typeAlias type="com.sesoc.team2.vo.Message" alias="messageVO"/>
 		<typeAlias type="com.sesoc.team2.vo.BlogMain" alias="BlogMain" /> 
+		<typeAlias type="com.sesoc.team2.vo.BookDB" alias="BookDBVO" /> 
 		
 	</typeAliases>
 	
@@ -19,5 +20,6 @@
 		<mapper resource="mapper/cartmapper.xml" />
 		<mapper resource="mapper/messageMapper.xml" />
 		<mapper resource="mapper/blogMainMapper.xml" />
+		<mapper resource="mapper/bookDBMapper.xml" />
 	</mappers>
 </configuration>

@@ -48,7 +48,7 @@
 			message_no = #{message_no}  			
    </select>
    
-   <update id="add_message_hits" parameterType="int">
+   <update id="add_message_hits" parameterType="messageVO">
    		update
    			message
    		set
