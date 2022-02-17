@@ -1,8 +1,9 @@
 package com.sesoc.team2.vo;
 
-public class BookDB {
+public class API {
+
 	private String book_title; 					//책 이름
-	private int book_isbn;	 					//ISBN 번호
+	private String book_isbn;	 					//ISBN 번호
 	private String book_author;	 				//저자 이름
 	private String book_publisher; 				//출판사
 	private int book_price; 					//가격
@@ -10,7 +11,7 @@ public class BookDB {
 	private String book_desc;					//책 내용
 	private String book_pubDate; 				//출판일자
 	
-	public BookDB() {
+	public API() {
 	}
 
 	public String getBook_title() {
@@ -21,11 +22,11 @@ public class BookDB {
 		this.book_title = book_title;
 	}
 
-	public int getBook_isbn() {
+	public String getBook_isbn() {
 		return book_isbn;
 	}
 
-	public void setBook_isbn(int book_isbn) {
+	public void setBook_isbn(String book_isbn) {
 		this.book_isbn = book_isbn;
 	}
 
@@ -83,6 +84,4 @@ public class BookDB {
 				+ ", book_publisher=" + book_publisher + ", book_price=" + book_price + ", book_image=" + book_image
 				+ ", book_desc=" + book_desc + ", book_pubDate=" + book_pubDate + "]";
 	}
-	
-	
 }

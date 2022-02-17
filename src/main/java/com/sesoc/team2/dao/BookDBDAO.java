@@ -8,8 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sesoc.team2.controller.MyblogController;
-import com.sesoc.team2.vo.BookDB;
 import com.sesoc.team2.vo.BookReview;
 import com.sesoc.team2.vo.PostComment;
 
@@ -18,22 +16,9 @@ public class BookDBDAO {
 	@Autowired
 	SqlSession sqlsession;
 	
-	private static final Logger logger = LoggerFactory.getLogger(MyblogController.class);
+	private static final Logger logger = LoggerFactory.getLogger(BookDBDAO.class);
 	
-	
-	//도서 api_db 저장
-	public int insert_db(BookDB bookDB) {
-		BookDBMapper mapper = sqlsession.getMapper(BookDBMapper.class);
-		int result = 0;
-		try {
-			result = mapper.insert_db(bookDB);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
-	
+
 	//댓글 저장
 	public int insert(BookReview review) {
 		BookDBMapper mapper = sqlsession.getMapper(BookDBMapper.class);
