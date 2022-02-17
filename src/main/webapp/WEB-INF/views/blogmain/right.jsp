@@ -17,8 +17,7 @@
 	
 	.header {
 		background-color: white;
-		margin-top: 10px;
-		margin-right: 10px;			
+		margin: 10px;	
 	}
 	
 	.headerbtn {
@@ -49,11 +48,13 @@
 		border: 2px solid rgb(210, 210, 230);
 		padding: 0;
 		word-break: break-all;		
-		margin: 0;	
+		margin: 0;
+		vertical-align: top;	
 	}
 	
 	.ellipsis {
 		width: 300px;
+		height: 55.2px;
 		overflow: hidden;
 		text-overflow: ellipsis;		
   		display: -webkit-box;
@@ -83,7 +84,7 @@
 				<span style="font-size: 18px; font-weight: bold;">${sessionScope.loginId}님 접속중</span>&nbsp;&nbsp;&nbsp;
 			</c:if>
 			<c:if test="${sessionScope.loginId != null}">
-				<input class="headerbtn" type="button" onclick="location.href=''" value="내블로그">				
+				<input class="headerbtn" type="button" onclick="location.href='${pageContext.request.contextPath}/myblog/main'" value="내블로그">				
 			</c:if>	
 			<c:if test="${sessionScope.loginId != null}">
 				<input class="headerbtn" type="button" onclick="location.href='${pageContext.request.contextPath}/blogmain/logout'" value="로그아웃">				
@@ -103,7 +104,7 @@
 						<c:if test="{i%j == 0}">
 							<tr>
 						</c:if>
-								<td class="td" onClick="location.href='${pageContext.request.contextPath}/board/read?boardnum=${blog.post_no}'">
+								<td class="td" onClick="location.href='${pageContext.request.contextPath}/myblog/one_post?post_no=${blog.post_no}'">
 							 		<div style="height:250px;"><img class="img" alt="" src="resources/img/background.png"></div><br> <!-- ${blog.post_savedfile} -->					
 									<div style="color:rgb(117, 117,117);">@${blog.user_id}</div><br>
 									<div class="ellipsis">${blog.post_contents}</div><br><br>
@@ -118,8 +119,7 @@
 				</c:when>
 			</c:choose>
 		</table>
-	</div>
-	
+	</div>	
 
 </div>
 </body>
