@@ -12,7 +12,8 @@
 
 <script>
 function message_window(){
-	var w = window.open('../message/window', '메시지', 'top=200,left=500,width=1200,height=600');
+	
+	var w = window.open('../message/${sessionScope.loginId}/window', '메시지', 'top=200,left=500,width=1200,height=600');
 }
 </script>
 
@@ -30,12 +31,12 @@ function message_window(){
 		<tr>
 			<th colspan="4">게시글 목록</th>
 		</tr>
-	<!-- https://freehoon.tistory.com/106 -->
+	<!-- 참고한 주소 https://freehoon.tistory.com/106 -->
 	<c:forEach var="postlist" items="${postlist}"> <!-- 리스트 저장한 거 가지고 오는 거  -->
 		<tr>
 			<td>게시글 번호 : ${postlist.post_no}</td>
 			<td>
-			<a href="one_post?post_no=${postlist.post_no}">
+			<a href="${postlist.user_id}/one_post?post_no=${postlist.post_no}">
 						게시글 제목 : ${postlist.post_title}</a>
 			</td>
 			<td>blank</td>
@@ -52,7 +53,7 @@ function message_window(){
 
 
 </div>
-
+<c:if test="${sessionScope.loginId == user_id}">
 <div><!-- 개인정보 목록 한덩어리 -->
 	<table>
 		<tr><td colspan="2">이미지로 기본 사진</td></tr>
@@ -74,7 +75,7 @@ function message_window(){
 <div><!-- 친구목록 한덩어리  -->
 친구 리스트 가지고 오기 
 </div>
-
+</c:if>
 <div>
 <!-- 카테고리 한덩어리(글 목록들을 보여줄지 카테고리로 이미지를 보여줄지) -->
 </div>

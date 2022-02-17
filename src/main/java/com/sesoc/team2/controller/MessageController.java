@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,8 +30,9 @@ public class MessageController {
 	MessageDAO dao;
 	
 	//쪽지로 이동
-			@RequestMapping(value = "window", method = RequestMethod.GET)
+			@RequestMapping(value = "{user_id}/window", method = RequestMethod.GET)
 			public String messageWindow(
+					@PathVariable String user_id,
 					@RequestParam(value="message_no", defaultValue="0" )int message_no, HttpSession session
 										,  Model model) {
 				String id = (String) session.getAttribute("loginId");

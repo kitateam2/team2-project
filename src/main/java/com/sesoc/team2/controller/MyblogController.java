@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,8 +54,8 @@ public class MyblogController {
 	
 	
 	//게시글 읽기(전체 페이지, 1개 불러오기)
-	@RequestMapping(value = "one_post", method = RequestMethod.GET) 
-	public String one_post(int post_no, Model model) {
+	@RequestMapping(value = "{user_id}/one_post", method = RequestMethod.GET) 
+	public String one_post(@PathVariable String user_id, int post_no, Model model) {
 			//전달된 글 번호로 해장 글정보를 읽기
 			BlogPost one_post = dao.one_post(post_no);
 			
