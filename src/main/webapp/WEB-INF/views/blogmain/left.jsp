@@ -96,7 +96,7 @@
 					</td>
 				</tr>
 			<c:forEach var="rank" items="${ranklist}" varStatus="status">
-				<tr style="border: 2px solid rgb(210, 210, 230); cursor: pointer;" onclick="location.href='${pageContext.request.contextPath}/myblog/main=?${rank.user_id}'">
+				<tr style="border: 2px solid rgb(210, 210, 230); cursor: pointer;" onclick="location.href='${pageContext.request.contextPath}/myblog/${rank.user_id}'">
 					<td width="35px;" style="font-weight:bold;">${status.count}</td>
 					<td>${rank.user_id}</td>				
 				</tr>	
