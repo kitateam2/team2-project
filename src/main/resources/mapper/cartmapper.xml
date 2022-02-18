@@ -38,7 +38,7 @@ cart_book_no
 values (
 cart_book_seq.nextval
 ,sysdate
-,1
+,#{cart_book_count}
 ,#{book_isbn}
 ,#{user_cart_no}
 )
@@ -54,13 +54,13 @@ cart_book_seq.nextval
 </delete>
 
 <!-- 글 수정 -->
-<!-- 	<update id="update" parameterType="int">
+<update id="update" parameterType="int">
 		update
 			cart_book
 		set
 			cart_book_count = #{cart_book_count}
 		where
 			cart_book_no = #{cart_book_no}
-	</update> -->
+	</update> 
 
 </mapper>
