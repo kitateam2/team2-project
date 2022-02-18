@@ -5,7 +5,11 @@
 
 <html>
 <head>
+<script>
 
+
+
+</script>
 
 </head>
 
@@ -19,6 +23,7 @@
 		<th>수량</th>
 		<th>유저카트넘버</th>
 		<th>가격</th>
+	<th>합계${cart_total}원</th> 
 	</tr>
 
 
@@ -30,7 +35,7 @@
 			<th>${cart.book_title}</th>
 			<th>${cart.cart_book_inputdate}</th>                                
 			<th>
-				<input type="hidden" name="cart_book_no" value="${cart.cart_book_no}">
+				<input type="hidden" id=cart_book_no name="cart_book_no" value="${cart.cart_book_no}">
 				<input type="number" name="cart_book_count" placeholder="${cart.cart_book_count} " id="count">
 			</th>
 			<th>${cart.user_cart_no}</th>

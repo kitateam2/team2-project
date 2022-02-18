@@ -65,6 +65,10 @@ CartDAO dao;
 		String user_id1 = (String) session.getAttribute("loginId");
 		ArrayList<cart_book> cart = dao.selectbook1(user_id1);
 		model.addAttribute("Cart_book1",cart);
+		
+		int cart_total = dao.total(cart_book1.getCart_book_no()); //토탈 찍고 모델에 담아서 뿌리기
+		model.addAttribute("cart_total", cart_total);
+		
 		return "cart/cartForm";	
 	}
 	
@@ -92,7 +96,7 @@ CartDAO dao;
 		//원래의 글읽기 화면으로 이동 
 		return "redirect:/cart";
 	}
-
 	
-}
+
+	}
 

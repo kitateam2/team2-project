@@ -26,6 +26,13 @@ where cb.user_cart_no = uc.user_cart_no
 and uc.user_id = #{user_id1}
 </select>
 
+<select id="total" parameterType="int" resultType="int">
+	select 
+		sum(book_price*cart_book_count) 
+	from 
+		cart_book
+</select>
+
 <insert id ="insertcart_book" parameterType="cart_bookVO">
 insert into cart_book 
 (

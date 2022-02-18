@@ -21,4 +21,6 @@ public interface CartMapper {
 	cart_book getCart_book_count(int cart_book_count);
 
 	int update(cart_book cart_book);
+
+	int total(int cart_book_no);
 }
