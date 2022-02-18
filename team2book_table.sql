@@ -44,9 +44,7 @@ CREATE TABLE BLOG_POST
 	post_savedfile varchar2(200),
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
-	PRIMARY KEY (post_no),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (post_no)
 );
 
 
@@ -55,9 +53,7 @@ CREATE TABLE BOOK_AUTHOR
 	-- 저자
 	book_author varchar2(50) DEFAULT '0' NOT NULL,
 	book_author_name varchar2(20) NOT NULL,
-	PRIMARY KEY (book_author),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (book_author)
 );
 
 
@@ -86,9 +82,7 @@ CREATE TABLE BOOK_INFO
 	book_public varchar2(50) NOT NULL,
 	-- 책 번호
 	book_no number DEFAULT 0 NOT NULL,
-	PRIMARY KEY (book_isbn),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (book_isbn)
 );
 
 
@@ -97,9 +91,7 @@ CREATE TABLE BOOK_PUBLIC
 	-- 출판사
 	book_public varchar2(50) DEFAULT '0' NOT NULL,
 	book_public_name varchar2(30) NOT NULL,
-	PRIMARY KEY (book_public),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (book_public)
 );
 
 
@@ -121,9 +113,7 @@ CREATE TABLE BOOK_REVIEW
 	-- 책 인덱스
 	-- 
 	book_isbn varchar2(30) NOT NULL UNIQUE,
-	PRIMARY KEY (book_review_no),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (book_review_no)
 );
 
 
@@ -142,9 +132,7 @@ CREATE TABLE CART_BOOK
 	user_cart_no number DEFAULT 0 NOT NULL,
 	-- 장바구니에 담긴 책가격
 	cart_book_price number DEFAULT 0,
-	PRIMARY KEY (cart_book_no),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (cart_book_no)
 );
 
 
@@ -157,9 +145,7 @@ CREATE TABLE EVENT
 	event_result number DEFAULT 0,
 	-- 회원ID
 	user_id varchar2(20) NOT NULL UNIQUE,
-	UNIQUE (event_name, user_id),
-	on delete cascade
-	on update cascade
+	UNIQUE (event_name, user_id)
 );
 
 
@@ -173,9 +159,7 @@ CREATE TABLE FOLLOW_INFO
 	follow_ed number DEFAULT 0 NOT NULL,
 	-- 내가 할로우했을 때
 	follow_ing number DEFAULT 0 NOT NULL,
-	UNIQUE (follow_ed_id, folllow_ing_id),
-	on delete cascade
-	on update cascade
+	UNIQUE (follow_ed_id, folllow_ing_id)
 );
 
 
@@ -185,9 +169,7 @@ CREATE TABLE MANAGER
 	manager_id varchar2(20) NOT NULL,
 	-- 관리자 비밀번호
 	manager_pw varchar2(30) NOT NULL,
-	PRIMARY KEY (manager_id),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (manager_id)
 );
 
 
@@ -205,9 +187,7 @@ CREATE TABLE MESSAGE
 	message_sent_id varchar2(20) NOT NULL,
 	-- 메세지 받은 아이디
 	message_recv_id varchar2(20) NOT NULL,
-	PRIMARY KEY (message_no),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (message_no)
 );
 
 
@@ -221,9 +201,7 @@ CREATE TABLE ORDER_DETAIL
 	book_isbn varchar2(30) NOT NULL,
 	-- 주문번호
 	order_no number NOT NULL,
-	PRIMARY KEY (order_detail_no),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (order_detail_no)
 );
 
 
@@ -239,9 +217,7 @@ CREATE TABLE ORDER_LIST
 	order_state varchar2(30) NOT NULL,
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
-	PRIMARY KEY (order_no),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (order_no)
 );
 
 
@@ -255,9 +231,7 @@ CREATE TABLE POST_COMMENT
 	post_comment_like number DEFAULT 0,
 	-- 블로그 게시글 번호
 	post_no number NOT NULL,
-	PRIMARY KEY (post_comment_no),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (post_comment_no)
 );
 
 
@@ -267,9 +241,7 @@ CREATE TABLE USER_CART
 	user_cart_no number DEFAULT 0 NOT NULL,
 	-- 회원ID
 	user_id varchar2(20) NOT NULL UNIQUE,
-	PRIMARY KEY (user_cart_no),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (user_cart_no)
 );
 
 
@@ -294,9 +266,7 @@ CREATE TABLE USER_INFO
 	-- 1-silver
 	-- 2-gold
 	user_grade number DEFAULT 0 NOT NULL,
-	PRIMARY KEY (user_id),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (user_id)
 );
 
 
@@ -306,9 +276,7 @@ CREATE TABLE USER_PAY
 	order_no number NOT NULL,
 	user_pay_price number DEFAULT 0 NOT NULL,
 	user_pay_date date DEFAULT sysdate NOT NULL,
-	PRIMARY KEY (order_no),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (order_no)
 );
 
 
@@ -323,9 +291,7 @@ CREATE TABLE USER_REWARD_HISTORY
 	book_reward_sum number DEFAULT 0 NOT NULL,
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
-	PRIMARY KEY (user_reward_no),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (user_reward_no)
 );
 
 
@@ -339,9 +305,7 @@ CREATE TABLE USER_TRANSFER
 	user_transfer_phone number DEFAULT 0,
 	-- 수신인 주소
 	user_transter_address varchar2(150),
-	PRIMARY KEY (order_no),
-	on delete cascade
-	on update cascade
+	PRIMARY KEY (order_no)
 );
 
 
@@ -354,9 +318,7 @@ CREATE TABLE USER_WISHLIST
 	-- 
 	book_isbn varchar2(30) NOT NULL UNIQUE,
 	PRIMARY KEY (user_wish_no),
-	UNIQUE (user_id, book_isbn),
-	on delete cascade
-	on update cascade
+	UNIQUE (user_id, book_isbn)
 );
 
 
