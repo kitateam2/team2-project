@@ -252,8 +252,8 @@ public class MyblogController {
 		String id = (String) session.getAttribute("loginId");
 		postcomment.setPost_comment_writter(id);
 		
-		dao.post_comment_like(postcomment);
 		logger.info("좋아요{}", postcomment);
+		dao.post_comment_like(postcomment);
 		return "redirect:"+ id +"/one_post?post_no=" + postcomment.getPost_no();
 	}
 	//댓글 수정

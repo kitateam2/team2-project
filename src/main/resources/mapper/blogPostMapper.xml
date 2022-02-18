@@ -73,8 +73,10 @@
   			post_title = #{post_title}
   			, post_contents = #{post_contents}
   			, post_uploaddate = sysdate
+  			<if test="post_originalfile != null and post_savedfile != null">
   			, post_originalfile = #{post_originalfile}
   			, post_savedfile = #{post_savedfile}
+  			</if>
   		where
   			post_no = #{post_no}
 			and user_id = #{user_id}
@@ -93,12 +95,12 @@
 	<!-- 게시글 댓글 좋아요 1 증가 -->
 		<update id="post_comment_like" parameterType="PostCommentVO">
 		update
-			blog_post
+			post_comment
 		set
 			post_comment_like = post_comment_like + 1
 		where
 			post_comment_no = #{post_comment_no}
-			and post_comment_writter != {post_comment_writter}
+			and post_comment_writter != #{post_comment_writter}
 	</update>
 	
 	<!-- 게시글에 댓글 작성 -->

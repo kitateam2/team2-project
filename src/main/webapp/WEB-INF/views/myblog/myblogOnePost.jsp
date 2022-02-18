@@ -52,7 +52,7 @@ function post_comment_like(post_comment_no, post_no){
 
 function post_comment_edit(post_comment_no, post_no, retext){
 
-		var div = document.getElementById("div"+replynum);
+		var div = document.getElementById("div"+post_comment_no);
 	<!-- 댓글 자리 -->
 	
 	var str = '<form class="card" id="post_comment_form" action="post_comment" method="post"  onsubmit="return post_comment_form()">';
@@ -106,7 +106,6 @@ function post_comment_edit(post_comment_no, post_no, retext){
 				</td>
 			</tr>
 			
-			<!-- 나중에 이미지도 들어가게 해야해 -->
 	</table>
 <!-- 	https://chobopark.tistory.com/159 -->
 		<button onclick="location.href='../${one_post.user_id}';">목록으로 돌아가기</button>
