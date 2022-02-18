@@ -50,6 +50,8 @@
 	</table>
 	</div> <!-- navigation bar -->
 	</div>
+	
+	<div class="box5">
 
 <section class="cd-faq js-cd-faq container max-width-md margin-top-lg margin-bottom-lg">
 	<ul class="cd-faq__categories">
@@ -294,4 +296,5 @@
 <script src="resources/js/faqutil.js"></script> <!-- util functions included in the CodyHouse framework -->
 	<script src="resources/js/faqmain.js"></script> 
 </body>
+</div>
 </html>
