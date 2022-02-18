@@ -63,7 +63,7 @@ CREATE TABLE BOOK_INFO
 	-- 
 	book_isbn varchar2(30) NOT NULL,
 	-- 책 제목
-	book_title varchar2(50) NOT NULL,
+	book_title varchar2(150) NOT NULL,
 	-- 책 재고
 	book_stock number DEFAULT 0 NOT NULL,
 	-- 책 입고날짜
@@ -129,6 +129,8 @@ CREATE TABLE CART_BOOK
 	book_isbn varchar2(30) NOT NULL,
 	-- 찜 번호
 	user_cart_no number DEFAULT 0 NOT NULL,
+	-- 장바구니에 담긴 책가격
+	cart_book_price number DEFAULT 0,
 	PRIMARY KEY (cart_book_no)
 );
 
@@ -476,6 +478,7 @@ COMMENT ON COLUMN CART_BOOK.cart_book_count IS '장바구니에 담은 책의 �
 COMMENT ON COLUMN CART_BOOK.book_isbn IS '책 인덱스
 ';
 COMMENT ON COLUMN CART_BOOK.user_cart_no IS '찜 번호';
+COMMENT ON COLUMN CART_BOOK.cart_book_price IS '장바구니에 담긴 책가격';
 COMMENT ON COLUMN EVENT.event_name IS '이벤트 이름';
 COMMENT ON COLUMN EVENT.event_result IS '0:꽝
 1:당첨';
