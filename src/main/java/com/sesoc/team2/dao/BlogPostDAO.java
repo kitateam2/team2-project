@@ -81,4 +81,12 @@ public class BlogPostDAO {
 		return result;
 	}
 
+	public int post_comment_like(PostComment postcomment) {
+		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
+		int result = mapper.post_comment_like(postcomment);
+		
+		logger.info("도움이 되어라{}", result);
+		return result;
+	}
+
 }

@@ -45,6 +45,11 @@ function post_comment_delete(post_comment_no, post_no){
 		}
 }
 
+function post_comment_like(post_comment_no, post_no){
+	location.href='../post_comment_like?post_comment_no=' + post_comment_no + '& post_no=' + post_no;
+	alert('해당 댓글이 도움이 되었다니 기뻐요 :)');
+}
+
 function post_comment_edit(post_comment_no, post_no, retext){
 
 		var div = document.getElementById("div"+replynum);
@@ -57,6 +62,8 @@ function post_comment_edit(post_comment_no, post_no, retext){
 		str += '</form>';
 		div.innerHTML = str;
 }
+
+
 </script>
 	<title>게시글 상세보기</title>
 </head>
@@ -78,12 +85,14 @@ function post_comment_edit(post_comment_no, post_no, retext){
 					${one_post.post_title}
 				</td>
 			</tr>
+			<c:if test="${one_post.post_originalfile != null}">
 			<tr>
 				<th>첨부파일</th>
 				<td>
 						<img src="../${one_post.user_id}/show_file?post_no=${one_post.post_no}">
 				</td>
 			</tr>
+			</c:if>
 			<tr>
 				<th>내용</th>
 				<td>
@@ -118,6 +127,7 @@ function post_comment_edit(post_comment_no, post_no, retext){
 	<input type="hidden" name="post_no" value="${one_post.post_no}"/>
 	<div class="card-body"><textarea name="post_comment_content" id="retext" class="form-control" rows="1"></textarea></div>
 	<input type="submit" value="댓글등록" />
+
 </form>
 	
 	<br>
@@ -143,11 +153,16 @@ function post_comment_edit(post_comment_no, post_no, retext){
 					[<a href="javascript:post_comment_delete(${post_comment.post_comment_no}, ${post_comment.post_no})">삭제</a>]
 				</c:if>
 			</td>
+			<c:if test="${loginId != post_comment.post_comment_writter}">
+				<td><input type="button" value="도움이 되었어요" onclick="javascript:post_comment_like(${post_comment.post_comment_no}, ${post_comment.post_no})"></td>
+			</c:if>
 		</tr>	
 		<!-- 리플 수정 폼이 나타날 위치  -->
 		<td><div id="div${post_comment.post_comment_no}"></div></td>
 		<tr><td></td></tr>
 		</c:forEach>
+	
 </table>
+</div>
 </body>
 </html>

@@ -17,7 +17,7 @@
 	
 	<mappers>
 		<mapper resource="mapper/membermapper.xml" />
-		<mapper resource="mapper/BlogPostMapper.xml" />
+		<mapper resource="mapper/blogPostMapper.xml" />
 		<mapper resource="mapper/cartmapper.xml" />
 		<mapper resource="mapper/messageMapper.xml" />
 		<mapper resource="mapper/blogMainMapper.xml" />

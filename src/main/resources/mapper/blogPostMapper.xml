@@ -90,6 +90,17 @@
 			post_no = #{post_no}
 	</update>
 	
+	<!-- 게시글 댓글 좋아요 1 증가 -->
+		<update id="post_comment_like" parameterType="PostCommentVO">
+		update
+			blog_post
+		set
+			post_comment_like = post_comment_like + 1
+		where
+			post_comment_no = #{post_comment_no}
+			and post_comment_writter != {post_comment_writter}
+	</update>
+	
 	<!-- 게시글에 댓글 작성 -->
 	<insert id="post_comment_insert"  parameterType="PostCommentVO">
 	 insert into post_comment (

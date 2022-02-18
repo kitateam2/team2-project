@@ -245,7 +245,17 @@ public class MyblogController {
 	}
 	
 	//댓글 좋아요
-
+	@RequestMapping (value="post_comment_like", method=RequestMethod.GET) 
+	public String post_comment_like(PostComment postcomment, HttpSession session){
+		
+		//아이디 정보 가지고 와서 조건으로 본인 글에는 못 누르게 해야겠다 
+		String id = (String) session.getAttribute("loginId");
+		postcomment.setPost_comment_writter(id);
+		
+		dao.post_comment_like(postcomment);
+		logger.info("좋아요{}", postcomment);
+		return "redirect:"+ id +"/one_post?post_no=" + postcomment.getPost_no();
+	}
 	//댓글 수정
 	
 

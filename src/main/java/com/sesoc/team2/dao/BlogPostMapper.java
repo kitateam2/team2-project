@@ -26,6 +26,8 @@ public interface BlogPostMapper {
 
 	public int post_edit(BlogPost blogpost);
 
+	public int post_comment_like(PostComment postcomment);
+
 
 	
 
