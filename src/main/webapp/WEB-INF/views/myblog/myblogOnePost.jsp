@@ -79,6 +79,12 @@ function post_comment_edit(post_comment_no, post_no, retext){
 				</td>
 			</tr>
 			<tr>
+				<th>첨부파일</th>
+				<td>
+						<img src="../${one_post.user_id}/show_file?post_no=${one_post.post_no}">
+				</td>
+			</tr>
+			<tr>
 				<th>내용</th>
 				<td>
 					${one_post.post_contents}

@@ -1,7 +1,13 @@
 package com.sesoc.team2.controller;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -9,10 +15,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sesoc.team2.dao.BlogPostDAO;
@@ -34,7 +40,7 @@ public class MyblogController {
 	//(친구목록 나열에 - 세션으로 친구를 불러오는데 그 친구의 이름, 아이디)
 	
 	//게시판 관련 상수
-	final String uploadPath = "workspaceSTS/team2/src/main/webapp/resources/img";
+	final String uploadPath = "/team2Img";
 	
 	
 	//글쓰기 페이지로 이동
@@ -99,11 +105,49 @@ public class MyblogController {
 			model.addAttribute("post_id", one_post.getUser_id());
 			//리플을 모델에 저장
 			model.addAttribute("post_comment_list", post_comment_list);
-			logger.info("결과 값 one_post: ", one_post.getPost_no());  
-			logger.info("결과는 컨트롤러에 댓글 리스트: ");
+			logger.info("결과 값 one_post: {}", one_post.getPost_no());  
+			logger.info("어떤값을 가지고 왔나 ~ 첨부파일이 있나 ~{}", one_post);
+			logger.info("결과는 컨트롤러에 댓글 리스트: {}");
 			return "myblog/myblogOnePost";
 	}
 	
+	
+	//첨부파일 보여주기
+	@RequestMapping (value="{user_id}/show_file", method=RequestMethod.GET)
+	public String post_show(@PathVariable String user_id,int post_no, Model model, HttpServletResponse response) {
+		BlogPost blogpost = dao.one_post(post_no);
+		logger.info("쇼파일에 넘버{}", post_no);
+		logger.info("쇼파일에 1{}", blogpost);
+		
+		String post_originalfile = new String(blogpost.getPost_originalfile());
+		try {
+			response.setHeader("Content-Disposition", " attachment;filename="+ URLEncoder.encode(post_originalfile, "UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		String fullPath = uploadPath + "/" + blogpost.getPost_savedfile();
+		logger.info("쇼파일에 2{}", fullPath);
+	
+		//서버의 파일을 읽을 입력 스트림과 클라이언트에게 전달할 출력스트림
+		FileInputStream filein = null;
+		ServletOutputStream fileout = null;
+		
+		try {
+			filein = new FileInputStream(fullPath);
+			fileout = response.getOutputStream();
+			
+			//Spring의 파일 관련 유틸 이용하여 출력
+			FileCopyUtils.copy(filein, fileout);
+			
+			filein.close();
+			fileout.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 	
 	//게시글 삭제
 	@RequestMapping (value="post_delete", method=RequestMethod.GET)
