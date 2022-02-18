@@ -57,6 +57,19 @@
 			and user_id = #{user_id}
 	</delete>
 	
+	<!-- 게시글 수정 -->
+	<update id="post_edit" parameterType="BlogPostVO">
+		update
+			blog_post
+		set
+  			post_title = #{post_title}
+  			, post_contents = #{post_contents}
+  			, post_uploaddate = sysdate
+  		where
+  			post_no = #{post_no}
+			and user_id = #{user_id}
+	</update>
+	
 	<!-- 조회수 1 증가 -->
 	<update id="add_hits" parameterType="int">
 		update

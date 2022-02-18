@@ -72,13 +72,15 @@ CartDAO dao;
 	}
 	
 	//수정
-	@RequestMapping (value="update", method=RequestMethod.POST)
+	@RequestMapping (value="update", method=RequestMethod.GET)
 	public String updatecart(cart_book cart_book, HttpSession session, int cart_book_no,int cart_book_count ) {//xx파라미터값 전달
 		
 		//수정할 글이 로그인한 본인 글인지 확인할 아이디 읽기
-		int id = (int) session.getAttribute("loginId");
+		String id = (String) session.getAttribute("loginId");
 		//수정할 글 정보에 로그인 아이디 저장
-		cart_book.setUser_cart_no(id);
+		cart_book.setCart_book_count(cart_book_count);
+		cart_book.setCart_book_no(cart_book_no);
+		
 		dao.updatecart(cart_book);
 		
 		//원래의 글읽기 화면으로 이동 

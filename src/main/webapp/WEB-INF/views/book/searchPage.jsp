@@ -32,7 +32,7 @@ $(document).ready(function () {
 			headers: { Authorization: "KakaoAK 90e1d3216d963adfc7f754516725431f"}
 		})
   			.done(function (res) {
-  				//output(res);
+  				output(res);
   				insert(res);
    			});
 	});

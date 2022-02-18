@@ -44,7 +44,9 @@ CREATE TABLE BLOG_POST
 	post_savedfile varchar2(200),
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
-	PRIMARY KEY (post_no)
+	PRIMARY KEY (post_no),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -53,7 +55,9 @@ CREATE TABLE BOOK_AUTHOR
 	-- 저자
 	book_author varchar2(50) DEFAULT '0' NOT NULL,
 	book_author_name varchar2(20) NOT NULL,
-	PRIMARY KEY (book_author)
+	PRIMARY KEY (book_author),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -63,25 +67,28 @@ CREATE TABLE BOOK_INFO
 	-- 
 	book_isbn varchar2(30) NOT NULL,
 	-- 책 제목
-	book_title varchar2(50) NOT NULL,
+	book_title varchar2(150) NOT NULL,
 	-- 책 재고
 	book_stock number DEFAULT 0 NOT NULL,
 	-- 책 입고날짜
-	book_inputdate date DEFAULT sysdate NOT NULL,
+	book_inputdate varchar2(200) NOT NULL,
 	-- 책 구매시 주는 포인트
 	book_reward number DEFAULT 0,
 	book_price number DEFAULT 0,
-	book_contents varchar2(500) NOT NULL,
+	-- 책 설명
+	book_contents varchar2(700),
 	-- 책 이미지 저장
 	-- 저장은 서버 컴퓨터에
-	book_image varchar2(50),
+	book_image varchar2(200),
 	-- 저자
 	book_author varchar2(50) NOT NULL,
 	-- 출판사
 	book_public varchar2(50) NOT NULL,
 	-- 책 번호
 	book_no number DEFAULT 0 NOT NULL,
-	PRIMARY KEY (book_isbn)
+	PRIMARY KEY (book_isbn),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -90,7 +97,9 @@ CREATE TABLE BOOK_PUBLIC
 	-- 출판사
 	book_public varchar2(50) DEFAULT '0' NOT NULL,
 	book_public_name varchar2(30) NOT NULL,
-	PRIMARY KEY (book_public)
+	PRIMARY KEY (book_public),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -112,7 +121,9 @@ CREATE TABLE BOOK_REVIEW
 	-- 책 인덱스
 	-- 
 	book_isbn varchar2(30) NOT NULL UNIQUE,
-	PRIMARY KEY (book_review_no)
+	PRIMARY KEY (book_review_no),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -129,7 +140,11 @@ CREATE TABLE CART_BOOK
 	book_isbn varchar2(30) NOT NULL,
 	-- 찜 번호
 	user_cart_no number DEFAULT 0 NOT NULL,
-	PRIMARY KEY (cart_book_no)
+	-- 장바구니에 담긴 책가격
+	cart_book_price number DEFAULT 0,
+	PRIMARY KEY (cart_book_no),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -142,7 +157,9 @@ CREATE TABLE EVENT
 	event_result number DEFAULT 0,
 	-- 회원ID
 	user_id varchar2(20) NOT NULL UNIQUE,
-	UNIQUE (event_name, user_id)
+	UNIQUE (event_name, user_id),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -156,7 +173,9 @@ CREATE TABLE FOLLOW_INFO
 	follow_ed number DEFAULT 0 NOT NULL,
 	-- 내가 할로우했을 때
 	follow_ing number DEFAULT 0 NOT NULL,
-	UNIQUE (follow_ed_id, folllow_ing_id)
+	UNIQUE (follow_ed_id, folllow_ing_id),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -166,7 +185,9 @@ CREATE TABLE MANAGER
 	manager_id varchar2(20) NOT NULL,
 	-- 관리자 비밀번호
 	manager_pw varchar2(30) NOT NULL,
-	PRIMARY KEY (manager_id)
+	PRIMARY KEY (manager_id),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -184,7 +205,9 @@ CREATE TABLE MESSAGE
 	message_sent_id varchar2(20) NOT NULL,
 	-- 메세지 받은 아이디
 	message_recv_id varchar2(20) NOT NULL,
-	PRIMARY KEY (message_no)
+	PRIMARY KEY (message_no),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -198,7 +221,9 @@ CREATE TABLE ORDER_DETAIL
 	book_isbn varchar2(30) NOT NULL,
 	-- 주문번호
 	order_no number NOT NULL,
-	PRIMARY KEY (order_detail_no)
+	PRIMARY KEY (order_detail_no),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -214,7 +239,9 @@ CREATE TABLE ORDER_LIST
 	order_state varchar2(30) NOT NULL,
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
-	PRIMARY KEY (order_no)
+	PRIMARY KEY (order_no),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -228,7 +255,9 @@ CREATE TABLE POST_COMMENT
 	post_comment_like number DEFAULT 0,
 	-- 블로그 게시글 번호
 	post_no number NOT NULL,
-	PRIMARY KEY (post_comment_no)
+	PRIMARY KEY (post_comment_no),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -238,7 +267,9 @@ CREATE TABLE USER_CART
 	user_cart_no number DEFAULT 0 NOT NULL,
 	-- 회원ID
 	user_id varchar2(20) NOT NULL UNIQUE,
-	PRIMARY KEY (user_cart_no)
+	PRIMARY KEY (user_cart_no),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -263,7 +294,9 @@ CREATE TABLE USER_INFO
 	-- 1-silver
 	-- 2-gold
 	user_grade number DEFAULT 0 NOT NULL,
-	PRIMARY KEY (user_id)
+	PRIMARY KEY (user_id),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -273,7 +306,9 @@ CREATE TABLE USER_PAY
 	order_no number NOT NULL,
 	user_pay_price number DEFAULT 0 NOT NULL,
 	user_pay_date date DEFAULT sysdate NOT NULL,
-	PRIMARY KEY (order_no)
+	PRIMARY KEY (order_no),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -288,7 +323,9 @@ CREATE TABLE USER_REWARD_HISTORY
 	book_reward_sum number DEFAULT 0 NOT NULL,
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
-	PRIMARY KEY (user_reward_no)
+	PRIMARY KEY (user_reward_no),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -302,7 +339,9 @@ CREATE TABLE USER_TRANSFER
 	user_transfer_phone number DEFAULT 0,
 	-- 수신인 주소
 	user_transter_address varchar2(150),
-	PRIMARY KEY (order_no)
+	PRIMARY KEY (order_no),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -315,7 +354,9 @@ CREATE TABLE USER_WISHLIST
 	-- 
 	book_isbn varchar2(30) NOT NULL UNIQUE,
 	PRIMARY KEY (user_wish_no),
-	UNIQUE (user_id, book_isbn)
+	UNIQUE (user_id, book_isbn),
+	on delete cascade
+	on update cascade
 );
 
 
@@ -454,6 +495,7 @@ COMMENT ON COLUMN BOOK_INFO.book_title IS '책 제목';
 COMMENT ON COLUMN BOOK_INFO.book_stock IS '책 재고';
 COMMENT ON COLUMN BOOK_INFO.book_inputdate IS '책 입고날짜';
 COMMENT ON COLUMN BOOK_INFO.book_reward IS '책 구매시 주는 포인트';
+COMMENT ON COLUMN BOOK_INFO.book_contents IS '책 설명';
 COMMENT ON COLUMN BOOK_INFO.book_image IS '책 이미지 저장
 저장은 서버 컴퓨터에';
 COMMENT ON COLUMN BOOK_INFO.book_author IS '저자';
@@ -476,6 +518,7 @@ COMMENT ON COLUMN CART_BOOK.cart_book_count IS '장바구니에 담은 책의 �
 COMMENT ON COLUMN CART_BOOK.book_isbn IS '책 인덱스
 ';
 COMMENT ON COLUMN CART_BOOK.user_cart_no IS '찜 번호';
+COMMENT ON COLUMN CART_BOOK.cart_book_price IS '장바구니에 담긴 책가격';
 COMMENT ON COLUMN EVENT.event_name IS '이벤트 이름';
 COMMENT ON COLUMN EVENT.event_result IS '0:꽝
 1:당첨';
