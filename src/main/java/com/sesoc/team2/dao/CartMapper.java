@@ -22,5 +22,5 @@ public interface CartMapper {
 
 	int update(cart_book cart_book);
 
-	int total(int cart_book_no);
+	int total(int user_cart_no);
 }

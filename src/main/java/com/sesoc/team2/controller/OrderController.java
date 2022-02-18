@@ -61,12 +61,14 @@ CartDAO dao;
 	}
 
 	@RequestMapping(value = "cart", method = RequestMethod.GET)
-	public String list1(cart_book cart_book1,Model model,HttpSession session) {
+	public String list1(
+			cart_book cart_book1,Model model,HttpSession session) {
 		String user_id1 = (String) session.getAttribute("loginId");
 		ArrayList<cart_book> cart = dao.selectbook1(user_id1);
+		
 		model.addAttribute("Cart_book1",cart);
 		
-		int cart_total = dao.total(cart_book1.getCart_book_no()); //토탈 찍고 모델에 담아서 뿌리기
+		int cart_total = dao.total(cart_book1.getUser_cart_no()); //토탈 찍고 모델에 담아서 뿌리기
 		model.addAttribute("cart_total", cart_total);
 		
 		return "cart/cartForm";	

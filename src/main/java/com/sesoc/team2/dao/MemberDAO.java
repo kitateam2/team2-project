@@ -29,4 +29,12 @@ public class MemberDAO {
 		return result;
 		
 	}
-}
+
+	public int updatemember(User_infoVO member) {
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		int result = mapper.updatemember(member);
+		return result;
+	}
+		
+	}
+

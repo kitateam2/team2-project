@@ -43,4 +43,20 @@ insert into user_info
 	#{user_id}
 	)
 	</insert>
+	
+	<update id="updatemember" parameterType="User_infoVO">
+update 
+	user_info 
+set 
+	user_name = #{user_name}
+	,user_birth = #{user_birth}
+	,user_phone = #{user_phone}
+	,user_address = #{user_address}
+	,user_genre = #{user_genre}
+	<if test="user_pw != null and user_pw !=''">
+	,user_pw = #{user_pw}
+	</if>
+where 
+	user_id = #{user_id}
+</update>
 </mapper>

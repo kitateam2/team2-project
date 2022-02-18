@@ -14,6 +14,10 @@
 </head>
 
 <body>
+
+
+
+
 <table  style="border:solid; 1px;">
 
 	<tr>
@@ -46,7 +50,5 @@
 		</form>
 	</c:forEach>
 </table>
-
-
-		
+	합계${cart_total}원
 </body>

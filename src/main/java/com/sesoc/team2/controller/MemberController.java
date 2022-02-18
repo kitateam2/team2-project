@@ -15,6 +15,7 @@ import com.sesoc.team2.vo.User_infoVO;
 
 
 
+
 		
 /**
  * 회원 정보에 대한 컨트롤러. 
@@ -77,6 +78,27 @@ public class MemberController {
 	@RequestMapping (value="condition", method=RequestMethod.GET)
 	public String condition() {
 		return "condition";
+	}
+	
+	@RequestMapping(value = "updatemember", method = RequestMethod.GET)
+	public String update(HttpSession session,Model model) {
+		//세션의 아이디를 읽어서 db에서 개인정보를 검색 
+		String id = (String) session.getAttribute("loginId");
+		User_infoVO member = memberDAO.getMember(id);
+		//개인정보를 모델에 저장
+		model.addAttribute("member",member);
+		 //세션의 아이디를 읽어서  DB에서 개인정보를 검색
+		return "updateForm";
+	}
+	
+	@RequestMapping(value = "updatemember", method = RequestMethod.POST)
+	public String update(User_infoVO member,HttpSession session) {
+		logger.debug("수정폼에서 전달된 값{}",member);
+		String id = (String) session.getAttribute("loginId");
+		member.setUser_id(id);
+		memberDAO.updatemember(member);
+		
+		return "redirect:/";
 	}
 	
 }

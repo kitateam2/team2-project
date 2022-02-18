@@ -62,9 +62,9 @@ public class CartDAO {
 		return result;
 		
 	}
-	public int total(int cart_book_no) {
+	public int total(int user_cart_no) {
 		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
-		int result = mapper.total(cart_book_no);
+		int result = mapper.total(user_cart_no);
 		return  result;
 	}
 	

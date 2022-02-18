@@ -24,3 +24,4 @@
 		<mapper resource="mapper/apiMapper.xml" />
 	</mappers>
 </configuration>
+ 

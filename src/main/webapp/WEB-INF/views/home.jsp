@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -63,18 +63,19 @@ function pagingFormSubmit(currentPage) {
 	<table class="gnb_main add_1">
 		<tr colspan="5" id="blank"></tr>
 		<tr> 
-				<td class="class_item"><a href="url" class="text">국내도서</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="url" class="text">외국도서</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="bookInfo" class="text">책 상세정보</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="blogmain" class="text">블로그 메인</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="userService" class="text">고객센터</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="url" class="text" style="color:white;">국내도서</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="url" class="text" style="color:white;">외국도서</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="bookInfo" class="text" style="color:white;">책 상세정보</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="blogmain" class="text" style="color:white;">블로그 메인</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="userService" class="text" style="color:white;">고객센터</a></td><td>&nbsp;</td>
 			<c:if test="${sessionScope.loginId == null}">
-				<td class="class_item2"><a href="condition">회원가입</a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="login">로그인</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="condition" style="color:white;">회원가입</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="login" style="color:white;">로그인</a></td><td>&nbsp;</td>
 			</c:if>
 			<c:if test="${sessionScope.loginId != null}">
-				<td class="class_item2"><a href="logout">로그아웃</a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="cart">장바구니</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="logout" style="color:white;">로그아웃</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="updatemember" style="color:white;">회원정보수정</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="cart" style="color:white;">장바구니</a></td><td>&nbsp;</td>
 				<td class="class_item2"><a href="myblog/${sessionScope.loginId}" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
 				<td class="class_item3">${sessionScope.loginId}님 환영합니다.</td>
 			</c:if>
@@ -279,11 +280,13 @@ function pagingFormSubmit(currentPage) {
 		</div>
 		</div>
 	</div>
+	</div>
 
 
 </div> <!-- box3 -->
         <c:forEach var="cart" items="${Cart_book1}">
 		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
+		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">wishlist</a>
 		</c:forEach>	
 
 <div class="card-footer">Footer</div>

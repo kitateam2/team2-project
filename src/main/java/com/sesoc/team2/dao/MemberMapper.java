@@ -9,6 +9,8 @@ public interface MemberMapper {
 	public User_infoVO selectMember(String user_id);
 
 	public int insertusercart(User_infoVO user_info);
+
+	public int updatemember(User_infoVO member);
 	
 	
 
