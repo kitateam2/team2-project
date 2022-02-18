@@ -11,8 +11,8 @@
 	</page_setting>
 	<category_index>0</category_index>
 	<zoom>1.0</zoom>
-	<x>874</x>
-	<y>192</y>
+	<x>794</x>
+	<y>279</y>
 	<default_color>
 		<r>128</r>
 		<g>128</g>
@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2022-02-08 11:34:39</creation_date>
-			<updated_date>2022-02-18 09:20:00</updated_date>
+			<updated_date>2022-02-18 09:29:37</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -202,7 +202,7 @@
 		</word>
 		<word>
 			<id>2</id>
-			<length>500</length>
+			<length>700</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
@@ -211,14 +211,14 @@
 			<binary>false</binary>
 			<args></args>
 			<char_semantics>false</char_semantics>
-			<description></description>
+			<description>책 설명</description>
 			<logical_name>book_contents</logical_name>
 			<physical_name>book_contents</physical_name>
 			<type>varchar(n)</type>
 		</word>
 		<word>
 			<id>3</id>
-			<length>50</length>
+			<length>200</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
@@ -5244,7 +5244,7 @@
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
 					<foreign_key>false</foreign_key>
-					<not_null>true</not_null>
+					<not_null>false</not_null>
 					<primary_key>false</primary_key>
 					<unique_key>false</unique_key>
 					<character_set></character_set>

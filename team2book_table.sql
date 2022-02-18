@@ -71,10 +71,11 @@ CREATE TABLE BOOK_INFO
 	-- 책 구매시 주는 포인트
 	book_reward number DEFAULT 0,
 	book_price number DEFAULT 0,
-	book_contents varchar2(500) NOT NULL,
+	-- 책 설명
+	book_contents varchar2(700),
 	-- 책 이미지 저장
 	-- 저장은 서버 컴퓨터에
-	book_image varchar2(50),
+	book_image varchar2(200),
 	-- 저자
 	book_author varchar2(50) NOT NULL,
 	-- 출판사
@@ -456,6 +457,7 @@ COMMENT ON COLUMN BOOK_INFO.book_title IS '책 제목';
 COMMENT ON COLUMN BOOK_INFO.book_stock IS '책 재고';
 COMMENT ON COLUMN BOOK_INFO.book_inputdate IS '책 입고날짜';
 COMMENT ON COLUMN BOOK_INFO.book_reward IS '책 구매시 주는 포인트';
+COMMENT ON COLUMN BOOK_INFO.book_contents IS '책 설명';
 COMMENT ON COLUMN BOOK_INFO.book_image IS '책 이미지 저장
 저장은 서버 컴퓨터에';
 COMMENT ON COLUMN BOOK_INFO.book_author IS '저자';
