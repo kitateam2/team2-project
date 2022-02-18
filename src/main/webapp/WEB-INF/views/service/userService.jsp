@@ -20,16 +20,17 @@
 <div class="box3">
 
 <br>
-	<h1><center>
+	<h2>
+	<center>
 	<p style="type">Book Store &nbsp; &nbsp;
-	<!-- 검색폼 -->
 		<input id="bookName" type="text" placeholder="검색어 입력" value="${searchText}">
-		<button id="search" onclick="pagingFormSubmit" value="검색">검색</button>	</p></center>
-	</h1>
+		<button id="search" onclick="pagingFormSubmit" value="검색">검색</button>	
+	</p>
+	</center>
+	</h2>
 	<br>
 	<div class="navigation_bar">
 	<table class="gnb_main add_1">
-		<tr colspan="5" id="blank"></tr>
 		<tr> 
 				<td class="class_item"><a href="url" class="text">국내도서</a></td><td>&nbsp;</td>
 				<td class="class_item"><a href="url" class="text">외국도서</a></td><td>&nbsp;</td>

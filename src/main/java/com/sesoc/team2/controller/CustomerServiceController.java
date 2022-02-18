@@ -41,7 +41,7 @@ public class CustomerServiceController {
 	public String chaTest(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("loginId");
 		logger.info("FAQ{}",id);
-		return "service/test";
+		return "service/chat1";
 	}
 	
 }
