@@ -67,7 +67,7 @@ CREATE TABLE BOOK_INFO
 	-- 책 재고
 	book_stock number DEFAULT 0 NOT NULL,
 	-- 책 입고날짜
-	book_inputdate date DEFAULT sysdate NOT NULL,
+	book_inputdate varchar2(200) NOT NULL,
 	-- 책 구매시 주는 포인트
 	book_reward number DEFAULT 0,
 	book_price number DEFAULT 0,
