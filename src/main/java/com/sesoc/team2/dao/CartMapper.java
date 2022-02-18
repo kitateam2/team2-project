@@ -10,7 +10,7 @@ public interface CartMapper {
 
 	int insertcart_book(cart_book cart_book1);
 
-	String selectbook(String book_isbn);
+	cart_book cartbook(String book_isbn);
 	
 	int selectuser_cart_no(String user_id1);
 	

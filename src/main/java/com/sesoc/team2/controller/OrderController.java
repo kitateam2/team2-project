@@ -42,12 +42,16 @@ CartDAO dao;
 		String user_id1 = (String) session.getAttribute("loginId");
 		int user_cart_no = dao.selectuser_cart_no(user_id1);
 		logger.info("카트넘버{}",user_cart_no);
-		String bookisbn = dao.selectbook(book_isbn);
-		logger.info("북isbn{}",bookisbn);
-		cart_book book = new cart_book();;
+		logger.info("책 고유번호 :{} ",book_isbn);
+		cart_book cartbook = dao.selectbook(book_isbn);
+		logger.info("카트북{}",cartbook);
+		
+		cart_book book = new cart_book();
 		book.setUser_cart_no(user_cart_no);
-		book.setBook_isbn(bookisbn);
-		logger.info("book{}",book);
+		book.setBook_isbn(cartbook.getBook_isbn());
+		book.setBook_price(cartbook.getBook_price());
+		logger.debug("book에 담긴 isbn:{}  , book_price:{}", cartbook.getBook_isbn(), cartbook.getBook_price());
+		logger.info("book{} ☆☆☆☆☆   ",book);
 		//검색하는 기능 dao.있으면 카트리턴 없으면 인서트
 		
 		dao.insert(book);
@@ -74,7 +78,7 @@ CartDAO dao;
 	//수정
 	@RequestMapping (value="update", method=RequestMethod.GET)
 	public String updatecart(cart_book cart_book, HttpSession session, int cart_book_no,int cart_book_count ) {//xx파라미터값 전달
-		
+		logger.debug("수정{}", cart_book_count);
 		//수정할 글이 로그인한 본인 글인지 확인할 아이디 읽기
 		String id = (String) session.getAttribute("loginId");
 		//수정할 글 정보에 로그인 아이디 저장

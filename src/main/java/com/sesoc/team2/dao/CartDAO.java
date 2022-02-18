@@ -36,10 +36,10 @@ public class CartDAO {
 		 ArrayList<cart_book> list = mapper.list(); 
 		 return list; 
 		 }
-	public String selectbook(String book_isbn) {
+	public cart_book selectbook(String book_isbn) {
 		CartMapper mapper = sqlSession.getMapper(CartMapper.class); 
-		String result = mapper.selectbook(book_isbn);
-		return result;
+		cart_book cartbook = mapper.cartbook(book_isbn);
+		return cartbook;
 	}
 	public int selectuser_cart_no(String user_id1) {
 		CartMapper mapper = sqlSession.getMapper(CartMapper.class);

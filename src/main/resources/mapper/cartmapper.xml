@@ -10,8 +10,8 @@
 	select * from book_info
 </select>
 
-<select id ="selectbook" parameterType="String" resultType="String" >
-select book_isbn from book_info where book_isbn = #{book_isbn}
+<select id ="cartbook" parameterType="String" resultType="cart_bookVO" >
+select book_isbn, book_price from book_info where book_isbn = #{book_isbn}
 </select>
 
 <select id ="selectuser_cart_no" parameterType="String" resultType="int">
@@ -34,13 +34,15 @@ cart_book_no
 ,cart_book_count
 ,book_isbn
 ,user_cart_no
+,book_price
 )
 values (
 cart_book_seq.nextval
 ,sysdate
-,#{cart_book_count}
+,1
 ,#{book_isbn}
 ,#{user_cart_no}
+,#{book_price}
 )
 </insert>
 

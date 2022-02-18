@@ -3,52 +3,42 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript"></script>
 
-<script>
-$(document).ready(function() {
-	
-}); 
-function btClick(n){
-	
-	alert('삭제');
-	$.ajax({
-		url:'delete',
-		type:'get',
-		data: {cart_book_no: n},
-		dataType:'text',
-		success: function() { alert('삭제되었습니다.'); },
-		error: function() { alert('실패하였습니다'); }
-	});
-}
-</script>
 </head>
 
 <body>
 <table  style="border:solid; 1px;">
 
-<tr>
-	<th>번호</th>
-	<th style="width:220px">날짜</th>
-	<th>수량</th>
-	<th>유저카트넘버</th>
-</tr>
+	<tr>
+		<th>번호</th>
+		<th style="width:220px">날짜</th>
+		<th>수량</th>
+		<th>유저카트넘버</th>
+		<th>가격</th>
+	</tr>
 
 
 		
-		     <c:forEach var="cart" items="${Cart_book1}">
+	<c:forEach var="cart" items="${Cart_book1}">
+		<form action="update" method="get">
 		<tr>
 			<th>${cart.cart_book_no}</th>
 			<th>${cart.cart_book_inputdate}</th>                                
 			<th>
-				<input type="number" value="${cart.cart_book_count}">
+				<input type="hidden" name="cart_book_no" value="${cart.cart_book_no}">
+				<input type="number" name="cart_book_count" placeholder="${cart.cart_book_count} " id="count">
 			</th>
 			<th>${cart.user_cart_no}</th>
-			<th><a href="delete?cart_book_no=${cart.cart_book_no}"  class="btn btn-primary">삭제</a></th>
-			<th><a href="update?cart_book_no=${cart.cart_book_no}&cart_book_count=${cart.cart_book_count}"  class="btn btn-primary">수정</a></th>
-		</c:forEach>
-		</table>
+			<th>${cart.book_price}</th>
+			<th><a href="delete?cart_book_no=${cart.cart_book_no}"  class="btn btn-primary">삭제</a></th> --%>
+			<th><input type="submit" value="수정"></th>
+		</tr> 
+		</form>
+	</c:forEach>
+</table>
 		
 </body>
