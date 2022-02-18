@@ -48,7 +48,8 @@
 
 글쓰기 폼 덩어리-->
 <div>
-	<form id="post_write" action="post_edit" method="post" onsubmit="return post_formCheck()">
+	<form id="post_write" action="post_edit" method="post"
+		enctype="multipart/form-data" onsubmit="return post_formCheck()">
 		<input type="hidden" name="post_no" value="${blogpost.post_no}">
 		<div>
 			<label for="post_title"> 글 제목</label>
@@ -57,6 +58,9 @@
 		<div>
 		<label for="post_contents"> 내용</label>
 		<textarea rows="10" cols="10" class="summernote" id="post_contents" name="post_contents" ></textarea>
+		</div>
+		<div>
+			<input type="file" name="upload" size="30">
 		</div>
 		<button type="submit" id="post_save">글 저장하기</button>
 	<!-- 나중에 ajex로 쓸 수 있겠지만 일단은 페이지가 바뀌는 것으로 하자 -->

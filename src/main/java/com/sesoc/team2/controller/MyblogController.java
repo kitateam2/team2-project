@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.sesoc.team2.dao.BlogPostDAO;
+import com.sesoc.team2.util.FileService;
 import com.sesoc.team2.vo.BlogPost;
 import com.sesoc.team2.vo.PostComment;
 
@@ -31,6 +33,10 @@ public class MyblogController {
 	//(개인정보 나열에 - 세션의 사진, 세션의 회원등급, 회원의 팔로우 수)
 	//(친구목록 나열에 - 세션으로 친구를 불러오는데 그 친구의 이름, 아이디)
 	
+	//게시판 관련 상수
+	final String uploadPath = "workspaceSTS/team2/src/main/webapp/resources/img";
+	
+	
 	//글쓰기 페이지로 이동
 	@RequestMapping(value = "newPost", method = RequestMethod.GET)
 	public String myblogWrite() {
@@ -40,12 +46,30 @@ public class MyblogController {
 		
 	//게시글 작성(저장)
 	@RequestMapping (value="post_write", method=RequestMethod.POST)
-	public String write(BlogPost blogpost, HttpSession session,	Model model) {
+	public String write(BlogPost blogpost
+						, HttpSession session
+						,	Model model
+						, 	MultipartFile upload) {
 		
 		//세션에서 로그인한 사용자의 아이디를 읽어서 Board객체의 작성자 정보에 세팅
 		String id = (String) session.getAttribute("loginId");
 		blogpost.setUser_id(id);
 		
+		logger.info("파일 정보 : {}", upload.getContentType());
+		logger.info("파일 정보 : {}", upload.getName());
+		logger.info("파일 정보 : {}", upload.getOriginalFilename());
+		logger.info("파일 정보 : {}", upload.getSize());
+		logger.info("파일 정보 : {}", upload.isEmpty());
+		
+		if (!upload.isEmpty()) {
+			//uploadPath이거가 위에서 알려준 저장 경로야, 폴더이름 같은거지
+			//FileService이거 선생님이 만든거 우리도 만들어야해 
+			String savedfile = FileService.saveFile(upload, uploadPath);
+			blogpost.setPost_originalfile(upload.getOriginalFilename());
+			blogpost.setPost_savedfile(savedfile);
+		}
+		
+
 		int result = dao.post_write(blogpost);
 		logger.info("결과 값 result: ", result);
 
@@ -107,7 +131,9 @@ public class MyblogController {
 	
 	//게시글 수정하기
 	@RequestMapping (value="post_edit", method=RequestMethod.POST)
-	public String post_edit(BlogPost blogpost, HttpSession session) {
+	public String post_edit(BlogPost blogpost
+							, HttpSession session
+							, MultipartFile upload) {
 		//본인글인지 확인
 		String user_id = (String) session.getAttribute("loginId");
 		BlogPost old_blogpost = dao.one_post(blogpost.getPost_no());
@@ -118,6 +144,25 @@ public class MyblogController {
 		
 		//맞으면
 		blogpost.setUser_id(user_id);
+		
+		if (!upload.isEmpty()) {
+			//기존 글에 첨부된 파일의 실제 저장된 이름
+			String post_savedfile = old_blogpost.getPost_savedfile();
+			//기존 파일이 있으면 삭제
+			if (post_savedfile != null) {
+				FileService.deleteFile(uploadPath + "/" + post_savedfile);
+			}
+			
+			//새로 업로드한 파일 저장
+			post_savedfile = FileService.saveFile(upload, uploadPath);
+			
+			//수정 정보에 새로 저장된 파일명과 원래의 파일명 저장
+			blogpost.setPost_originalfile(upload.getOriginalFilename());
+			blogpost.setPost_savedfile(post_savedfile);
+		}
+		
+		
+		
 		int result = dao.post_edit(blogpost);
 		
 		logger.info("수정된 값{}", result);
@@ -159,9 +204,5 @@ public class MyblogController {
 
 	//댓글 수정
 	
-	
-	//팔로우하기
-	//팔로우취소(한번 더 누르면?)- 누르기 전에는 팔로잉이라고 뜨기
-	
-	
+
 }
