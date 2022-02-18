@@ -50,6 +50,8 @@ CartDAO dao;
 		book.setUser_cart_no(user_cart_no);
 		book.setBook_isbn(cartbook.getBook_isbn());
 		book.setBook_price(cartbook.getBook_price());
+		book.setBook_title(cartbook.getBook_title());
+		
 		logger.debug("book에 담긴 isbn:{}  , book_price:{}", cartbook.getBook_isbn(), cartbook.getBook_price());
 		logger.info("book{} ☆☆☆☆☆   ",book);
 		//검색하는 기능 dao.있으면 카트리턴 없으면 인서트

@@ -11,7 +11,7 @@
 </select>
 
 <select id ="cartbook" parameterType="String" resultType="cart_bookVO" >
-select book_isbn, book_price from book_info where book_isbn = #{book_isbn}
+select book_isbn, book_price, book_title from book_info where book_isbn = #{book_isbn}
 </select>
 
 <select id ="selectuser_cart_no" parameterType="String" resultType="int">
@@ -35,6 +35,7 @@ cart_book_no
 ,book_isbn
 ,user_cart_no
 ,book_price
+,book_title
 )
 values (
 cart_book_seq.nextval
@@ -43,6 +44,7 @@ cart_book_seq.nextval
 ,#{book_isbn}
 ,#{user_cart_no}
 ,#{book_price}
+,#{book_title}
 )
 </insert>
 

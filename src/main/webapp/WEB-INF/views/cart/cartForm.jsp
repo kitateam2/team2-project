@@ -5,8 +5,7 @@
 
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript"></script>
+
 
 </head>
 
@@ -15,6 +14,7 @@
 
 	<tr>
 		<th>번호</th>
+		<th>책제목</th>
 		<th style="width:220px">날짜</th>
 		<th>수량</th>
 		<th>유저카트넘버</th>
@@ -27,6 +27,7 @@
 		<form action="update" method="get">
 		<tr>
 			<th>${cart.cart_book_no}</th>
+			<th>${cart.book_title}</th>
 			<th>${cart.cart_book_inputdate}</th>                                
 			<th>
 				<input type="hidden" name="cart_book_no" value="${cart.cart_book_no}">
@@ -34,11 +35,13 @@
 			</th>
 			<th>${cart.user_cart_no}</th>
 			<th>${cart.book_price}</th>
-			<th><a href="delete?cart_book_no=${cart.cart_book_no}"  class="btn btn-primary">삭제</a></th> --%>
+			<th><a href="delete?cart_book_no=${cart.cart_book_no}"  class="btn btn-primary">삭제</a></th>
 			<th><input type="submit" value="수정"></th>
 		</tr> 
 		</form>
 	</c:forEach>
 </table>
+
+
 		
 </body>

@@ -112,7 +112,7 @@ function pagingFormSubmit(currentPage) {
 											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click('1');" class="btn btn-primary" >Add to Cart</a>
+									
 								</div>						
 							</div>
 						</div>
@@ -122,7 +122,7 @@ function pagingFormSubmit(currentPage) {
 									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
 								</div>
 								<div class="thumb-content">
-									<h4>Sony Headphone</h4>
+									<h4>Headphone</h4>
 									<p class="item-price"> <span>$649.00</span></p>
 									<div class="star-rating">
 										<ul class="list-inline">
@@ -133,7 +133,6 @@ function pagingFormSubmit(currentPage) {
 											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click(2);" class="btn btn-primary">Add to Cart</a>
 								</div>						
 							</div>
 						</div>		
@@ -154,7 +153,7 @@ function pagingFormSubmit(currentPage) {
 											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click(3);" class="btn btn-primary" >Add to Cart</a>
+									
 								</div>						
 							</div>
 						</div>								
@@ -175,7 +174,7 @@ function pagingFormSubmit(currentPage) {
 											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click(4);" class="btn btn-primary">Add to Cart</a>
+									
 								</div>						
 							</div>
 						</div>
@@ -189,7 +188,7 @@ function pagingFormSubmit(currentPage) {
 									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
 								</div>
 								<div class="thumb-content">
-									<h4>Sony Play Station</h4>
+									<h4>SonyStation</h4>
 									<p class="item-price"><strike>$289.00</strike> <span>$269.00</span></p>
 									<div class="star-rating">
 										<ul class="list-inline">
@@ -200,7 +199,7 @@ function pagingFormSubmit(currentPage) {
 											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click(5);" class="btn btn-primary">Add to Cart</a>
+								
 								</div>						
 							</div>
 						</div>
@@ -221,7 +220,7 @@ function pagingFormSubmit(currentPage) {
 											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click(6);" class="btn btn-primary" >Add to Cart</a>
+									
 								</div>						
 							</div>
 						</div>
@@ -242,7 +241,7 @@ function pagingFormSubmit(currentPage) {
 											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click(7);" class="btn btn-primary">Add to Cart</a>
+								
 								</div>						
 							</div>
 						</div>
@@ -263,101 +262,13 @@ function pagingFormSubmit(currentPage) {
 											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
 										</ul>
 									</div>
-									<a href="#" onclick="bt1Click();" class="btn btn-primary">Add to Cart</a>
+								
 								</div>						
 							</div>
 						</div>						
 					</div>
 				</div>
-				<div class="item">
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								<div class="img-box">
-									<img src="/examples/images/products/iphone.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Apple iPhone</h4>
-									<p class="item-price"><strike>$369.00</strike> <span>$349.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									<a href="#" onclick="bt1Click();" class="btn btn-primary">Add to Cart</a>
-								</div>						
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								<div class="img-box">
-									<img src="/examples/images/products/canon.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Canon DSLR</h4>
-									<p class="item-price"><strike>$315.00</strike> <span>$250.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									<a href="#" onclick="bt1Click();" class="btn btn-primary">Add to Cart</a>
-								</div>						
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								<div class="img-box">
-									<img src="/examples/images/products/pixel.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Google Pixel</h4>
-									<p class="item-price"><strike>$450.00</strike> <span>$418.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									<a href="#" onclick="bt1Click();" class="btn btn-primary">Add to Cart</a>
-								</div>						
-							</div>
-						</div>	
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								<div class="img-box">
-									<img src="/examples/images/products/watch.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Apple Watch</h4>
-									<p class="item-price"><strike>$350.00</strike> <span>$330.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									<a href="#" onclick="bt1Click();" class="btn btn-primary">Add to Cart</a>
-								</div>						
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 			<!-- Carousel controls -->
 			<a class="carousel-control left" href="#myCarousel" data-slide="prev">
 				<i class="fa fa-angle-left"></i>

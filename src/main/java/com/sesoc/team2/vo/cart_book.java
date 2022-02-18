@@ -7,21 +7,11 @@ int cart_book_count;
 String book_isbn;
 int user_cart_no;
 int book_price;
+String book_title;
 
 
 public cart_book() {
-}
 
-
-public cart_book(int cart_book_no, String cart_book_inputdate, int cart_book_count, String book_isbn, int user_cart_no,
-		int book_price) {
-	super();
-	this.cart_book_no = cart_book_no;
-	this.cart_book_inputdate = cart_book_inputdate;
-	this.cart_book_count = cart_book_count;
-	this.book_isbn = book_isbn;
-	this.user_cart_no = user_cart_no;
-	this.book_price = book_price;
 }
 
 
@@ -85,12 +75,24 @@ public void setBook_price(int book_price) {
 }
 
 
+public String getBook_title() {
+	return book_title;
+}
+
+
+public void setBook_title(String book_title) {
+	this.book_title = book_title;
+}
+
+
 @Override
 public String toString() {
 	return "cart_book [cart_book_no=" + cart_book_no + ", cart_book_inputdate=" + cart_book_inputdate
 			+ ", cart_book_count=" + cart_book_count + ", book_isbn=" + book_isbn + ", user_cart_no=" + user_cart_no
-			+ ", book_price=" + book_price + "]";
+			+ ", book_price=" + book_price + ", book_title=" + book_title + "]";
 }
+
+
 
 
 
