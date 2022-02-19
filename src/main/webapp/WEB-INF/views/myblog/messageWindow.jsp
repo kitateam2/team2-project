@@ -92,22 +92,28 @@
 </h1>
 
 쪽지 메인페이지
+<!-- 검색, 목록별, 수신인 자동완성 -->
 
-<div class="container-fluid row">
+	<h4>쪽지 리스트(받은 목록)</h4><br>
+	<!-- 받은메일 -->
+	<div class="container-fluid row">
 	<div class="col-sm-4" style="background-color:lavender;"> 
-	쪽지 리스트(받은 목록)
-	
 			<table  border="1">
-			<c:forEach var="message_list" items="${message_list}">
-				<tr><td>보낸사람:  ${message_list.message_sent_id}</td></tr>
-				<tr><td><a href="window?message_no=${message_list.message_no}">
-				내용: 나중에절삭  ${message_list.message_contents}</a></td>
+			<c:forEach var="message_list_recv" items="${message_list_recv}">
+				<tr><td>보낸사람:  ${message_list_recv.message_sent_id}</td></tr>
+				<tr><td><a href="window?message_no=${message_list_recv.message_no}">
+				제목:  ${message_list_recv.message_title}</a></td>
 				</tr>
-				<tr><td>조회수:  ${message_list.message_hits}</td></tr>
+				<tr><td><a href="window?message_no=${message_list_recv.message_no}">
+				내용: 나중에절삭  ${message_list_recv.message_contents}</a></td>
+				</tr>
+				<tr><td>조회수:  ${message_list_recv.message_hits}</td></tr>
 			</c:forEach>
 			</table>
 			<a href="javascript:message_new()">새글 쓰기</a>
 	</div> 
+	
+	
 	
 	
 	<div id="message_new_form" class="col-sm-8" style="background-color:lavenderblush;"> 
@@ -153,6 +159,24 @@
 			
 			</div><!-- 쪽지 읽기 div -->
 	</div><!-- 페이지 좌우로 나누기 위한 값주는 div -->
+	
+	<!-- 보낸메일 -->
+	
+	<div class="col-sm-4" style="background-color:lavender;"> 
+			<table  border="1">
+			<c:forEach var="message_list_sent" items="${message_list_sent}">
+				<tr><td>받는사람:  ${message_list_sent.message_recv_id}</td></tr>
+				<tr><td><a href="window?message_no=${message_list_sent.message_no}">
+				제목:  ${message_list_sent.message_title}</a></td>
+				</tr>
+				<tr><td><a href="window?message_no=${message_list_sent.message_no}">
+				내용: 나중에절삭  ${message_list_sent.message_contents}</a></td>
+				</tr>
+				<tr><td>조회수:  ${message_list_sent.message_hits}</td></tr>
+			</c:forEach>
+			</table>
+			<a href="javascript:message_new()">새글 쓰기</a>
+	</div> 
 </div>
 </body>
 </html>

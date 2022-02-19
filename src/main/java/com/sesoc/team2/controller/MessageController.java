@@ -41,12 +41,16 @@ public class MessageController {
 				//message.setMessage_recv_id(id); 이거 없어도 되고, sql에서 조건절로 주니까 자동으로 불러올 수 있다.
 				
 				logger.info("쪽지 로그인 된 아이디: {}", id);
-				ArrayList<Message> message_list = dao.message_list(id);
+				ArrayList<Message> message_list_recv = dao.message_list_recv(id);
+				ArrayList<Message> message_list_sent = dao.message_list_sent(id);
+				ArrayList<Message> message_list_all = dao.message_list_all(id);
 				
-				model.addAttribute("message_list", message_list);
+				model.addAttribute("message_list_recv", message_list_recv);
+				model.addAttribute("message_list_sent", message_list_sent);
+				model.addAttribute("message_list_all", message_list_all);
 				//받을 때 나한테 온거, 보낼 때 내가 보낸거를 내부적으로만 통일하려고
 				
-				logger.info("리스트: {}", message_list);
+				logger.info("리스트: {}", message_list_recv);
 				
 				if(message_no == 0 ) {}
 				
