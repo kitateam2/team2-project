@@ -42,7 +42,7 @@ and uc.user_id = #{user_id1}
 select 
     NVL(sum(book_price*cart_book_count),0) 
 from cart_book
-<!-- where user_cart_no = #{user_cart_no} -->
+<!-- where user_cart_no = #{user_cart_no}  -->
 </select>
 
 <insert id ="insertcart_book" parameterType="cart_bookVO">
@@ -58,7 +58,7 @@ cart_book_no
 )
 values (
 cart_book_seq.nextval
-,sysdate
+,sysdate 
 ,1
 ,#{book_isbn}
 ,#{user_cart_no}
