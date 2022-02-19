@@ -11,8 +11,6 @@
 <form action="updatemember" method="POST" onsubmit="return formCheck()">
 비밀번호<input type="password" name="user_pw" id="password">
 		<br>
-비밀번호확인<input type="password2" name="user_pw" id="password2">
-		<br>
 이름		<input type="text" name="user_name" id="user_name" value="${member.user_name}">
 		<br>
 생일		<input type="text" name="user_birth" id="user_birth" value="${member.user_birth}">

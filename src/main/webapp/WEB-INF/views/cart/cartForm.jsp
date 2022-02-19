@@ -26,8 +26,7 @@
 		<th style="width:220px">날짜</th>
 		<th>수량</th>
 		<th>유저카트넘버</th>
-		<th>가격</th>
-	<th>합계${cart_total}원</th> 
+		<th>가격</th> 
 	</tr>
 
 
@@ -51,4 +50,6 @@
 	</c:forEach>
 </table>
 	합계${cart_total}원
+	
+	<a href="checkout">결제</a>
 </body>

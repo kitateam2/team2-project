@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sesoc.team2.vo.cart_book;
+import com.sesoc.team2.vo.user_wishlist;
 
 
 
@@ -41,6 +42,13 @@ public class CartDAO {
 		cart_book cartbook = mapper.cartbook(book_isbn);
 		return cartbook;
 	}
+	
+	public int selectuser_wish_no(String user_id1) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.selectuser_wish_no(user_id1);
+		return result;
+	}
+	
 	public int selectuser_cart_no(String user_id1) {
 		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
 		int result = mapper.selectuser_cart_no(user_id1);
@@ -67,8 +75,19 @@ public class CartDAO {
 		int result = mapper.total(user_cart_no);
 		return  result;
 	}
-	
-	
-
-
+	public user_wishlist selectwishbook(String book_isbn) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class); 
+		user_wishlist user_wishlist = mapper.user_wishlist(book_isbn);
+		return user_wishlist;
+	}
+	public int insertwish(user_wishlist book) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.insertwish_cart(book);
+		return result;
+	}
+	public ArrayList<user_wishlist> selectwish() {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		ArrayList<user_wishlist> list = mapper.wishlist();
+		return list;
+}
 }

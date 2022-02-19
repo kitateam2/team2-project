@@ -7,7 +7,8 @@
 		<typeAlias type="com.sesoc.team2.vo.User_infoVO" alias="User_infoVO"/> 
 		<typeAlias type="com.sesoc.team2.vo.BlogPost" alias="BlogPostVO"/> 
 		<typeAlias type="com.sesoc.team2.vo.PostComment" alias="PostCommentVO"/> 
-		<typeAlias type="com.sesoc.team2.vo.cart_book" alias="cart_bookVO"/> 
+		<typeAlias type="com.sesoc.team2.vo.cart_book" alias="cart_bookVO"/>
+		<typeAlias type="com.sesoc.team2.vo.user_wishlist" alias="user_wishlistVO"/> 
 		<typeAlias type="com.sesoc.team2.vo.Message" alias="messageVO"/>
 		<typeAlias type="com.sesoc.team2.vo.BlogMain" alias="BlogMain" /> 
 		<typeAlias type="com.sesoc.team2.vo.API" alias="APIVO" /> 
@@ -22,6 +23,7 @@
 		<mapper resource="mapper/messageMapper.xml" />
 		<mapper resource="mapper/blogMainMapper.xml" />
 		<mapper resource="mapper/apiMapper.xml" />
+		
 	</mappers>
 </configuration>
  

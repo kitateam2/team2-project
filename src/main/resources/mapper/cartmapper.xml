@@ -10,13 +10,25 @@
 	select * from book_info
 </select>
 
+<select id ="wishlist" resultType="user_wishlistVO">
+	select * from book_info
+</select>
+
 <select id ="cartbook" parameterType="String" resultType="cart_bookVO" >
 select book_isbn, book_price, book_title from book_info where book_isbn = #{book_isbn}
+</select>
+
+<select id ="user_wishlist" parameterType="String" resultType="user_wishlistVO" >
+select book_isbn from book_info where book_isbn = #{book_isbn}
 </select>
 
 <select id ="selectuser_cart_no" parameterType="String" resultType="int">
 select user_cart_no from USER_cart where user_id = #{user_id1}
 </select> 
+
+<select id ="selectuser_wish_no" parameterType="String" resultType="int">
+select user_wish_no from user_wish where user_id = #{user_id1}
+</select>  
 
 
 <select id ="list1" resultType="cart_bookVO" parameterType="String">
@@ -55,6 +67,20 @@ cart_book_seq.nextval
 )
 </insert>
 
+<insert id ="insertwish_cart" parameterType="user_wishlistVO">
+insert into user_wishlist 
+(
+user_wish_no
+,user_id
+,book_isbn
+)
+values (
+user_wishlist_seq.nextval
+,#{user_id}
+,#{book_isbn}
+)
+</insert> 
+
 <!-- 글 삭제 -->
 <delete id="deletecart" parameterType="int" >
 	delete
@@ -72,6 +98,6 @@ cart_book_seq.nextval
 			cart_book_count = #{cart_book_count}
 		where
 			cart_book_no = #{cart_book_no}
-	</update> 
+	</update>  
 
 </mapper>

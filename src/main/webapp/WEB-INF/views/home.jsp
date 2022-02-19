@@ -38,6 +38,20 @@ function bt1Click(n){
 	});
 }
 
+function bt2Click(n){
+	
+	alert('위시리스트이동');
+	$.ajax({
+		url:'ajaxwishlist',
+		type:'post',
+		data: {book_isbn: n},
+		dataType:'text',
+		success: function() { alert('위시리스트에 담았습니다.'); },
+		error: function() { alert('로그인을 해주세요'); }
+	});
+}
+
+
 
 function pagingFormSubmit(currentPage) {
 	var form = document.getElementById('pagingForm');
@@ -286,10 +300,15 @@ function pagingFormSubmit(currentPage) {
 </div> <!-- box3 -->
         <c:forEach var="cart" items="${Cart_book1}">
 		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
-		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">wishlist</a>
-		</c:forEach>	
+		</c:forEach>
+		
+		<c:forEach var="wishlist" items="${wishCart_book1}">
+		<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
+		</c:forEach>		
 
-<div class="card-footer">Footer</div>
+<div class="card-footer">Footer
+
+</div>
 
 </body>
 </html>

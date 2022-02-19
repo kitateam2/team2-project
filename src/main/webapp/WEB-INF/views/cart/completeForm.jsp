@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-ssss
+주문이 완료되었습니다
+<c:forEach var="cart" items="${Cart_book1}">
+${cart.cart_book_no}
+</c:forEach>
 </body>
 </html>

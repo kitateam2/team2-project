@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sesoc.team2.dao.CartDAO;
 import com.sesoc.team2.vo.cart_book;
+import com.sesoc.team2.vo.user_wishlist;
 
 
 /**
@@ -31,12 +32,13 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		ArrayList<cart_book> listcart=dao.select();
+		ArrayList<user_wishlist> wishlistcart=dao.selectwish();
 		model.addAttribute("Cart_book1",listcart);
+		model.addAttribute("wishCart_book1",wishlistcart);
 		logger.info("Welcome home! The client locale is {}.", listcart);
 		
 		return "home";
-	}
-
+	}	
 	
 	
 }
