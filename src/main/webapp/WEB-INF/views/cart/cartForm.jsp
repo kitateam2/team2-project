@@ -150,6 +150,15 @@ text-align:center;
   width:100%;
 }
 
+footer {
+width: 100%;
+hegith: 99999px;
+position: absolute;
+bottom: 0;
+left: 0;
+
+}
+
 </style>
 
 </head>
@@ -184,9 +193,10 @@ text-align:center;
 				<input type="number" name="cart_book_count" placeholder="${cart.cart_book_count} " id="count" style="width:50px">
 			</th>
 			<th>${cart.user_cart_no}</th>
-			<th>${cart.book_price}</th>
+			<th>${cart.book_price}₩</th>
 			<th><a href="delete?cart_book_no=${cart.cart_book_no}"  class="btn btn-primary">삭제</a></th>
 			<th><input type="submit" value="수정"></th>
+			
 		</tr> 
 		</form>
 		</c:forEach>
@@ -197,7 +207,7 @@ text-align:center;
           <form action="checkout" method="get">
           <table>
           <tr>
-          <td colspan="2" class="center"><input type="submit" value="Pay Now"></td>
+          <td colspan="2" class="center"><input type="button" value="Pay Now" onClick="location.href='http://localhost:8888/team2/checkout'"/></td>
           </tr>
            </table>
           </form>
@@ -205,15 +215,7 @@ text-align:center;
           
           </div>
           </div>
-          <div class="sign center">
-            <div class="barcode"></div>
-            <br/>
-            0123456789
-            <br/>
-            <div class="thankyou">
-            Thank you for your business
-            </div>
-          </div>
+   
         </div>
         
         <div>
@@ -252,4 +254,18 @@ text-align:center;
 	</c:forEach>
 </table>
 	합계${cart_total}원 --%>
+
 </body>
+
+<footer class="footer">
+<div class="sign center">
+            <div class="barcode"></div>
+            <br/>
+            <!-- 0123456789 -->
+            <br/>
+            <div class="thankyou">
+            Thank you for your business 
+            </div>
+          </div>
+</div>
+</footer>
