@@ -3,6 +3,7 @@ package com.sesoc.team2.vo;
 public class Message {
 	
 	private int message_no;
+	private String message_title;
 	private String message_contents;
 	private String message_date;
 	private String message_sent_id;
@@ -12,6 +13,14 @@ public class Message {
 	public Message() {
 	}
 	
+	public String getMessage_title() {
+		return message_title;
+	}
+
+	public void setMessage_title(String message_title) {
+		this.message_title = message_title;
+	}
+
 	public int getMessage_no() {
 		return message_no;
 	}
@@ -48,12 +57,14 @@ public class Message {
 	public void setMessage_hits(int message_hits) {
 		this.message_hits = message_hits;
 	}
+
 	@Override
 	public String toString() {
-		return "Message [message_no=" + message_no + ", message_contents=" + message_contents + ", message_date="
-				+ message_date + ", message_sent_id=" + message_sent_id + ", message_recv_id=" + message_recv_id
-				+ ", message_hits=" + message_hits + "]";
+		return "Message [message_no=" + message_no + ", message_title=" + message_title + ", message_contents="
+				+ message_contents + ", message_date=" + message_date + ", message_sent_id=" + message_sent_id
+				+ ", message_recv_id=" + message_recv_id + ", message_hits=" + message_hits + "]";
 	}
+	
 	
 	
 	

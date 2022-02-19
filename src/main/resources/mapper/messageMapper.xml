@@ -23,10 +23,11 @@
    			)
    </insert>
    
-   <select id="message_list" parameterType="String" resultType="messageVO">
-   	<!-- 로그인 한 값 받아와야해 그리고 또 값을 내보내야해 -->
+   <select id="message_list_recv" parameterType="String" resultType="messageVO">
+   	<!-- 받은 메시지 로그인 한 값 받아와야해 그리고 또 값을 내보내야해 -->
    		select
    			message_no
+   			, 	substr(message_contents,0, 9) as message_title
    			,	message_contents
    			,	message_date
    			, 	message_sent_id
@@ -40,6 +41,41 @@
    			message_no desc
    </select>
    
+<!--  이따가 보낸 메시지  -->
+	<select id="message_list_sent" parameterType="String" resultType="messageVO">
+   		select
+   			message_no
+	   			, 	substr(message_contents,0, 9) as message_title
+	   			,	message_contents
+	   			,	message_date
+	   			, 	message_sent_id
+	   			,	message_recv_id
+	   		from
+	   			message
+	   		where
+	   			message_sent_id = #{loginiddd}
+	   		order by
+	   			message_no desc
+   	</select>
+   			
+<!--  이따가 전체 메시지  -->
+	<select id="message_list_all" parameterType="String" resultType="messageVO">
+   		select
+   			message_no
+   			, 	substr(message_contents,0, 9) as message_title
+   			,	message_contents
+   			,	message_date
+   			, 	message_sent_id
+   			,	message_recv_id
+   		from
+   			message
+   		where
+   			message_sent_id = #{loginiddd}
+   			  or message_recv_id = #{loginiddd}
+   		order by
+   			message_no desc 
+   	</select>
+   			
    <select id="one_message" parameterType="int" resultType="messageVO">
    		select
 			*
@@ -57,18 +93,6 @@
    		where
    			 message_no = #{message_no}
    </update>
-<!--  이따가 보낸 메시지  select
-   			message_no
-   			,	message_contents
-   			,	message_date
-   			, 	message_sent_id
-   			,	message_recv_id
-   		from
-   			message
-   		where
-   			message_recv_id = 'bbb'
-   		order by
-   			message_no desc -->
    			
    			
    </mapper>
