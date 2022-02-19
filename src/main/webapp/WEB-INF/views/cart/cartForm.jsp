@@ -190,7 +190,7 @@ left: 0;
 			<th>${cart.cart_book_inputdate}</th>                                
 			<th>
 				<input type="hidden" id=cart_book_no name="cart_book_no" value="${cart.cart_book_no}">
-				<input type="number" name="cart_book_count" placeholder="${cart.cart_book_count} " id="count" style="width:50px">
+				<input type="number" name="cart_book_count" placeholder="${cart.cart_book_count}" id="count" style="width:50px">
 			</th>
 			<th>${cart.user_cart_no}</th>
 			<th>${cart.book_price}₩</th>

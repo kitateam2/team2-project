@@ -6,6 +6,7 @@
 	<title>Home</title>
 	<link href="resources/css/header.css" rel="stylesheet"/>
 	<link href="resources/css/slide.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -17,8 +18,16 @@
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-	
-	
+<style>
+footer {
+width: 100%;
+hegith: 99999px;
+position: absolute;
+bottom: 0;
+left: 0;
+
+}
+</style>
 <script>
 $(document).ready(function() {
 	
@@ -83,20 +92,19 @@ function pagingFormSubmit(currentPage) {
 				<td class="class_item"><a href="blogmain" class="text" style="color:white;">블로그 메인</a></td><td>&nbsp;</td>
 				<td class="class_item"><a href="userService" class="text" style="color:white;">고객센터</a></td><td>&nbsp;</td>
 			<c:if test="${sessionScope.loginId == null}">
-				<td class="class_item2"><a href="condition" style="color:white;">회원가입</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="condition" style="color:white;" class="fa fa-user-plus"></a></td><td>&nbsp;</td>
 				<td class="class_item2"><a href="login" style="color:white;">로그인</a></td><td>&nbsp;</td>
 			</c:if>
 			<c:if test="${sessionScope.loginId != null}">
 				<td class="class_item2"><a href="logout" style="color:white;">로그아웃</a></td><td>&nbsp;</td>
 				<td class="class_item2"><a href="updatemember" style="color:white;">회원정보수정</a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="cart" style="color:white;">장바구니</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="cart" style="color:white;" class="fa fa-shopping-cart"></a></td><td>&nbsp;</td>
 				<td class="class_item2"><a href="myblog/${sessionScope.loginId}" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
 				<td class="class_item3">${sessionScope.loginId}님 환영합니다.</td>
 			</c:if>
 		</tr>	
 	</table>
 	</div> <!-- navigation bar -->
-
 <div class="container">
 	<div class="row">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
@@ -306,9 +314,18 @@ function pagingFormSubmit(currentPage) {
 		<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
 		</c:forEach>		
 
-<div class="card-footer">Footer
+<footer class="footer">
+<div class="sign center">
+            <div class="barcode"></div>
+            <br/>
+            <!-- 0123456789 -->
+            <br/>
+            <div class="thankyou">
+            Thank you for your business 
+            </div>
+          </div>
 
-</div>
+</footer>
 
 </body>
 </html>
