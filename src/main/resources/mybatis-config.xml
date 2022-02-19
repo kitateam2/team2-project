@@ -12,6 +12,7 @@
 		<typeAlias type="com.sesoc.team2.vo.BlogMain" alias="BlogMain" /> 
 		<typeAlias type="com.sesoc.team2.vo.API" alias="APIVO" /> 
 		<typeAlias type="com.sesoc.team2.vo.BookReview" alias="reviewVO" /> 
+		<typeAlias type="com.sesoc.team2.vo.Book" alias="BookVO" /> 
 		
 	</typeAliases>
 	
@@ -22,5 +23,7 @@
 		<mapper resource="mapper/messageMapper.xml" />
 		<mapper resource="mapper/blogMainMapper.xml" />
 		<mapper resource="mapper/apiMapper.xml" />
+		<mapper resource="mapper/bookMapper.xml" />
+		<mapper resource="mapper/reviewMapper.xml" />
 	</mappers>
 </configuration>
