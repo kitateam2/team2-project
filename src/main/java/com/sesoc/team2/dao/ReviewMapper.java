@@ -10,9 +10,13 @@ public interface ReviewMapper {
 	public int insert(BookReview review); 
 	
 	//댓글 목록
-	public ArrayList<BookReview> BookReviewList(int book_review_no);
+	public ArrayList<BookReview> BookReviewList(int book_no);
 		
 	//댓글 삭제
 	public int bookReview_delete (BookReview review);
+	
+	//댓글 수정
+	public int bookReview_edit(BookReview review);
+
 	
 }
