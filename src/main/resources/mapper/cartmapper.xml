@@ -79,7 +79,7 @@ user_wishlist_seq.nextval
 ,#{user_id}
 ,#{book_isbn}
 )
-</insert> 
+</insert>  
 
 <!-- 글 삭제 -->
 <delete id="deletecart" parameterType="int" >

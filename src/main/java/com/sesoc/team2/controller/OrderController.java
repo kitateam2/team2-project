@@ -40,7 +40,9 @@
 		  book.setBook_isbn(cartbook.getBook_isbn());
 		  book.setBook_price(cartbook.getBook_price());
 		  book.setBook_title(cartbook.getBook_title()); //검색하는 기능 dao.있으면 카트리턴 없으면 인서트
-		  dao.insert(book); return "cart/cartForm"; }
+		  dao.insert(book); return "cart/cartForm"; 
+		  
+		  }
 		  
 		  
 		  //장바구니에 뿌려주기
@@ -66,7 +68,9 @@
 		  book.setUser_wish_no(user_wish_no);
 		  logger.debug("유저위시넘버 : {} ", user_wish_no);
 		  book.setBook_isbn(wishcartbook.getBook_isbn());
-		  dao.insertwish(book); return "cart/wishForm"; }
+		  dao.insertwish(book); return "cart/wishForm"; 
+		  
+		  }
 		  
 		  //삭제
 		  
