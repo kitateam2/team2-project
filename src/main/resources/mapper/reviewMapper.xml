@@ -7,6 +7,64 @@
   <!-- 리뷰 불러와서 DB 저장 SQL -->
 <mapper namespace="com.sesoc.team2.dao.ReviewMapper">
 
+<!-- 리플 저장 -->
+<insert id="insert" parameterType="reviewVO">
+	insert into book_review (
+		book_review_no
+		, book_no
+		, book_review_writer
+		, book_review_short
+		, book_review_date
+		, book_review_star
+		, book_isbn
+	)
+	values (
+		book_review_seq.nextval
+		, #{book_no}
+		, #{book_review_writer}
+		, #{book_review_short}
+		, #{book_review_date}
+		, #{book_review_star}
+		, #{book_isbn}
+	)
+</insert>
+
+<!-- 리플 삭제 -->
+<delete id="bookReview_delete" parameterType="reviewVO">
+	delete
+	from
+		book_review
+	where
+		book_review_no = #{book_review_no}
+		and book_review_writer = #{book_review_writer}
+</delete>
+
+<!-- 현재 글의 리플 목록 -->
+<select id="BookReviewList" parameterType="reviewVO" resultType="reviewVO">
+	select 
+		book_review_no
+		, book_no
+		, book_review_writer
+		, book_review_short
+		, book_review_date
+	from 
+		book_review
+	where
+		book_no = #{book_no}
+	order by 
+		book_review_no desc
+</select>
+
+<!-- 리플 수정 -->
+<update id="bookReview_edit" parameterType="reviewVO">
+	update
+		book_review
+	set
+		book_review_short = #{book_review_short}
+	where
+		book_review_no = #{book_review_no}
+		and book_review_writer = #{book_review_writer}
+</update>
 
 
 
