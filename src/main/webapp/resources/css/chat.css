@@ -2,7 +2,8 @@
 /* 메인페이지 큰 레이아웃은 grid로 구성함 */
 
 body{
-    margin: 0; /* 페이지의 여유공간 없애버림 */
+    margin-left: 100px !important; /* 페이지의 여유공간 없애버림 */
+    margin-right: 100px !important;
 }
 
 /* grid container 적용 */
@@ -202,7 +203,7 @@ main{
     border-bottom: 0.6875rem solid transparent;
     border-left: 0.6875rem solid rgb(94, 122, 100);
     position: absolute;
-    top: 0.625rem;
+    top: 1.563rem;
     right: -0.5rem;
 }
 
