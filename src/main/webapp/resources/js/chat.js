@@ -58,12 +58,12 @@
       this.messageToSend = this.$textarea.val()
       this.render();         
     },
-    addMessageEnter: function(event) {
+    /**addMessageEnter: function(event) {
         // enter was pressed
         if (event.keyCode === 13) {
           this.addMessage();
         }
-    },
+    },*/
     scrollToBottom: function() {
        this.$chatHistory.scrollTop(this.$chatHistory[0].scrollHeight);
     },
