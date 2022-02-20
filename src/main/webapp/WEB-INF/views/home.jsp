@@ -21,11 +21,9 @@
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <style>
 footer {
-width: 100%;
-hegith: 99999px;
 position: absolute;
 bottom: 0;
-left: 0;
+color: red;
 
 }
 </style>
@@ -86,25 +84,27 @@ function pagingFormSubmit(currentPage) {
 	<div class="navigation_bar">
 	<table class="gnb_main add_1">
 		<tr colspan="5" id="blank"></tr>
-		<tr> 
+		<tr style="font-size: 13px;" > 
 				<td class="class_item"><a href="url" class="text" style="color:white;">국내도서</a></td><td>&nbsp;</td>
 				<td class="class_item"><a href="url" class="text" style="color:white;">외국도서</a></td><td>&nbsp;</td>
 				<td class="class_item"><a href="bookInfo" class="text" style="color:white;">책 상세정보</a></td><td>&nbsp;</td>
 				<td class="class_item"><a href="blogmain" class="text" style="color:white;">블로그 메인</a></td><td>&nbsp;</td>
 				<td class="class_item"><a href="userService" class="text" style="color:white;">고객센터</a></td><td>&nbsp;</td>
-			<c:if test="${sessionScope.loginId == null}">
-				<td class="class_item2"><a href="condition" style="color:white;" class="fa fa-user-plus"></a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="login" style="color:white;" class="fa fa-user"></a></td><td>&nbsp;</td>
-			</c:if>
-			<c:if test="${sessionScope.loginId != null}">
-				<td class="class_item2"><a href="logout" style="color:white;">로그아웃</a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="updatemember" style="color:white;">회원정보수정</a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="cart" style="color:white;" class="fa fa-shopping-cart"></a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="myblog/${sessionScope.loginId}" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
-				<td class="class_item3">${sessionScope.loginId}님 환영합니다.</td>
-			</c:if>
 		</tr>	
 	</table>
+	<div class="logbar" id="logbar" style="float:right; font-size:13;">
+		<c:if test="${sessionScope.loginId == null}">
+				<a href="condition" style="color:white;" class="fa fa-user-plus fa-2x"></a></td><td>&nbsp;</td>
+				<a href="login" style="color:white;" class="fa fa-user fa-2x"></a></td><td>&nbsp;</td>
+			</c:if>
+			<c:if test="${sessionScope.loginId != null}">
+				<a href="logout" style="color:white;">로그아웃</a></td><td>&nbsp;</td>
+				<a href="updatemember" style="color:white;">회원정보수정</a></td><td>&nbsp;</td>
+				<a href="cart" style="color:white;" class="fa fa-shopping-cart fa-2x"></a></td><td>&nbsp;</td>
+				<a href="myblog/${sessionScope.loginId}" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
+				${sessionScope.loginId}님 환영합니다.
+			</c:if>
+			</div>
 	</div> <!-- navigation bar -->
 <div class="container">
 
@@ -166,7 +166,7 @@ function pagingFormSubmit(currentPage) {
                         <h3>Read Best Book</h3>
                         <div class="price">$99</div>
                         <div class="stars">
-                            <i class="fa fa-star"></i>
+                            
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -245,7 +245,7 @@ function pagingFormSubmit(currentPage) {
                     
                     
                 </div>
-            </div>
+            </div><br><br>
             
             <section class="featured" id="featured">
             <h1 class="heading">인기<span>도서</span></h1>
@@ -253,61 +253,55 @@ function pagingFormSubmit(currentPage) {
                 <div class="box">
                     <img src="image/3.png" alt="">
                     <h3>Best and cool</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, accusamus?
-                    </p>
                     <a href="#" class="btn">read more</a>
                 </div>
                 <div class="box">
                     <img src="image/4.png" alt="">
                     <h3>Free Delivery</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, accusamus?
-                    </p>
+                 
                     <a href="#" class="btn">read more</a>
                 </div>
                 <div class="box">
                     <img src="image/5.png" alt="">
                     <h3>Fast Payment</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, accusamus?
-                    </p>
+                
                     <a href="#" class="btn">read more</a>
                 </div>
                 
                  <div class="box">
                     <img src="image/5.png" alt="">
                     <h3>Fast Payment</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, accusamus?
-                    </p>
+                 
+                    <a href="#" class="btn">read more</a>
+                </div>
+                
+                 <div class="box">
+                    <img src="image/5.png" alt="">
+                    <h3>Fast Payment</h3>
+   
                     <a href="#" class="btn">read more</a>
                 </div>
             </div>
         </section>
+        
+        
+        
 
 </div> <!-- box3 -->
 
-        <c:forEach var="cart" items="${Cart_book1}">
+       <c:forEach var="cart" items="${Cart_book1}">
 		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
 		</c:forEach>
 		
 		<c:forEach var="wishlist" items="${wishCart_book1}">
 		<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
-		</c:forEach>	
+		</c:forEach> 
 
-<footer class="footer">
-<div class="sign center">
-            <div class="barcode"></div>
-            <br/>
-            <!-- 0123456789 -->
-            <br/>
-            <div class="thankyou">
-            Thank you for your business 
-            </div>
-          </div>
+<div class="footer">풋터풋터풋터풋터</div>
+            
+          
 
-</footer>
+
 
 </body>
 </html>
