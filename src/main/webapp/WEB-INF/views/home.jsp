@@ -6,6 +6,7 @@
 	<title>Home</title>
 	<link href="resources/css/header.css" rel="stylesheet"/>
 	<link href="resources/css/slide.css" rel="stylesheet"/>
+	<link href="resources/css/slide2.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -93,7 +94,7 @@ function pagingFormSubmit(currentPage) {
 				<td class="class_item"><a href="userService" class="text" style="color:white;">고객센터</a></td><td>&nbsp;</td>
 			<c:if test="${sessionScope.loginId == null}">
 				<td class="class_item2"><a href="condition" style="color:white;" class="fa fa-user-plus"></a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="login" style="color:white;">로그인</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="login" style="color:white;" class="fa fa-user"></a></td><td>&nbsp;</td>
 			</c:if>
 			<c:if test="${sessionScope.loginId != null}">
 				<td class="class_item2"><a href="logout" style="color:white;">로그아웃</a></td><td>&nbsp;</td>
@@ -106,213 +107,194 @@ function pagingFormSubmit(currentPage) {
 	</table>
 	</div> <!-- navigation bar -->
 <div class="container">
-	<div class="row">
-			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-			<!-- Carousel indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-			</ol>   
-			<!-- Wrapper for carousel items -->
-			<div class="carousel-inner">
-				<div class="item active">
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								<div class="img-box">
-									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Apple iPad</h4>
-									<p class="item-price"><strike>$400.00</strike> <span>$369.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									
-								</div>						
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								<div class="img-box">
-									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Headphone</h4>
-									<p class="item-price"> <span>$649.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-								</div>						
-							</div>
-						</div>		
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								<div class="img-box">
-									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Macbook Air</h4>
-									<p class="item-price"><strike>$899.00</strike> <span>$649.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
-										</ul>
-									</div>
-									
-								</div>						
-							</div>
-						</div>								
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								<div class="img-box">
-									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Nikon DSLR</h4>
-									<p class="item-price"><strike>$315.00</strike> <span>$250.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									
-								</div>						
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								<div class="img-box">
-									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>SonyStation</h4>
-									<p class="item-price"><strike>$289.00</strike> <span>$269.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-								
-								</div>						
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								<div class="img-box">
-									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Macbook Pro</h4>
-									<p class="item-price"><strike>$1099.00</strike> <span>$869.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
-										</ul>
-									</div>
-									
-								</div>						
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								<div class="img-box">
-									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Bose Speaker</h4>
-									<p class="item-price"><strike>$19.00</strike> <span>$99.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-								
-								</div>						
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								<div class="img-box">
-									<img src="resources/img/898392067x_3.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Samsung Galaxy</h4>
-									<p class="item-price"><strike>$599.00</strike> <span>$569.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-								
-								</div>						
-							</div>
-						</div>						
-					</div>
-				</div>
-			
-			<!-- Carousel controls -->
-			<a class="carousel-control left" href="#myCarousel" data-slide="prev">
-				<i class="fa fa-angle-left"></i>
-			</a>
-			<a class="carousel-control right" href="#myCarousel" data-slide="next">
-				<i class="fa fa-angle-right"></i>
-			</a>
-		</div>
-		</div>
-	</div>
-	</div>
 
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <img src="resources/img/aaa.PNG" alt="Los Angeles" style="width:100%;">
+        <div class="carousel-caption">
+          <h3>Los Angeles</h3>
+          <p>LA is always so much fun!</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="chicago.jpg" alt="Chicago" style="width:100%;">
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+          <p>Thank you, Chicago!</p>
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="ny.jpg" alt="New York" style="width:100%;">
+        <div class="carousel-caption">
+          <h3>New York</h3>
+          <p>We love the Big Apple!</p>
+        </div>
+      </div>
+  
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div><br><br><br><br>
+
+        <section class="product" id="product">
+            <h1 class="heading">our<span>products</span></h1>
+            <div class="product-slider">
+                <div class="wrapper">
+                    <div class="box">
+                        <img src="image/6.png" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a href="#" class="btn">add to cart</a>
+                    </div>
+                    <div class="box">
+                        <img src="image/7.png" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a href="#" class="btn">add to cart</a>
+                    </div>
+                    <div class="box">
+                        <img src="image/8.png" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a href="#" class="btn">add to cart</a>
+                    </div>
+                    
+                       <div class="box">
+                        <img src="image/8.png" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a href="#" class="btn">add to cart</a>
+                    </div>
+                    
+                       <div class="box">
+                        <img src="image/8.png" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a href="#" class="btn">add to cart</a>
+                    </div>
+                    
+                       <div class="box">
+                        <img src="image/8.png" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a href="#" class="btn">add to cart</a>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <section class="featured" id="featured">
+            <h1 class="heading">our<span>featured</span></h1>
+            <div class="box-container">
+                <div class="box">
+                    <img src="image/3.png" alt="">
+                    <h3>Best and cool</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, accusamus?
+                    </p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+                <div class="box">
+                    <img src="image/4.png" alt="">
+                    <h3>Free Delivery</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, accusamus?
+                    </p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+                <div class="box">
+                    <img src="image/5.png" alt="">
+                    <h3>Fast Payment</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, accusamus?
+                    </p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+                
+                 <div class="box">
+                    <img src="image/5.png" alt="">
+                    <h3>Fast Payment</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, accusamus?
+                    </p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+        </section>
 
 </div> <!-- box3 -->
+
         <c:forEach var="cart" items="${Cart_book1}">
 		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
 		</c:forEach>
 		
 		<c:forEach var="wishlist" items="${wishCart_book1}">
 		<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
-		</c:forEach>		
+		</c:forEach>	
 
 <footer class="footer">
 <div class="sign center">
