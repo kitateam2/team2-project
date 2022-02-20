@@ -105,7 +105,7 @@
 							<tr>
 						</c:if>
 								<td class="td" onClick="location.href='${pageContext.request.contextPath}/myblog/one_post?post_no=${blog.post_no}'">
-							 		<div style="height:250px;"><img class="img" alt="" src="resources/img/background.png"></div><br> <!-- ${blog.post_savedfile} --><!-- "/workspaceSTS/team2/src/main/webapp/resources/img" -->					
+							 		<div style="height:250px;"><img class="img" alt="" src="${pageContext.request.contextPath}/myblog/${blog.user_id}/show_file?post_no=${blog.post_no}"></div><br>					
 									<div style="color:rgb(117, 117,117);">@${blog.user_id}</div><br>
 									<div class="ellipsis">${blog.post_contents}</div><br><br>
 									<div style="float:left; color:rgb(117, 117,117); font-size:12px;">조회수: ${blog.post_hits}</div>

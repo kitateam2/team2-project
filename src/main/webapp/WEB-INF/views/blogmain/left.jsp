@@ -105,7 +105,7 @@
 	</div>
 	
 <!-- 푸터 -->
-	<div class="footer" onclick="location.href='${pageContext.request.contextPath}/chathome'" title="고객센터">		
+	<div class="footer" onclick="location.href='${pageContext.request.contextPath}/userService'" title="고객센터">		
 		<img src="resources/img/customer.png" width="30px" height="30px">
 	</div>
 	
