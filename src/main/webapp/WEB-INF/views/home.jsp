@@ -158,11 +158,11 @@ function pagingFormSubmit(currentPage) {
 </div><br><br><br><br>
 
         <section class="product" id="product">
-            <h1 class="heading">our<span>products</span></h1>
+            <h1 class="heading">신간<span>도서</span></h1>
             <div class="product-slider">
                 <div class="wrapper">
                     <div class="box">
-                        <img src="image/6.png" alt="">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
                         <h3>Read Best Book</h3>
                         <div class="price">$99</div>
                         <div class="stars">
@@ -175,7 +175,7 @@ function pagingFormSubmit(currentPage) {
                         <a href="#" class="btn">add to cart</a>
                     </div>
                     <div class="box">
-                        <img src="image/7.png" alt="">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
                         <h3>Read Best Book</h3>
                         <div class="price">$99</div>
                         <div class="stars">
@@ -188,7 +188,7 @@ function pagingFormSubmit(currentPage) {
                         <a href="#" class="btn">add to cart</a>
                     </div>
                     <div class="box">
-                        <img src="image/8.png" alt="">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
                         <h3>Read Best Book</h3>
                         <div class="price">$99</div>
                         <div class="stars">
@@ -202,7 +202,7 @@ function pagingFormSubmit(currentPage) {
                     </div>
                     
                        <div class="box">
-                        <img src="image/8.png" alt="">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
                         <h3>Read Best Book</h3>
                         <div class="price">$99</div>
                         <div class="stars">
@@ -216,7 +216,7 @@ function pagingFormSubmit(currentPage) {
                     </div>
                     
                        <div class="box">
-                        <img src="image/8.png" alt="">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
                         <h3>Read Best Book</h3>
                         <div class="price">$99</div>
                         <div class="stars">
@@ -230,7 +230,7 @@ function pagingFormSubmit(currentPage) {
                     </div>
                     
                        <div class="box">
-                        <img src="image/8.png" alt="">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
                         <h3>Read Best Book</h3>
                         <div class="price">$99</div>
                         <div class="stars">
@@ -248,7 +248,7 @@ function pagingFormSubmit(currentPage) {
             </div>
             
             <section class="featured" id="featured">
-            <h1 class="heading">our<span>featured</span></h1>
+            <h1 class="heading">인기<span>도서</span></h1>
             <div class="box-container">
                 <div class="box">
                     <img src="image/3.png" alt="">
