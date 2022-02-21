@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.Calendar"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -50,9 +50,15 @@ function receiveMessage(msg) {
 	var id = messageArray[0];
 	var content = messageArray[1];
 	var LR = (${sessionScope.loginId} == id)? "me-chat" : "friend-chat";
-	  
-	var appendMsg = '<div class="' + LR + '"><div class="' + LR + '-col"><div class="profile-name">' + id + '</div></div></div>' + 
-					'<div class="' + LR + '"><div class="' + LR + '-col"><div class="balloon">' + content + '</div></div></div>';
+	let today = new Date();   
+ 
+	let hours = today.getHours(); // 시
+	let minutes = today.getMinutes();  // 분
+	hours = (hours > 12) ? "오후 " + (hours-12) : "오전 " + hours; 
+	
+	var appendMsg = '<div class="' + LR + '"><div class="' + LR + '-col"><div class="profile-name">' + id +
+					'</div><div class="balloon">' + content + '</div></div>' + 
+					'<time>' + hours + ':' + minutes + '</time></div>';
 	$('.main-chat').append(appendMsg);
 }
 
@@ -78,7 +84,7 @@ function receiveMessage(msg) {
                     <div class="main-chat">
                         <div class="friend-chat">
                             <div class="friend-chat-col">
-                                <div class="profile-name">쀼사원</div>
+                                <div class="profile-name">사원</div>
                                 <div class="balloon">대리님, 혹시 7시50분에 시간 괜찮으세요?</div>
                                 <div class="balloon">저와 커피 한잔 해주실 수 있으실까요? ㅜㅜ</div>
                             </div>
@@ -86,7 +92,7 @@ function receiveMessage(msg) {
                         </div>
                         <div class="me-chat">
                             <div class="me-chat-col">
-                                <div class="balloon">ㅇㅋ</div>
+                                <div class="balloon">ㅇㅋzz</div>
                             </div>
                             <time datetime="07:32:00+09:00">오전 7:32</time>
                         </div>
@@ -101,7 +107,6 @@ function receiveMessage(msg) {
                     </form>
                 </div>
             </main>
-	
 	
 </div>
 

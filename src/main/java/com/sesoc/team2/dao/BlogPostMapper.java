@@ -1,6 +1,9 @@
 package com.sesoc.team2.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.apache.ibatis.session.RowBounds;
 
 import com.sesoc.team2.vo.BlogPost;
 import com.sesoc.team2.vo.PostComment;
@@ -10,7 +13,7 @@ public interface BlogPostMapper {
 	//게시글 저장
 	public int post_write(BlogPost blogpost);
 
-	public ArrayList<BlogPost> postlist(String user_id);
+	public ArrayList<BlogPost> postlist(HashMap<String, String> map, RowBounds rb);
 
 	public BlogPost one_post(int post_no);
 
@@ -27,6 +30,8 @@ public interface BlogPostMapper {
 	public int post_edit(BlogPost blogpost);
 
 	public int post_comment_like(PostComment postcomment);
+
+	public int get_total(HashMap<String, String> map);
 
 
 	

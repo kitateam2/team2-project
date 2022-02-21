@@ -1,7 +1,9 @@
 package com.sesoc.team2.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,9 +31,13 @@ public class BlogPostDAO {
 	}
 	
 	//게시글 정렬하기
-	public ArrayList<BlogPost> postlist(String user_id) {
+	public ArrayList<BlogPost> postlist(HashMap<String, String> map, int startRecord, int countPerPage) {
 		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
-		ArrayList<BlogPost> postlist = mapper.postlist(user_id);
+		
+		//전체 검색 결과 중 읽을 시작위치와 개수 --RowBounds 는 마이바티스에서 제공하는 기능
+		RowBounds rb = new RowBounds(startRecord, countPerPage);
+		logger.info("map 확인 다오{}", map);
+		ArrayList<BlogPost> postlist = mapper.postlist(map, rb);
 		return postlist;
 	}
 	
@@ -87,6 +93,12 @@ public class BlogPostDAO {
 		
 		logger.info("도움이 되어라{}", result);
 		return result;
+	}
+
+	public int get_total(HashMap<String, String> map) {
+		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
+		int total = mapper.get_total(map);
+		return total;
 	}
 
 }

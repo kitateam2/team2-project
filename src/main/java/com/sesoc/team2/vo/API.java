@@ -2,16 +2,39 @@ package com.sesoc.team2.vo;
 
 public class API {
 
+	private int book_no;						//책 시퀀스 번호
 	private String book_title; 					//책 이름
-	private String book_isbn;	 					//ISBN 번호
+	private String book_isbn;	 				//ISBN 번호
 	private String book_author;	 				//저자 이름
 	private String book_public; 				//출판사
+	private int book_stock;						//재고량
+	private int book_reward;					//별점
 	private int book_price; 					//가격
 	private String book_image; 					//책 표지
-	private String book_contents;					//책 내용
+	private String book_contents;				//책 내용
 	private String book_inputdate; 				//출판일자
 	
 	public API() {
+	}
+	
+
+	public int getBook_stock() {
+		return book_stock;
+	}
+	public void setBook_stock(int book_stock) {
+		this.book_stock = book_stock;
+	}
+	public int getBook_reward() {
+		return book_reward;
+	}
+	public void setBook_reward(int book_reward) {
+		this.book_reward = book_reward;
+	}
+	public int getBook_no() {
+		return book_no;
+	}
+	public void setBook_no(int book_no) {
+		this.book_no = book_no;
 	}
 
 	public String getBook_title() {
@@ -80,8 +103,10 @@ public class API {
 
 	@Override
 	public String toString() {
-		return "API [book_title=" + book_title + ", book_isbn=" + book_isbn + ", book_author=" + book_author
-				+ ", book_public=" + book_public + ", book_price=" + book_price + ", book_image=" + book_image
-				+ ", book_contents=" + book_contents + ", book_inputdate=" + book_inputdate + "]";
+		return "API [book_no=" + book_no + ", book_title=" + book_title + ", book_isbn=" + book_isbn + ", book_author="
+				+ book_author + ", book_public=" + book_public + ", book_stock=" + book_stock + ", book_reward="
+				+ book_reward + ", book_price=" + book_price + ", book_image=" + book_image + ", book_contents="
+				+ book_contents + ", book_inputdate=" + book_inputdate + "]";
 	}
+
 }
