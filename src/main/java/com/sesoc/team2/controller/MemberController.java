@@ -38,6 +38,7 @@ public class MemberController {
 	public String signup(User_infoVO user_info) {
 		memberDAO.insertMember(user_info);
 		memberDAO.insertusercart(user_info);
+		memberDAO.insertwishcart(user_info);
 		return "redirect:/";
 	}
 	

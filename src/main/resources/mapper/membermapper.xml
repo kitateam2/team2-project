@@ -44,6 +44,17 @@ insert into user_info
 	)
 	</insert>
 	
+	<insert id ="insertwishcart" parameterType="User_infoVO">
+	insert into user_wish
+	(
+	user_wish_no
+	,user_id
+	) values (
+	member_seq.nextval,
+	#{user_id}
+	)
+	</insert>
+	
 	<update id="updatemember" parameterType="User_infoVO">
 update 
 	user_info 

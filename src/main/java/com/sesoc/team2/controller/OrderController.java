@@ -60,15 +60,18 @@
 		  
 		  //위시리스트에 담기
 		  @RequestMapping(value = "ajaxwishlist", method = RequestMethod.POST) //책을 담는 메서드
-		  public String wishlist(HttpSession session,String book_isbn) { String
-		  user_id1 = (String) session.getAttribute("loginId"); int user_wish_no =
-		  dao.selectuser_wish_no(user_id1); 
-		  user_wishlist wishcartbook = dao.selectwishbook(book_isbn); 
-		  user_wishlist book = new user_wishlist();
-		  book.setUser_wish_no(user_wish_no);
-		  logger.debug("유저위시넘버 : {} ", user_wish_no);
-		  book.setBook_isbn(wishcartbook.getBook_isbn());
-		  dao.insertwish(book); return "cart/wishForm"; 
+		  public String wishlist(HttpSession session,String book_isbn) { 
+			  String user_id1 = (String) session.getAttribute("loginId"); 
+			  int user_wish_no = dao.selectuser_wish_no(user_id1); 
+			  user_wishlist wishcartbook = dao.selectwishbook(book_isbn); 
+			  user_wishlist book = new user_wishlist();
+			  book.setUser_id(user_id1);
+			  logger.debug("유저위시넘버 : {} ", user_id1);
+			  book.setUser_wish_no(user_wish_no);
+			  logger.debug("유저위시넘버 : {} ", user_wish_no);
+			  book.setBook_isbn(wishcartbook.getBook_isbn());
+			  dao.insertwish(book); 
+			  return "cart/wishForm"; 
 		  
 		  }
 		  

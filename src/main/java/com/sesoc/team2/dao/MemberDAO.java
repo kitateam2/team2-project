@@ -36,5 +36,11 @@ public class MemberDAO {
 		return result;
 	}
 		
+	public int insertwishcart(User_infoVO user_info) {
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		int result = mapper.insertwishcart(user_info);
+		return result;
+		
+	}
 	}
 

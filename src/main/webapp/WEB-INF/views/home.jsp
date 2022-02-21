@@ -92,7 +92,7 @@ function pagingFormSubmit(currentPage) {
 				<td class="class_item"><a href="userService" class="text" style="color:white;">고객센터</a></td><td>&nbsp;</td>
 		</tr>	
 	</table>
-	<div class="logbar" id="logbar" style="float:right; font-size:13;">
+	
 		<c:if test="${sessionScope.loginId == null}">
 				<a href="condition" style="color:white;" class="fa fa-user-plus fa-2x"></a></td><td>&nbsp;</td>
 				<a href="login" style="color:white;" class="fa fa-user fa-2x"></a></td><td>&nbsp;</td>
@@ -104,7 +104,7 @@ function pagingFormSubmit(currentPage) {
 				<a href="myblog/${sessionScope.loginId}" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
 				${sessionScope.loginId}님 환영합니다.
 			</c:if>
-			</div>
+			
 	</div> <!-- navigation bar -->
 <div class="container">
 
