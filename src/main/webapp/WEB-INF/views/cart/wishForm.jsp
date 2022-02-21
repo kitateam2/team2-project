@@ -185,6 +185,7 @@ left: 0;
 		<tr>
 			<th>${wish.user_wish_no}</th>
 			<th>${wish.book_title}</th>
+			<th><a href="deletewish?user_wish_no=${wish.user_wish_no}"  class="btn btn-primary">삭제</a></th>
 						
 						</tr> 
 			</c:forEach>

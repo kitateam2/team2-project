@@ -100,4 +100,10 @@ public class CartDAO {
 		String result = mapper.booktitle(book_isbn);
 		return result;
 	}
+	public int deletewish(int user_wish_no) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.deletewish(user_wish_no);
+		return result;
+		
+	}
 }

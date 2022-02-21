@@ -9,10 +9,53 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link href="resources/css/checkout.css" rel="stylesheet"/>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+   <script src="../resources/js/jquery-3.6.0.min.js"></script>
   
+<script>
+$(document).ready(function(){
+	$('.card-number-input').on('keyup', text);
+	$('.card-holder-input').on('keyup', text);
+	$('.inputBox').on('change', text);
+	$('.inputBox').on('change', text);
+	
+})
 
+function text(){
+	var bb= document.getElementById('numInput').value;
+	var cc= document.getElementById('nameInput').value;
+	var dd= document.getElementById('inputmonth').value;
+	var ee= document.getElementById('inputyear').value;
+	$('.card-number-box').html(bb);
+	$('.card-holder-name').html(cc);
+	$('.exp-month').html(dd);
+	$('.exp-year').html(ee);
+	
 
+}
 
+document.querySelector('.month-input').oninput = () =>{
+    document.querySelector('.exp-month').innerText = document.querySelector('.month-input').value;
+}
+
+document.querySelector('.year-input').oninput = () =>{
+    document.querySelector('.exp-year').innerText = document.querySelector('.year-input').value;
+}
+
+document.querySelector('.cvv-input').onmouseenter = () =>{
+    document.querySelector('.front').style.transform = 'perspective(1000px) rotateY(-180deg)';
+    document.querySelector('.back').style.transform = 'perspective(1000px) rotateY(0deg)';
+}
+
+document.querySelector('.cvv-input').onmouseleave = () =>{
+    document.querySelector('.front').style.transform = 'perspective(1000px) rotateY(0deg)';
+    document.querySelector('.back').style.transform = 'perspective(1000px) rotateY(180deg)';
+}
+
+document.querySelector('.cvv-input').oninput = () =>{
+    document.querySelector('.cvv-box').innerText = document.querySelector('.cvv-input').value;
+}
+
+</script>
 
 </head>
 <body>
@@ -26,7 +69,7 @@
                 <img src="img/chip.png" alt="">
                 <img src="img/visa.png" alt="">
             </div>
-            <div class="card-number-box">################</div>
+            <div class="card-number-box"></div>
             <div class="flexbox">
                 <div class="box">
                     <span>card holder</span>
@@ -56,16 +99,16 @@
     <form action="complete" name="form" method="get">
         <div class="inputBox">
             <span>card number</span>
-            <input type="text" maxlength="16" class="card-number-input">
+            <input type="text" maxlength="16" class="card-number-input" id="numInput">
         </div>
         <div class="inputBox">
             <span>card holder</span>
-            <input type="text" class="card-holder-input">
+            <input type="text" class="card-holder-input" id="nameInput">
         </div>
         <div class="flexbox">
             <div class="inputBox">
                 <span>expiration mm</span>
-                <select name="" id="" class="month-input">
+                <select name="" id="inputmonth" class="month-input">
                     <option value="month" selected disabled>month</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -83,7 +126,7 @@
             </div>
             <div class="inputBox">
                 <span>expiration yy</span>
-                <select name="" id="" class="year-input">
+                <select name="" id="inputyear" class="year-input">
                     <option value="year" selected disabled>year</option>
                     <option value="2021">2021</option>
                     <option value="2022">2022</option>

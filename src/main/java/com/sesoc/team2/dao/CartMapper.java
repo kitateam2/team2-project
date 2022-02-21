@@ -38,6 +38,8 @@ public interface CartMapper {
 
 	String booktitle(String book_isbn);
 
+	int deletewish(int user_wish_no);
+
 
 
 

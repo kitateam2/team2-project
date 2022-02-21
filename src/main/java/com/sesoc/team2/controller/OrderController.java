@@ -93,14 +93,26 @@
 		  
 		  }
 		  
-		  //삭제
+		  //장바구니삭제
 		  
 		  @RequestMapping (value="delete", method=RequestMethod.GET) 
 		  public String delete(HttpSession session, int cart_book_no) {
 		  logger.debug("cart_book_no : {} ", cart_book_no);
 		  dao.deletecart(cart_book_no);
 		  
-		  return "redirect:/cart"; }
+		  return "redirect:/cart"; 
+		  
+		  }
+		  
+			//위시리스트 삭제
+			 @RequestMapping (value="deletewish", method=RequestMethod.GET) 
+			 public String deletewish(HttpSession session, int user_wish_no) {
+			 dao.deletewish(user_wish_no);
+			 
+			 return "redirect:/wish";
+			  
+			 }
+			 
 		  
 		  //수정
 		  

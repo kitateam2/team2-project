@@ -104,6 +104,14 @@ values (
 		cart_book_no = #{cart_book_no}
 </delete>
 
+<delete id="deletewish" parameterType="int" >
+	delete
+	from
+		user_wishlist
+	where
+		user_wish_no = #{user_wish_no}
+</delete>
+
 <!-- 글 수정 -->
 <update id="update" parameterType="int">
 		update
