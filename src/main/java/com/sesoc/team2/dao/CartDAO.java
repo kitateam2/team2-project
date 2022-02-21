@@ -90,4 +90,14 @@ public class CartDAO {
 		ArrayList<user_wishlist> list = mapper.wishlist();
 		return list;
 }
+	public ArrayList<user_wishlist> selectbookwishlist(String user_id1) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		ArrayList<user_wishlist> wishlist1 = mapper.wishlist1(user_id1);
+		return wishlist1;
+	}
+	public String booktitle(String book_isbn) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		String result = mapper.booktitle(book_isbn);
+		return result;
+	}
 }

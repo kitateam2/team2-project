@@ -101,6 +101,7 @@ function pagingFormSubmit(currentPage) {
 				<a href="logout" style="color:white;">로그아웃</a></td><td>&nbsp;</td>
 				<a href="updatemember" style="color:white;">회원정보수정</a></td><td>&nbsp;</td>
 				<a href="cart" style="color:white;" class="fa fa-shopping-cart fa-2x"></a></td><td>&nbsp;</td>
+				<a href="wish" style="color:white;" class="fa fa-shopping-cart fa-3x"></a></td><td>&nbsp;</td>
 				<a href="myblog/${sessionScope.loginId}" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
 				${sessionScope.loginId}님 환영합니다.
 			</c:if>

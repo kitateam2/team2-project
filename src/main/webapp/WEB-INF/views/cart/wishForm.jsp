@@ -2,9 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
 <style>
 
 body
@@ -160,52 +163,32 @@ left: 0;
 }
 
 </style>
-
 </head>
-
 <body>
 
- <div class="container">
+  <div class="container">
         <div class="tab"></div>
         <div class="paid"><p>Receipt Paid successfully</p></div>
         <div class="receipt">
         <div class="paper">
-          <div class="title">장바구니</div>
+          <div class="title">위시리스트</div>
           <div class="date">Date: 20/07/2013</div>    
           <table>
             <tbody>
             <tr>
 		<th>번호</th>
 		<th>책제목</th>
-		<th style="width:220px">날짜</th>
-		<th>수량</th>
-		<th>유저카트넘버</th>
-		<th>가격</th> 
 	</tr>
-	
-	
-              <c:forEach var="cart" items="${Cart_book1}">
-		<form action="update" method="get">
+<c:forEach var="wish" items="${userwishlist}"> 
+
+
 		<tr>
-			<th>${cart.cart_book_no}</th>
-			<th>${cart.book_title}</th>
-			<th>${cart.cart_book_inputdate}</th>                                
-			<th>
-				<input type="hidden" id=cart_book_no name="cart_book_no" value="${cart.cart_book_no}">
-				<input type="number" name="cart_book_count" placeholder="${cart.cart_book_count}" id="count" style="width:50px">
-			</th>
-			<th>${cart.user_cart_no}</th>
-			<th>${cart.book_price}₩</th>
-			<th><a href="delete?cart_book_no=${cart.cart_book_no}"  class="btn btn-primary">삭제</a></th>
-			<th><input type="submit" value="수정"></th>
-			
-			
-		</tr> 
-		</form>
-		</c:forEach>
-		
-      
-          </tbody>
+			<th>${wish.user_wish_no}</th>
+			<th>${wish.book_title}</th>
+						
+						</tr> 
+			</c:forEach>
+			  </tbody>
           </table>
           <form action="checkout" method="get">
           <table>
@@ -223,52 +206,5 @@ left: 0;
         
         <div>
       </div>
-
-
-<%-- <table  style="border:solid; 1px;">
-
-	<tr>
-		<th>번호</th>
-		<th>책제목</th>
-		<th style="width:220px">날짜</th>
-		<th>수량</th>
-		<th>유저카트넘버</th>
-		<th>가격</th> 
-	</tr>
-
-
-		
-	<c:forEach var="cart" items="${Cart_book1}">
-		<form action="update" method="get">
-		<tr>
-			<th>${cart.cart_book_no}</th>
-			<th>${cart.book_title}</th>
-			<th>${cart.cart_book_inputdate}</th>                                
-			<th>
-				<input type="hidden" id=cart_book_no name="cart_book_no" value="${cart.cart_book_no}">
-				<input type="number" name="cart_book_count" placeholder="${cart.cart_book_count} " id="count">
-			</th>
-			<th>${cart.user_cart_no}</th>
-			<th>${cart.book_price}</th>
-			<th><a href="delete?cart_book_no=${cart.cart_book_no}"  class="btn btn-primary">삭제</a></th>
-			<th><input type="submit" value="수정"></th>
-		</tr> 
-		</form>
-	</c:forEach>
-</table>
-	합계${cart_total}원 --%>
-
 </body>
-
-<footer class="footer">
-<div class="sign center">
-            <div class="barcode"></div>
-            <br/>
-            <!-- 0123456789 -->
-            <br/>
-            <div class="thankyou">
-            Thank you for your business 
-            </div>
-          </div>
-</div>
-</footer>
+</html>

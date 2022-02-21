@@ -34,6 +34,12 @@ public interface CartMapper {
 
 	int insertwish_cart(com.sesoc.team2.vo.user_wishlist book);
 
+	ArrayList<com.sesoc.team2.vo.user_wishlist> wishlist1(String user_id1);
+
+	String booktitle(String book_isbn);
+
+
+
 
 	
 }

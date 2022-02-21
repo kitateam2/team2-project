@@ -40,7 +40,8 @@
 		  book.setBook_isbn(cartbook.getBook_isbn());
 		  book.setBook_price(cartbook.getBook_price());
 		  book.setBook_title(cartbook.getBook_title()); //검색하는 기능 dao.있으면 카트리턴 없으면 인서트
-		  dao.insert(book); return "cart/cartForm"; 
+		  dao.insert(book); 
+		  return "cart/cartForm"; 
 		  
 		  }
 		  
@@ -56,7 +57,9 @@
 		  int cart_total = dao.total(cart_book1.getUser_cart_no()); //토탈 찍고 모델에 담아서 뿌리기
 		  model.addAttribute("cart_total", cart_total);
 		  
-		  return "cart/cartForm"; }
+		  return "cart/cartForm"; 
+		  
+		  }
 		  
 		  //위시리스트에 담기
 		  @RequestMapping(value = "ajaxwishlist", method = RequestMethod.POST) //책을 담는 메서드
@@ -65,13 +68,28 @@
 			  int user_wish_no = dao.selectuser_wish_no(user_id1); 
 			  user_wishlist wishcartbook = dao.selectwishbook(book_isbn); 
 			  user_wishlist book = new user_wishlist();
+			  String book_title = dao.booktitle(book_isbn);
 			  book.setUser_id(user_id1);
 			  logger.debug("유저위시넘버 : {} ", user_id1);
 			  book.setUser_wish_no(user_wish_no);
 			  logger.debug("유저위시넘버 : {} ", user_wish_no);
 			  book.setBook_isbn(wishcartbook.getBook_isbn());
+			  book.setBook_title(book_title);
 			  dao.insertwish(book); 
 			  return "cart/wishForm"; 
+		  
+		  }
+		  
+		  //위시리스트에 뿌려주기
+		  @RequestMapping(value = "wish", method = RequestMethod.GET) //담은걸 뿌리는 메서드
+		  public String wishlistcart(user_wishlist userwishlist,Model model,HttpSession session) {
+			  logger.debug("wish컨트롤러 -=-=-=-=-=-=-=-=-=-=-=-=-=");
+		  String user_id1 = (String) session.getAttribute("loginId");
+		  ArrayList<user_wishlist> wish = dao.selectbookwishlist(user_id1);
+		  model.addAttribute("userwishlist",wish);
+		  logger.debug("내용 : {} ", wish);
+		  
+		  return "cart/wishForm"; 
 		  
 		  }
 		  

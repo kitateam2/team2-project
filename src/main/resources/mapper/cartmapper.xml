@@ -28,7 +28,11 @@ select user_cart_no from USER_cart where user_id = #{user_id1}
 
 <select id ="selectuser_wish_no" parameterType="String" resultType="int">
 select user_wish_no from user_wish where user_id = #{user_id1}
-</select>  
+</select>
+
+<select id ="booktitle" parameterType="String" resultType="String">
+select book_title from book_info where book_isbn = #{book_isbn}
+</select> 
 
 
 <select id ="list1" resultType="cart_bookVO" parameterType="String">
@@ -36,6 +40,13 @@ select *
 from cart_book cb, user_cart uc 
 where cb.user_cart_no = uc.user_cart_no 
 and uc.user_id = #{user_id1}
+</select>
+
+<select id ="wishlist1" resultType="user_wishlistVO" parameterType="String">
+select * 
+from user_wishlist wl, user_wish uw 
+where wl.user_wish_no = uw.user_wish_no 
+and uw.user_id = #{user_id1}
 </select>
 
 <select id="total" parameterType="int" resultType="int">
@@ -73,12 +84,14 @@ insert into user_wishlist
 user_wish_no
 ,user_id
 ,book_isbn
+,book_title
 )
 values (
-user_wishlist_seq.nextval
+#{user_wish_no}
 <!-- #{user_wish_no} -->
 ,#{user_id}
 ,#{book_isbn}
+,#{book_title}
 )
 </insert>  
 
