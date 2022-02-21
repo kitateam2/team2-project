@@ -9,24 +9,12 @@
 <title>Insert title here</title>
 <style>
 	#right {		
-		background-color: white;	
-		float: left;
-		width: calc(100% - 266px);							
-		height: 100%;		
-	}
-	
-	.header {
 		background-color: white;
-		margin: 10px;	
-	}
-	
-	.headerbtn {
-		background-Color: white;
-		border-radius: 5px;			
-		border: 2px solid rgb(210, 210, 230);
-		font-size: 20px;
-		padding: 10px;
-		cursor: pointer;		
+		position: absolute;
+		left: 258px;
+		top: 118px;
+		height: calc(100vh - 118px);;
+		width: calc(100vw - 282.8px);		
 	}
 		
 	.postlist {
@@ -64,39 +52,15 @@
 		
 	.img {		
 		width: 300px;
-		height: 250px;  				
+		height: 250px;		 				
 	}	
 </style>
 </head>
 <body>
 <div id="right">
-
-<!-- 헤더 -->
-	<div class="header">
-		<div style="float:right;">          
-			<c:if test="${sessionScope.loginId == null}">
-				<input class="headerbtn" type="button" onclick="location.href='condition'" value="회원가입">				
-			</c:if>
-			<c:if test="${sessionScope.loginId == null}">
-				<input class="headerbtn" type="button" onclick="location.href='${pageContext.request.contextPath}/blogmain/login'" value="로그인">									
-			</c:if>
-			<c:if test="${sessionScope.loginId != null}">
-				<span style="font-size: 18px; font-weight: bold;">${sessionScope.loginId}님 접속중</span>&nbsp;&nbsp;&nbsp;
-			</c:if>
-			<c:if test="${sessionScope.loginId != null}">
-				<input class="headerbtn" type="button" onclick="location.href='${pageContext.request.contextPath}/myblog/${sessionScope.loginId}'" value="내블로그">				
-			</c:if>	
-			<c:if test="${sessionScope.loginId != null}">
-				<input class="headerbtn" type="button" onclick="location.href='${pageContext.request.contextPath}/blogmain/logout'" value="로그아웃">				
-			</c:if>		
-		</div>
-	</div>
-
-<!-- 블로그 목록 -->
 <div class="scroll" style="height:100%; overflow:auto">		
 	<c:set var="i" value="0" />
-	<c:set var="j" value="3" />
-	
+	<c:set var="j" value="3" />	
 		<table class="postlist">
 			<c:choose>
 				<c:when test="${list != null && fn:length(list) > 0}">
@@ -105,7 +69,7 @@
 							<tr>
 						</c:if>
 								<td class="td" onClick="location.href='${pageContext.request.contextPath}/myblog/one_post?post_no=${blog.post_no}'">
-							 		<div style="height:250px;"><img class="img" alt="" src="${pageContext.request.contextPath}/myblog/${blog.user_id}/show_file?post_no=${blog.post_no}"></div><br>					
+							 		<div style="height:250px;"><img class="img" onerror="this.style.display='none'" src="${pageContext.request.contextPath}/myblog/${blog.user_id}/show_file?post_no=${blog.post_no}"></div><br>					
 									<div style="color:rgb(117, 117,117);">@${blog.user_id}</div><br>
 									<div class="ellipsis">${blog.post_contents}</div><br><br>
 									<div style="float:left; color:rgb(117, 117,117); font-size:12px;">조회수: ${blog.post_hits}</div>
@@ -119,8 +83,7 @@
 				</c:when>
 			</c:choose>
 		</table>
-	</div>	
-
+	</div>
 </div>
 </body>
 </html>

@@ -24,4 +24,10 @@ public class BlogMainDAO {
 		ArrayList<BlogMain> ranklist = mapper.ranklist();
 		return ranklist;
 	}
+	
+	public int grade(BlogMain blogmain) {
+		BlogMainMapper mapper = sqlSession.getMapper(BlogMainMapper.class);
+		int total = mapper.grade(blogmain);
+		return total;
+	}
 }
