@@ -33,16 +33,21 @@
   	</insert>
   	
   	<!-- 게시글 목록 읽기 -->
-  	<select id="postlist" parameterType="String" resultType="BlogPostVO">
+  	<select id="postlist" parameterType="map" resultType="BlogPostVO">
   		select
   			*
   		from
   			blog_post
   		where
   			user_id = #{user_id}
+  			<!-- 아이디로 불러온 사람 글만 보이게 해야하는 where -->
+  			
+  			<if test="_parameter != null">
+  			and
+			post_title like '%' || #{searchText} || '%'
+			</if>
   		order by
   			post_no desc
-  			<!-- 아이디로 불러온 사람 글만 보이게 해야하는 where줘야함 -->
   	</select>
   	
   	<!-- 게시글 하나 읽기 -->
@@ -91,6 +96,20 @@
 		where
 			post_no = #{post_no}
 	</update>
+	
+	<!-- 전체 글 개수 (검색 필터링 후) -->
+<select id="get_total" parameterType="string" resultType="int">
+	select 
+		count(*)
+	from 
+		blog_post 
+	<if test="_parameter != null">
+	where 
+		post_title like '%' || #{searchText} || '%'
+		
+		
+	</if>
+</select>
 	
 	<!-- 게시글 댓글 좋아요 1 증가 -->
 		<update id="post_comment_like" parameterType="PostCommentVO">

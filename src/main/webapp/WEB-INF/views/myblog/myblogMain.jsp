@@ -15,7 +15,17 @@ function message_window(){
 	
 	var w = window.open('../message/${sessionScope.loginId}/window', '메시지', 'top=200,left=500,width=1200,height=600');
 }
+
+<!-- 페이지 이동 스크립트  -->
+
+function pagingFormSubmit(currentPage) {
+	var form = document.getElementById('pagingForm');
+	var page = document.getElementById('page');
+	page.value = currentPage;
+	form.submit();
+}
 </script>
+
 
 <title>Home</title>
 </head>
@@ -27,9 +37,12 @@ function message_window(){
 
 
 <div><!-- 글 목록 한덩어리- 글목록 조회수  -->
+전체 : ${navi.totalRecordsCount}
 	<table border="1">
+	
 		<tr>
 			<th colspan="4">게시글 목록</th>
+			
 		</tr>
 	<!-- 참고한 주소 https://freehoon.tistory.com/106 -->
 	<c:forEach var="postlist" items="${postlist}"> <!-- 리스트 저장한 거 가지고 오는 거  -->
@@ -48,11 +61,39 @@ function message_window(){
 		<tr>
 			<td colspan="4">조회수 : ${postlist.post_hits} 오른쪽 정렬로 보여주기 </td>
 		</tr>
+		
 	</c:forEach>
 	</table>
+</div><!-- 글 목록 한덩어리- 글목록 조회수  -->
 
+<div id="navigator">
+<!-- 페이지 이동 부분 -->                      
+	<a href="javascript:pagingFormSubmit(${navi.currentPage - navi.pagePerGroup})">◁◁ </a> &nbsp;&nbsp;
+	<a href="javascript:pagingFormSubmit(${navi.currentPage - 1})">◀</a> &nbsp;&nbsp;
 
+	<c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}"> 
+		<c:if test="${counter == navi.currentPage}"></c:if>
+			<a href="javascript:pagingFormSubmit(${counter})">${counter}</a>&nbsp;
+		<c:if test="${counter == navi.currentPage}"></c:if>
+	</c:forEach>
+	&nbsp;&nbsp;
+	<a href="javascript:pagingFormSubmit(${navi.currentPage + 1})">▶</a> &nbsp;&nbsp;
+	<a href="javascript:pagingFormSubmit(${navi.currentPage + navi.pagePerGroup})">▷▷</a>
+
+<!-- /페이지 이동 끝 -->                      
 </div>
+<br><br>
+
+
+<!-- 검색폼 -->
+<form id="pagingForm" method="get" action=aaa>
+	<input type="hidden" name="page" id="page" />
+	제목 : <input type="text"  name="searchText" value="${searchText}" />
+	<input type="button" onclick="pagingFormSubmit(1)" value="검색">
+</form>
+<!-- /검색폼 --> 
+
+
 <c:if test="${sessionScope.loginId == user_id}">
 <div><!-- 개인정보 목록 한덩어리 -->
 	<table>
@@ -65,6 +106,8 @@ function message_window(){
 		<tr><td colspan="2" ><button onclick="message_window()">쪽지로 이동</button></td></tr>
 	</table>
 </div>
+
+
 
 <div>
 새글 작성하기 한덩어리
