@@ -1,7 +1,11 @@
 package com.sesoc.team2.controller;
 
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 
+import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -9,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,16 +43,20 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	//책 상세정보 페이지
 	@RequestMapping (value="bookInfo", method=RequestMethod.GET)
 	public String bookinfoForm(String bookname) {
+		logger.info("bookname : {}", bookname);
 		ArrayList<Book> booklist = infodao.bookListUp(bookname);
 		
-		logger.debug("BookInfo폼에서 찍는 값 : {}", booklist);
+		logger.info("BookInfo폼에서 찍는 값 : {}", booklist);
 		return "book/bookInfo";
 	}
+	
 	
 	//게시판 관련 상수값들
 	final int countPerPage = 10;			//페이지당 글 수
 	final int pagePerGroup = 5;				//페이지 이동 링크를 표시할 페이지 수
 	final String uploadPath = "/boardfile";	//파일 업로드 경로
+	
+	
 	
 	//글 목록
 	@RequestMapping (value="list", method=RequestMethod.GET)
