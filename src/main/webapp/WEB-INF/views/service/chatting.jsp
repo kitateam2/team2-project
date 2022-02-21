@@ -25,7 +25,8 @@ $(document).ready(  function() {
         console.log("mmmmmmmmmmmm>>", msg)
         $('#chat-insert').val('');
         if (isStomp)
-        	socket.send('/TTT', {}, JSON.stringify({roomid: 'message', id: 124, msg: msg}));
+        	//socket.send('/TTT', {}, JSON.stringify({roomid: 'message', id: 124, msg: msg}));
+        	socket.send('/team2/TTT', {}, msg);
         else
             socket.send(msg);
     });
@@ -43,13 +44,12 @@ function connectStomp() {
     client.connect({}, function () {
         console.log("Connected stompTest!");
         // Controller's MessageMapping, header, message(자유형식)
-        client.send('/TTT', {}, "msg: Haha~~~");
+        client.send('/team2/TTT', {}, "msg: Haha~~~");
 
         // 해당 토픽을 구독한다!
         client.subscribe('/topic/message', function (event) {
             console.log("!!!!!!!!!!!!event>>", event)
         });
-        console.log("Connected stompTest!End");
     });
 
 }
