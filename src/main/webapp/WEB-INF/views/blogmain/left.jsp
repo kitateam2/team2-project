@@ -9,10 +9,10 @@
 <title>Insert title here</title>
 <style>
 	#left {		
-		background-color: rgb(230, 230, 250);		
-		float: left;		
+		background-color: rgb(230, 230, 250);
 		width: 250px;
-		height: 100%;
+		position: absolute;		
+		height: calc(100vh - 8px);
 	}
 	
 	.mainlink {
@@ -51,9 +51,8 @@
 	
 	.footer {
 		position: absolute;
-		bottom: 20px;
-		left: 20px;
-		height: 30px;
+		bottom: 10px;
+		left: 20px;		
 		cursor: pointer;	
 	}
 </style>

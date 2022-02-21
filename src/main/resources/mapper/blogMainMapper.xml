@@ -37,6 +37,20 @@
     		order by
             	sum(post_hits) desc)
 		where <![CDATA[rownum <= 5]]>
+	</select>
+	
+	<select id="grade" parameterType="BlogMain" resultType="int">
+		select total from(
+			select
+				a.user_id
+				, sum(b.user_pay_price) as total
+			from
+				order_list a, user_pay b
+			where
+				a.order_no = b.order_no
+				and (b.user_pay_date between sysdate -365 and sysdate)
+			group by grouping sets(a.user_id))
+		where user_id = #{user_id}
 	</select>	
 		
  </mapper>

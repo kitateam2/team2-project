@@ -1,6 +1,7 @@
 package com.sesoc.team2.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sesoc.team2.dao.MessageDAO;
+import com.sesoc.team2.util.PageNavigator;
 import com.sesoc.team2.vo.Message;
 
 /**
@@ -29,25 +31,60 @@ public class MessageController {
 	@Autowired
 	MessageDAO dao;
 	
+	//쪽지 관련 상수 값 정의 
+	final int countPerPage = 5;			//페이지당 글 수
+	final int pagePerGroup = 5;				//페이지 이동 링크를 표시할 페이지 수
+
+	
 	//쪽지로 이동
 			@RequestMapping(value = "{user_id}/window", method = RequestMethod.GET)
 			public String messageWindow(
-					@PathVariable String user_id,
-					@RequestParam(value="message_no", defaultValue="0" )int message_no, HttpSession session
-										,  Model model) {
+					@PathVariable String user_id
+					, 	@RequestParam(value="message_no", defaultValue="0" )int message_no
+					, 	HttpSession session
+					, 	@RequestParam(value="page", defaultValue="1") int page
+					, 	@RequestParam(value="searchText", defaultValue="") String searchText
+					, 	 Model model) {
 				String id = (String) session.getAttribute("loginId");
 				//보내는 값에 내 아이디를 고정해서 보내야 하니까 고정값을 하나만 주는 거지  
 				//딱 열렸을 때 불러오는 받은사람에는 로그인 한 아이디가 그 값이니까 
 				//message.setMessage_recv_id(id); 이거 없어도 되고, sql에서 조건절로 주니까 자동으로 불러올 수 있다.
 				
-				logger.info("쪽지 로그인 된 아이디: {}", id);
-				ArrayList<Message> message_list_recv = dao.message_list_recv(id);
-				ArrayList<Message> message_list_sent = dao.message_list_sent(id);
-				ArrayList<Message> message_list_all = dao.message_list_all(id);
+				HashMap<String, String> map_recv = new HashMap<String, String>();
+
+				map_recv.put("login_id", id);
+				map_recv.put("searchText", searchText);
 				
+				HashMap<String, String> map_sent = new HashMap<String, String>();
+			
+				map_sent.put("login_id", id);
+				map_sent.put("searchText", searchText);
+				
+				logger.debug("page: {}, searchText: {}", page, searchText);
+				logger.debug("map_recv 컨트롤러 int{} ", map_recv);
+				logger.debug("map_sent 컨트롤러 {}", map_sent);
+				
+				int total_recv = 0;
+				int total_sent = 0;
+				
+				total_recv = dao.get_total_recv(map_recv);			//받은 쪽지 개수
+				total_sent = dao.get_total_sent(map_sent);			//보낸 쪽지 개수
+				
+				logger.debug("total_recv int 컨트롤러", total_recv);
+				logger.debug("total_sent int 컨트롤러", total_sent);
+				
+				//페이지 계산을 위한 객체 생성
+				//                                     여기 10개        여기 5개      1개   100개 
+				PageNavigator navi_recv = new PageNavigator(countPerPage, pagePerGroup, page, total_recv); 
+				PageNavigator navi_sent = new PageNavigator(countPerPage, pagePerGroup, page, total_sent); 
+	
+				ArrayList<Message> message_list_recv = dao.message_list_recv(map_recv, navi_recv.getStartRecord(), navi_recv.getCountPerPage());
+				ArrayList<Message> message_list_sent = dao.message_list_sent(map_sent, navi_sent.getStartRecord(), navi_sent.getCountPerPage());
+				
+				model.addAttribute("navi_recv", navi_recv);
+				model.addAttribute("navi_sent", navi_sent);
 				model.addAttribute("message_list_recv", message_list_recv);
 				model.addAttribute("message_list_sent", message_list_sent);
-				model.addAttribute("message_list_all", message_list_all);
 				//받을 때 나한테 온거, 보낼 때 내가 보낸거를 내부적으로만 통일하려고
 				
 				logger.info("리스트: {}", message_list_recv);

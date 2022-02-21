@@ -51,11 +51,11 @@ public class APIController {
 		public void insert_db(API api) throws Exception {
 			logger.info("전달된 값 >>> {}", api);
 			
-//			String filename = imageSave(api.getBook_image(), api.getBook_isbn()); 
-//			
-//			if (filename != null) {
-//				api.setBook_image(filename);
-//			}
+			String filename = imageSave(api.getBook_image(), api.getBook_isbn()); 
+			
+			if (filename != null) {
+				api.setBook_image(filename);
+			}
 			int result = dao.insert_db(api);
 			
 			if (result == 0) {
@@ -73,21 +73,24 @@ public class APIController {
 			//저장 폴더가 없으면 생성
 			File path = new File(dir);
 			if (!path.isDirectory()) {
+				logger.debug(dir);
 				path.mkdirs();
 			}
 			
 			//저장할 파일명 (ISBN에서 공백제거)
 			String filename = book_isbn.trim().replaceAll(" ", "") + ".jpg";
-			
+			logger.debug(filename);
 			
 			try {
 				URL url = new URL(book_image);
 				HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
 				InputStream in = con.getInputStream();
 				
+				
 				FileOutputStream out = new FileOutputStream(dir + filename);
 				
 				FileCopyUtils.copy(in, out);
+				logger.debug("파일 복사");
 			}
 			catch (Exception e) {
 				e.printStackTrace();

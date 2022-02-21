@@ -8,4 +8,6 @@ public interface BlogMainMapper {
 	public ArrayList<BlogMain> list(String searchText);
 
 	public ArrayList<BlogMain> ranklist();
+	
+	public int grade(BlogMain blogmain);
 }

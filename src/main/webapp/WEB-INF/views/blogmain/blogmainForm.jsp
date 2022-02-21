@@ -12,19 +12,11 @@
 		font-family: 나눔스퀘어;
 		overflow: hidden;					
 	}
-	
-	#main {
-		width: 100vw;
-		height: 100vh;		
-	}	
 </style>
 </head>
 <body>
-<div id="main">
-
 <%@ include file="left.jsp" %>
+<%@ include file="header.jsp" %>
 <%@ include file="right.jsp" %>
-
-</div>
 </body>
 </html>

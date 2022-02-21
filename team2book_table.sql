@@ -155,10 +155,8 @@ CREATE TABLE FOLLOW_INFO
 	follow_ed_id varchar2(20) NOT NULL,
 	-- 상대방 id
 	folllow_ing_id varchar2(20) NOT NULL,
-	-- 나를 팔로우한 경우
-	follow_ed number DEFAULT 0 NOT NULL,
-	-- 내가 할로우했을 때
-	follow_ing number DEFAULT 0 NOT NULL,
+	-- 팔로우 넘버
+	follow_no number DEFAULT 0 NOT NULL,
 	UNIQUE (follow_ed_id, folllow_ing_id)
 );
 
@@ -187,6 +185,8 @@ CREATE TABLE MESSAGE
 	message_sent_id varchar2(20) NOT NULL,
 	-- 메세지 받은 아이디
 	message_recv_id varchar2(20) NOT NULL,
+	-- 쪽지 첨부파일
+	message_file varchar2(200),
 	PRIMARY KEY (message_no)
 );
 
@@ -210,7 +210,7 @@ CREATE TABLE ORDER_LIST
 	-- 주문번호
 	order_no number NOT NULL,
 	-- 주문날짜
-	order_date date NOT NULL,
+	order_date date DEFAULT sysdate NOT NULL,
 	-- 총 주문 금액
 	order_totalprice number DEFAULT 0 NOT NULL,
 	-- 주문상태
@@ -311,13 +311,15 @@ CREATE TABLE USER_TRANSFER
 
 CREATE TABLE USER_WISHLIST
 (
-	user_wish_no number DEFAULT 0 NOT NULL,
+	user_wishlist_no number DEFAULT 0 NOT NULL,
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
 	-- 책 인덱스
 	-- 
-	book_isbn varchar2(30) NOT NULL UNIQUE,
-	PRIMARY KEY (user_wish_no),
+	book_isbn varchar2(30) NOT NULL,
+	-- 책제목
+	book_title varchar2(200),
+	PRIMARY KEY (user_wishlist_no),
 	UNIQUE (user_id, book_isbn)
 );
 
@@ -392,13 +394,13 @@ ALTER TABLE EVENT
 
 
 ALTER TABLE FOLLOW_INFO
-	ADD FOREIGN KEY (follow_ed_id)
+	ADD FOREIGN KEY (folllow_ing_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE FOLLOW_INFO
-	ADD FOREIGN KEY (folllow_ing_id)
+	ADD FOREIGN KEY (follow_ed_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
@@ -487,8 +489,7 @@ COMMENT ON COLUMN EVENT.event_result IS '0:꽝
 COMMENT ON COLUMN EVENT.user_id IS '회원ID';
 COMMENT ON COLUMN FOLLOW_INFO.follow_ed_id IS '본인 id';
 COMMENT ON COLUMN FOLLOW_INFO.folllow_ing_id IS '상대방 id';
-COMMENT ON COLUMN FOLLOW_INFO.follow_ed IS '나를 팔로우한 경우';
-COMMENT ON COLUMN FOLLOW_INFO.follow_ing IS '내가 할로우했을 때';
+COMMENT ON COLUMN FOLLOW_INFO.follow_no IS '팔로우 넘버';
 COMMENT ON COLUMN MANAGER.manager_id IS '관리자 아이디';
 COMMENT ON COLUMN MANAGER.manager_pw IS '관리자 비밀번호';
 COMMENT ON COLUMN MESSAGE.message_no IS '메세지 번호';
@@ -497,6 +498,7 @@ COMMENT ON COLUMN MESSAGE.message_date IS '메세지 보낸 날짜';
 COMMENT ON COLUMN MESSAGE.message_hits IS '메세지 조회했는지';
 COMMENT ON COLUMN MESSAGE.message_sent_id IS '메세지 보낸 아이디';
 COMMENT ON COLUMN MESSAGE.message_recv_id IS '메세지 받은 아이디';
+COMMENT ON COLUMN MESSAGE.message_file IS '쪽지 첨부파일';
 COMMENT ON COLUMN ORDER_DETAIL.book_isbn IS '책 인덱스
 ';
 COMMENT ON COLUMN ORDER_DETAIL.order_no IS '주문번호';
@@ -531,6 +533,7 @@ COMMENT ON COLUMN USER_TRANSFER.user_transter_address IS '수신인 주소';
 COMMENT ON COLUMN USER_WISHLIST.user_id IS '회원ID';
 COMMENT ON COLUMN USER_WISHLIST.book_isbn IS '책 인덱스
 ';
+COMMENT ON COLUMN USER_WISHLIST.book_title IS '책제목';
 
 
 

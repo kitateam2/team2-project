@@ -28,9 +28,6 @@ color: red;
 }
 </style>
 <script>
-$(document).ready(function() {
-	
-});   
 
 //bt1 버튼 클릭했을때 실행될 함수
 function bt1Click(n){
@@ -60,13 +57,11 @@ function bt2Click(n){
 }
 
 
-function pagingFormSubmit(currentPage) {
-/* 	var form = document.getElementById('pagingForm');
-	var page = document.getElementById('page');
-	page.value = currentPage;
-	form.submit(); */
+function bookPage() {
+	var bookname = document.getElementById("bookName").value;
+	
 	alert('경로이동?');
-	location.href='bookInfo?bookname='+"삼국지";
+	location.href = 'bookInfo?bookname='+bookname;
 }
 </script>
 <body>
@@ -78,8 +73,8 @@ function pagingFormSubmit(currentPage) {
 	<h1><center>
 	<p style="type">Book Store &nbsp; &nbsp;
 	<!-- 검색폼 -->
-		<input id="bookName" type="text" placeholder="검색어 입력">
-		<button id="search" onclick="pagingFormSubmit()" value="검색">검색</button>	</p></center>
+		<input id="bookName" type="text" placeholder="검색어 입력" >
+		<button id="search" onclick="bookPage();" value="검색">검색</button>	</p></center>
 	</h1>
 	<br>
 	<div class="navigation_bar">
@@ -285,13 +280,13 @@ function pagingFormSubmit(currentPage) {
 
 </div> <!-- box3 -->
 
-       <c:forEach var="cart" items="${Cart_book1}">
+ <!--   <c:forEach var="cart" items="${Cart_book1}">
 		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
 		</c:forEach>
 		
 		<c:forEach var="wishlist" items="${wishCart_book1}">
 		<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
-		</c:forEach> 
+		</c:forEach> --> 
 
 <div class="footer">풋터풋터풋터풋터</div>
             

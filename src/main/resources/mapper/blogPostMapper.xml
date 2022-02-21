@@ -153,16 +153,16 @@
 	</delete>
 	
 	<!-- 전체 글 개수 (검색 필터링 후) -->
-<select id="get_total" parameterType="map" resultType="int">
-	select 
-		count(*)
-	from 
-		blog_post 
-	where 
-	user_id = #{user_id}
-	and
-	<if test="_parameter != null">
-		post_title like '%' || #{searchText} || '%'
-	</if>
-</select>
+	<select id="get_total" parameterType="map" resultType="int">
+		select 
+			count(*)
+		from 
+			blog_post 
+		where 
+		user_id = #{user_id}
+		and
+		<if test="_parameter != null">
+			post_title like '%' || #{searchText} || '%'
+		</if>
+	</select>
   </mapper>

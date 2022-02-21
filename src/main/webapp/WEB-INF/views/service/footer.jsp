@@ -30,7 +30,7 @@ $(document).ready(function() {
 
 //웹 소켓 오픈
 function openSession() {
-	url = 'ws://localhost:8888/team2/chat1';
+	url = 'ws://localhost:8888/team2/footer';
 	sock = new WebSocket(url);
 	sock.onopen = function() {
 		alert('Open');
