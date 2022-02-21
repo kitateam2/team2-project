@@ -99,10 +99,51 @@ function book_review_delete(book_review_no, book_review_star){
 <div class="container">
       book information
       
-<p>저자 : ${api.book_author}</p>
-<p>제목 : ${api.book_title}</p>
-<p>표지 이미지 : </p>
-<p><img src="download?filename=${api.book_image}"></p>
+<br>
+<table>
+
+<tr>
+	<th>표지</th>
+	<th style="width:220px">책 상세정보</th>
+	<th>별점</th>
+	<th>가격</th>
+	<th>장바구니</th>
+</tr>
+
+<!-- 반복 시작 -->
+<c:forEach var="book" items="${booklist}">  
+<tr>
+	<td class="center">${book.book_image}</td>  
+	<td>
+		<a href="read?book_no=${book.book_isbn}">${book.book_title}</a>  <!-- read다음 book_no는 parameterType값 ; controller와 일치해야함 -->
+	</td>
+	<td class="center">${book.book_reward}</td>
+	<td class="center">${book.book_price}</td>
+	<td>장바구니</td>
+</tr>
+
+</c:forEach>        
+<!-- 반복 끝 -->
+</table>
+<br/><br/>
+
+<div id="navigator">
+<!-- 페이지 이동 부분 -->                      
+	<a href="javascript:pagingFormSubmit(${navi.currentPage - navi.pagePerGroup})">◁◁ </a> &nbsp;&nbsp;
+	<a href="javascript:pagingFormSubmit(${navi.currentPage - 1})">◀</a> &nbsp;&nbsp;
+
+	<c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}"> 
+		<c:if test="${counter == navi.currentPage}"><b></c:if>
+			<a href="javascript:pagingFormSubmit(${counter})">${counter}</a>&nbsp;
+		<c:if test="${counter == navi.currentPage}"></b></c:if>
+	</c:forEach>
+	&nbsp;&nbsp;
+	<a href="javascript:pagingFormSubmit(${navi.currentPage + 1})">▶</a> &nbsp;&nbsp;
+	<a href="javascript:pagingFormSubmit(${navi.currentPage + navi.pagePerGroup})">▷▷</a>
+
+<!-- /페이지 이동 끝 -->
+      
+<p><img src="download?filename=${api.book_image}"></p>  <!-- 책 이미지 controller에서 불러오기 지정  -->
   
 </div>
 

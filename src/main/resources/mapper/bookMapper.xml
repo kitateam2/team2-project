@@ -55,6 +55,24 @@
 	order by book_no desc
 </select>
 
+<!-- 현재 페이지 목록 (검색 필터링 후) -->
+<select id="bookListUp" parameterType="String" resultType="BookVO">
+	select 
+		book_no
+		, book_title
+		, book_author
+		, book_contents
+		, book_image
+	from 
+		book_info
+	<if test="_parameter != null">
+	where 
+		book_title like '%' || #{bookname} || '%'
+	or 
+		book_author like '%' || #{bookname} || '%'
+	</if>
+	order by book_no desc
+</select>
 
 
 </mapper>

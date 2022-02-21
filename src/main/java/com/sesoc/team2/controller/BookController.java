@@ -36,10 +36,13 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	BookInfoDAO infodao;
 	
 	//책 상세정보 페이지
-//	@RequestMapping (value="/bookInfo", method=RequestMethod.GET)
-//	public String bookinfoForm() {
-//		return "book/bookInfo";
-//	}
+	@RequestMapping (value="bookInfo", method=RequestMethod.GET)
+	public String bookinfoForm(String bookname) {
+		ArrayList<Book> booklist = infodao.bookListUp(bookname);
+		
+		logger.debug("BookInfo폼에서 찍는 값 : {}", booklist);
+		return "book/bookInfo";
+	}
 	
 	//게시판 관련 상수값들
 	final int countPerPage = 10;			//페이지당 글 수

@@ -14,6 +14,8 @@ public interface BookInfoMapper {
 	public int getTotal(String searchText);
 	//검색 후의 현재 페이지 목록
 	public ArrayList<Book> listBook(String searchText, RowBounds rb);
+	//검색어로 db에서 글 목록 가져오기
+	public ArrayList<Book> bookListUp(String bookname);
 	
 
 	

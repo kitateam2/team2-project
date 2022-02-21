@@ -37,6 +37,7 @@ public class BookInfoDAO {
 		int total = mapper.getTotal(searchText);
 		return total;
 	}
+
 	
 	/**
 	 * 한 페이지의 게시글 목록 읽기
@@ -51,6 +52,12 @@ public class BookInfoDAO {
 		RowBounds rb = new RowBounds(startRecord, countPerPage);
 		//검색어와 읽을 범위를 전달
 		ArrayList<Book> booklist = mapper.listBook(searchText, rb);
+		return booklist;
+	}
+
+	public ArrayList<Book> bookListUp(String bookname) {
+		BookInfoMapper mapper = sqlSession.getMapper(BookInfoMapper.class);
+		ArrayList<Book> booklist = mapper.bookListUp(bookname);
 		return booklist;
 	}
 

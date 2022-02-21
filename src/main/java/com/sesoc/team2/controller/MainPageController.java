@@ -35,8 +35,4 @@ public class MainPageController {
 		return "myblog/myblogMain";
 	}
 	
-	@RequestMapping(value = "bookInfo", method = RequestMethod.GET)
-	public String bookinfo() {
-		return "book/bookInfo";
-	}
 }

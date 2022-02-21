@@ -60,12 +60,13 @@ function bt2Click(n){
 }
 
 
-
 function pagingFormSubmit(currentPage) {
-	var form = document.getElementById('pagingForm');
+/* 	var form = document.getElementById('pagingForm');
 	var page = document.getElementById('page');
 	page.value = currentPage;
-	form.submit();
+	form.submit(); */
+	alert('경로이동?');
+	location.href='bookInfo?bookname='+"삼국지";
 }
 </script>
 <body>
@@ -77,8 +78,8 @@ function pagingFormSubmit(currentPage) {
 	<h1><center>
 	<p style="type">Book Store &nbsp; &nbsp;
 	<!-- 검색폼 -->
-		<input id="bookName" type="text" placeholder="검색어 입력" value="${searchText}">
-		<button id="search" onclick="pagingFormSubmit" value="검색">검색</button>	</p></center>
+		<input id="bookName" type="text" placeholder="검색어 입력">
+		<button id="search" onclick="pagingFormSubmit()" value="검색">검색</button>	</p></center>
 	</h1>
 	<br>
 	<div class="navigation_bar">
