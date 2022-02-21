@@ -57,6 +57,15 @@ function book_review_delete(book_review_no, book_review_star){
 		location.href='book_review_delete?book_review_no=' + book_review_no;
 	}
 }
+
+<!-- 페이지 이동 스크립트  -->
+function pagingFormSubmit(currentPage) {
+	var form = document.getElementById('pagingForm');
+	var page = document.getElementById('page');
+	page.value = currentPage;
+	form.submit();
+}
+
 </script>
 </head>
 
@@ -68,7 +77,7 @@ function book_review_delete(book_review_no, book_review_star){
 	<p>Book Store &nbsp; &nbsp;
 	<!-- 검색폼 -->
 		<input id="bookName" type="text" placeholder="검색어 입력" value="${searchText}">
-		<button id="search" onclick="pagingFormSubmit" value="검색">검색</button>	</p></center>
+		<button id="search" onclick="pagingFormSubmit()" value="검색">검색</button>	</p></center>
 	</h1>
 	<br>
 	<div class="navigation_bar">

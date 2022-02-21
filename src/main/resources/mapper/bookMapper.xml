@@ -39,7 +39,7 @@
 </select>
 
 <!-- 현재 페이지 목록 (검색 필터링 후) -->
-<select id="listBook" parameterType="BookVO" resultType="BookVO">
+<select id="listBook" parameterType="String" resultType="BookVO">
 	select 
 		book_no
 		, book_title
