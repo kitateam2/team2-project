@@ -10,10 +10,12 @@
 	
 	<!-- chat.jsp에서 path경로로 이동하면 ChatHandler로 이동. 이때 인터셉터로 세션에 저장된 아이디 줄 수있음 -->
 	<bean id="chatHandler" class="com.sesoc.team2.controller.ChatHandler" />
-	<bean id="chatHandler1" class="com.sesoc.team2.controller.ChatHandler1" />
+	<!-- <bean id="chattingHandler" class="com.sesoc.team2.controller.ChattingHandler" /> -->
+	<bean id="footerHandler" class="com.sesoc.team2.controller.FooterHandler" />
 	<websocket:handlers>
 		<websocket:mapping handler="chatHandler" path="/chat" />
-		<websocket:mapping handler="chatHandler1" path="/chat1" />
+		<!-- <websocket:mapping handler="chattingHandler" path="/chatting" /> -->
+		<websocket:mapping handler="footerHandler" path="/footer" />
 		<websocket:handshake-interceptors>
 
 	       <bean class="com.sesoc.team2.interceptor.HandshakeInterceptor"/>
