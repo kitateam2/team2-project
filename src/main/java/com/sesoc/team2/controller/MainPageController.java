@@ -38,19 +38,20 @@ public class MainPageController {
 							@RequestParam(value="page", defaultValue="1") int page
 							, @RequestParam(value="searchText", defaultValue="") String searchText
 							,Model model) {
-			
-			logger.debug("page: {}, searchText: {}", page, searchText);
-			int total = dao.get_total(searchText);//전체 글 개수
-			
-			//페이지 계산을 위한 객체 생성
-			//                                     여기 10개        여기 5개      1개   100개 
-			PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total); 
-			
 			//해시맵
 			HashMap<String, String> map = new HashMap<String, String>();
 			
 			map.put("user_id", user_id);
 			map.put("searchText", searchText);
+			
+			logger.debug("page: {}, searchText: {}", page, searchText);
+			int total = dao.get_total(map);//전체 글 개수
+			
+			//페이지 계산을 위한 객체 생성
+			//                                     여기 10개        여기 5개      1개   100개 
+			PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total); 
+			
+			
 					
 			logger.info("컨트롤러 확인 map{}", map);
 			ArrayList<BlogPost> postlist =dao.postlist(map, navi.getStartRecord(), navi.getCountPerPage());

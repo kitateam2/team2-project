@@ -31,7 +31,7 @@ public interface BlogPostMapper {
 
 	public int post_comment_like(PostComment postcomment);
 
-	public int get_total(String searchText);
+	public int get_total(HashMap<String, String> map);
 
 
 	

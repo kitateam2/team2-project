@@ -95,9 +95,9 @@ public class BlogPostDAO {
 		return result;
 	}
 
-	public int get_total(String searchText) {
+	public int get_total(HashMap<String, String> map) {
 		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
-		int total = mapper.get_total(searchText);
+		int total = mapper.get_total(map);
 		return total;
 	}
 
