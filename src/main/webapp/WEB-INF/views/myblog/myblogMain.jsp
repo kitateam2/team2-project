@@ -34,10 +34,23 @@ function pagingFormSubmit(currentPage) {
 	Hello world!  
 </h1>
 <h2>개인블로그 메인페이지</h2>
+<c:if test="${sessionScope.loginId == user_id}">
+<div><!-- 개인정보 목록 한덩어리 -->
+	<table>
+		<tr><td colspan="2">이미지로 기본 사진</td></tr>
+		<tr><td colspan="2">${user_id}님 안녕하세요 :)</td></tr>
+		<tr><td colspan="2">${sessionScope.loginId}</td></tr>
+		<tr><td>회원등급 이모티콘</td>
+			<td>팔로우 수 가지고 오기</td></tr>
+		<tr><td colspan="2">팔로우 버튼</td></tr>
+		<tr><td colspan="2" ><button onclick="message_window()">쪽지로 이동</button></td></tr>
+	</table>
+</div>
+</c:if>
 
 
 <div><!-- 글 목록 한덩어리- 글목록 조회수  -->
-전체 : ${navi.totalRecordsCount}
+전체 : ${navi.totalRecordsCount} <!-- 질문 -->
 	<table border="1">
 	
 		<tr>
@@ -86,7 +99,7 @@ function pagingFormSubmit(currentPage) {
 
 
 <!-- 검색폼 -->
-<form id="pagingForm" method="get" action=aaa>
+<form id="pagingForm" method="get" action="${user_id}"><!-- 질문 -->
 	<input type="hidden" name="page" id="page" />
 	제목 : <input type="text"  name="searchText" value="${searchText}" />
 	<input type="button" onclick="pagingFormSubmit(1)" value="검색">
@@ -94,18 +107,6 @@ function pagingFormSubmit(currentPage) {
 <!-- /검색폼 --> 
 
 
-<c:if test="${sessionScope.loginId == user_id}">
-<div><!-- 개인정보 목록 한덩어리 -->
-	<table>
-		<tr><td colspan="2">이미지로 기본 사진</td></tr>
-		<tr><td colspan="2">{이름정보}님 안녕하세요 :)</td></tr>
-		<tr><td colspan="2">(아이디)</td></tr>
-		<tr><td>회원등급 이모티콘</td>
-			<td>팔로우 수 가지고 오기</td></tr>
-		<tr><td colspan="2">팔로우 버튼</td></tr>
-		<tr><td colspan="2" ><button onclick="message_window()">쪽지로 이동</button></td></tr>
-	</table>
-</div>
 
 
 
@@ -118,7 +119,7 @@ function pagingFormSubmit(currentPage) {
 <div><!-- 친구목록 한덩어리  -->
 친구 리스트 가지고 오기 
 </div>
-</c:if>
+
 <div>
 <!-- 카테고리 한덩어리(글 목록들을 보여줄지 카테고리로 이미지를 보여줄지) -->
 </div>

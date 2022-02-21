@@ -1,7 +1,9 @@
 package com.sesoc.team2.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,26 +28,24 @@ public class MessageDAO {
 		return result;
 	}
 	//받은메시지
-	public ArrayList<Message> message_list_recv(String message_recv_id) {
+	public ArrayList<Message> message_list_recv(HashMap<String, String> map, int startRecord, int countPerPage) {
 		MessageMapper mapper = sqlSession.getMapper(MessageMapper.class);
-		ArrayList<Message> message_list_recv = mapper.message_list_recv(message_recv_id);
-		logger.info("DAO 에 스트링 :{}", message_recv_id);
+		RowBounds rb = new RowBounds(startRecord, countPerPage);
+		ArrayList<Message> message_list_recv = mapper.message_list_recv(map, rb);
+		logger.info("<recv 의 값map {}", map);
+		logger.info("<recv 의 값rb {}", rb);
 		return message_list_recv;
 	}
 	
 	//보낸메시지
-	public ArrayList<Message> message_list_sent(String message_sent_id) {
+	public ArrayList<Message> message_list_sent(HashMap<String, String> map, int startRecord, int countPerPage) {
 		MessageMapper mapper = sqlSession.getMapper(MessageMapper.class);
-		ArrayList<Message> message_list_sent = mapper.message_list_sent(message_sent_id);
+		RowBounds rb = new RowBounds(startRecord, countPerPage);
+		ArrayList<Message> message_list_sent = mapper.message_list_sent(map, rb);
 		return message_list_sent;
 	}
 	
-	//전체메시지
-	public ArrayList<Message> message_list_all(String message_all_id) {
-		MessageMapper mapper = sqlSession.getMapper(MessageMapper.class);
-		ArrayList<Message> message_list_all = mapper.message_list_all(message_all_id);
-		return message_list_all;
-	}
+
 	
 	public Message one_message(int message_no) {
 		MessageMapper mapper = sqlSession.getMapper(MessageMapper.class);
@@ -56,7 +56,20 @@ public class MessageDAO {
 		logger.info("조회수를 위한 로거22 {}", message_no);
 		return message;
 	}
-
+	
+	public int get_total_recv(HashMap<String, String> map_recv) {
+		MessageMapper mapper = sqlSession.getMapper(MessageMapper.class);
+		int total_recv = mapper.get_total_recv(map_recv);
+		logger.info("get_total_recv {}", map_recv);
+		return total_recv;
+	}
+	public int get_total_sent(HashMap<String, String> map_sent) {
+		MessageMapper mapper = sqlSession.getMapper(MessageMapper.class);
+		int total_sent = mapper.get_total_sent(map_sent);
+		logger.info("get_total_sent {}", map_sent);
+		return total_sent;
+	}
+	
 
 
 }

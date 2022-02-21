@@ -47,7 +47,8 @@
 			alert("<%= sf.format(nowTime) %>에 님께 쪽지를 전송합니다.");
 			return true;
 			}
-
+		
+		/* 새글 작성하기 */
 		function message_new(login_id){
 
 			var div = document.getElementById("message_new_form");
@@ -82,6 +83,14 @@
 				str += '</div>';
 				div.innerHTML = str;
 			}
+
+		<!-- 페이지 이동 스크립트  -->
+		function pagingFormSubmit(currentPage) {
+			var form = document.getElementById('pagingForm');
+			var page = document.getElementById('page');
+			page.value = currentPage;
+			form.submit();
+		}
 	</script>
 	<title>Home</title>
 </head>
@@ -95,27 +104,125 @@
 <!-- 검색, 목록별, 수신인 자동완성 -->
 
 	<h4>쪽지 리스트(받은 목록)</h4><br>
-	<!-- 받은메일 -->
+	
+	
 	<div class="container-fluid row">
-	<div class="col-sm-4" style="background-color:lavender;"> 
+	
+	<!-- 받은메일 -->
+	<div class="col-sm-4" style="background-color:lavender; " > 
+			메시지 개수 : ${navi_recv.totalRecordsCount}
 			<table  border="1">
-			<c:forEach var="message_list_recv" items="${message_list_recv}">
-				<tr><td>보낸사람:  ${message_list_recv.message_sent_id}</td></tr>
-				<tr><td><a href="window?message_no=${message_list_recv.message_no}">
-				제목:  ${message_list_recv.message_title}</a></td>
-				</tr>
-				<tr><td><a href="window?message_no=${message_list_recv.message_no}">
-				내용: 나중에절삭  ${message_list_recv.message_contents}</a></td>
-				</tr>
-				<tr><td>조회수:  ${message_list_recv.message_hits}</td></tr>
-			</c:forEach>
+				<c:forEach var="message_list_recv" items="${message_list_recv}">
+					<tr>
+						<td>보낸사람: </td>
+						<td>${message_list_recv.message_sent_id}</td>
+					</tr>
+					<tr>
+						<td>제목: </td>
+						<td><a href="window?message_no=${message_list_recv.message_no}">
+							${message_list_recv.message_title}</a>
+						</td>
+					</tr>
+					<tr>
+						<td>내용: </td>
+						<td><a href="window?message_no=${message_list_recv.message_no}">
+							${message_list_recv.message_contents}</a>
+						</td>
+					</tr>
+					<tr>
+						<td>조회수: </td>
+						<td> ${message_list_recv.message_hits}</td>
+					</tr>
+				</c:forEach>
 			</table>
-			<a href="javascript:message_new()">새글 쓰기</a>
-	</div> 
+		<a href="javascript:message_new()">새글 쓰기</a>
+			
+			<div id="navigator"><!-- 페이지 이동 부분 -->  
+				<a href="javascript:pagingFormSubmit(${navi_recv.currentPage - navi_recv.pagePerGroup})">◁◁ </a> &nbsp;&nbsp;
+				<a href="javascript:pagingFormSubmit(${navi_recv.currentPage - 1})">◀</a> &nbsp;&nbsp;
+			
+				<c:forEach var="counter" begin="${navi_recv.startPageGroup}" end="${navi_recv.endPageGroup}"> 
+					<c:if test="${counter == navi_recv.currentPage}"></c:if>
+						<a href="javascript:pagingFormSubmit(${counter})">${counter}</a>&nbsp;
+					<c:if test="${counter == navi_recv.currentPage}"></c:if>
+				</c:forEach>
+				&nbsp;&nbsp;
+				<a href="javascript:pagingFormSubmit(${navi_recv.currentPage + 1})">▶</a> &nbsp;&nbsp;
+				<a href="javascript:pagingFormSubmit(${navi_recv.currentPage + navi_recv.pagePerGroup})">▷▷</a>
+			</div><!-- /페이지 이동 끝 --> 
+			
+			<!-- 검색폼 -->
+			<form id="pagingForm" method="get" action="../${user_id}/window"><!-- 질문 -->
+				<input type="hidden" name="page" id="page" />
+				내용 : <input type="text"  name="searchText" value="${searchText}" />
+				<input type="button" onclick="pagingFormSubmit(1)" value="검색">
+			</form><!-- /검색폼 --> 
+	</div> <!-- 받은메일 -->
+	
+	
+	<!-- 보낸메일 -->
+	<div class="col-sm-4" style="background-color:yellow;"> 
+			메시지 개수 : ${navi_sent.totalRecordsCount}
+			<table  border="1">
+				<c:forEach var="message_list_sent" items="${message_list_sent}">
+					<tr>
+						<td>받는사람: </td>
+						<td> ${message_list_sent.message_recv_id}</td>
+					</tr>
+					<tr>
+						<td>제목: </td>
+						<td><a href="window?message_no=${message_list_sent.message_no}">
+							${message_list_sent.message_title}</a>
+						</td>
+					</tr>
+					<tr>
+						<td>내용: </td>
+						<td><a href="window?message_no=${message_list_sent.message_no}">
+						 	${message_list_sent.message_contents}</a>
+						 </td>
+					</tr>
+					<tr>
+						<td>조회수: </td>
+						<td> ${message_list_sent.message_hits}</td>
+					</tr>
+				</c:forEach>
+			</table>
+			
+		<a href="javascript:message_new()">새글 쓰기</a>
+			
+			<div id="navigator"><!-- 페이지 이동 부분 -->  
+				<a href="javascript:pagingFormSubmit(${navi_sent.currentPage - navi_sent.pagePerGroup})">◁◁ </a> &nbsp;&nbsp;
+				<a href="javascript:pagingFormSubmit(${navi_sent.currentPage - 1})">◀</a> &nbsp;&nbsp;
+			
+					<c:forEach var="counter" begin="${navi_sent.startPageGroup}" end="${navi_sent.endPageGroup}"> 
+						<c:if test="${counter == navi_sent.currentPage}"></c:if>
+							<a href="javascript:pagingFormSubmit(${counter})">${counter}</a>&nbsp;
+						<c:if test="${counter == navi_sent.currentPage}"></c:if>
+					</c:forEach>
+					&nbsp;&nbsp;
+				<a href="javascript:pagingFormSubmit(${navi_sent.currentPage + 1})">▶</a> &nbsp;&nbsp;
+				<a href="javascript:pagingFormSubmit(${navi_sent.currentPage + navi_sent.pagePerGroup})">▷▷</a>
+			</div><!-- /페이지 이동 끝 --> 
+			
+			<!-- 검색폼 -->
+			<form id="pagingForm" method="get" action="../${user_id}/window"><!-- 질문 -->
+				<input type="hidden" name="page" id="page" />
+				내용 : <input type="text"  name="searchText" value="${searchText}" />
+				<input type="button" onclick="pagingFormSubmit(1)" value="검색">
+			</form><!-- /검색폼 --> 
+	</div> <!-- 보낸메일 -->
 	
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 새 메시지 작성하기 -->
 	<div id="message_new_form" class="col-sm-8" style="background-color:lavenderblush;"> 
 	
 			<div>
@@ -158,25 +265,15 @@
 			
 			
 			</div><!-- 쪽지 읽기 div -->
+			
+			
 	</div><!-- 페이지 좌우로 나누기 위한 값주는 div -->
 	
-	<!-- 보낸메일 -->
 	
-	<div class="col-sm-4" style="background-color:lavender;"> 
-			<table  border="1">
-			<c:forEach var="message_list_sent" items="${message_list_sent}">
-				<tr><td>받는사람:  ${message_list_sent.message_recv_id}</td></tr>
-				<tr><td><a href="window?message_no=${message_list_sent.message_no}">
-				제목:  ${message_list_sent.message_title}</a></td>
-				</tr>
-				<tr><td><a href="window?message_no=${message_list_sent.message_no}">
-				내용: 나중에절삭  ${message_list_sent.message_contents}</a></td>
-				</tr>
-				<tr><td>조회수:  ${message_list_sent.message_hits}</td></tr>
-			</c:forEach>
-			</table>
-			<a href="javascript:message_new()">새글 쓰기</a>
-	</div> 
-</div>
+	
+</div> <!-- class="container-fluid row" -->
+
+
+  
 </body>
 </html>

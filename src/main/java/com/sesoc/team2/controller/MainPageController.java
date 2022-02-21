@@ -29,7 +29,7 @@ public class MainPageController {
 	@Autowired
 	BlogPostDAO dao;
 	
-	//게시판 관련 상수값들
+		//게시판 관련 상수값들
 		final int countPerPage = 10;			//페이지당 글 수
 		final int pagePerGroup = 5;				//페이지 이동 링크를 표시할 페이지 수
 	
