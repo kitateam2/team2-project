@@ -106,29 +106,30 @@ function pagingFormSubmit(currentPage) {
 <!-- 여기까지가 header 부분 -->
 
 <div class="container">
-      book information
+     
       
 <br>
 <table>
 
 <tr>
-	<th>표지</th>
-	<th style="width:220px">책 상세정보</th>
-	<th>별점</th>
-	<th>가격</th>
-	<th>장바구니</th>
+	<th style="width:140px; text-align:center;">Thumbnail</th>
+	<th style="width:360px; text-align:center;">Information</th>
+	<th style=" width:150px;text-align:center;">Review</th>
+	<th style="width:150px; text-align:center;">Price</th>
+	<th style="width:70px; text-align:center;">Payment</th>
 </tr>
 
 <!-- 반복 시작 -->
 <c:forEach var="book" items="${booklist}">  
 <tr>
-	<td class="center">${book.book_image}</td>  
-	<td>
+	<td class="center" style="width:140px; text-align:center;"><img src="download?filename=${book.book_image}"></td>  
+	<td style="width:360px; text-align:center;">
 		<a href="read?book_no=${book.book_isbn}">${book.book_title}</a>  <!-- read다음 book_no는 parameterType값 ; controller와 일치해야함 -->
+		<p>${book.book_author}</p>
 	</td>
-	<td class="center">${book.book_reward}</td>
-	<td class="center">${book.book_price}</td>
-	<td>장바구니</td>
+	<td class="center" style="width:150px; text-align:center;">${book.book_reward}</td>
+	<td class="center" style="width:150px; text-align:center;">${book.book_price}</td>
+	<td style="width:70px; text-align:center;">장바구니</td>
 </tr>
 
 </c:forEach>        
@@ -152,8 +153,6 @@ function pagingFormSubmit(currentPage) {
 
 <!-- /페이지 이동 끝 -->
       
-<p><img src="download?filename=${api.book_image}"></p>  <!-- 책 이미지 controller에서 불러오기 지정  -->
-  
 </div>
 
 	<!-- 댓글 자리 -->
