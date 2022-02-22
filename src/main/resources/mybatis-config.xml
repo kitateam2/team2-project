@@ -27,6 +27,7 @@
 		<mapper resource="mapper/apiMapper.xml" />
 		<mapper resource="mapper/bookMapper.xml" />
 		<mapper resource="mapper/followMapper.xml" />
+		<mapper resource="mapper/serviceMapper.xml" />
 		
 	</mappers>
 </configuration>

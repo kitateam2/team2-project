@@ -19,7 +19,7 @@ public class SbpWebSocketMessageBrokerConfig extends AbstractWebSocketMessageBro
 	@Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
 	   registry.enableSimpleBroker("/topic");
-        registry.setApplicationDestinationPrefixes("/team2");
+        registry.setApplicationDestinationPrefixes("/");
     }
  
  

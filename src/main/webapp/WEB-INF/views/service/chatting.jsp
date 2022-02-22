@@ -13,10 +13,7 @@
 <link rel="stylesheet" href="resources/css/chat.css">
 <script>
 $(document).ready(  function() {
-	//connectWS();
-	//connectSockJS();
 	connectStomp();
-	
 	$('.chat-submit').on('click', function(evt) {
         evt.preventDefault();
         if (!isStomp && socket.readyState !== 1) return;
@@ -25,8 +22,9 @@ $(document).ready(  function() {
         console.log("mmmmmmmmmmmm>>", msg)
         $('#chat-insert').val('');
         if (isStomp)
-        	//socket.send('/TTT', {}, JSON.stringify({roomid: 'message', id: 124, msg: msg}));
-        	socket.send('/team2/TTT', {}, msg);
+        	socket.send('/TTT', {}, JSON.stringify(
+        			{profile: 'mmmmessage', nname: "${sessionScope.loginId}", content: msg}));
+        	//socket.send('/TTT', {}, msg);
         else
             socket.send(msg);
     });
@@ -42,13 +40,14 @@ function connectStomp() {
 	socket = client;
     
     client.connect({}, function () {
-        console.log("Connected stompTest!");
+        //console.log("Connected stompTest!");
         // Controller's MessageMapping, header, message(자유형식)
-        client.send('/team2/TTT', {}, "msg: Haha~~~");
+        //client.send('/TTT', {}, "msg: Haha~~~");
 
-        // 해당 토픽을 구독한다!
-        client.subscribe('/topic/message', function (event) {
-            console.log("!!!!!!!!!!!!event>>", event)
+        // 해당 토픽을 구독한다! 메세지 받는곳
+        client.subscribe('/topic/message', function (message) {
+        	var new_chat = JSON.parse(message.body);
+            console.log("!!!!!!!!!!!!event>>", new_chat)
         });
     });
 
@@ -59,38 +58,12 @@ var socket = null;
 var isStomp = false;
 
 $(document).ready(function() {
-	//openSession();
-	//connectSockJS();
+
 	connectStomp();
 	$('.chat-submit').on('click', sendMessage);
 	$('#chat-insert').on('keypress', textKeyPress);
 });
-	//sockjs 웹소켓
-	function connectSockJS(){
-		var sock = new SockJS('/team2/chatting');
-		ws = sock;
-		sock.onopen = function(){
-			alert('sockjs Open');
-		}
-		sock.onclose = function(){
-			alert('sockjs Close');
-		}
-		sock.onmessage = receiveMessage; 
-	}
 	
-	//웹 소켓 오픈. 순수 웹소켓
-	function openSession() {
-		url = 'ws://localhost:8888/team2/chatting';
-		ws = new WebSocket(url);
-		ws.onopen = function() {
-			alert('Open');
-		}
-		ws.onclose = function() {
-			alert('Close');
-		}
-		ws.onmessage = receiveMessage;
-		
-	}
 	//입력란에서 엔터쳤을 때 서버로 메시지 전송
 	function textKeyPress(event) {
 		if (event.which == 13) {

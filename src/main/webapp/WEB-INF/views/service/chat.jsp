@@ -49,7 +49,7 @@ function receiveMessage(msg) {
 	var messageArray = message.split(",");
 	var id = messageArray[0];
 	var content = messageArray[1];
-	var LR = (${sessionScope.loginId} == id)? "me-chat" : "friend-chat";
+	var LR = ("${sessionScope.loginId}" == id)? "me-chat" : "friend-chat";
 	let today = new Date();   
  
 	let hours = today.getHours(); // 시
