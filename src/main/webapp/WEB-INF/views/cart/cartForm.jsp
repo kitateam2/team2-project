@@ -211,6 +211,7 @@ left: 0;
           <table>
           <tr>
           <td colspan="2" class="center"><input type="button" value="Pay Now" onClick="location.href='http://localhost:8888/team2/checkout'"/></td>
+          <td>합계${cart_total}원 </td>
           </tr>
            </table>
           </form>

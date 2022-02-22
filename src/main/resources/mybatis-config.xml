@@ -13,8 +13,8 @@
 		<typeAlias type="com.sesoc.team2.vo.BlogMain" alias="BlogMain" /> 
 		<typeAlias type="com.sesoc.team2.vo.API" alias="APIVO" /> 
 		<typeAlias type="com.sesoc.team2.vo.BookReview" alias="reviewVO" />
-		<typeAlias type="com.sesoc.team2.vo.Book" alias="bookVO" />  
-		
+		<typeAlias type="com.sesoc.team2.vo.Book" alias="bookVO" /> 
+		<typeAlias type="com.sesoc.team2.vo.Follow" alias="follow" /> 		
 		
 	</typeAliases>
 	
@@ -26,6 +26,7 @@
 		<mapper resource="mapper/blogMainMapper.xml" />
 		<mapper resource="mapper/apiMapper.xml" />
 		<mapper resource="mapper/bookMapper.xml" />
+		<mapper resource="mapper/followMapper.xml" />
 		
 	</mappers>
 </configuration>

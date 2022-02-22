@@ -56,7 +56,7 @@
 		  
 		  int cart_total = dao.total(cart_book1.getUser_cart_no()); //토탈 찍고 모델에 담아서 뿌리기
 		  model.addAttribute("cart_total", cart_total);
-		  
+		  logger.debug("토탈 : {} ", cart_total);
 		  return "cart/cartForm"; 
 		  
 		  }

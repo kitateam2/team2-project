@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>Home</title>
+	<title>책 리스트</title>
 	<link href="resources/css/header.css" rel="stylesheet"/>
 	<link href="resources/css/slide.css" rel="stylesheet"/>
 	<link href="resources/css/slide2.css" rel="stylesheet"/>
@@ -97,7 +97,7 @@ function bookPage() {
 				<a href="logout" style="color:white;">로그아웃</a></td><td>&nbsp;</td>
 				<a href="updatemember" style="color:white;">회원정보수정</a></td><td>&nbsp;</td>
 				<a href="cart" style="color:white;" class="fa fa-shopping-cart fa-2x"></a></td><td>&nbsp;</td>
-				<a href="wish" style="color:white;" class="fa fa-shopping-cart fa-3x"></a></td><td>&nbsp;</td>
+				<a href="wish" style="color:white;" class="fa fa-heart fa-2x"></a></td><td>&nbsp;</td>
 				<a href="myblog/${sessionScope.loginId}" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
 				${sessionScope.loginId}님 환영합니다.
 			</c:if>
@@ -119,24 +119,18 @@ function bookPage() {
       <div class="item active">
         <img src="resources/img/aaa.PNG" alt="Los Angeles" style="width:100%;">
         <div class="carousel-caption">
-          <h3>Los Angeles</h3>
-          <p>LA is always so much fun!</p>
         </div>
       </div>
 
       <div class="item">
-        <img src="chicago.jpg" alt="Chicago" style="width:100%;">
+        <img src="resources/img/aaa.PNG" alt="Chicago" style="width:100%;">
         <div class="carousel-caption">
-          <h3>Chicago</h3>
-          <p>Thank you, Chicago!</p>
         </div>
       </div>
     
       <div class="item">
-        <img src="ny.jpg" alt="New York" style="width:100%;">
+        <img src="resources/img/aaa.PNG" alt="New York" style="width:100%;">
         <div class="carousel-caption">
-          <h3>New York</h3>
-          <p>We love the Big Apple!</p>
         </div>
       </div>
   
@@ -152,7 +146,7 @@ function bookPage() {
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div><br><br><br><br>
+</div><br><br><br><br><br><br>
 
         <section class="product" id="product">
             <h1 class="heading">신간<span>도서</span></h1>

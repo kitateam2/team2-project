@@ -13,7 +13,7 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 
 //클라이언트와 WebSocket을 이용한 메시지 송수신
-public class ChatHandler1 extends AbstractWebSocketHandler {
+public class FooterHandler extends AbstractWebSocketHandler {
 	private static final Logger logger = LoggerFactory.getLogger(ChatHandler.class);
 
 	//채팅에 참여한 클라이언트들과의 연결
