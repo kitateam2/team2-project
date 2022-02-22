@@ -125,7 +125,7 @@
 				 cartbook.setUser_cart_no(user_cart_no1);
 				dao.gocartinsert(cartbook);
 			 
-			 return "cart/cartForm";
+			 return "redirect:/cart"; 
 			  
 			 }
 		  
