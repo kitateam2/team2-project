@@ -56,13 +56,13 @@ function bt2Click(n){
 	});
 }
 
-
+//검색 페이지 이동
 function bookPage() {
-	var bookname = document.getElementById("bookName").value;
-	
-	alert('경로이동?');
-	location.href = 'bookInfo?bookname='+bookname;
+	var searchText = document.getElementById("bookName").value;
+	location.href = 'list?searchText='+searchText;
 }
+
+
 </script>
 <body>
     
@@ -71,9 +71,9 @@ function bookPage() {
 
 <br>
 	<h1><center>
-	<p style="type">Book Store &nbsp; &nbsp;
+	<p>Book Store &nbsp; &nbsp;
 	<!-- 검색폼 -->
-		<input id="bookName" type="text" placeholder="검색어 입력" >
+		<input id="bookName" type="text" placeholder="검색어 입력" onkeypress="if(event.keyCode == 13){ bookPage(); }">
 		<button id="search" onclick="bookPage();" value="검색">검색</button>	</p></center>
 	</h1>
 	<br>
