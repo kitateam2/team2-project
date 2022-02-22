@@ -48,6 +48,50 @@ function pagingFormSubmit(currentPage) {
 </div>
 </c:if>
 
+<!-- 팔로우 -->
+<c:if test="${sessionScope.loginId == null}">	
+	<input type="button" value="로그인" onclick="location.href='${pageContext.request.contextPath}/login'">
+</c:if>
+<c:if test="${sessionScope.loginId != null}">
+	<c:if test="${sessionScope.loginId eq user_id}">
+		<input type="button" value="정보수정" onclick="location.href=''">
+	</c:if>
+	<c:if test="${sessionScope.loginId ne user_id}">
+	<c:choose>
+		<c:when test="${checkFollow != 1}">
+			<form id="follow" action="${user_id}/follow" method="POST">
+				<input class="following_btn" type="submit" value="팔로잉">
+			</form>
+		</c:when>
+		<c:otherwise>
+			<form id="follow" action="${user_id}/unfollow" method="POST">
+				<input class="follower_btn" type="submit" value="언팔로잉">
+			</form>
+		</c:otherwise>		
+	</c:choose>
+	</c:if>
+</c:if>
+
+<table>
+	<tr>
+		<th>팔로잉(${countFollowing})</th>
+		<th>팔로워(${countFollowed})</th>
+	</tr>
+	<tr>
+		<td>
+			<c:forEach var="follow" items="${followingList}">
+				<div style="cursor: pointer;" onclick="location.href='${pageContext.request.contextPath}/myblog/${follow.follow_ed_id}'">${follow.follow_ed_id}</div>
+			</c:forEach>
+		</td>
+		<td>
+			<c:forEach var="follow" items="${followedList}">
+				<div style="cursor: pointer;" onclick="location.href='${pageContext.request.contextPath}/myblog/${follow.follow_ing_id}'">${follow.follow_ing_id}</div>
+			</c:forEach>
+		</td>
+	</tr>
+</table>
+
+
 
 <div><!-- 글 목록 한덩어리- 글목록 조회수  -->
 전체 : ${navi.totalRecordsCount} <!-- 질문 -->
