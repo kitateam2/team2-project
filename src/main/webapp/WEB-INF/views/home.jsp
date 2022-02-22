@@ -68,10 +68,9 @@ function bookPage() {
     
 <!-- header부분 -->
 <div class="box3">
-
 <br>
 	<h1><center>
-	<p style="type">Book Store &nbsp; &nbsp;
+	<p style="type"><a href="/team2">Book Store</a>&nbsp; &nbsp;
 	<!-- 검색폼 -->
 		<input id="bookName" type="text" placeholder="검색어 입력" >
 		<button id="search" onclick="bookPage();" value="검색">검색</button>	</p></center>
@@ -149,8 +148,99 @@ function bookPage() {
 </div><br><br><br><br><br><br>
 
         <section class="product" id="product">
-            <h1 class="heading">신간<span>도서</span></h1>
+            <h1>신간도서</h1>
             <div class="product-slider">
+                <div class="wrapper">
+                    <div class="box">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                      
+                    </div>
+                    <div class="box">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a href="#" class="btn">add to cart</a>
+                    </div>
+                    <div class="box">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                       
+                    </div>
+                    
+                       <div class="box">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                       
+                    </div>
+                    
+                       <div class="box">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    
+                    </div>
+                    
+                       <div class="box">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </div>
+                
+                
+            </div><br><br>
+            <section class="aa" id="aa">
+            <h1>신간도서</h1>
+             <div class="product-slider">
                 <div class="wrapper">
                     <div class="box">
                         <img src="resources/img/898392067x_3.jpg" alt="">
@@ -236,57 +326,109 @@ function bookPage() {
                     
                     
                 </div>
-            </div><br><br>
-            
-            <section class="featured" id="featured">
-            <h1 class="heading">인기<span>도서</span></h1>
-            <div class="box-container">
-                <div class="box">
-                    <img src="image/3.png" alt="">
-                    <h3>Best and cool</h3>
-                    <a href="#" class="btn">read more</a>
                 </div>
-                <div class="box">
-                    <img src="image/4.png" alt="">
-                    <h3>Free Delivery</h3>
-                 
-                    <a href="#" class="btn">read more</a>
+                </section>
+        
+        <section class="bb" id="bb">
+        <h1>인기도서</h1>
+             <div class="product-slider">
+                <div class="wrapper">
+                    <div class="box">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a href="#" class="btn">add to cart</a>
+                    </div>
+                    <div class="box">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a href="#" class="btn">add to cart</a>
+                    </div>
+                    <div class="box">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a href="#" class="btn">add to cart</a>
+                    </div>
+                    
+                       <div class="box">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a href="#" class="btn">add to cart</a>
+                    </div>
+                    
+                       <div class="box">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a href="#" class="btn">add to cart</a>
+                    </div>
+                    
+                       <div class="box">
+                        <img src="resources/img/898392067x_3.jpg" alt="">
+                        <h3>Read Best Book</h3>
+                        <div class="price">$99</div>
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a href="#" class="btn">add to cart</a>
+                    </div>
+                    
+                    
                 </div>
-                <div class="box">
-                    <img src="image/5.png" alt="">
-                    <h3>Fast Payment</h3>
-                
-                    <a href="#" class="btn">read more</a>
-                </div>
-                
-                 <div class="box">
-                    <img src="image/5.png" alt="">
-                    <h3>Fast Payment</h3>
-                 
-                    <a href="#" class="btn">read more</a>
-                </div>
-                
-                 <div class="box">
-                    <img src="image/5.png" alt="">
-                    <h3>Fast Payment</h3>
-   
-                    <a href="#" class="btn">read more</a>
-                </div>
-            </div>
+        </div>
         </section>
-        
-        
-        
 
 </div> <!-- box3 -->
 
- <!--   <c:forEach var="cart" items="${Cart_book1}">
+ <c:forEach var="cart" items="${Cart_book1}">
 		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
 		</c:forEach>
 		
 		<c:forEach var="wishlist" items="${wishCart_book1}">
 		<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
-		</c:forEach> --> 
+		</c:forEach> 
 
 <div class="footer">풋터풋터풋터풋터</div>
             

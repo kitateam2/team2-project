@@ -39,7 +39,7 @@
 		  logger.debug("유저카트넘버 : {} ", user_cart_no);
 		  book.setBook_isbn(cartbook.getBook_isbn());
 		  book.setBook_price(cartbook.getBook_price());
-		  book.setBook_title(cartbook.getBook_title()); //검색하는 기능 dao.있으면 카트리턴 없으면 인서트
+		  book.setBook_title(cartbook.getBook_title()); 
 		  dao.insert(book); 
 		  return "cart/cartForm"; 
 		  
@@ -100,6 +100,7 @@
 		  logger.debug("cart_book_no : {} ", cart_book_no);
 		  dao.deletecart(cart_book_no);
 		  
+		  
 		  return "redirect:/cart"; 
 		  
 		  }
@@ -113,6 +114,20 @@
 			  
 			 }
 			 
+			 //위시리스트에서 장바구니로 보내는 메서드
+			 @RequestMapping (value="gocart", method=RequestMethod.GET) 
+			 public String gocart(HttpSession session, int user_cart_no) {
+				String user_id1 = (String) session.getAttribute("loginId");
+				int user_cart_no1 = dao.selectuser_cart_no(user_id1); 
+				cart_book gocart = new cart_book();
+				 gocart.setUser_cart_no(user_cart_no1);
+				 gocart.setBook_price(gocart.getBook_price());
+				 
+				dao.gocartinsert(user_cart_no1);
+			 
+			 return "redirect:/wish";
+			  
+			 }
 		  
 		  //수정
 		  

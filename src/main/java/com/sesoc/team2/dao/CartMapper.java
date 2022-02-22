@@ -40,6 +40,8 @@ public interface CartMapper {
 
 	int deletewish(int user_wish_no);
 
+	int gocartinsert(int user_cart_no1);
+
 
 
 

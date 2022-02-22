@@ -165,27 +165,30 @@ left: 0;
 </style>
 </head>
 <body>
-
   <div class="container">
         <div class="tab"></div>
         <div class="paid"><p>Receipt Paid successfully</p></div>
         <div class="receipt">
         <div class="paper">
           <div class="title">위시리스트</div>
-          <div class="date">Date: 20/07/2013</div>    
           <table>
             <tbody>
             <tr>
 		<th>번호</th>
 		<th>책제목</th>
+		<th>북isbn</th>
 	</tr>
+	
 <c:forEach var="wish" items="${userwishlist}"> 
 
 
 		<tr>
-			<th>${wish.user_wish_no}</th>
+			<th><input type="checkbox" name="choice" value="11">${wish.user_wish_no}</th>
 			<th>${wish.book_title}</th>
+			<th>${wish.book_isbn}</th>
+			
 			<th><a href="deletewish?user_wish_no=${wish.user_wish_no}"  class="btn btn-primary">삭제</a></th>
+			<th><a href="input type="button"  class="btn btn-primary">장바구니이동</a></th>
 						
 						</tr> 
 			</c:forEach>

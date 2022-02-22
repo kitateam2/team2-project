@@ -81,16 +81,18 @@ cart_book_seq.nextval
 <insert id ="insertwish_cart" parameterType="user_wishlistVO">
 insert into user_wishlist 
 (
-user_wish_no
+user_wishlist_no
 ,user_id
 ,book_isbn
+,user_wish_no
 ,book_title
+,
 )
 values (
-#{user_wish_no}
-<!-- #{user_wish_no} -->
+user_wishlist_no_seq.nextval
 ,#{user_id}
 ,#{book_isbn}
+,#{user_wish_no}
 ,#{book_title}
 )
 </insert>  

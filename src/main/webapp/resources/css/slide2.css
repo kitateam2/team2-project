@@ -61,57 +61,6 @@
     color: orangered;
     padding: .5rem 0;
 }
-
-.featured{
-    padding: 120px;
-    margin-top: -100px;
-}
-.heading{
-    text-align: center;
-    padding: 2rem 0;
-    padding-bottom: 3rem;
-    font-size: 3rem;
-    color: #000;
-}
-.heading span{
-    background-color: orangered;
-    color: #fff;
-    display: inline-block;
-    padding: .3rem 2rem;
-    border-radius: 4px;
-    clip-path: polygon(100% 0,100% 50%,100% 99%,0% 100%,7% 50%,0% 0%);
-}
-.featured .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
-    gap: 1.5rem;
-}
-.featured .box-container .box{
-    padding: 2rem 1rem;
-    background-color: #fff;
-    outline: .1rem solid rgba(0, 0, 0, .1);
-    outline-offset: -1rem;
-    text-align: center;
-    box-shadow:0 .5rem 1rem rgba(0, 0, 0, .1);
-}
-.featured .box-container .box:hover{
-    outline: .1rem solid #000;
-    outline-offset: 0rem;
-}
-.featured .box-container .box img{
-    margin: 1rem 0;
-    height: 10rem;
-}
-.featured .box-container .box h3{
-    font-size: 2rem;
-    line-height: 1.8;
-    color: #000;
-}
-.featured .box-container .box p{
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #666;
-    padding: 1rem 0;
 }
 
 
