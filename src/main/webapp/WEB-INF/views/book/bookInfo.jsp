@@ -40,9 +40,36 @@
 
 <script>
 
+//bt1 버튼 클릭했을때 실행될 함수
+function bt1Click(n){
+	
+	alert('장바구니 이동');
+	$.ajax({
+		url:'ajaxcart',
+		type:'post',
+		data: {book_isbn: n},
+		dataType:'text',
+		success: function() { alert('장바구니에 담았습니다.'); },
+		error: function() { alert('로그인을 해주세요'); }
+	});
+}
+
+function bt2Click(n){
+	
+	alert('위시리스트이동');
+	$.ajax({
+		url:'ajaxwishlist',
+		type:'post',
+		data: {book_isbn: n},
+		dataType:'text',
+		success: function() { alert('위시리스트에 담았습니다.'); },
+		error: function() { alert('로그인을 해주세요'); }
+	});
+}
+
 //페이지 넘버링
 function pagingFormSubmit(currentPage) {
-	var form = document.getElementById('pagingForm');
+	var form = document.getElementById('bookName');
 	var page = document.getElementById('page');
 	page.value = currentPage;
 	form.submit();
@@ -72,12 +99,23 @@ function bookPage() {
 
 <div class="box3">
 <br>
-<h1><center>
+<%-- <h1><center>
 	<p>Book Store &nbsp; &nbsp;
 	<!-- 검색폼 -->
 		<input id="bookName" type="text" placeholder="검색어 입력" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }">
 		<button id="search" onclick="bookPage();" value="검색">검색</button>	</p></center>
-	</h1>
+	</h1> --%>
+	
+	<!-- 검색폼 -->
+	<h1><center>
+	<p>Book Store &nbsp; &nbsp;
+	<form id="bookName" method="get" action="list">
+		<input type="hidden" name="page" id="page" />
+		<input type="text" placeholder="검색어 입력" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }"/>
+		<input type="button" id="search" onclick="javascript: pagingFormSubmit(1); bookPage();" value="검색">
+	</form></p></center></h1>
+	<!-- /검색폼 --> 
+
 	<br>
 	<div class="navigation_bar">
 	<table class="gnb_main add_1">
@@ -128,7 +166,13 @@ function bookPage() {
 	</td>
 	<td class="center" style="width:150px; text-align:center; font-size: 14px;">${book.book_reward}</td>
 	<td class="center" style="width:150px; text-align:center; font-size: 14px;"><fmt:formatNumber value="${book.book_price}" pattern="###,###" />원</td>
-	<td class="center" style="width:70px; text-align:center;">장바구니</td>
+	<td class="center" style="width:70px; text-align:center;">장바구니       <c:forEach var="cart" items="${Cart_book1}">
+		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
+		</c:forEach>
+		
+		<c:forEach var="wishlist" items="${wishCart_book1}">
+		<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
+		</c:forEach>           </td>
 </tr>
 
 </c:forEach>        
@@ -142,16 +186,15 @@ function bookPage() {
 	<a href="javascript:pagingFormSubmit(${navi.currentPage - 1})">◀</a> &nbsp;&nbsp;
 
 	<c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}"> 
-		<c:if test="${counter == navi.currentPage}"><b></c:if>
+		<c:if test="${counter == navi.currentPage}"></c:if>
 			<a href="javascript:pagingFormSubmit(${counter})">${counter}</a>&nbsp;
-		<c:if test="${counter == navi.currentPage}"></b></c:if>
+		<c:if test="${counter == navi.currentPage}"></c:if>
 	</c:forEach>
 	&nbsp;&nbsp;
 	<a href="javascript:pagingFormSubmit(${navi.currentPage + 1})">▶</a> &nbsp;&nbsp;
 	<a href="javascript:pagingFormSubmit(${navi.currentPage + navi.pagePerGroup})">▷▷</a>
 
 </div><!-- /페이지 이동 끝 -->
-
 
 
 </div><!-- box3 -->
