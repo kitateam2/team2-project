@@ -46,6 +46,8 @@
 		, book_author
 		, book_contents
 		, book_image
+		, book_price 
+		, book_public
 	from 
 		book_info
 	<if test="_parameter != null">
@@ -63,6 +65,8 @@
 		, book_author
 		, book_contents
 		, book_image
+		, book_price
+		, book_public
 	from 
 		book_info
 	<if test="_parameter != null">
