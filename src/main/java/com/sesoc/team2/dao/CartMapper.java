@@ -40,7 +40,11 @@ public interface CartMapper {
 
 	int deletewish(int user_wish_no);
 
-	int gocartinsert(int user_cart_no1);
+	int gocartinsert(cart_book cartbook);
+
+	int select_wish_user_cart_no(String user_id1);
+
+	cart_book select_wish_book(String book_isbn);
 
 
 

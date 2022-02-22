@@ -18,7 +18,11 @@
 select book_isbn, book_price, book_title from book_info where book_isbn = #{book_isbn}
 </select>
 
-<select id ="user_wishlist" parameterType="String" resultType="user_wishlistVO" >
+<select id ="select_wish_book" parameterType="String" resultType="cart_bookVO">
+select book_isbn, book_price, book_title from book_info where book_isbn = #{book_isbn}
+</select>
+
+<select id ="user_wishlist" parameterType="String" resultType="user_wishlistVO">
 select book_isbn from book_info where book_isbn = #{book_isbn}
 </select>
 
@@ -29,6 +33,11 @@ select user_cart_no from USER_cart where user_id = #{user_id1}
 <select id ="selectuser_wish_no" parameterType="String" resultType="int">
 select user_wish_no from user_wish where user_id = #{user_id1}
 </select>
+
+<select id ="select_wish_user_cart_no" parameterType="String" resultType="int">
+select user_cart_no from USER_cart where user_id = #{user_id1}
+</select> 
+
 
 <select id ="booktitle" parameterType="String" resultType="String">
 select book_title from book_info where book_isbn = #{book_isbn}
@@ -86,7 +95,6 @@ user_wishlist_no
 ,book_isbn
 ,user_wish_no
 ,book_title
-,
 )
 values (
 user_wishlist_no_seq.nextval
@@ -97,6 +105,28 @@ user_wishlist_no_seq.nextval
 )
 </insert>  
 
+<insert id ="gocartinsert" parameterType="cart_bookVO">
+insert into cart_book 
+(
+cart_book_no
+,cart_book_inputdate
+,cart_book_count
+,book_isbn
+,user_cart_no
+,book_price
+,book_title
+)
+values (
+cart_book_seq.nextval
+,sysdate 
+,1
+,#{book_isbn}
+,#{user_cart_no}
+,#{book_price}
+,#{book_title}
+)
+</insert>
+ 
 <!-- 글 삭제 -->
 <delete id="deletecart" parameterType="int" >
 	delete
@@ -111,7 +141,7 @@ user_wishlist_no_seq.nextval
 	from
 		user_wishlist
 	where
-		user_wish_no = #{user_wish_no}
+		book_isbn = #{book_isbn}
 </delete>
 
 <!-- 글 수정 -->

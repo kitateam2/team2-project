@@ -174,8 +174,9 @@ left: 0;
           <table>
             <tbody>
             <tr>
-		<th>번호</th>
+            <th>넘버</th>
 		<th>책제목</th>
+		<th>번호</th>
 		<th>북isbn</th>
 	</tr>
 	
@@ -183,12 +184,15 @@ left: 0;
 
 
 		<tr>
-			<th><input type="checkbox" name="choice" value="11">${wish.user_wish_no}</th>
+			<th>${wish.user_wishlist_no}</th>
 			<th>${wish.book_title}</th>
+			<th>${wish.user_wish_no}</th>
 			<th>${wish.book_isbn}</th>
 			
-			<th><a href="deletewish?user_wish_no=${wish.user_wish_no}"  class="btn btn-primary">삭제</a></th>
-			<th><a href="input type="button"  class="btn btn-primary">장바구니이동</a></th>
+			
+			<th><a href="deletewish?user_wish_no=${wish.book_isbn}"  class="btn btn-primary">삭제</a></th>
+			<th><a href="gocart?book_isbn=${wish.book_isbn}" type="button"  class="btn btn-primary">장바구니이동</a></th>
+			
 						
 						</tr> 
 			</c:forEach>
@@ -198,6 +202,7 @@ left: 0;
           <table>
           <tr>
           <td colspan="2" class="center"><input type="button" value="Pay Now" onClick="location.href='http://localhost:8888/team2/checkout'"/></td>
+          <td colspan="2" class="center"><a href="/team2" class="btn btn-primary"><input type="button" value="home"></a></td>
           </tr>
            </table>
           </form>

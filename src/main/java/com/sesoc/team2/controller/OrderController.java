@@ -116,16 +116,16 @@
 			 
 			 //위시리스트에서 장바구니로 보내는 메서드
 			 @RequestMapping (value="gocart", method=RequestMethod.GET) 
-			 public String gocart(HttpSession session, int user_cart_no) {
+			 public String gocart(HttpSession session, String book_isbn) {
 				String user_id1 = (String) session.getAttribute("loginId");
-				int user_cart_no1 = dao.selectuser_cart_no(user_id1); 
-				cart_book gocart = new cart_book();
-				 gocart.setUser_cart_no(user_cart_no1);
-				 gocart.setBook_price(gocart.getBook_price());
-				 
-				dao.gocartinsert(user_cart_no1);
+				int user_cart_no1 = dao.select_wish_user_cart_no(user_id1);
+				logger.info("아이에ㅡ{}",book_isbn);
+				cart_book cartbook = dao.select_wish_book(book_isbn);
+				logger.debug("user_cart_no1ddddd : {} ", cartbook);
+				 cartbook.setUser_cart_no(user_cart_no1);
+				dao.gocartinsert(cartbook);
 			 
-			 return "redirect:/wish";
+			 return "cart/cartForm";
 			  
 			 }
 		  
