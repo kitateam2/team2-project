@@ -69,6 +69,12 @@ public class MessageDAO {
 		logger.info("get_total_sent {}", map_sent);
 		return total_sent;
 	}
+	public ArrayList<String> get_recv_id() {
+		MessageMapper mapper = sqlSession.getMapper(MessageMapper.class);
+		ArrayList<String> array_recv_id = mapper.get_recv_id();
+		logger.info("보낼 수 있는 아이디 값들 {}", array_recv_id);
+		return array_recv_id;
+	}
 	
 
 

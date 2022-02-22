@@ -2,6 +2,7 @@ package com.sesoc.team2.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.google.gson.Gson;
 import com.sesoc.team2.dao.MessageDAO;
 import com.sesoc.team2.util.PageNavigator;
 import com.sesoc.team2.vo.Message;
@@ -118,10 +120,15 @@ public class MessageController {
 				logger.info("쪽지 저장 result: {}", result);
 				return "redirect:window";
 			}
-	//쪽지 불러오기는 펼칠 때 같이 
-	//쪽지를 불러오는 마지막 xml에 조건을 줘야해 받는 사람이 내가 되는 것들만 불러오게 
-	
-	//쪽지 하나 보기
+	//보내는 사람 자동완성
+			@RequestMapping(value = "{user_id}/json_auto", method = RequestMethod.POST)
+			public String json_auto(Locale locale, Model model) {
+				ArrayList<String> array_recv_id = dao.get_recv_id();
+				
+				//어레이를 가지고 와서 불러와야지
+				Gson gson = new Gson();
+				return gson.toJson(array_recv_id);
+			}
 			
 			
 }

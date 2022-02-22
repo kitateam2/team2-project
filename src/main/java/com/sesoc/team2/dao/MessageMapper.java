@@ -23,5 +23,7 @@ public interface MessageMapper {
 
 	public int get_total_sent(HashMap<String, String> map_sent);
 
+	public ArrayList<String> get_recv_id();
+
 
 }

@@ -11,6 +11,11 @@
 %>
 <html>
 <head>
+	<link rel="stylesheet"
+			href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   
@@ -67,7 +72,7 @@
 				str += '</tr>';
 				str += '<tr>';
 				str += '<td>수신인  </td>';
-				str += '<td><input type="text" name="message_recv_id" id="message_recv_id" placeholder="받는 분 아이디"/>';
+				str += '<td><input type="text"  name="message_recv_id" id="message_recv_id" placeholder="받는 분 아이디"/>';
 				str += '</td>';
 				str += '<td><%= sf2.format(nowTime) %></td>';
 				str += '</tr>';
@@ -92,6 +97,78 @@
 			form.submit();
 		}
 	</script>
+	<!-- 그냥 일반 버전의 자동완성
+	<script>
+		$(function(){
+			var searchSource = ["aaa", "bbb", "ccc", "ddd"];
+			$("#message_recv_id").autocomplete({
+				source : searchSource,
+				select : function(event, ui) {
+						console.log(ui.item);
+				},
+				focus : function(event, ui){
+					return false;	
+				},
+				minLength: 1,
+				autoFocus: true,
+				classess: {
+					"ui-autocomplete": "highlight"
+				},	
+				delay : 300,
+				posotion: {my : "right top", at: "right bottom"},
+				close : function(event){
+					console.log(event);
+				}
+			});
+
+		});
+	</script>
+	 -->
+	 
+	 <!-- 에이젝스 버전의 자동완성 -->
+	 <script>
+$("#message_recv_id").keyup(function autoProcess() {
+		  $("#message_recv_id").autocomplete({
+			source : function(request, response){
+				$.ajax({
+					type:'get',
+					url:"/json_auto",
+					dateType: "json",
+					success: function(data){
+					response(
+						$.map(data. function(item){
+							return{
+								label: item+"label",
+								value: item,
+								test: item+"test"
+								}//return
+							})//$.map
+							)//response
+						}//function(data)
+					})//$.ajax
+				}//source: function(request, response)
+			select: function(event, ui){
+				console.log(ui);
+				console.log(ui.item.label);
+				console.log(ui.item.value);
+				console.log(ui.item.test);
+				},//select: function
+			focus : function(event, ui){
+				return false;
+				},//focus : function
+			minLength:1,
+			autofocus: ture,
+			classes{
+					"ui-autocomplete": "highlight"
+				},
+			dalay: 300,
+			position: { my: "ri ght top", at: "right bottom"},
+			close: function(event){
+				console.log(event);
+				}
+			});//$("#message_recv_id").autocomplete
+		})
+	 </script>
 	<title>Home</title>
 </head>
 <body>

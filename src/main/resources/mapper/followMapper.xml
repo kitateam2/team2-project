@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sesoc.team2.dao.FollowMapper">
+
+<!-- 팔로우 -->
+<insert id="insert" parameterType="follow">
+	insert 
+	into 
+		follow		
+	values 
+		(
+			follow_seq.nextval
+			, #{follow_ing_id}
+			, #{follow_ed_id}
+		)
+</insert>
+
+<!-- 언팔로우 -->
+<delete id="delete" parameterType="follow">
+	delete
+	from
+		follow
+	where
+		follow_ing_id = #{follow_ing_id}
+		and follow_ed_id = #{follow_ed_id}
+</delete>
+
+<!-- 팔로잉 리스트 -->
+<select id="followingList" parameterType="String" resultType="follow">
+	select
+		follow_ed_id
+		, follow_ing_id
+		, id	
+   	 from
+		follow	
+	where follow_ing_id = #{follow_ing_id}
+</select>
+
+<!-- 팔로워 리스트 -->
+<select id="followedList" parameterType="String" resultType="follow">
+	select
+		follow_ed_id
+		, follow_ing_id
+		, id	
+   	 from
+		follow	
+	where follow_ed_id = #{follow_ed_id}
+</select>
+
+<!-- 팔로우 유무 -->
+<select id="checkFollow" parameterType="follow" resultType="int">
+	select
+		count(*)
+	from
+		follow
+	where
+		follow_ing_id = #{follow_ing_id}
+		and follow_ed_id = #{follow_ed_id}
+</select>
+
+<!-- 팔로잉 수 -->
+<select id="countFollowing" parameterType="String" resultType="int">
+	select
+		count(follow_ed_id)
+	from
+		follow
+	where
+		follow_ing_id = #{follow_ing_id}
+</select>
+
+<!-- 팔로워 수 -->
+<select id="countFollowed" parameterType="String" resultType="int">
+	select
+		count(follow_ing_id)
+	from
+		follow
+	where
+		follow_ed_id = #{follow_ed_id}
+</select>
+
+</mapper>
