@@ -19,10 +19,19 @@ public interface MessageMapper {
 
 	public ArrayList<Message> message_list_sent(HashMap<String, String> map, RowBounds rb);
 
+	public ArrayList<Message> message_list_unopened(HashMap<String, String> map_unopened, RowBounds rb);
+
+	public ArrayList<Message> message_list_fav(HashMap<String, String> map_fav, RowBounds rb);
+
 	public int get_total_recv(HashMap<String, String> map_recv);
 
 	public int get_total_sent(HashMap<String, String> map_sent);
 
+	public int get_total_unopened(HashMap<String, String> map_unopend);
+	
+	public int get_total_fav(HashMap<String, String> map_fav);
+	
+	/* 받는 사람 아이디 자동완성 */
 	public ArrayList<String> get_recv_id();
 
 

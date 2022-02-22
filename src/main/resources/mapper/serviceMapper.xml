@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 리뷰 불러와서 DB 저장 SQL -->
+<mapper namespace="com.sesoc.team2.dao.ServiceMapper">
+	<!-- 모든 회원정보 조회 -->
+	<select id="idList" resultType="User_infoVO">
+		select * from user_info
+	</select>
+
+</mapper>

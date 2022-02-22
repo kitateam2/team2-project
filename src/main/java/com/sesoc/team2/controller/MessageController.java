@@ -62,15 +62,29 @@ public class MessageController {
 				map_sent.put("login_id", id);
 				map_sent.put("searchText", searchText);
 				
+				HashMap<String, String> map_unopened = new HashMap<String, String>();
+
+				map_unopened.put("login_id", id);
+				map_unopened.put("searchText", searchText);
+				
+				HashMap<String, String> map_fav = new HashMap<String, String>();
+
+				map_fav.put("login_id", id);
+				map_fav.put("searchText", searchText);
+				
 				logger.debug("page: {}, searchText: {}", page, searchText);
 				logger.debug("map_recv 컨트롤러 int{} ", map_recv);
 				logger.debug("map_sent 컨트롤러 {}", map_sent);
 				
 				int total_recv = 0;
 				int total_sent = 0;
+				int total_unopened = 0;
+				int total_fav = 0;
 				
 				total_recv = dao.get_total_recv(map_recv);			//받은 쪽지 개수
 				total_sent = dao.get_total_sent(map_sent);			//보낸 쪽지 개수
+				total_unopened = dao.get_total_unopened(map_unopened);
+				total_fav = dao.get_total_fav(map_fav);
 				
 				logger.debug("total_recv int 컨트롤러", total_recv);
 				logger.debug("total_sent int 컨트롤러", total_sent);
@@ -79,15 +93,23 @@ public class MessageController {
 				//                                     여기 10개        여기 5개      1개   100개 
 				PageNavigator navi_recv = new PageNavigator(countPerPage, pagePerGroup, page, total_recv); 
 				PageNavigator navi_sent = new PageNavigator(countPerPage, pagePerGroup, page, total_sent); 
+				PageNavigator navi_unopened = new PageNavigator(countPerPage, pagePerGroup, page, total_unopened); 
+				PageNavigator navi_fav = new PageNavigator(countPerPage, pagePerGroup, page, total_fav); 
 	
 				ArrayList<Message> message_list_recv = dao.message_list_recv(map_recv, navi_recv.getStartRecord(), navi_recv.getCountPerPage());
 				ArrayList<Message> message_list_sent = dao.message_list_sent(map_sent, navi_sent.getStartRecord(), navi_sent.getCountPerPage());
+				ArrayList<Message> message_list_unopened = dao.message_list_unopened(map_unopened, navi_unopened.getStartRecord(), navi_unopened.getCountPerPage());
+				ArrayList<Message> message_list_fav = dao.message_list_fav(map_fav, navi_fav.getStartRecord(), navi_fav.getCountPerPage());
 				
 				model.addAttribute("navi_recv", navi_recv);
 				model.addAttribute("navi_sent", navi_sent);
+				model.addAttribute("navi_unopened", navi_unopened);
+				model.addAttribute("navi_fav", navi_fav);
+				
 				model.addAttribute("message_list_recv", message_list_recv);
 				model.addAttribute("message_list_sent", message_list_sent);
-				//받을 때 나한테 온거, 보낼 때 내가 보낸거를 내부적으로만 통일하려고
+				model.addAttribute("message_list_unopened", message_list_unopened);
+				model.addAttribute("message_list_fav", message_list_fav);
 				
 				logger.info("리스트: {}", message_list_recv);
 				
@@ -124,7 +146,7 @@ public class MessageController {
 			@RequestMapping(value = "{user_id}/json_auto", method = RequestMethod.POST)
 			public String json_auto(Locale locale, Model model) {
 				ArrayList<String> array_recv_id = dao.get_recv_id();
-				
+				logger.info("array_recv_id{}", array_recv_id);
 				//어레이를 가지고 와서 불러와야지
 				Gson gson = new Gson();
 				return gson.toJson(array_recv_id);
