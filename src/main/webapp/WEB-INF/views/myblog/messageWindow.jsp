@@ -98,62 +98,110 @@
 		}
 	</script>
 
-	 <script>
-$("#message_recv_id").keyup(function autoProcess() {
-		  $("#message_recv_id").autocomplete({
-			source : function(request, response){
-				$.ajax({
-					type:'get',
-					url:"/json_auto",
-					dateType: "json",
-					success: function(data){
-					response(
-						$.map(data. function(item){
-							return{
-								label: item+"label",
-								value: item,
-								test: item+"test"
-								}//return
-							})//$.map
-							)//response
-						}//function(data)
-					})//$.ajax
-				}//source: function(request, response)
-			select: function(event, ui){
-				console.log(ui);
-				console.log(ui.item.label);
-				console.log(ui.item.value);
-				console.log(ui.item.test);
-				},//select: function
-			focus : function(event, ui){
-				return false;
-				},//focus : function
-			minLength:1,
-			autofocus: ture,
-			classes{
-					"ui-autocomplete": "highlight"
-				},
-			dalay: 300,
-			position: { my: "ri ght top", at: "right bottom"},
-			close: function(event){
-				console.log(event);
-				}
-			});//$("#message_recv_id").autocomplete
-		})
-	 </script>
+	<script>
+	$("#message_recv_id").keyup(function autoProcess() {
+			  $("#message_recv_id").autocomplete({
+				source : function(request, response){
+					$.ajax({
+						type:'get',
+						url:"/json_auto",
+						dateType: "json",
+						success: function(data){
+						response(
+							$.map(data. function(item){
+								return{
+									label: item+"label",
+									value: item,
+									test: item+"test"
+									}//return
+								})//$.map
+								)//response
+							}//function(data)
+						})//$.ajax
+					}//source: function(request, response)
+				select: function(event, ui){
+					console.log(ui);
+					console.log(ui.item.label);
+					console.log(ui.item.value);
+					console.log(ui.item.test);
+					},//select: function
+				focus : function(event, ui){
+					return false;
+					},//focus : function
+				minLength:1,
+				autofocus: ture,
+				classes{
+						"ui-autocomplete": "highlight"
+					},
+				dalay: 300,
+				position: { my: "ri ght top", at: "right bottom"},
+				close: function(event){
+					console.log(event);
+					}
+				});//$("#message_recv_id").autocomplete
+	})
+	</script> 
 	 
-	 <script>
+	 <!-- 처음 화면 들어갔을 떄 -->
+	<script>
 		$(document).ready(function(){
 			$('.mail_sent').show();
 			$('.mail_recv').hide();
-			
+			$('.mail_unopened').hide();
+			$('.mail_fav').hide();
 			});
-	 </script>
+	 </script> 
+	 
+	 <!-- 보낸메시지 받을 때 -->
 	 <script>
+	 $(document).ready(function(){
 		$('.mail_recv_btn').click(function(){
 				$('.mail_sent').hide();
 				$('.mail_recv').show();
-			});
+				$('.mail_unopened').hide();
+				$('.mail_fav').hide();
+				}
+			)}
+		 )
+	 </script>
+	 
+	 <!-- 받은메시지 누를 때 -->
+	 <script>
+	 $(document).ready(function(){
+		$('.mail_sent_btn').click(function(){
+				$('.mail_sent').show();
+				$('.mail_recv').hide();
+				$('.mail_unopened').hide();
+				$('.mail_fav').hide();
+			}
+		)}
+		)
+	 </script>
+	 
+	 <!-- 안읽은 누를 때 -->
+	 <script>
+	 $(document).ready(function(){
+		$('.mail_unopened_btn').click(function(){
+				$('.mail_sent').hide();
+				$('.mail_recv').hide();
+				$('.mail_unopened').show();
+				$('.mail_fav').hide();
+			}
+		)}
+		)
+	 </script>
+	 
+	 <!-- 많이 읽은 누를 때 -->
+	 <script>
+	 $(document).ready(function(){
+		$('.mail_fav_btn').click(function(){
+				$('.mail_sent').hide();
+				$('.mail_recv').hide();
+				$('.mail_unopened').hide();
+				$('.mail_fav').show();
+			}
+		)}
+		)
 	 </script>
 	 
 	<title>Home</title>
@@ -169,8 +217,8 @@ $("#message_recv_id").keyup(function autoProcess() {
 <div class="btn-group">
   <button type="button" class="btn btn-primary mail_sent_btn">받은 메일</button>
   <button type="button" class="btn btn-primary mail_recv_btn">보낸 메일</button>
-  <button type="button" class="btn btn-primary">읽지 않은 메일</button>
-  <button type="button" class="btn btn-primary">자주 읽은 메일</button>
+  <button type="button" class="btn btn-primary mail_unopened_btn">읽지 않은 메일</button>
+  <button type="button" class="btn btn-primary mail_fav_btn">자주 읽은 메일</button>
 </div>
 
 
@@ -234,7 +282,7 @@ $("#message_recv_id").keyup(function autoProcess() {
 	
 	
 	<!-- 보낸메일 -->
-	<div class="col-sm-4 mail_recv" style="background-color:yellow;"> 
+	<div class="col-sm-4 mail_recv" style="background-color:aliceblue;"> 
 			메시지 개수 : ${navi_sent.totalRecordsCount}
 			<table  border="1">
 				<c:forEach var="message_list_sent" items="${message_list_sent}">
@@ -285,10 +333,108 @@ $("#message_recv_id").keyup(function autoProcess() {
 			</form><!-- /검색폼 --> 
 	</div> <!-- 보낸메일 -->
 	
+	<!-- 읽지 않은 메일 -->
+	<div class="col-sm-4 mail_unopened" style="background-color:thistle;"> 
+				메시지 개수 : ${navi_unopened.totalRecordsCount}
+			<table  border="1">
+				<c:forEach var="message_list_unopened" items="${message_list_unopened}">
+					<tr>
+						<td>보낸사람: </td>
+						<td>${message_list_unopened.message_sent_id}</td>
+					</tr>
+					<tr>
+						<td>제목: </td>
+						<td><a href="window?message_no=${message_list_unopened.message_no}">
+							${message_list_unopened.message_title}</a>
+						</td>
+					</tr>
+					<tr>
+						<td>내용: </td>
+						<td><a href="window?message_no=${message_list_unopened.message_no}">
+							${message_list_unopened.message_contents}</a>
+						</td>
+					</tr>
+					<tr>
+						<td>조회수: </td>
+						<td> ${message_list_unopened.message_hits}</td>
+					</tr>
+				</c:forEach>
+			</table>
+		<a href="javascript:message_new()">새글 쓰기</a>
+			
+			<div id="navigator"><!-- 페이지 이동 부분 -->  
+				<a href="javascript:pagingFormSubmit(${navi_unopened.currentPage - navi_unopened.pagePerGroup})">◁◁ </a> &nbsp;&nbsp;
+				<a href="javascript:pagingFormSubmit(${navi_unopened.currentPage - 1})">◀</a> &nbsp;&nbsp;
+			
+				<c:forEach var="counter" begin="${navi_unopened.startPageGroup}" end="${navi_unopened.endPageGroup}"> 
+					<c:if test="${counter == navi_unopened.currentPage}"></c:if>
+						<a href="javascript:pagingFormSubmit(${counter})">${counter}</a>&nbsp;
+					<c:if test="${counter == navi_unopened.currentPage}"></c:if>
+				</c:forEach>
+				&nbsp;&nbsp;
+				<a href="javascript:pagingFormSubmit(${navi_unopened.currentPage + 1})">▶</a> &nbsp;&nbsp;
+				<a href="javascript:pagingFormSubmit(${navi_unopened.currentPage + navi_unopened.pagePerGroup})">▷▷</a>
+			</div><!-- /페이지 이동 끝 --> 
+			
+			<!-- 검색폼 -->
+			<form id="pagingForm" method="get" action="../${user_id}/window">
+				<input type="hidden" name="page" id="page" />
+				내용 : <input type="text"  name="searchText" value="${searchText}" />
+				<input type="button" onclick="pagingFormSubmit(1)" value="검색">
+			</form><!-- /검색폼 --> 
+	</div> <!-- _unopened -->
 	
 	
-	
-	
+	<!-- 읽지 않은 메일 -->
+	<div class="col-sm-4 mail_fav" style="background-color:thistle;"> 
+				메시지 개수 : ${navi_fav.totalRecordsCount}
+			<table  border="1">
+				<c:forEach var="message_list_fav" items="${message_list_fav}">
+					<tr>
+						<td>보낸사람: </td>
+						<td>${message_list_fav.message_sent_id}</td>
+					</tr>
+					<tr>
+						<td>제목: </td>
+						<td><a href="window?message_no=${message_list_fav.message_no}">
+							${message_list_fav.message_title}</a>
+						</td>
+					</tr>
+					<tr>
+						<td>내용: </td>
+						<td><a href="window?message_no=${message_list_fav.message_no}">
+							${message_list_fav.message_contents}</a>
+						</td>
+					</tr>
+					<tr>
+						<td>조회수: </td>
+						<td> ${message_list_fav.message_hits}</td>
+					</tr>
+				</c:forEach>
+			</table>
+		<a href="javascript:message_new()">새글 쓰기</a>
+			
+			<div id="navigator"><!-- 페이지 이동 부분 -->  
+				<a href="javascript:pagingFormSubmit(${navi_fav.currentPage - navi_fav.pagePerGroup})">◁◁ </a> &nbsp;&nbsp;
+				<a href="javascript:pagingFormSubmit(${navi_fav.currentPage - 1})">◀</a> &nbsp;&nbsp;
+			
+				<c:forEach var="counter" begin="${navi_fav.startPageGroup}" end="${navi_fav.endPageGroup}"> 
+					<c:if test="${counter == navi_fav.currentPage}"></c:if>
+						<a href="javascript:pagingFormSubmit(${counter})">${counter}</a>&nbsp;
+					<c:if test="${counter == navi_fav.currentPage}"></c:if>
+				</c:forEach>
+				&nbsp;&nbsp;
+				<a href="javascript:pagingFormSubmit(${navi_fav.currentPage + 1})">▶</a> &nbsp;&nbsp;
+				<a href="javascript:pagingFormSubmit(${navi_fav.currentPage + navi_fav.pagePerGroup})">▷▷</a>
+			</div><!-- /페이지 이동 끝 --> 
+			
+			<!-- 검색폼 -->
+			<form id="pagingForm" method="get" action="../${user_id}/window">
+				<input type="hidden" name="page" id="page" />
+				내용 : <input type="text"  name="searchText" value="${searchText}" />
+				<input type="button" onclick="pagingFormSubmit(1)" value="검색">
+			</form><!-- /검색폼 --> 
+	</div> <!-- _unopened -->
 	
 	
 	

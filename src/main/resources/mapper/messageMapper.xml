@@ -23,6 +23,7 @@
    			)
    </insert>
    
+   <!-- 받은 메시지 -->
    <select id="message_list_recv" parameterType="map" resultType="messageVO">
    	<!-- 받은 메시지 로그인 한 값 받아와야해 그리고 또 값을 내보내야해 -->
    		select
@@ -69,7 +70,60 @@
 	   		order by
 	   			message_no desc
    	</select>
+   	
+   	<!-- 읽지 않은 받은 메시지 -->
+   <select id="message_list_unopened" parameterType="map" resultType="messageVO">
+   	<!-- 받은 메시지 로그인 한 값 받아와야해 그리고 또 값을 내보내야해 -->
+   		select
+   			message_no
+   			, 	substr(message_contents,0, 9) as message_title
+   			,	message_contents
+   			,	message_date
+   			, 	message_sent_id
+   			,	message_recv_id
+   			, 	message_hits
+   		from
+   			message
+   		where
+   			message_recv_id = #{login_id}
+   			and
+			message_hits = 0
+   			<!-- 아이디로 불러온 사람 글만 보이게 해야하는 where -->
+  			
+  			<if test="_parameter != null">
+  			and
+			message_contents like '%' || #{searchText} || '%'
+			</if>
+   		order by
+   			message_no desc
+   </select>
    			
+   	<!-- 자주보는 받은 메시지 -->
+   <select id="message_list_fav" parameterType="map" resultType="messageVO">
+   	<!-- 받은 메시지 로그인 한 값 받아와야해 그리고 또 값을 내보내야해 -->
+   		select
+   			message_no
+   			, 	substr(message_contents,0, 9) as message_title
+   			,	message_contents
+   			,	message_date
+   			, 	message_sent_id
+   			,	message_recv_id
+   			, 	message_hits
+   		from
+   			message
+   		where
+   			message_recv_id = #{login_id}
+   			and
+			message_hits >= 5
+   			<!-- 아이디로 불러온 사람 글만 보이게 해야하는 where -->
+  			
+  			<if test="_parameter != null">
+  			and
+			message_contents like '%' || #{searchText} || '%'
+			</if>
+   		order by
+   			message_no desc
+   </select>
    			
    <select id="one_message" parameterType="int" resultType="messageVO">
    		select
@@ -89,7 +143,7 @@
    			 message_no = #{message_no}
    </update>
    	
-   	<!-- 메시지 개수 -->
+   	<!--받은 메시지 개수 -->
    	<select id="get_total_recv" parameterType="map" resultType="int">
 		select 
 			count(*)
@@ -103,7 +157,7 @@
 		</if>
 	</select>
 	
-	   	<!-- 메시지 개수 -->
+	   	<!--보낸 메시지 개수 -->
    	<select id="get_total_sent" parameterType="map" resultType="int">
 		select 
 			count(*)
@@ -116,7 +170,40 @@
 			message_contents like '%' || #{searchText} || '%'
 		</if>
 	</select>
+	
+	<!-- 읽지 않은 받은 메시지 개수  -->
+	<select id="get_total_unopened" parameterType="map" resultType="int">
+		select 
+			count(*)
+		from 
+			message
+		where 
+			message_recv_id = #{login_id}
+			and
+			message_hits = 0
+		<if test="_parameter != null">
+		and
+			message_contents like '%' || #{searchText} || '%'
+		</if>
+	</select>
    	
+   	<!-- 자주 보는 메시지 개수 -->
+   	<select id="get_total_fav" parameterType="map" resultType="int">
+		select 
+			count(*)
+		from 
+			message
+		where 
+			message_recv_id = #{login_id}
+			and
+			message_hits > 5
+		<if test="_parameter != null">
+		and
+			message_contents like '%' || #{searchText} || '%'
+		</if>
+	</select>
+	
+   	<!-- 받는 사람 아이디 자동완성 -->
    	<select id="get_recv_id" resultType="String">
    		select
    			user_id
