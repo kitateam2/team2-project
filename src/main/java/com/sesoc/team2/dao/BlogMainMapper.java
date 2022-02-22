@@ -9,5 +9,5 @@ public interface BlogMainMapper {
 
 	public ArrayList<BlogMain> ranklist();
 	
-	public int grade(BlogMain blogmain);
+	public Integer grade(BlogMain blogmain);
 }

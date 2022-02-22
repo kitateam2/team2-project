@@ -28,7 +28,7 @@ public class ReviewDAO {
 	}
 	
 	//댓글 목록 읽기
-	public ArrayList<BookReview> BookReviewList(int book_no) {
+	public ArrayList<BookReview> BookReviewList(String book_no) {
 		ReviewMapper mapper = sqlsession.getMapper(ReviewMapper.class);
 		ArrayList<BookReview> BookReviewList = mapper.BookReviewList(book_no);
 		logger.info("댓글리스트 dao :", BookReviewList);

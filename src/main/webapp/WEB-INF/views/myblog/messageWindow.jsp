@@ -97,35 +97,7 @@
 			form.submit();
 		}
 	</script>
-	<!-- 그냥 일반 버전의 자동완성
-	<script>
-		$(function(){
-			var searchSource = ["aaa", "bbb", "ccc", "ddd"];
-			$("#message_recv_id").autocomplete({
-				source : searchSource,
-				select : function(event, ui) {
-						console.log(ui.item);
-				},
-				focus : function(event, ui){
-					return false;	
-				},
-				minLength: 1,
-				autoFocus: true,
-				classess: {
-					"ui-autocomplete": "highlight"
-				},	
-				delay : 300,
-				posotion: {my : "right top", at: "right bottom"},
-				close : function(event){
-					console.log(event);
-				}
-			});
 
-		});
-	</script>
-	 -->
-	 
-	 <!-- 에이젝스 버전의 자동완성 -->
 	 <script>
 $("#message_recv_id").keyup(function autoProcess() {
 		  $("#message_recv_id").autocomplete({
@@ -169,6 +141,21 @@ $("#message_recv_id").keyup(function autoProcess() {
 			});//$("#message_recv_id").autocomplete
 		})
 	 </script>
+	 
+	 <script>
+		$(document).ready(function(){
+			$('.mail_sent').show();
+			$('.mail_recv').hide();
+			
+			});
+	 </script>
+	 <script>
+		$('.mail_recv_btn').click(function(){
+				$('.mail_sent').hide();
+				$('.mail_recv').show();
+			});
+	 </script>
+	 
 	<title>Home</title>
 </head>
 <body>
@@ -178,6 +165,15 @@ $("#message_recv_id").keyup(function autoProcess() {
 </h1>
 
 쪽지 메인페이지
+
+<div class="btn-group">
+  <button type="button" class="btn btn-primary mail_sent_btn">받은 메일</button>
+  <button type="button" class="btn btn-primary mail_recv_btn">보낸 메일</button>
+  <button type="button" class="btn btn-primary">읽지 않은 메일</button>
+  <button type="button" class="btn btn-primary">자주 읽은 메일</button>
+</div>
+
+
 <!-- 검색, 목록별, 수신인 자동완성 -->
 
 	<h4>쪽지 리스트(받은 목록)</h4><br>
@@ -186,7 +182,7 @@ $("#message_recv_id").keyup(function autoProcess() {
 	<div class="container-fluid row">
 	
 	<!-- 받은메일 -->
-	<div class="col-sm-4" style="background-color:lavender; " > 
+	<div class="col-sm-4 mail_sent" style="background-color:lavender; "> 
 			메시지 개수 : ${navi_recv.totalRecordsCount}
 			<table  border="1">
 				<c:forEach var="message_list_recv" items="${message_list_recv}">
@@ -238,7 +234,7 @@ $("#message_recv_id").keyup(function autoProcess() {
 	
 	
 	<!-- 보낸메일 -->
-	<div class="col-sm-4" style="background-color:yellow;"> 
+	<div class="col-sm-4 mail_recv" style="background-color:yellow;"> 
 			메시지 개수 : ${navi_sent.totalRecordsCount}
 			<table  border="1">
 				<c:forEach var="message_list_sent" items="${message_list_sent}">

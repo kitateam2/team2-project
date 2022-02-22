@@ -1,7 +1,7 @@
 package com.sesoc.team2.vo;
 
 public class Book {
-	private int book_no;						//책 시퀀스 번호
+	private String book_no;						//책 시퀀스 번호
 	private String book_title; 					//책 이름
 	private String book_isbn;	 				//ISBN 번호
 	private String book_author;	 				//저자 이름
@@ -16,11 +16,11 @@ public class Book {
 	public Book() {	
 	}
 
-	public int getBook_no() {
+	public String getBook_no() {
 		return book_no;
 	}
 
-	public void setBook_no(int book_no) {
+	public void setBook_no(String book_no) {
 		this.book_no = book_no;
 	}
 

@@ -61,7 +61,7 @@ public class BlogMainController {
 			User_infoVO user_id = memberdao.getMember(object);
 			BlogMain blogmain = new BlogMain();
 			blogmain.setUser_id(user_id.getUser_id());
-			int grade = blogmaindao.grade(blogmain);
+			Integer grade = blogmaindao.grade(blogmain);			
 			model.addAttribute("grade", grade);
 			logger.info("grade", grade);
 			

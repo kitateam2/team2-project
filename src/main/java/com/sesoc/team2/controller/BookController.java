@@ -40,17 +40,13 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	@Autowired
 	BookInfoDAO infodao;
 	
-	//책 상세정보 페이지
-	@RequestMapping (value="bookInfo", method=RequestMethod.GET)
-	public String bookinfoForm(Model model, String bookname) {
-		logger.info("bookname : {}", bookname);
-		ArrayList<Book> booklist = infodao.bookListUp(bookname);
-		
-		logger.info("BookInfo폼에서 찍는 값 : {}", booklist);
-		model.addAttribute("booklist", booklist);
-		return "book/bookInfo";
-	}
 	
+	//책 상세정보 페이지
+//	@RequestMapping (value="booksdetail", method=RequestMethod.GET)
+//	public String bookDetail() {
+//		return "book/bookDetail";
+//	}
+		
 	
 	//게시판 관련 상수값들
 	final int countPerPage = 10;			//페이지당 글 수
@@ -72,9 +68,10 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 		
 		//페이지 계산을 위한 객체 생성
 		PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total); 
-		
+		logger.info("navi {}", navi);
 		//검색어와 시작 위치, 페이지당 글 수를 전달하여 목록 읽기
 		ArrayList<Book> booklist = infodao.listBook(searchText, navi.getStartRecord(), navi.getCountPerPage());	
+		logger.info("{} booklist 컨틀롤러", booklist);
 		
 		//페이지 정보 객체와 글 목록, 검색어를 모델에 저장
 		model.addAttribute("booklist", booklist);
@@ -90,7 +87,7 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	 * @return 해당 글 정보
 	 */
 	@RequestMapping (value="read", method=RequestMethod.GET)  //value 확인!!
-	public String read(int book_no, Model model) {
+	public String read(String book_no, Model model) {
 		//전달된 글 번호로 해당 글정보 읽기
 		Book book = infodao.getBook(book_no);
 		if (book == null) {

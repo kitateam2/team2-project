@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,68 +38,103 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script> -->  
 
 
-<!-- 댓글 함수 -->
 <script>
-//댓글 쓰기 폼 체크
-function book_review_form() {
-	var text = document.getElementById('book_review_short');
 
-	if (text.value.length < 3) {
-		alert('댓글 내용을 3글자 이상 입력하세요.');
-		text.focus();
-		text.select();
-		return false;
-	}
-	return true;			
+//bt1 버튼 클릭했을때 실행될 함수
+function bt1Click(n){
+	
+	alert('장바구니 이동');
+	$.ajax({
+		url:'ajaxcart',
+		type:'post',
+		data: {book_isbn: n},
+		dataType:'text',
+		success: function() { alert('장바구니에 담았습니다.'); },
+		error: function() { alert('로그인을 해주세요'); }
+	});
 }
 
-//댓글 삭제하기
-function book_review_delete(book_review_no, book_review_star){
-	if (confirm('댓글을 삭제하시겠습니까?')){
-		location.href='book_review_delete?book_review_no=' + book_review_no;
-	}
+function bt2Click(n){
+	
+	alert('위시리스트이동');
+	$.ajax({
+		url:'ajaxwishlist',
+		type:'post',
+		data: {book_isbn: n},
+		dataType:'text',
+		success: function() { alert('위시리스트에 담았습니다.'); },
+		error: function() { alert('로그인을 해주세요'); }
+	});
 }
 
-<!-- 페이지 이동 스크립트  -->
+//페이지 넘버링
 function pagingFormSubmit(currentPage) {
-	var form = document.getElementById('pagingForm');
+	var form = document.getElementById('bookName');
 	var page = document.getElementById('page');
 	page.value = currentPage;
 	form.submit();
 }
 
+//검색 페이지 이동 
+function bookPage() {
+	var searchText = document.getElementById("bookName").value;
+	location.href = 'list?searchText='+searchText;
+}
+
 </script>
+<style>
+ .bookList {
+    width: 100%;
+    border-top: 1px solid #e5e4e2;
+    border-collapse: collapse;
+  }
+  .center, .bookInfo {
+    border-bottom: 1px solid #e5e4e2;
+    padding: 10px;
+  }
+</style>
 </head>
 
 <body>
 
 <div class="box3">
 <br>
-<h1><center>
+<%-- <h1><center>
 	<p>Book Store &nbsp; &nbsp;
 	<!-- 검색폼 -->
-		<input id="bookName" type="text" placeholder="검색어 입력" value="${searchText}">
-		<button id="search" onclick="pagingFormSubmit()" value="검색">검색</button>	</p></center>
-	</h1>
+		<input id="bookName" type="text" placeholder="검색어 입력" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }">
+		<button id="search" onclick="bookPage();" value="검색">검색</button>	</p></center>
+	</h1> --%>
+	
+	<!-- 검색폼 -->
+	<h1><center>
+	<p>Book Store &nbsp; &nbsp;
+	<form id="bookName" method="get" action="list">
+		<input type="hidden" name="page" id="page" />
+		<input type="text" placeholder="검색어 입력" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }"/>
+		<input type="button" id="search" onclick="javascript: pagingFormSubmit(1); bookPage();" value="검색">
+	</form></p></center></h1>
+	<!-- /검색폼 --> 
+
 	<br>
 	<div class="navigation_bar">
 	<table class="gnb_main add_1">
 		<tr colspan="5" id="blank"></tr>
 		<tr> 
-				<td class="class_item"><a href="url" class="text">국내도서</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="url" class="text">외국도서</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="bookInfo" class="text">책 상세정보</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="blogmain" class="text">블로그 메인</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="blogmain" class="text">고객센터</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="url" class="text" style="color:white;">국내도서</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="url" class="text" style="color:white;">외국도서</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="bookInfo" class="text" style="color:white;">책 상세정보</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="blogmain" class="text" style="color:white;">블로그 메인</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="blogmain" class="text" style="color:white;">고객센터</a></td><td>&nbsp;</td>
 			<c:if test="${sessionScope.loginId == null}">
-				<td class="class_item2"><a href="condition">회원가입</a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="login">로그인</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="condition" style="color:white;">회원가입</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="login" style="color:white;">로그인</a></td><td>&nbsp;</td>
 			</c:if>
 			<c:if test="${sessionScope.loginId != null}">
-				<td class="class_item2"><a href="logout">로그아웃</a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="cart">장바구니</a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="myblog" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
-				<td class="class_item3">${sessionScope.loginId}님 환영합니다.</td>
+				<td class="class_item2" style="color:white;"><a href="logout">로그아웃</a></td><td>&nbsp;</td>
+				<td class="class_item2" style="color:white;"><a href="cart">장바구니</a></td><td>&nbsp;</td>
+				<td class="class_item2" style="color:white;"><a href="myblog">개인 블로그</a></td><td>&nbsp;</td>
+				<td class="class_item3" style="color:white;">${sessionScope.loginId}님 환영합니다.</td>
 			</c:if>
 		</tr>	
 	</table>
@@ -109,27 +146,33 @@ function pagingFormSubmit(currentPage) {
      
       
 <br>
-<table>
+<table class="bookList">
 
 <tr>
-	<th style="width:140px; text-align:center;">Thumbnail</th>
-	<th style="width:360px; text-align:center;">Information</th>
-	<th style=" width:150px;text-align:center;">Review</th>
-	<th style="width:150px; text-align:center;">Price</th>
-	<th style="width:70px; text-align:center;">Payment</th>
+	<th class="bookInfo" style="width:140px; text-align:center;">Thumbnail</th>
+	<th class="bookInfo" style="width:370px; text-align:left;">Information</th>
+	<th class="bookInfo" style=" width:150px;text-align:center;">Review</th>
+	<th class="bookInfo" style="width:150px; text-align:center;">Price</th>
+	<th class="bookInfo" style="width:70px; text-align:center;">Payment</th>
 </tr>
-
 <!-- 반복 시작 -->
 <c:forEach var="book" items="${booklist}">  
 <tr>
 	<td class="center" style="width:140px; text-align:center;"><img src="download?filename=${book.book_image}"></td>  
-	<td style="width:360px; text-align:center;">
-		<a href="read?book_no=${book.book_isbn}">${book.book_title}</a>  <!-- read다음 book_no는 parameterType값 ; controller와 일치해야함 -->
-		<p>${book.book_author}</p>
+	<td class="center" style="width:370px; text-align:left;">
+		<p style="font-size: 16px; font-weight:bold;"><a href="list?book_no=${book.book_isbn}">${book.book_title}</a></p>  <!-- read다음 book_no는 parameterType값 ; controller와 일치해야함 -->
+		<p style="font-size: 14px; font-weight:normal;">저자: ${book.book_author}</p>
+		<p style="font-size: 12x; font-weight:bold; color:#acacac;"><${book.book_public}></p>
 	</td>
-	<td class="center" style="width:150px; text-align:center;">${book.book_reward}</td>
-	<td class="center" style="width:150px; text-align:center;">${book.book_price}</td>
-	<td style="width:70px; text-align:center;">장바구니</td>
+	<td class="center" style="width:150px; text-align:center; font-size: 14px;">${book.book_reward}</td>
+	<td class="center" style="width:150px; text-align:center; font-size: 14px;"><fmt:formatNumber value="${book.book_price}" pattern="###,###" />원</td>
+	<td class="center" style="width:70px; text-align:center;">장바구니       <c:forEach var="cart" items="${Cart_book1}">
+		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
+		</c:forEach>
+		
+		<c:forEach var="wishlist" items="${wishCart_book1}">
+		<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
+		</c:forEach>           </td>
 </tr>
 
 </c:forEach>        
@@ -137,53 +180,21 @@ function pagingFormSubmit(currentPage) {
 </table>
 <br/><br/>
 
-<div id="navigator">
+<div id="navigator" style="font-size: 15px; font-weight:bold; text-align:center; color:black;">
 <!-- 페이지 이동 부분 -->                      
 	<a href="javascript:pagingFormSubmit(${navi.currentPage - navi.pagePerGroup})">◁◁ </a> &nbsp;&nbsp;
 	<a href="javascript:pagingFormSubmit(${navi.currentPage - 1})">◀</a> &nbsp;&nbsp;
 
 	<c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}"> 
-		<c:if test="${counter == navi.currentPage}"><b></c:if>
+		<c:if test="${counter == navi.currentPage}"></c:if>
 			<a href="javascript:pagingFormSubmit(${counter})">${counter}</a>&nbsp;
-		<c:if test="${counter == navi.currentPage}"></b></c:if>
+		<c:if test="${counter == navi.currentPage}"></c:if>
 	</c:forEach>
 	&nbsp;&nbsp;
 	<a href="javascript:pagingFormSubmit(${navi.currentPage + 1})">▶</a> &nbsp;&nbsp;
 	<a href="javascript:pagingFormSubmit(${navi.currentPage + navi.pagePerGroup})">▷▷</a>
 
-<!-- /페이지 이동 끝 -->
-      
-</div>
-
-	<!-- 댓글 자리 -->
-	<form class="card" id="book_review_form" action="book_review" method="post"  onsubmit="return book_review_form()">
-		<div class="card-body"><textarea name="book_review_short" id="book_review_short" class="form-control" rows="1"></textarea></div>
-		<input type="submit" value="댓글등록" />
-	</form>
-
-	<!-- 댓글 리스트 -->
-	<table>
-		<tr><th> 댓글 리스트 </th></tr>
-		<c:forEach var="book_review" items="${BookReviewList}">
-		<tr>
-			<td>${book_review.book_review_writer}</td>
-			<td>${book_review.book_review_short}</td>
-			<td><c:if test="${loginId == book_review.book_review_writer}">
-				[<a href="javascript:replyEditForm(${book_review.book_review_no},'${book_review.book_review_short}')">수정</a>]
-				</c:if>
-			</td>
-			<td><c:if test="${loginId == book_review.book_review_writer}">
-				[<a href="javascript:book_review_delete(${book_review.book_review_no})">삭제</a>]
-				</c:if>
-			</td>
-		</tr>	
-		</c:forEach>
-	</table>
-
-
-
-
-
+</div><!-- /페이지 이동 끝 -->
 
 
 </div><!-- box3 -->

@@ -39,7 +39,7 @@
 		where <![CDATA[rownum <= 5]]>
 	</select>
 	
-	<select id="grade" parameterType="BlogMain" resultType="int">
+	<select id="grade" parameterType="BlogMain" resultType="Integer">
 		select total from(
 			select
 				a.user_id
