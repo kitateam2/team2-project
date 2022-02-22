@@ -42,11 +42,12 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	
 	//책 상세정보 페이지
 	@RequestMapping (value="bookInfo", method=RequestMethod.GET)
-	public String bookinfoForm(String bookname) {
+	public String bookinfoForm(Model model, String bookname) {
 		logger.info("bookname : {}", bookname);
 		ArrayList<Book> booklist = infodao.bookListUp(bookname);
 		
 		logger.info("BookInfo폼에서 찍는 값 : {}", booklist);
+		model.addAttribute("booklist", booklist);
 		return "book/bookInfo";
 	}
 	

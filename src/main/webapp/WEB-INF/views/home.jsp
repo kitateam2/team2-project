@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>Home</title>
+	<title>책 리스트</title>
 	<link href="resources/css/header.css" rel="stylesheet"/>
 	<link href="resources/css/slide.css" rel="stylesheet"/>
 	<link href="resources/css/slide2.css" rel="stylesheet"/>
