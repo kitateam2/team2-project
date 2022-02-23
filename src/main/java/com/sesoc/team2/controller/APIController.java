@@ -73,13 +73,12 @@ public class APIController {
 			//저장 폴더가 없으면 생성
 			File path = new File(dir);
 			if (!path.isDirectory()) {
-				logger.debug(dir);
+			
 				path.mkdirs();
 			}
 			
 			//저장할 파일명 (ISBN에서 공백제거)
 			String filename = book_isbn.trim().replaceAll(" ", "") + ".jpg";
-			logger.debug(filename);
 			
 			try {
 				URL url = new URL(book_image);

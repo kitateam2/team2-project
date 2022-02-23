@@ -10,6 +10,9 @@ DROP TABLE ORDER_DETAIL CASCADE CONSTRAINTS;
 DROP TABLE USER_WISHLIST CASCADE CONSTRAINTS;
 DROP TABLE BOOK_INFO CASCADE CONSTRAINTS;
 DROP TABLE BOOK_PUBLIC CASCADE CONSTRAINTS;
+DROP TABLE CHAT CASCADE CONSTRAINTS;
+DROP TABLE CHATJOIN CASCADE CONSTRAINTS;
+DROP TABLE CHATROOM CASCADE CONSTRAINTS;
 DROP TABLE EVENT CASCADE CONSTRAINTS;
 DROP TABLE FOLLOW CASCADE CONSTRAINTS;
 DROP TABLE MANAGER CASCADE CONSTRAINTS;
@@ -137,28 +140,61 @@ CREATE TABLE CART_BOOK
 );
 
 
+CREATE TABLE CHAT
+(
+	-- 메세지 번호
+	chat_id number DEFAULT 0 NOT NULL,
+	-- 채팅 메세지
+	chat_message varchar2(300),
+	-- 채팅방 경로
+	chatroom_id varchar2(200) NOT NULL,
+	-- 회원ID
+	user_id varchar2(20) NOT NULL,
+	PRIMARY KEY (chat_id)
+);
+
+
+CREATE TABLE CHATJOIN
+(
+	-- 식별자
+	chatjoin_no number DEFAULT 0 NOT NULL,
+	-- 채팅방 경로
+	chatroom_id varchar2(200) NOT NULL,
+	-- 회원ID
+	user_id varchar2(20) NOT NULL,
+	PRIMARY KEY (chatjoin_no)
+);
+
+
+CREATE TABLE CHATROOM
+(
+	-- 채팅방 경로
+	chatroom_id varchar2(200) NOT NULL,
+	PRIMARY KEY (chatroom_id)
+);
+
+
 CREATE TABLE EVENT
 (
 	-- 이벤트 이름
-	event_name varchar2(40) NOT NULL,
+	event_name varchar2(40),
 	-- 0:꽝
 	-- 1:당첨
 	event_result number DEFAULT 0,
 	-- 회원ID
-	user_id varchar2(20) NOT NULL UNIQUE,
-	UNIQUE (event_name, user_id)
+	user_id varchar2(20) NOT NULL
 );
 
 
 CREATE TABLE FOLLOW
 (
-	-- 본인 id
-	follow_ed_id varchar2(20) NOT NULL,
-	-- 상대방 id
-	folllow_ing_id varchar2(20) NOT NULL,
 	-- 시퀀스
 	id varchar2(20) NOT NULL,
-	UNIQUE (follow_ed_id, folllow_ing_id)
+	-- 상대방 id
+	follow_ing_id varchar2(20) NOT NULL,
+	-- 본인 id
+	follow_ed_id varchar2(20) NOT NULL,
+	UNIQUE (follow_ed_id, follow_ing_id)
 );
 
 
@@ -211,11 +247,11 @@ CREATE TABLE ORDER_LIST
 	-- 주문번호
 	order_no number NOT NULL,
 	-- 주문날짜
-	order_date date DEFAULT sysdate NOT NULL,
+	order_date date DEFAULT sysdate,
 	-- 총 주문 금액
 	order_totalprice number DEFAULT 0 NOT NULL,
 	-- 주문상태
-	order_state varchar2(30) NOT NULL,
+	order_state varchar2(30),
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
 	PRIMARY KEY (order_no)
@@ -370,6 +406,18 @@ ALTER TABLE USER_WISHLIST
 ;
 
 
+ALTER TABLE CHAT
+	ADD FOREIGN KEY (chatroom_id)
+	REFERENCES CHATROOM (chatroom_id)
+;
+
+
+ALTER TABLE CHATJOIN
+	ADD FOREIGN KEY (chatroom_id)
+	REFERENCES CHATROOM (chatroom_id)
+;
+
+
 ALTER TABLE ORDER_DETAIL
 	ADD FOREIGN KEY (order_no)
 	REFERENCES ORDER_LIST (order_no)
@@ -400,6 +448,18 @@ ALTER TABLE BLOG_POST
 ;
 
 
+ALTER TABLE CHAT
+	ADD FOREIGN KEY (user_id)
+	REFERENCES USER_INFO (user_id)
+;
+
+
+ALTER TABLE CHATJOIN
+	ADD FOREIGN KEY (user_id)
+	REFERENCES USER_INFO (user_id)
+;
+
+
 ALTER TABLE EVENT
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
@@ -407,7 +467,7 @@ ALTER TABLE EVENT
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (folllow_ing_id)
+	ADD FOREIGN KEY (follow_ing_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
@@ -419,13 +479,13 @@ ALTER TABLE FOLLOW
 
 
 ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_recv_id)
+	ADD FOREIGN KEY (message_sent_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_sent_id)
+	ADD FOREIGN KEY (message_recv_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
@@ -508,13 +568,21 @@ COMMENT ON COLUMN CART_BOOK.book_isbn IS '책 인덱스
 ';
 COMMENT ON COLUMN CART_BOOK.user_cart_no IS '찜 번호';
 COMMENT ON COLUMN CART_BOOK.cart_book_price IS '장바구니에 담긴 책가격';
+COMMENT ON COLUMN CHAT.chat_id IS '메세지 번호';
+COMMENT ON COLUMN CHAT.chat_message IS '채팅 메세지';
+COMMENT ON COLUMN CHAT.chatroom_id IS '채팅방 경로';
+COMMENT ON COLUMN CHAT.user_id IS '회원ID';
+COMMENT ON COLUMN CHATJOIN.chatjoin_no IS '식별자';
+COMMENT ON COLUMN CHATJOIN.chatroom_id IS '채팅방 경로';
+COMMENT ON COLUMN CHATJOIN.user_id IS '회원ID';
+COMMENT ON COLUMN CHATROOM.chatroom_id IS '채팅방 경로';
 COMMENT ON COLUMN EVENT.event_name IS '이벤트 이름';
 COMMENT ON COLUMN EVENT.event_result IS '0:꽝
 1:당첨';
 COMMENT ON COLUMN EVENT.user_id IS '회원ID';
-COMMENT ON COLUMN FOLLOW.follow_ed_id IS '본인 id';
-COMMENT ON COLUMN FOLLOW.folllow_ing_id IS '상대방 id';
 COMMENT ON COLUMN FOLLOW.id IS '시퀀스';
+COMMENT ON COLUMN FOLLOW.follow_ing_id IS '상대방 id';
+COMMENT ON COLUMN FOLLOW.follow_ed_id IS '본인 id';
 COMMENT ON COLUMN MANAGER.manager_id IS '관리자 아이디';
 COMMENT ON COLUMN MANAGER.manager_pw IS '관리자 비밀번호';
 COMMENT ON COLUMN MESSAGE.message_no IS '메세지 번호';

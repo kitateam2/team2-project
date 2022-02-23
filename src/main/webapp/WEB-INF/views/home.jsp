@@ -5,6 +5,7 @@
 <head>
 	<title>책 리스트</title>
 	<link href="resources/css/header.css" rel="stylesheet"/>
+	<link href="resources/css/bookInfo.css" rel="stylesheet"/>
 	<link href="resources/css/slide.css" rel="stylesheet"/>
 	<link href="resources/css/slide2.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,14 +20,7 @@
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<style>
-footer {
-position: absolute;
-bottom: 0;
-color: red;
 
-}
-</style>
 <script>
 
 //bt1 버튼 클릭했을때 실행될 함수
@@ -57,11 +51,10 @@ function bt2Click(n){
 }
 
 
+//검색 페이지 이동 
 function bookPage() {
-	var bookname = document.getElementById("bookName").value;
-	
-	alert('경로이동?');
-	location.href = 'bookInfo?bookname='+bookname;
+	var searchText = document.getElementById("searchInput").value;
+	location.href = 'list?searchText='+searchText;
 }
 </script>
 <body>
@@ -69,12 +62,23 @@ function bookPage() {
 <!-- header부분 -->
 <div class="box3">
 <br>
-	<h1><center>
+<!--  <h1><center>
 	<p style="type"><a href="/team2">Book Store</a>&nbsp; &nbsp;
-	<!-- 검색폼 -->
 		<input id="bookName" type="text" placeholder="검색어 입력" >
 		<button id="search" onclick="bookPage();" value="검색">검색</button>	</p></center>
-	</h1>
+	</h1>	-->
+	
+		<!-- 검색폼 -->
+	<h1><center>
+	<p><a href="/team2" style="color:black;">Book Store</a> &nbsp; &nbsp;
+	<form id="bookName" method="get" action="list">
+		<input type="hidden" name="page" id="page" />
+		<input type="text" placeholder="검색어 입력" id="searchInput" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }"/>
+		<input type="button" id="search" onclick="javascript:bookPage();" value="검색">
+	</form></p></center></h1>
+	<!-- /검색폼 --> 
+	
+	
 	<br>
 	<div class="navigation_bar">
 	<table class="gnb_main add_1">
@@ -132,7 +136,7 @@ function bookPage() {
         <div class="carousel-caption">
         </div>
       </div>
-  
+ 
     </div>
 
     <!-- Left and right controls -->
@@ -422,19 +426,10 @@ function bookPage() {
 
 </div> <!-- box3 -->
 
- <c:forEach var="cart" items="${Cart_book1}">
-		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
-		</c:forEach>
-		
-		<c:forEach var="wishlist" items="${wishCart_book1}">
-		<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
-		</c:forEach> 
 
-<div class="footer">풋터풋터풋터풋터</div>
+<div class="card-footer">Footer</div>
             
           
-
-
 
 </body>
 </html>
