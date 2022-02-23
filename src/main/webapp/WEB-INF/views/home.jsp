@@ -59,8 +59,6 @@ function bt2Click(n){
 
 function bookPage() {
 	var bookname = document.getElementById("bookName").value;
-	
-	alert('경로이동?');
 	location.href = 'bookInfo?bookname='+bookname;
 }
 </script>
@@ -69,12 +67,23 @@ function bookPage() {
 <!-- header부분 -->
 <div class="box3">
 <br>
-	<h1><center>
+<!--  <h1><center>
 	<p style="type"><a href="/team2">Book Store</a>&nbsp; &nbsp;
-	<!-- 검색폼 -->
 		<input id="bookName" type="text" placeholder="검색어 입력" >
 		<button id="search" onclick="bookPage();" value="검색">검색</button>	</p></center>
-	</h1>
+	</h1>	-->
+	
+		<!-- 검색폼 -->
+	<h1><center>
+	<p>Book Store &nbsp; &nbsp;
+	<form id="bookName" method="get" action="list">
+		<input type="hidden" name="page" id="page" />
+		<input type="text" placeholder="검색어 입력" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }"/>
+		<input type="button" id="search" onclick="javascript: pagingFormSubmit(1); bookPage();" value="검색">
+	</form></p></center></h1>
+	<!-- /검색폼 --> 
+	
+	
 	<br>
 	<div class="navigation_bar">
 	<table class="gnb_main add_1">
@@ -132,7 +141,7 @@ function bookPage() {
         <div class="carousel-caption">
         </div>
       </div>
-  
+ 
     </div>
 
     <!-- Left and right controls -->
@@ -422,13 +431,13 @@ function bookPage() {
 
 </div> <!-- box3 -->
 
- <c:forEach var="cart" items="${Cart_book1}">
+<!--  <c:forEach var="cart" items="${Cart_book1}">
 		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
 		</c:forEach>
 		
 		<c:forEach var="wishlist" items="${wishCart_book1}">
 		<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
-		</c:forEach> 
+		</c:forEach> --> 
 
 <div class="footer">풋터풋터풋터풋터</div>
             
