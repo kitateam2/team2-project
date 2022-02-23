@@ -13,6 +13,8 @@ public interface MemberMapper {
 	public int updatemember(User_infoVO member);
 
 	public int insertwishcart(User_infoVO user_info);
+
+	public int insertordercart(User_infoVO user_info);
 	
 	
 
