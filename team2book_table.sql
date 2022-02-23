@@ -177,12 +177,12 @@ CREATE TABLE CHATROOM
 CREATE TABLE EVENT
 (
 	-- 이벤트 이름
-	event_name varchar2(40) UNIQUE,
+	event_name varchar2(40),
 	-- 0:꽝
 	-- 1:당첨
-	event_result number DEFAULT 0 UNIQUE,
+	event_result number DEFAULT 0,
 	-- 회원ID
-	user_id varchar2(20) NOT NULL UNIQUE
+	user_id varchar2(20) NOT NULL
 );
 
 
