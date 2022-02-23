@@ -120,18 +120,30 @@ function book_review_delete(book_review_no, book_review_star){
 <!-- 여기까지가 header 부분 -->
 
 <!-- 책 상세내용 부분 시작-->
+<table style="padding-top:10px;">
 
 <tr>
-	<td class="center" style="width:200px; text-align:center;"><img src="download?filename=${book.book_image}"></td>  
-	<td class="center" style="width:400px; text-align:left;">
+	<td rowspan="3" class="center" style="width:200px; object-fit:cover;"><img src="download?filename=${book.book_image}"></td>
+	<td class="center" style="width:600px; text-align:left;">
 		<p style="font-size: 20px; font-weight:bold;">${book.book_title}</p>  
 		<p style="font-size: 18px; font-weight:normal;">저자: ${book.book_author}</p>
 		<p style="font-size: 14px; font-weight:bold; color:#acacac;"><${book.book_public}></p>
-		<p style="font-size: 14px; font-weight:normal; color:black;">${book.book_contents}</p>
 	</td>
+</tr>
+
+<tr>
+	<td><p style="font-size: 14px; font-weight:normal; color:black;">${book.book_contents}</p></td>
+</tr>
+
+
+</table> <!-- 책 상세내용 끗-->
+
+
+
+
 	<td class="center" style="width:150px; text-align:center; font-size: 14px;">${book.book_reward}</td>
 	<td class="center" style="width:150px; text-align:center; font-size: 14px;"><fmt:formatNumber value="${book.book_price}" pattern="###,###" />원</td>
-	<td class="center" style="width:70px; text-align:center;">장바구니       
+	<td class="center" style="width:70px; text-align:center; font-size: 14px;">장바구니       
 		<c:forEach var="cart" items="${Cart_book1}">
 			<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
 		</c:forEach>
