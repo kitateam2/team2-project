@@ -45,24 +45,39 @@ function post_comment_delete(post_comment_no, post_no){
 		}
 }
 
+//댓글 도움이 되었어요 
 function post_comment_like(post_comment_no, post_no){
 	location.href='../post_comment_like?post_comment_no=' + post_comment_no + '& post_no=' + post_no;
 	alert('해당 댓글이 도움이 되었다니 기뻐요 :)');
 }
 
+//댓글 수정 
 function post_comment_edit(post_comment_no, post_no, retext){
 
 		var div = document.getElementById("div"+post_comment_no);
 	<!-- 댓글 자리 -->
 	
-	var str = '<form class="card" id="post_comment_form" action="post_comment" method="post"  onsubmit="return post_comment_form()">';
-		str += '<input type="hidden" name="post_no" value="${one_post.post_no}"/>';
-		str += '<div class="card-body"><textarea name="post_comment_content" id="retext" class="form-control" rows="1"></textarea></div>';
-		str += '<input type="submit" value="댓글등록" />';
+	var str = '<form class="card" name="post_comment_form'+ post_comment_no +'" action="../post_comment_edit" method="post"  onsubmit="return post_comment_form()">';
+		str += '<input type="hidden" name="post_no" value="'+ post_no +'"/>';
+		str += '<input type="hidden" name="post_comment_no" value="'+ post_comment_no +'"/>';
+		str += '<div class="card-body"><textarea name="post_comment_content" value="'+ retext +'" class="form-control" rows="1"></textarea></div>';
+		str += '<a href="javascript:replyEdit(document.post_comment_form' + post_comment_no + ')">저장하기</a>';
+		str += '<a href="javascript:replyEditCancle(document.getElementById(\'div' + post_comment_no + '\'))">취소하기</a>';
 		str += '</form>';
 		div.innerHTML = str;
 }
 
+//리플 수정 정보 저장
+function replyEdit(form) {
+	if (confirm('수정된 내용을 저장하시겠습니까?')) {
+		form.submit();
+	}
+}
+
+//리플 수정 취소
+function replyEditCancle(div) {
+	div.innerHTML = '';
+}
 
 </script>
 	<title>게시글 상세보기</title>
@@ -155,10 +170,12 @@ function post_comment_edit(post_comment_no, post_no, retext){
 			<c:if test="${loginId != post_comment.post_comment_writter}">
 				<td><input type="button" value="도움이 되었어요" onclick="javascript:post_comment_like(${post_comment.post_comment_no}, ${post_comment.post_no})"></td>
 			</c:if>
-		</tr>	
+		</tr>
+		<tr>	
 		<!-- 리플 수정 폼이 나타날 위치  -->
 		<td><div id="div${post_comment.post_comment_no}"></div></td>
-		<tr><td></td></tr>
+		</tr>
+		
 		</c:forEach>
 	
 </table>
