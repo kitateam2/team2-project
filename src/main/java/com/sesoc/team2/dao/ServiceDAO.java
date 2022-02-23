@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.sesoc.team2.vo.Chat;
+import com.sesoc.team2.vo.Chatroom;
 import com.sesoc.team2.vo.User_infoVO;
 
 @Repository
@@ -18,10 +20,25 @@ public class ServiceDAO {
 	private static final Logger logger = LoggerFactory.getLogger(ServiceDAO.class);
 
 	public ArrayList<User_infoVO> idList() {
-		//logger.info("서비스다오");
 		ServiceMapper mapper = sqlSession.getMapper(ServiceMapper.class);
 		ArrayList<User_infoVO> idList = mapper.idList();
 		return idList;
+	}
+
+	public void insertChatroom(String ids) {
+		ServiceMapper mapper = sqlSession.getMapper(ServiceMapper.class);
+		mapper.insertChatroom(ids);
+	}
+
+	public ArrayList<Chatroom> roomlist(String id) {
+		ServiceMapper mapper = sqlSession.getMapper(ServiceMapper.class);
+		ArrayList<Chatroom> roomlist = mapper.roomlist(id);
+		return roomlist;
+	}
+
+	public void insertchat(Chat chat) {
+		ServiceMapper mapper = sqlSession.getMapper(ServiceMapper.class);
+		mapper.insertchat(chat);
 	}
 	
 	

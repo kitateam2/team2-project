@@ -28,12 +28,12 @@ $(document).ready(  function() {
 			
 			success: function(data){
 				alert(data); 
-				location.href="/team2/chatmain?data="+data;
+				location.href="/team2/createroom?ids="+data;
 			},
 			error:function(request,status,error){
 		        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); 
 		    }
-		});	
+		 });	
 	});
 });
 </script>
@@ -41,7 +41,7 @@ $(document).ready(  function() {
 <body>
 <form action="chatinvite" method="POST">
 	<input name="searchId" type="text">
-	<input type="submit" value="전송">
+	<input type="submit" value="검색">
 </form>
 
 	<c:forEach var="idl" items="${idlist}">

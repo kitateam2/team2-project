@@ -11,4 +11,31 @@
 		select * from user_info
 	</select>
 
+	<!-- 채팅방 생성 -->
+	<insert id="insertChatroom" parameterType="String">
+		insert into chatroom(chatroom_id) values (#{ids})
+	</insert>
+	
+	<!-- 모든 채팅방 조회 -->
+	<select id="roomlist" resultType="chatroom" parameterType="String">
+		select * from chatroom where 
+		chatroom_id like '%' || #{id} || '%'
+	</select>
+	
+	<!-- 채팅 기록 -->
+	<insert id="insertchat" parameterType="chat">
+		insert into chat(
+			chat_id,
+			chat_message,
+			chat_time,
+			chatroom_id,
+			user_id
+		) values (
+			chat_seq.nextval,
+			#{chat_message},
+			#{chat_time},
+			#{chatroom_id},
+			#{user_id}
+		)
+	</insert>
 </mapper>

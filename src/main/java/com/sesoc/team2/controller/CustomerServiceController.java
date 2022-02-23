@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sesoc.team2.dao.ServiceDAO;
+import com.sesoc.team2.vo.Chat;
+import com.sesoc.team2.vo.Chatroom;
 import com.sesoc.team2.vo.User_infoVO;
 
 /**
@@ -47,13 +49,15 @@ public class CustomerServiceController {
 		return "service/chat";
 	}
 	
-	@RequestMapping(value = "/chatTest", method = RequestMethod.GET)
-	public String chaTest(HttpSession session, Model model) {
+	@RequestMapping(value = "/chatting", method = RequestMethod.GET)
+	public String chaTest(HttpSession session, Model model, String roomid) {
 		String id = (String)session.getAttribute("loginId");
-		logger.info("chatting{}",id);
+		logger.info("chatting{}",roomid);
+		model.addAttribute("roomid",roomid);
 		return "service/chatting";
 	}
 	
+	//사용자 초대페이지 이동
 	@RequestMapping(value = "/chatinvite", method = RequestMethod.GET)
 	public String chatinvite(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("loginId");
@@ -73,6 +77,25 @@ public class CustomerServiceController {
 	}
 	
 	@ResponseBody
+	@RequestMapping(value = "/insertchat", method = RequestMethod.POST)
+	public void insertchat(@RequestParam(value = "insertchat", required = false) String insertchat) {
+		System.out.println("insertchat ajax: "+insertchat);
+		String[] insertchats = insertchat.split("/");				
+		String id = insertchats[0];
+		String new_chat = insertchats[1];
+		String time = insertchats[2];
+		String roomid = insertchats[3];
+		
+		Chat chat = new Chat();
+		chat.setChat_message(new_chat);
+		chat.setChat_time(time);
+		chat.setChatroom_id(roomid);
+		chat.setUser_id(id);
+		sdao.insertchat(chat);
+	}
+	
+	//사용자 초대 ajax
+	@ResponseBody
 	@RequestMapping(value = "/createroom", method = RequestMethod.POST)
 	public String createroom(@RequestParam(value = "checkId", required = false) String[] ids, HttpSession session, HttpServletRequest req) {
 		//String[] ids = req.getParameterValues("checkId");
@@ -91,14 +114,24 @@ public class CustomerServiceController {
 		idsum = idsum.replaceAll("\"", "");
 		String id = (String)session.getAttribute("loginId");
 		System.out.println(idsum);
-		System.out.println("왜 이동안돼");
 		return idsum;
 	}
 	
-	@RequestMapping(value = "/chatmain", method = RequestMethod.GET)
-	public String chatmain(HttpSession session, Model model, String data) {
+	//ajax후에 DB에 초대한 사용자들 저장
+	@RequestMapping(value = "/createroom", method = RequestMethod.GET)
+	public String chatmain(HttpSession session, Model model, String ids) {
 		String id = (String)session.getAttribute("loginId");
-		model.addAttribute("data",data);
+		model.addAttribute("ids",ids);
+		sdao.insertChatroom(ids);
+		return "redirect:/chatmain";
+	}
+	
+	//채팅메인페이지
+	@RequestMapping(value="/chatmain", method=RequestMethod.GET)
+	public String chatmain(HttpSession session, Model model) {
+		String id = (String)session.getAttribute("loginId");
+		ArrayList<Chatroom> roomlist = sdao.roomlist(id);
+		model.addAttribute("roomlist",roomlist);
 		return "service/chatmain";
 	}
 }

@@ -146,6 +146,8 @@ CREATE TABLE CHAT
 	chat_id number DEFAULT 0 NOT NULL,
 	-- 채팅 메세지
 	chat_message varchar2(300),
+	-- 채팅한 시간
+	chat_time varchar2(40),
 	-- 채팅방 경로
 	chatroom_id varchar2(200) NOT NULL,
 	-- 회원ID
@@ -467,13 +469,13 @@ ALTER TABLE EVENT
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (follow_ing_id)
+	ADD FOREIGN KEY (follow_ed_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (follow_ed_id)
+	ADD FOREIGN KEY (follow_ing_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
@@ -570,6 +572,7 @@ COMMENT ON COLUMN CART_BOOK.user_cart_no IS '찜 번호';
 COMMENT ON COLUMN CART_BOOK.cart_book_price IS '장바구니에 담긴 책가격';
 COMMENT ON COLUMN CHAT.chat_id IS '메세지 번호';
 COMMENT ON COLUMN CHAT.chat_message IS '채팅 메세지';
+COMMENT ON COLUMN CHAT.chat_time IS '채팅한 시간';
 COMMENT ON COLUMN CHAT.chatroom_id IS '채팅방 경로';
 COMMENT ON COLUMN CHAT.user_id IS '회원ID';
 COMMENT ON COLUMN CHATJOIN.chatjoin_no IS '식별자';

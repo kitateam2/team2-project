@@ -90,8 +90,8 @@
 				<div class="cd-faq__content">
           <div class="text-component">
             <a href="chatView">관리자 1:1문의</a><br>
-            <a href="chatTest">다른채팅</a><br>
-            <a href="chatinvite">아이디검색</a><br>
+            <!-- <a href="chatting">다른채팅</a><br> -->
+            <a href="chatmain">채팅메인페이지</a><br>
           </div>
 				</div> <!-- cd-faq__content -->
 			</li>
