@@ -31,7 +31,6 @@
 		<mapper resource="mapper/followMapper.xml" />
 		<mapper resource="mapper/serviceMapper.xml" />
 		<mapper resource="mapper/reviewMapper.xml" />
-		<mapper resource="mapper/BookDetailMapper.xml" />
 		
 	</mappers>
 </configuration>
