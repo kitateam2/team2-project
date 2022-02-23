@@ -83,11 +83,12 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	
 	/**
 	 * 글 읽기
-	 * @param boardnum 읽을 글번호
+	 * @param book_no 읽을 글번호
 	 * @return 해당 글 정보
 	 */
 	@RequestMapping (value="read", method=RequestMethod.GET)  //value 확인!!
 	public String read(String book_no, Model model) {
+		logger.debug("read경로에 파라미터 book_no: {}", book_no);
 		//전달된 글 번호로 해당 글정보 읽기
 		Book book = infodao.getBook(book_no);
 		if (book == null) {
@@ -96,12 +97,13 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 		
 		//해당 글에 달린 리플목록 읽기
 		ArrayList<BookReview> ReviewList = dao.BookReviewList(book_no);
+		logger.debug("결과값 ReviewList: {}", ReviewList);
 		
 		//본문글정보와 리플목록을 모델에 저장
 		model.addAttribute("book", book);
 		model.addAttribute("replylist", ReviewList);
 		
-		return "book/bookInfo";
+		return "book/bookDetail";
 	}
 	
 	//댓글 저장
@@ -113,7 +115,7 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 		review.setBook_review_writer(id);
 		logger.info("컨트롤러{}", review);
 		dao.insert(review);
-		return "redirect:bookInfo"; //나중에 고치기!!!!!!!
+		return "redirect:bookDetail"; //나중에 고치기!!!!!!!
 	}
 
 
