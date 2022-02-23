@@ -426,19 +426,10 @@ function bookPage() {
 
 </div> <!-- box3 -->
 
-<!--  <c:forEach var="cart" items="${Cart_book1}">
-		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
-		</c:forEach>
-		
-		<c:forEach var="wishlist" items="${wishCart_book1}">
-		<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
-		</c:forEach> --> 
 
 <div class="card-footer">Footer</div>
             
           
-
-
 
 </body>
 </html>
