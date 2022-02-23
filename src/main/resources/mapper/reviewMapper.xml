@@ -40,17 +40,17 @@
 </delete>
 
 <!-- 현재 글의 리플 목록 -->
-<select id="BookReviewList" parameterType="reviewVO" resultType="reviewVO">
+<select id="BookReviewList" parameterType="String" resultType="reviewVO">
 	select 
 		book_review_no
-		, book_no
 		, book_review_writer
 		, book_review_short
 		, book_review_date
+		, book_isbn
 	from 
 		book_review
 	where
-		book_no = #{book_no}
+		book_isbn = #{book_isbn}
 	order by 
 		book_review_no desc
 </select>

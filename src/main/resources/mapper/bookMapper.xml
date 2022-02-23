@@ -7,7 +7,7 @@
 <mapper namespace="com.sesoc.team2.dao.BookInfoMapper">
 
 <!-- 책 게시글 읽기 -->
-<select id="getBook" parameterType="BookVO" resultType="BookVO"> <!-- resultType은 셀렉트 구문에서 쓰이는데, alias 이름으로! -->
+<select id="getBook" parameterType="String" resultType="BookVO"> <!-- resultType은 셀렉트 구문에서 쓰이는데, alias 이름으로! -->
 	select 
 		book_no
 		, book_title
@@ -23,7 +23,7 @@
 	from 
 		Book_info
 	where 
-		book_no = #{book_no}
+		book_isbn = #{book_isbn}
 </select>
 
 <!-- 전체 글 개수 (검색 필터링 후) -->
@@ -43,6 +43,7 @@
 	select 
 		book_no
 		, book_title
+		, book_isbn
 		, book_author
 		, book_contents
 		, book_image

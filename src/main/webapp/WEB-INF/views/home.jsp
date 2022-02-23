@@ -53,7 +53,7 @@ function bt2Click(n){
 
 //검색 페이지 이동 
 function bookPage() {
-	var searchText = document.getElementById("bookName").value;
+	var searchText = document.getElementById("searchInput").value;
 	location.href = 'list?searchText='+searchText;
 }
 </script>
@@ -73,7 +73,7 @@ function bookPage() {
 	<p><a href="/team2" style="color:black;">Book Store</a> &nbsp; &nbsp;
 	<form id="bookName" method="get" action="list">
 		<input type="hidden" name="page" id="page" />
-		<input type="text" placeholder="검색어 입력" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }"/>
+		<input type="text" placeholder="검색어 입력" id="searchInput" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }"/>
 		<input type="button" id="search" onclick="javascript:bookPage();" value="검색">
 	</form></p></center></h1>
 	<!-- /검색폼 --> 
