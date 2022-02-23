@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2022-02-08 11:34:39</creation_date>
-			<updated_date>2022-02-23 15:45:15</updated_date>
+			<updated_date>2022-02-23 15:49:06</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -675,7 +675,7 @@
 			<binary>false</binary>
 			<args></args>
 			<char_semantics>false</char_semantics>
-			<description>이벤트 이름fdfsdfdfsdf</description>
+			<description>이벤트 이름</description>
 			<logical_name>event_name</logical_name>
 			<physical_name>event_name</physical_name>
 			<type>varchar(n)</type>
@@ -2214,7 +2214,7 @@
 				<normal_column>
 					<id>18</id>
 					<referenced_column>40</referenced_column>
-					<relation>2</relation>
+					<relation>1</relation>
 					<description>메세지 보낸 아이디</description>
 					<unique_key_name></unique_key_name>
 					<logical_name>message_sent_id</logical_name>
@@ -2248,7 +2248,7 @@
 				<normal_column>
 					<id>19</id>
 					<referenced_column>40</referenced_column>
-					<relation>1</relation>
+					<relation>2</relation>
 					<description>메세지 받은 아이디</description>
 					<unique_key_name></unique_key_name>
 					<logical_name>message_recv_id</logical_name>
@@ -3892,28 +3892,6 @@
 				</relation>
 				<relation>
 					<id>11</id>
-					<source>9</source>
-					<target>12</target>
-						<source_xp>-1</source_xp>
-						<source_yp>-1</source_yp>
-						<target_xp>0</target_xp>
-						<target_yp>80</target_yp>
-						<color>
-							<r>0</r>
-							<g>0</g>
-							<b>0</b>
-						</color>
-					<child_cardinality>1</child_cardinality>
-					<parent_cardinality>1</parent_cardinality>
-					<reference_for_pk>true</reference_for_pk>
-					<name></name>
-					<on_delete_action>RESTRICT</on_delete_action>
-					<on_update_action>RESTRICT</on_update_action>
-					<referenced_column>null</referenced_column>
-					<referenced_complex_unique_key>null</referenced_complex_unique_key>
-				</relation>
-				<relation>
-					<id>12</id>
 					<source>11</source>
 					<target>12</target>
 						<source_xp>-1</source_xp>
@@ -3926,6 +3904,28 @@
 							<b>0</b>
 						</color>
 					<child_cardinality>1..n</child_cardinality>
+					<parent_cardinality>1</parent_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<name></name>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+					<referenced_column>null</referenced_column>
+					<referenced_complex_unique_key>null</referenced_complex_unique_key>
+				</relation>
+				<relation>
+					<id>12</id>
+					<source>9</source>
+					<target>12</target>
+						<source_xp>-1</source_xp>
+						<source_yp>-1</source_yp>
+						<target_xp>0</target_xp>
+						<target_yp>80</target_yp>
+						<color>
+							<r>0</r>
+							<g>0</g>
+							<b>0</b>
+						</color>
+					<child_cardinality>1</child_cardinality>
 					<parent_cardinality>1</parent_cardinality>
 					<reference_for_pk>true</reference_for_pk>
 					<name></name>
@@ -3978,7 +3978,7 @@
 				<normal_column>
 					<id>57</id>
 					<referenced_column>40</referenced_column>
-					<relation>11</relation>
+					<relation>12</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -4046,7 +4046,7 @@
 				<normal_column>
 					<id>59</id>
 					<referenced_column>54</referenced_column>
-					<relation>12</relation>
+					<relation>11</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -4158,7 +4158,7 @@
 							<g>0</g>
 							<b>0</b>
 						</color>
-					<child_cardinality>1</child_cardinality>
+					<child_cardinality>1..n</child_cardinality>
 					<parent_cardinality>1</parent_cardinality>
 					<reference_for_pk>true</reference_for_pk>
 					<name></name>
@@ -4180,7 +4180,7 @@
 							<g>0</g>
 							<b>0</b>
 						</color>
-					<child_cardinality>1..n</child_cardinality>
+					<child_cardinality>1</child_cardinality>
 					<parent_cardinality>1</parent_cardinality>
 					<reference_for_pk>true</reference_for_pk>
 					<name></name>
@@ -4233,7 +4233,7 @@
 				<normal_column>
 					<id>62</id>
 					<referenced_column>40</referenced_column>
-					<relation>14</relation>
+					<relation>13</relation>
 					<description>상대방 id</description>
 					<unique_key_name></unique_key_name>
 					<logical_name>follow_ing_id</logical_name>
@@ -4267,7 +4267,7 @@
 				<normal_column>
 					<id>63</id>
 					<referenced_column>40</referenced_column>
-					<relation>13</relation>
+					<relation>14</relation>
 					<description>본인 id</description>
 					<unique_key_name></unique_key_name>
 					<logical_name>follow_ed_id</logical_name>

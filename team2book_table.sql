@@ -177,13 +177,12 @@ CREATE TABLE CHATROOM
 CREATE TABLE EVENT
 (
 	-- 이벤트 이름
-	event_name varchar2(40),
+	event_name varchar2(40) UNIQUE,
 	-- 0:꽝
 	-- 1:당첨
-	event_result number DEFAULT 0,
+	event_result number DEFAULT 0 UNIQUE,
 	-- 회원ID
-	user_id varchar2(20) NOT NULL,
-	UNIQUE (event_name, user_id)
+	user_id varchar2(20) NOT NULL UNIQUE
 );
 
 
@@ -480,13 +479,13 @@ ALTER TABLE FOLLOW
 
 
 ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_recv_id)
+	ADD FOREIGN KEY (message_sent_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_sent_id)
+	ADD FOREIGN KEY (message_recv_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
