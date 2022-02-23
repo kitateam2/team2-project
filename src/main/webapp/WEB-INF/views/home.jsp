@@ -52,15 +52,13 @@ function bt2Click(n){
 		data: {book_isbn: n},
 		dataType:'text',
 		success: function() { alert('위시리스트에 담았습니다.'); },
-		error: function() { alert('로그인을 해주세요'); }
+		error: function() { alert('이미 추가된 상품입니다'); }
 	});
 }
 
 
 function bookPage() {
 	var bookname = document.getElementById("bookName").value;
-	
-	alert('경로이동?');
 	location.href = 'bookInfo?bookname='+bookname;
 }
 </script>
@@ -69,12 +67,23 @@ function bookPage() {
 <!-- header부분 -->
 <div class="box3">
 <br>
-	<h1><center>
+<!--  <h1><center>
 	<p style="type"><a href="/team2">Book Store</a>&nbsp; &nbsp;
-	<!-- 검색폼 -->
 		<input id="bookName" type="text" placeholder="검색어 입력" >
 		<button id="search" onclick="bookPage();" value="검색">검색</button>	</p></center>
-	</h1>
+	</h1>	-->
+	
+		<!-- 검색폼 -->
+	<h1><center>
+	<p>Book Store &nbsp; &nbsp;
+	<form id="bookName" method="get" action="list">
+		<input type="hidden" name="page" id="page" />
+		<input type="text" placeholder="검색어 입력" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }"/>
+		<input type="button" id="search" onclick="javascript: pagingFormSubmit(1); bookPage();" value="검색">
+	</form></p></center></h1>
+	<!-- /검색폼 --> 
+	
+	
 	<br>
 	<div class="navigation_bar">
 	<table class="gnb_main add_1">
@@ -89,16 +98,16 @@ function bookPage() {
 	</table>
 	
 		<c:if test="${sessionScope.loginId == null}">
-				<a href="condition" style="color:white;" class="fa fa-user-plus fa-2x"></a></td><td>&nbsp;</td>
-				<a href="login" style="color:white;" class="fa fa-user fa-2x"></a></td><td>&nbsp;</td>
+				<td><a href="condition" style="color:white; position: relative; top: 10px;" class="fa fa-user-plus fa-2x"></a></td><td>&nbsp;</td>
+				<td><a href="login" style="color:white; position: relative; top: 10px;" class="fa fa-user fa-2x"></a></td><td>&nbsp;</td>
 			</c:if>
 			<c:if test="${sessionScope.loginId != null}">
-				<a href="logout" style="color:white;">로그아웃</a></td><td>&nbsp;</td>
-				<a href="updatemember" style="color:white;">회원정보수정</a></td><td>&nbsp;</td>
-				<a href="cart" style="color:white;" class="fa fa-shopping-cart fa-2x"></a></td><td>&nbsp;</td>
-				<a href="wish" style="color:white;" class="fa fa-heart fa-2x"></a></td><td>&nbsp;</td>
-				<a href="myblog/${sessionScope.loginId}" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
-				${sessionScope.loginId}님 환영합니다.
+				<a href="logout" style="color:white;position: relative; top: 10px;">로그아웃</a></td><td>&nbsp;</td>
+				<a href="updatemember" style="color:white; position: relative; top: 10px;">회원정보수정</a></td><td>&nbsp;</td>
+				<a href="cart" style="color:white; position: relative; top: 10px;" class="fa fa-shopping-cart fa-2x"></a></td><td>&nbsp;</td>
+				<a href="wish" style="color:white; position: relative; top: 10px;" class="fa fa-heart fa-2x"></a></td><td>&nbsp;</td>
+				<a href="myblog/${sessionScope.loginId}" style="color:white; position: relative; top: 10px;">개인 블로그</a></td><td>&nbsp;</td>
+				<a style="position: relative; top: 10px;">${sessionScope.loginId}님 환영합니다.</a>
 			</c:if>
 			
 	</div> <!-- navigation bar -->
@@ -132,7 +141,7 @@ function bookPage() {
         <div class="carousel-caption">
         </div>
       </div>
-  
+ 
     </div>
 
     <!-- Left and right controls -->
@@ -422,13 +431,13 @@ function bookPage() {
 
 </div> <!-- box3 -->
 
- <c:forEach var="cart" items="${Cart_book1}">
+<!--  <c:forEach var="cart" items="${Cart_book1}">
 		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
 		</c:forEach>
 		
 		<c:forEach var="wishlist" items="${wishCart_book1}">
 		<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
-		</c:forEach> 
+		</c:forEach> --> 
 
 <div class="footer">풋터풋터풋터풋터</div>
             
