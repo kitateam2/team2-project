@@ -122,5 +122,10 @@ public class CartDAO {
 		cart_book cartbook = mapper.select_wish_book(book_isbn);
 		return cartbook;
 	}
+	/*
+	 * public int select_order_detail_no(String user_id1) { CartMapper mapper =
+	 * sqlSession.getMapper(CartMapper.class); int result =
+	 * mapper.select_order_detail_no(user_id1); return result; }
+	 */
 	
 }

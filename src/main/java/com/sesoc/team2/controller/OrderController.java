@@ -125,9 +125,21 @@
 				 cartbook.setUser_cart_no(user_cart_no1);
 				dao.gocartinsert(cartbook);
 			 
-			 return "cart/cartForm";
+			 return "redirect:/cart"; 
 			  
 			 }
+			 
+			  //주문상세페이지로
+			  @RequestMapping (value="orderdetail", method=RequestMethod.GET) 
+				 public String orderdetail(HttpSession session, String book_isbn) {
+						/*
+						 * String user_id1 = (String) session.getAttribute("loginId"); int
+						 * order_detail_no = dao.select_order_detail_no(user_id1);
+						 */
+					
+				  return "order/orderdetail";
+			  
+			  }
 		  
 		  //수정
 		  
@@ -160,6 +172,7 @@
 			  
 		  }
 		  
+		
 		  }
 		  
 		 

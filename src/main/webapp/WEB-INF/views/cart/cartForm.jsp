@@ -216,7 +216,7 @@ left: 0;
           </tr>
            </table>
           </form>
-         
+         <a href="orderdetail" class="btn btn-primary">결제</a>
           
           </div>
           </div>

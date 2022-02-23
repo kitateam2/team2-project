@@ -16,7 +16,7 @@ $(document).ready(function(){
 	$('.card-number-input').on('keyup', text);
 	$('.card-holder-input').on('keyup', text);
 	$('.inputBox').on('change', text);
-	$('.inputBox').on('change', text);
+	$('.cvv-input').on('mouseover', text); //mouseover mouseenter
 	
 })
 
@@ -25,10 +25,12 @@ function text(){
 	var cc= document.getElementById('nameInput').value;
 	var dd= document.getElementById('inputmonth').value;
 	var ee= document.getElementById('inputyear').value;
+	var ff= document.getElementById('inputyear').value;
 	$('.card-number-box').html(bb);
 	$('.card-holder-name').html(cc);
 	$('.exp-month').html(dd);
 	$('.exp-year').html(ee);
+	$('.cvv-box').html(ee);
 	
 
 }

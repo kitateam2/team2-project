@@ -89,8 +89,9 @@
 				<a class="cd-faq__trigger" href="#0"><span>관리자와의 채팅으로 연결해주세요</span></a>
 				<div class="cd-faq__content">
           <div class="text-component">
-            <a href="chatView">관리자 1:1문의</a>
-            <a href="chatTest">다른채팅</a>
+            <a href="chatView">관리자 1:1문의</a><br>
+            <a href="chatTest">다른채팅</a><br>
+            <a href="chatinvite">아이디검색</a><br>
           </div>
 				</div> <!-- cd-faq__content -->
 			</li>
