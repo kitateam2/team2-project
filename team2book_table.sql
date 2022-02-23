@@ -177,7 +177,7 @@ CREATE TABLE CHATROOM
 CREATE TABLE EVENT
 (
 	-- 이벤트 이름
-	event_name varchar2(40) NOT NULL,
+	event_name varchar2(40),
 	-- 0:꽝
 	-- 1:당첨
 	event_result number DEFAULT 0,
@@ -248,11 +248,11 @@ CREATE TABLE ORDER_LIST
 	-- 주문번호
 	order_no number NOT NULL,
 	-- 주문날짜
-	order_date date DEFAULT sysdate NOT NULL,
+	order_date date DEFAULT sysdate,
 	-- 총 주문 금액
 	order_totalprice number DEFAULT 0 NOT NULL,
 	-- 주문상태
-	order_state varchar2(30) NOT NULL,
+	order_state varchar2(30),
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
 	PRIMARY KEY (order_no)
@@ -468,25 +468,25 @@ ALTER TABLE EVENT
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (follow_ed_id)
-	REFERENCES USER_INFO (user_id)
-;
-
-
-ALTER TABLE FOLLOW
 	ADD FOREIGN KEY (follow_ing_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
-ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_sent_id)
+ALTER TABLE FOLLOW
+	ADD FOREIGN KEY (follow_ed_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE MESSAGE
 	ADD FOREIGN KEY (message_recv_id)
+	REFERENCES USER_INFO (user_id)
+;
+
+
+ALTER TABLE MESSAGE
+	ADD FOREIGN KEY (message_sent_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
