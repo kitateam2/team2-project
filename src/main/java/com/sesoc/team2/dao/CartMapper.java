@@ -47,7 +47,17 @@ public interface CartMapper {
 	cart_book select_wish_book(String book_isbn);
 
 	//오더 디테일
-	/* int select_order_detail_no(String user_id1); */
+	int select_order_detail_no(String user_id1);
+
+	ArrayList<cart_book> select_order_book(int user_cart_no);
+
+	int orderdetailinsert(cart_book cartbook);
+
+	int order_no(String user_id1);
+
+	ArrayList<cart_book> orderlist(String user_id1);
+
+	
 
 
 

@@ -8,6 +8,7 @@ String book_isbn;
 int user_cart_no;
 int book_price;
 String book_title;
+int order_no;
 
 
 public cart_book() {
@@ -85,12 +86,25 @@ public void setBook_title(String book_title) {
 }
 
 
+public int getOrder_no() {
+	return order_no;
+}
+
+
+public void setOrder_no(int order_no) {
+	this.order_no = order_no;
+}
+
+
 @Override
 public String toString() {
 	return "cart_book [cart_book_no=" + cart_book_no + ", cart_book_inputdate=" + cart_book_inputdate
 			+ ", cart_book_count=" + cart_book_count + ", book_isbn=" + book_isbn + ", user_cart_no=" + user_cart_no
-			+ ", book_price=" + book_price + ", book_title=" + book_title + "]";
+			+ ", book_price=" + book_price + ", book_title=" + book_title + ", order_no=" + order_no + "]";
 }
+
+
+
 
 
 

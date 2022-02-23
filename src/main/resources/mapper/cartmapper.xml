@@ -22,6 +22,11 @@ select book_isbn, book_price, book_title from book_info where book_isbn = #{book
 select book_isbn, book_price, book_title from book_info where book_isbn = #{book_isbn}
 </select>
 
+<select id ="select_order_book" parameterType="int" resultType="cart_bookVO">
+select book_isbn, book_price, book_title from cart_book where user_cart_no = #{user_cart_no}
+</select>
+
+
 <select id ="user_wishlist" parameterType="String" resultType="user_wishlistVO">
 select book_isbn from book_info where book_isbn = #{book_isbn}
 </select>
@@ -38,6 +43,10 @@ select user_wish_no from user_wish where user_id = #{user_id1}
 select user_cart_no from USER_cart where user_id = #{user_id1}
 </select> 
 
+<select id ="order_no" parameterType="String" resultType="int">
+select order_no from order_list where user_id = #{user_id1}
+</select> 
+
 
 <select id ="booktitle" parameterType="String" resultType="String">
 select book_title from book_info where book_isbn = #{book_isbn}
@@ -49,6 +58,13 @@ select *
 from cart_book cb, user_cart uc 
 where cb.user_cart_no = uc.user_cart_no 
 and uc.user_id = #{user_id1}
+</select>
+
+<select id ="orderlist" resultType="cart_bookVO" parameterType="String">
+select * 
+from order_detail od, order_list ol 
+where od.order_no = ol.order_no 
+and ol.user_id = #{user_id1}
 </select>
 
 <select id ="wishlist1" resultType="user_wishlistVO" parameterType="String">
@@ -124,6 +140,24 @@ cart_book_seq.nextval
 ,#{user_cart_no}
 ,#{book_price}
 ,#{book_title}
+)
+</insert>
+
+<insert id ="orderdetailinsert" parameterType="cart_bookVO">
+insert into order_detail 
+(
+order_detail_no
+,book_price
+,order_detail_count
+,book_isbn
+,order_no
+)
+values (
+order_detail_seq.nextval
+,#{book_price}
+,#{cart_book_count}
+,#{book_isbn}
+,#{order_no}
 )
 </insert>
  

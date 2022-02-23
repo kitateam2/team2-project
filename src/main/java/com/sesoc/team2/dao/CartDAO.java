@@ -122,10 +122,33 @@ public class CartDAO {
 		cart_book cartbook = mapper.select_wish_book(book_isbn);
 		return cartbook;
 	}
-	/*
-	 * public int select_order_detail_no(String user_id1) { CartMapper mapper =
-	 * sqlSession.getMapper(CartMapper.class); int result =
-	 * mapper.select_order_detail_no(user_id1); return result; }
-	 */
+	public int select_order_detail_no(String user_id1) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.select_order_detail_no(user_id1);
+		return result;
+	}
+	
+	
+	public ArrayList<cart_book> select_order_book(int user_cart_no) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		ArrayList<cart_book> user_cart_num = mapper.select_order_book(user_cart_no);
+		return user_cart_num;
+	}
+	public int orderdetailinsert(cart_book cartbook) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.orderdetailinsert(cartbook);
+		return result;
+		
+	}
+	public int order_no(String user_id1) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.order_no(user_id1);
+		return result;
+	}
+	public ArrayList<cart_book> orderlist(String user_id1) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		ArrayList<cart_book> orderlist = mapper.orderlist(user_id1);
+		return orderlist;
+	}
 	
 }

@@ -55,6 +55,16 @@ insert into user_info
 	)
 	</insert>
 	
+	<insert id ="insertordercart" parameterType="User_infoVO">
+	insert into order_list
+	(
+	order_no
+	,user_id
+	) values (
+	member_seq.nextval
+	,#{user_id}
+	)
+	</insert>
 	<update id="updatemember" parameterType="User_infoVO">
 update 
 	user_info 

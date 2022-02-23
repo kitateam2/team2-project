@@ -51,8 +51,11 @@
 		  public String list1( cart_book cart_book1,Model model,HttpSession session) {
 		  String user_id1 = (String) session.getAttribute("loginId");
 		  ArrayList<cart_book> cart = dao.selectbook1(user_id1);
-		  
+		  cart_book cb = cart.get(0);
+		  int user_cart_no = cb.getUser_cart_no();
 		  model.addAttribute("Cart_book1",cart);
+		  model.addAttribute("user_cart_no",user_cart_no);
+		  
 		  
 		  int cart_total = dao.total(cart_book1.getUser_cart_no()); //토탈 찍고 모델에 담아서 뿌리기
 		  model.addAttribute("cart_total", cart_total);
@@ -131,18 +134,26 @@
 			 
 			  //주문상세페이지로
 			  @RequestMapping (value="orderdetail", method=RequestMethod.GET) 
-				 public String orderdetail(HttpSession session, String book_isbn) {
-						/*
-						 * String user_id1 = (String) session.getAttribute("loginId"); int
-						 * order_detail_no = dao.select_order_detail_no(user_id1);
-						 */
+				 public String orderdetail(HttpSession session, int user_cart_no, Model model, cart_book cart_book1) {
+				  String user_id1 = (String) session.getAttribute("loginId");
+				  int order_no = dao.order_no(user_id1);		  
+				  logger.info("유저카트넘버ㅡ{}",user_cart_no);
+				  ArrayList<cart_book> cartbook = dao.select_order_book(user_cart_no);
+				  ArrayList<cart_book> cartbook2 = dao.orderlist(user_id1);
+				  model.addAttribute("orderlistcart",cartbook);
+				  model.addAttribute("cart_book1", user_cart_no);
+				  for (cart_book cartbook1 : cartbook) {
+					  cartbook1.setOrder_no(order_no);
+					  dao.orderdetailinsert(cartbook1);
+				  }
 					
 				  return "order/orderdetail";
 			  
 			  }
+			  
 		  
-		  //수정
-		  
+			  
+			  //수정
 		  @RequestMapping (value="update", method=RequestMethod.GET)
 			public String updatecart(cart_book cart_book, HttpSession session, int cart_book_no,int cart_book_count ) {//xx파라미터값 전달
 				logger.debug("수정{}", cart_book_count);

@@ -92,7 +92,6 @@
       <input type="submit" name="" value="Login">
       <input type="submit" value="취소">
     </form>
-    
     <div class="errorMsg">
 			${errorMsg}
 		</div>

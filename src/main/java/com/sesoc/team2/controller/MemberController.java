@@ -39,6 +39,7 @@ public class MemberController {
 		memberDAO.insertMember(user_info);
 		memberDAO.insertusercart(user_info);
 		memberDAO.insertwishcart(user_info);
+		memberDAO.insertordercart(user_info);
 		return "redirect:/";
 	}
 	
