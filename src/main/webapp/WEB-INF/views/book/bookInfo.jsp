@@ -108,7 +108,7 @@ function bookPage() {
 	
 	<!-- 검색폼 -->
 	<h1><center>
-	<p>Book Store &nbsp; &nbsp;
+	<p><a href="/team2" style="color:black;">Book Store</a> &nbsp; &nbsp;
 	<form id="bookName" method="get" action="list">
 		<input type="hidden" name="page" id="page" />
 		<input type="text" placeholder="검색어 입력" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }"/>
