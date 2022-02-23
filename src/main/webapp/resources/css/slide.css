@@ -123,6 +123,7 @@ h2::after {
 }
 .carousel .carousel-indicators {
 	bottom: -50px;
+	left: 30;
 }
 .carousel-indicators li, .carousel-indicators li.active {
 	width: 3%;

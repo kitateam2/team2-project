@@ -46,6 +46,9 @@ public interface CartMapper {
 
 	cart_book select_wish_book(String book_isbn);
 
+	//오더 디테일
+	/* int select_order_detail_no(String user_id1); */
+
 
 
 

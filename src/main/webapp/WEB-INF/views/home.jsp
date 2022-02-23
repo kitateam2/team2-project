@@ -52,7 +52,7 @@ function bt2Click(n){
 		data: {book_isbn: n},
 		dataType:'text',
 		success: function() { alert('위시리스트에 담았습니다.'); },
-		error: function() { alert('로그인을 해주세요'); }
+		error: function() { alert('이미 추가된 상품입니다'); }
 	});
 }
 
@@ -89,16 +89,16 @@ function bookPage() {
 	</table>
 	
 		<c:if test="${sessionScope.loginId == null}">
-				<a href="condition" style="color:white;" class="fa fa-user-plus fa-2x"></a></td><td>&nbsp;</td>
-				<a href="login" style="color:white;" class="fa fa-user fa-2x"></a></td><td>&nbsp;</td>
+				<td><a href="condition" style="color:white; position: relative; top: 10px;" class="fa fa-user-plus fa-2x"></a></td><td>&nbsp;</td>
+				<td><a href="login" style="color:white; position: relative; top: 10px;" class="fa fa-user fa-2x"></a></td><td>&nbsp;</td>
 			</c:if>
 			<c:if test="${sessionScope.loginId != null}">
-				<a href="logout" style="color:white;">로그아웃</a></td><td>&nbsp;</td>
-				<a href="updatemember" style="color:white;">회원정보수정</a></td><td>&nbsp;</td>
-				<a href="cart" style="color:white;" class="fa fa-shopping-cart fa-2x"></a></td><td>&nbsp;</td>
-				<a href="wish" style="color:white;" class="fa fa-heart fa-2x"></a></td><td>&nbsp;</td>
-				<a href="myblog/${sessionScope.loginId}" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
-				${sessionScope.loginId}님 환영합니다.
+				<a href="logout" style="color:white;position: relative; top: 10px;">로그아웃</a></td><td>&nbsp;</td>
+				<a href="updatemember" style="color:white; position: relative; top: 10px;">회원정보수정</a></td><td>&nbsp;</td>
+				<a href="cart" style="color:white; position: relative; top: 10px;" class="fa fa-shopping-cart fa-2x"></a></td><td>&nbsp;</td>
+				<a href="wish" style="color:white; position: relative; top: 10px;" class="fa fa-heart fa-2x"></a></td><td>&nbsp;</td>
+				<a href="myblog/${sessionScope.loginId}" style="color:white; position: relative; top: 10px;">개인 블로그</a></td><td>&nbsp;</td>
+				<a style="position: relative; top: 10px;">${sessionScope.loginId}님 환영합니다.</a>
 			</c:if>
 			
 	</div> <!-- navigation bar -->
