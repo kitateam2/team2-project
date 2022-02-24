@@ -60,7 +60,7 @@
 			
 			$("#message_recv_id").autocomplete({
 						//source:["aaa", "bbb", "ccc", "ddd", "kkkkkk", "hhhhhh", "kkkfff"]
-				/* autoFocus: true, */
+				autoFocus: true,
 			
 				source: function(request, response){
 							$.ajax({
