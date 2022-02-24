@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="./resources/js/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script>
 $(document).ready(  function() {
 	$('.create').on('click', function() {
@@ -27,8 +28,7 @@ $(document).ready(  function() {
 			//dataType: "json",
 			
 			success: function(data){
-				alert(data); 
-				location.href="/team2/createroom?ids="+data;
+				location.href="/team2/createroom?ids="+data;	
 			},
 			error:function(request,status,error){
 		        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); 
@@ -39,6 +39,9 @@ $(document).ready(  function() {
 </script>
 </head>
 <body>
+<c:if test="${error eq 1}">
+	<div class="alert alert-warning" role="alert">채팅방을 다시 만들어주세요</div>
+</c:if>
 <form action="chatinvite" method="POST">
 	<input name="searchId" type="text">
 	<input type="submit" value="검색">

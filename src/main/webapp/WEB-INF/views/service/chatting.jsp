@@ -20,6 +20,8 @@ $(document).ready(  function() {
 	connectStomp();
 	$('.chat-submit').on('click', sendMessage);
 	$('#chat-insert').on('keypress', textKeyPress);
+	
+	$("html").scrollTop($(document).height());
 });
 
 //입력란에서 엔터쳤을 때 서버로 메시지 전송
@@ -95,13 +97,12 @@ function connectStomp() {
 </script>
 </head>
 <body>
-<p>${sessionScope.loginId}세션아이디</p>
 <div id="chat-body">
 	<main>
                 <!-- 고정된 공지사항 영역 -->
                 <div class="notice-bar">
                     <i class="icon-bullhorn"></i>
-                    <span>멘트를 고정해놓는 곳입니다.</span>
+                    <span>채팅 참여자: ${roomid}</span>
                     <i class="icon-down-open-big"></i>
                 </div>
                 <!-- 채팅 내용 시작 -->
@@ -127,6 +128,29 @@ function connectStomp() {
                             <time datetime="07:32:00+09:00">오전 7:32</time>
                         </div>
                         
+                        <c:forEach var="chat" items="${chatlist}">
+                        	<c:if test="${sessionScope.loginId eq chat.user_id}">
+	 							<div class="me-chat">
+	                            <div class="me-chat-col">
+								
+	                            <div class="profile-name">${chat.user_id}</div>
+	                                <div class="balloon">${chat.chat_message}</div>
+	                            </div>
+	                            <time>${chat.chat_time}</time>
+	                       		</div>
+							</c:if>
+							<c:if test="${sessionScope.loginId ne chat.user_id}">
+	 							<div class="friend-chat">
+	                            <div class="friend-chat-col">
+								
+	                            <div class="profile-name">${chat.user_id}</div>
+	                                <div class="balloon">${chat.chat_message}</div>
+	                            </div>
+	                            <time>${chat.chat_time}</time>
+	                       		</div>
+							</c:if>
+						</c:forEach>
+						
                     </div>
                 </div>
                 <!-- 채팅 입력창 -->

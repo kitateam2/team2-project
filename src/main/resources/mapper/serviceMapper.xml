@@ -38,4 +38,10 @@
 			#{user_id}
 		)
 	</insert>
+	
+	<!-- 모든 과거채팅 조회 -->
+	<select id="chatlist" resultType="chat" parameterType="String">
+		select * from chat where
+		chatroom_id = #{roomid}
+	</select>
 </mapper>

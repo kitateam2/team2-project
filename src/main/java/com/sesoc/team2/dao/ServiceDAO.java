@@ -40,6 +40,12 @@ public class ServiceDAO {
 		ServiceMapper mapper = sqlSession.getMapper(ServiceMapper.class);
 		mapper.insertchat(chat);
 	}
+
+	public ArrayList<Chat> chatlist(String roomid) {
+		ServiceMapper mapper = sqlSession.getMapper(ServiceMapper.class);
+		ArrayList<Chat> chatlist = mapper.chatlist(roomid);
+		return chatlist;
+	}
 	
 	
 }
