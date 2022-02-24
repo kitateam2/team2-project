@@ -55,6 +55,7 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 		ArrayList<Book> booklist = infodao.listBook(searchText, navi.getStartRecord(), navi.getCountPerPage());	
 		logger.info("{} booklist 컨틀롤러", booklist);
 		
+
 		//페이지 정보 객체와 글 목록, 검색어를 모델에 저장
 		model.addAttribute("booklist", booklist);
 		model.addAttribute("navi", navi);
@@ -77,14 +78,13 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 			return "redirect:list"; //list가 어디에 있는 경로인지 확인!!
 		}
 		
-		
 		//해당 글에 달린 리플목록 읽기
 		ArrayList<BookReview> ReviewList = dao.BookReviewList(book_isbn);
 		logger.debug("결과값 ReviewList: {}", ReviewList);
 		
 		//본문글정보와 리플목록을 모델에 저장
 		model.addAttribute("book", book);
-		model.addAttribute("replylist", ReviewList);
+		model.addAttribute("ReviewList", ReviewList);
 		model.addAttribute("book_isbn", book_isbn);
 		
 		return "book/bookDetail";
@@ -95,28 +95,15 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	public String insert(BookReview review, HttpSession session, Model model) {
 		/* 로그인한 사람들 정보 저장 */
 		String id = (String) session.getAttribute("loginId");
-		logger.info("컨트롤러 id체크{}", id);
+		
 		review.setBook_review_writer(id);
-		logger.info("컨트롤러{}", review);
 		dao.insert(review);
+		
 		logger.info("메서드 끝");
-		return "redirect:/bookDetail"; //나중에 고치기!!!!!!!
+		String book_isbn = review.getBook_isbn();
+		return "redirect:read?book_isbn="+book_isbn; 
 	}
 
-
-//	//리플저장
-//		@RequestMapping (value="post_comment", method=RequestMethod.POST)
-//		public String post_comment_insert(PostComment postcomment
-//					                      , HttpSession session
-//					                      ,  Model model){
-//			/* 로그인한 사람의 정보를 저장 */
-//			String id = (String) session.getAttribute("loginId");	
-//			logger.info("컨트롤러{}",id);
-//			postcomment.setPost_comment_writter(id);
-//			logger.info("컨트롤러{}",postcomment);
-//			dao.post_comment_insert(postcomment);
-//			return "redirect:one_post?post_no=" + postcomment.getPost_no();
-//		}
 		
 	
 	

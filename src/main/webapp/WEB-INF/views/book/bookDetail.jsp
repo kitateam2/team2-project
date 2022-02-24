@@ -87,7 +87,7 @@ function book_review_delete(book_review_no, book_review_star){
 <br>
 	<!-- 검색폼 -->
 	<h1><center>
-	<p><a href="/team2" style="color:black;">Book Store</a> &nbsp; &nbsp;
+	<p><a href="/team2" style="color:black; font-size:35px; font-weight:bold;">Book Store</a> &nbsp; &nbsp;
 	<form id="bookName" method="get" action="list">
 		<input type="hidden" name="page" id="page" />
 		<input type="text" placeholder="검색어 입력" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }"/>
@@ -99,20 +99,20 @@ function book_review_delete(book_review_no, book_review_star){
 	<table class="gnb_main add_1">
 		<tr colspan="5" id="blank"></tr>
 		<tr> 
-				<td class="class_item"><a href="url" class="text" style="color:white;">국내도서</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="url" class="text" style="color:white;">외국도서</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="bookInfo" class="text" style="color:white;">책 상세정보</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="blogmain" class="text" style="color:white;">블로그 메인</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="blogmain" class="text" style="color:white;">고객센터</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="url" class="text" style="color:white; font-size:16px;">국내도서</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="url" class="text" style="color:white; font-size:16px;">외국도서</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="bookInfo" class="text" style="color:white; font-size:16px;">책 상세정보</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="blogmain" class="text" style="color:white; font-size:16px;">블로그 메인</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="blogmain" class="text" style="color:white; font-size:16px;">고객센터</a></td><td>&nbsp;</td>
 			<c:if test="${sessionScope.loginId == null}">
-				<td class="class_item2"><a href="condition" style="color:white;">회원가입</a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="login" style="color:white;">로그인</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="condition" style="color:white; font-size:16px;">회원가입</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="login" style="color:white; font-size:16px;">로그인</a></td><td>&nbsp;</td>
 			</c:if>
 			<c:if test="${sessionScope.loginId != null}">
-				<td class="class_item2" style="color:white;"><a href="logout">로그아웃</a></td><td>&nbsp;</td>
-				<td class="class_item2" style="color:white;"><a href="cart">장바구니</a></td><td>&nbsp;</td>
-				<td class="class_item2" style="color:white;"><a href="myblog">개인 블로그</a></td><td>&nbsp;</td>
-				<td class="class_item3" style="color:white;">${sessionScope.loginId}님 환영합니다.</td>
+				<td class="class_item2" style="color:white; font-size:16px;"><a href="logout">로그아웃</a></td><td>&nbsp;</td>
+				<td class="class_item2" style="color:white; font-size:16px;"><a href="cart">장바구니</a></td><td>&nbsp;</td>
+				<td class="class_item2" style="color:white; font-size:16px;"><a href="myblog">개인 블로그</a></td><td>&nbsp;</td>
+				<td class="class_item3" style="color:white; font-size:16px;">${sessionScope.loginId}님 환영합니다.</td>
 			</c:if>
 		</tr>	
 	</table>
@@ -161,7 +161,7 @@ function book_review_delete(book_review_no, book_review_star){
 
 
 <!-- 댓글 자리 -->
-	<form class="card" id="book_review_form" action="book_review" method="post"  onsubmit="return book_review_form()">
+	<form class="card" id="book_review_form" action="book_review" method="post"  onsubmit="return book_review_form()"> <!-- action은 controller의 value값과 일치 -->
 		<div class="card-body"><textarea name="book_review_short" id="book_review_short" class="form-control" rows="1"></textarea></div> <!-- vo의 컬럼으로 name을 설정 -->
 		<input type="hidden" name="book_isbn" value="${book_isbn}">
 		<input type="submit" value="댓글등록" />
@@ -169,11 +169,16 @@ function book_review_delete(book_review_no, book_review_star){
 
 	<!-- 댓글 리스트 -->
 	<table>
-		<tr><th> 댓글 리스트 </th></tr>
-		<c:forEach var="book_review" items="${BookReviewList}">
 		<tr>
-			<td>${book_review.book_review_writer}</td>
-			<td>${book_review.book_review_short}</td>
+			<td><p style="height: 18px;"></p></td>
+		</tr>
+		<tr>
+			<td><p style="font-size: 15px; font-weight:bold;"> 댓글 리스트 </p></td>
+		</tr>
+		<c:forEach var="book_review" items="${ReviewList}"> <!-- items값은 controller에서 addAttribute의 "" 안에있는 값과 일치해야함 -->
+		<tr>
+			<td><p style="font-size: 14px; font-weight:normal;">${book_review.book_review_writer}</p></td>
+			<td><p style="font-size: 13px; font-weight:normal;">${book_review.book_review_short}</p></td>
 			<td><c:if test="${loginId == book_review.book_review_writer}">
 				[<a href="javascript:replyEditForm(${book_review.book_review_no},'${book_review.book_review_short}')">수정</a>]
 				</c:if>
@@ -184,10 +189,14 @@ function book_review_delete(book_review_no, book_review_star){
 			</td>
 		</tr>	
 		</c:forEach>
+		
+		<tr>
+			<td><p style="height: 20px;"></p></td>
+		</tr>
 	</table>
 	
 </div><!-- box3 -->
 
-
+<div class="card-footer">Footer</div>
 </body>
 </html>
