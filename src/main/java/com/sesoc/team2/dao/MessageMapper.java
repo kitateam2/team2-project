@@ -32,7 +32,7 @@ public interface MessageMapper {
 	public int get_total_fav(HashMap<String, String> map_fav);
 	
 	/* 받는 사람 아이디 자동완성 */
-	public ArrayList<String> get_recv_id();
+	public ArrayList<String> get_recv_id(String text);
 
 
 }

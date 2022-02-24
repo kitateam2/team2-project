@@ -110,9 +110,9 @@ public class MessageDAO {
 	
 	
 	//받는 사람아이디 자동완성
-	public ArrayList<String> get_recv_id() {
+	public ArrayList<String> get_recv_id(String text) {
 		MessageMapper mapper = sqlSession.getMapper(MessageMapper.class);
-		ArrayList<String> array_recv_id = mapper.get_recv_id();
+		ArrayList<String> array_recv_id = mapper.get_recv_id(text);
 		logger.info("보낼 수 있는 아이디 값들 {}", array_recv_id);
 		return array_recv_id;
 	}

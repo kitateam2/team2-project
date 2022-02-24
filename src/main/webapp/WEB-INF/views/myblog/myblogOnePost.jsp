@@ -39,15 +39,15 @@ function post_comment_form() {
 }
 
 //댓글 삭제하기
-function post_comment_delete(post_comment_no, post_no){
+function post_comment_delete(post_comment_no, post_no, user_id){
 	if (confirm('댓글을 삭제하시겠습니까?')){
-		location.href='../post_comment_delete?post_comment_no=' + post_comment_no + '&post_no=' + post_no;
+		location.href='../post_comment_delete?post_comment_no=' + post_comment_no + '&post_no=' + post_no ;
 		}
 }
 
 //댓글 도움이 되었어요 
 function post_comment_like(post_comment_no, post_no){
-	location.href='../post_comment_like?post_comment_no=' + post_comment_no + '& post_no=' + post_no;
+	location.href='../post_comment_like?post_comment_no=' + post_comment_no + '&post_no=' + post_no;
 	alert('해당 댓글이 도움이 되었다니 기뻐요 :)');
 }
 
@@ -57,7 +57,7 @@ function post_comment_edit(post_comment_no, post_no, retext){
 		var div = document.getElementById("div"+post_comment_no);
 	<!-- 댓글 자리 -->
 	
-	var str = '<form class="card" name="post_comment_form'+ post_comment_no +'" action="../post_comment_edit" method="post"  onsubmit="return post_comment_form()">';
+	var str = '<form class="card" name="post_comment_form'+ post_comment_no +'" action="../post_comment_edit?user_id=${one_post.user_id}" method="post"  onsubmit="return post_comment_form()">';
 		str += '<input type="hidden" name="post_no" value="'+ post_no +'"/>';
 		str += '<input type="hidden" name="post_comment_no" value="'+ post_comment_no +'"/>';
 		str += '<div class="card-body"><textarea name="post_comment_content" value="'+ retext +'" class="form-control" rows="1"></textarea></div>';
@@ -137,7 +137,7 @@ function replyEditCancle(div) {
 <br><br>
 
 <!-- 댓글 자리 -->
-<form class="card" id="post_comment_form" action="../post_comment" method="post"  onsubmit="return post_comment_form()">
+<form class="card" id="post_comment_form" action="../post_comment?user_id=${one_post.user_id}" method="post"  onsubmit="return post_comment_form()">
 	<input type="hidden" name="post_no" value="${one_post.post_no}"/>
 	<div class="card-body"><textarea name="post_comment_content" id="retext" class="form-control" rows="1"></textarea></div>
 	<input type="submit" value="댓글등록" />

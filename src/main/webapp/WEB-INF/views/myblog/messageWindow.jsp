@@ -11,14 +11,15 @@
 %>
 <html>
 <head>
+	<script src=""></script>
 	<link rel="stylesheet"
 			href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-  
+<!-- 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+ -->  
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   
@@ -51,8 +52,47 @@
 
 			alert("<%= sf.format(nowTime) %>에 님께 쪽지를 전송합니다.");
 			return true;
-			}
+		}
+
+		function auto_recv_complete() {
+			let text = $("#message_recv_id").val();
+			if (text.length < 2) return;
+			
+			$("#message_recv_id").autocomplete({
+						//source:["aaa", "bbb", "ccc", "ddd", "kkkkkk", "hhhhhh", "kkkfff"]
+				/* autoFocus: true, */
+			
+				source: function(request, response){
+							$.ajax({
+								url:"json_auto",
+								type:'get',
+								data: {'text': text},
+								dataType:"json",
+								
+								success: function(data){//배열로 받아야 할 것 같은데
+									//alert(JSON.stringify(date));
+									 response(data
+											 
+/* 							                    $.map(data, function(item) {
+							                        return {
+							                            label: item.data,
+							                            value: item.data
+							                        };
+							                    })
+ */							                   )//response
+										},//success
+								error: function(){
+									alert("없는 정보 입니다.");
+									}//error
+							});
+						}
+				
+ 			});
+		}
+		</script>
 		
+		
+		<script>
 		/* 새글 작성하기 */
 		function message_new(login_id){
 
@@ -71,8 +111,8 @@
 				str += '<td colspan="2">${sessionScope.loginId}</td>';
 				str += '</tr>';
 				str += '<tr>';
-				str += '<td>수신인  </td>';
-				str += '<td><input type="text"  name="message_recv_id" id="message_recv_id" placeholder="받는 분 아이디"/>';
+				str += '<td><label for = "message_recv_id">수신인</label> </td>';
+				str += '<td><input type="text" onkeyup="javascript:auto_recv_complete();" name="message_recv_id" id="message_recv_id" placeholder="받는 분 아이디"/>';
 				str += '</td>';
 				str += '<td><%= sf2.format(nowTime) %></td>';
 				str += '</tr>';
@@ -97,51 +137,8 @@
 			form.submit();
 		}
 	</script>
+	
 
-	<script>
-	$("#message_recv_id").keyup(function autoProcess() {
-			  $("#message_recv_id").autocomplete({
-				source : function(request, response){
-					$.ajax({
-						type:'get',
-						url:"/json_auto",
-						dateType: "json",
-						success: function(data){
-						response(
-							$.map(data. function(item){
-								return{
-									label: item+"label",
-									value: item,
-									test: item+"test"
-									}//return
-								})//$.map
-								)//response
-							}//function(data)
-						})//$.ajax
-					}//source: function(request, response)
-				select: function(event, ui){
-					console.log(ui);
-					console.log(ui.item.label);
-					console.log(ui.item.value);
-					console.log(ui.item.test);
-					},//select: function
-				focus : function(event, ui){
-					return false;
-					},//focus : function
-				minLength:1,
-				autofocus: ture,
-				classes{
-						"ui-autocomplete": "highlight"
-					},
-				dalay: 300,
-				position: { my: "ri ght top", at: "right bottom"},
-				close: function(event){
-					console.log(event);
-					}
-				});//$("#message_recv_id").autocomplete
-	})
-	</script> 
-	 
 	 <!-- 처음 화면 들어갔을 떄 -->
 	<script>
 		$(document).ready(function(){
