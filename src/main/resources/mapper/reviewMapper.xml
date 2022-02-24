@@ -11,7 +11,6 @@
 <insert id="insert" parameterType="reviewVO">
 	insert into book_review (
 		book_review_no
-		, book_no
 		, book_review_writer
 		, book_review_short
 		, book_review_date
@@ -20,10 +19,9 @@
 	)
 	values (
 		book_review_seq.nextval
-		, #{book_no}
 		, #{book_review_writer}
 		, #{book_review_short}
-		, #{book_review_date}
+		, sysdate
 		, #{book_review_star}
 		, #{book_isbn}
 	)
