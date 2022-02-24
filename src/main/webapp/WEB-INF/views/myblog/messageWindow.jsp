@@ -241,12 +241,12 @@
 							${message_list_recv.message_title}</a>
 						</td>
 					</tr>
-					<tr>
+					<%-- <tr>
 						<td>내용: </td>
 						<td><a href="window?message_no=${message_list_recv.message_no}">
 							${message_list_recv.message_contents}</a>
 						</td>
-					</tr>
+					</tr> --%>
 					<tr>
 						<td>조회수: </td>
 						<td> ${message_list_recv.message_hits}</td>
@@ -293,12 +293,12 @@
 							${message_list_sent.message_title}</a>
 						</td>
 					</tr>
-					<tr>
+					<%-- <tr>
 						<td>내용: </td>
 						<td><a href="window?message_no=${message_list_sent.message_no}">
 						 	${message_list_sent.message_contents}</a>
 						 </td>
-					</tr>
+					</tr> --%>
 					<tr>
 						<td>조회수: </td>
 						<td> ${message_list_sent.message_hits}</td>
@@ -345,12 +345,12 @@
 							${message_list_unopened.message_title}</a>
 						</td>
 					</tr>
-					<tr>
+					<%-- <tr>
 						<td>내용: </td>
 						<td><a href="window?message_no=${message_list_unopened.message_no}">
 							${message_list_unopened.message_contents}</a>
 						</td>
-					</tr>
+					</tr> --%>
 					<tr>
 						<td>조회수: </td>
 						<td> ${message_list_unopened.message_hits}</td>
@@ -397,12 +397,12 @@
 							${message_list_fav.message_title}</a>
 						</td>
 					</tr>
-					<tr>
+					<%-- <tr>
 						<td>내용: </td>
 						<td><a href="window?message_no=${message_list_fav.message_no}">
 							${message_list_fav.message_contents}</a>
 						</td>
-					</tr>
+					</tr> --%>
 					<tr>
 						<td>조회수: </td>
 						<td> ${message_list_fav.message_hits}</td>
@@ -447,10 +447,10 @@
 						<tr>
 							<td colspan="2">
 											<table  border="1">
-												<tr>
+												<!-- <tr>
 													<td>제목 : </td>
 													<td colspan="2">제목 받아오기</td>
-												</tr>
+												</tr> -->
 												<tr>
 													<td>발신인 : </td>
 													<td colspan="2">${message.message_sent_id}</td>
@@ -472,10 +472,10 @@
 						<tr>
 							<td colspan="2"></td>
 						</tr>
-						<tr>
+						<!-- <tr>
 							<td>첨부파일 : </td>
 							<td>파일목록불러오기</td>
-						</tr>
+						</tr> -->
 					
 					</table>
 			
