@@ -52,6 +52,9 @@ public class APIController {
 			logger.info("전달된 값 >>> {}", api);
 			
 			String filename = imageSave(api.getBook_image(), api.getBook_isbn()); 
+			String isbn = api.getBook_isbn().trim().replaceAll(" ", "");
+			isbn = isbn.replace("X", "");
+			api.setBook_isbn(isbn);
 			
 			if (filename != null) {
 				api.setBook_image(filename);
@@ -63,6 +66,7 @@ public class APIController {
 			}
 		}
 		
+
 		//전달받은 이미지 파일의 URL로부터 파일 저장
 		private String imageSave(String book_image, String book_isbn) {
 			//파일경로가 없으면 null 리턴
