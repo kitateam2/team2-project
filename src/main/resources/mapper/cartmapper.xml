@@ -47,6 +47,10 @@ select user_cart_no from USER_cart where user_id = #{user_id1}
 select order_no from order_list where user_id = #{user_id1}
 </select> 
 
+<select id ="Order_num" parameterType="String" resultType="Order_listVO">
+select * from order_list where user_id = #{user_id1}
+</select> 
+
 
 <select id ="booktitle" parameterType="String" resultType="String">
 select book_title from book_info where book_isbn = #{book_isbn}
@@ -77,8 +81,14 @@ and uw.user_id = #{user_id1}
 <select id="total" parameterType="int" resultType="int">
 select 
     NVL(sum(book_price*cart_book_count),0) 
+    <!-- sum(book_price*cart_book_count) -->
 from cart_book
-<!-- where user_cart_no = #{user_cart_no}  -->
+where user_cart_no = #{user_cart_no}
+</select>
+
+<select id="ordertotal" parameterType="Order_listVO" resultType="int">
+select sum(book_price) from Order_detail
+where order_no = #{order_no}
 </select>
 
 <insert id ="insertcart_book" parameterType="cart_bookVO">
@@ -178,6 +188,18 @@ order_detail_seq.nextval
 		book_isbn = #{book_isbn}
 </delete>
 
+<delete id="deletewishcart" parameterType="int" >
+	delete
+	from
+		user_wishlist
+</delete>
+
+<delete id="deleteorderdetail" parameterType="int" >
+	delete
+	from
+		cart_book
+</delete>
+
 <!-- 글 수정 -->
 <update id="update" parameterType="int">
 		update
@@ -188,4 +210,14 @@ order_detail_seq.nextval
 			cart_book_no = #{cart_book_no}
 	</update>  
 
+<update id="updateorder" parameterType="Order_listVO">
+		update
+			Order_list
+		set
+			order_totalprice = #{order_totalprice}
+			,order_date = sysdate
+			,order_state = '준비중입니다'
+		where
+			order_no = #{order_no}
+	</update> 
 </mapper>

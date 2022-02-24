@@ -2,6 +2,8 @@ package com.sesoc.team2.dao;
 
 import java.util.ArrayList;
 
+import com.sesoc.team2.vo.Order_detail;
+import com.sesoc.team2.vo.Order_list;
 import com.sesoc.team2.vo.cart_book;
 import com.sesoc.team2.vo.user_wishlist;
 
@@ -57,6 +59,23 @@ public interface CartMapper {
 
 	ArrayList<cart_book> orderlist(String user_id1);
 
+	Order_list Order_num(String user_id1);
+
+	int ordertotal(Order_list order_num);
+
+	int updateorder(Order_list order_num);
+
+	void deletewishlist(cart_book cartbook);
+
+	int deletewishcart();
+
+	int deleteorderdetail();
+
+
+
+
+
+	
 	
 
 

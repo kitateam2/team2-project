@@ -185,7 +185,7 @@ function bookPage() {
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </div>
-                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" onclick="bt1Click(1111);" class="btn btn-primary">Add to Cart</a>
                     </div>
                     <div class="box">
                         <img src="resources/img/898392067x_3.jpg" alt="">

@@ -201,7 +201,6 @@ left: 0;
           <form action="checkout" method="get">
           <table>
           <tr>
-          <td colspan="2" class="center"><input type="button" value="Pay Now" onClick="location.href='http://localhost:8888/team2/checkout'"/></td>
           <td colspan="2" class="center"><a href="/team2" class="btn btn-primary"><input type="button" value="home"></a></td>
           </tr>
            </table>

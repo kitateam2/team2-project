@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sesoc.team2.controller.OrderController;
+import com.sesoc.team2.vo.Order_detail;
+import com.sesoc.team2.vo.Order_list;
 import com.sesoc.team2.vo.cart_book;
 import com.sesoc.team2.vo.user_wishlist;
 
@@ -151,6 +153,34 @@ public class CartDAO {
 		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
 		ArrayList<cart_book> orderlist = mapper.orderlist(user_id1);
 		return orderlist;
+	}
+	public Order_list order_num(String user_id1) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		Order_list orderlist = mapper.Order_num(user_id1);
+		return orderlist;
+	}
+	public int ordertotal(Order_list order_num) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.ordertotal(order_num);
+		return result;
+	}
+	public int updateorder(Order_list order_num) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.updateorder(order_num);
+		return result;
+		
+	}
+	public int deletewishcart() {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.deletewishcart();
+		return result;
+		
+	}
+	public int deleteorderdetail() {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.deleteorderdetail();
+		return result;
+		
 	}
 	
 }

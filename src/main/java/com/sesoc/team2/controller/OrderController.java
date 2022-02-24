@@ -15,7 +15,10 @@
   org.springframework.web.bind.annotation.ResponseBody; import
   org.springframework.web.multipart.MultipartFile;
   
- import com.sesoc.team2.dao.CartDAO; import com.sesoc.team2.vo.User_infoVO;
+ import com.sesoc.team2.dao.CartDAO;
+import com.sesoc.team2.vo.Order_detail;
+import com.sesoc.team2.vo.Order_list;
+import com.sesoc.team2.vo.User_infoVO;
  import com.sesoc.team2.vo.cart_book; import com.sesoc.team2.vo.user_wishlist;
 
  
@@ -129,6 +132,7 @@
 				logger.debug("user_cart_no1ddddd : {} ", cartbook);
 				 cartbook.setUser_cart_no(user_cart_no1);
 				dao.gocartinsert(cartbook);
+				dao.deletewishcart();
 			 
 			 return "redirect:/cart"; 
 			  
@@ -147,6 +151,7 @@
 				  for (cart_book cartbook1 : cartbook) {
 					  cartbook1.setOrder_no(order_no);
 					  dao.orderdetailinsert(cartbook1);
+					  dao.deleteorderdetail();
 				  }
 					
 				  return "order/orderdetail";
@@ -172,15 +177,25 @@
 			}
 		  
 		  @RequestMapping (value="checkout", method=RequestMethod.GET) 
-		  public String checkout(Model model) { 
+		  public String checkout(Model model,HttpSession session) { 
 			  
 			  return "cart/checkoutForm"; 
 			  
 		  }
 		  
+		  
+		  //결제버튼을 눌렀을떄 결제가 되는 메서드
 		  @RequestMapping (value="complete", method=RequestMethod.GET) 
-		  public String complete(Model model) { 
-			  
+		  public String complete(Model model,HttpSession session) {
+			  logger.info("로거시작");
+			  String user_id1 = (String) session.getAttribute("loginId");
+			  Order_list order_num = dao.order_num(user_id1);
+			  logger.info("아아아아아아앙아{}", order_num);
+				int cart_total = dao.ordertotal(order_num); 
+				order_num.setOrder_no(order_num.getOrder_no());
+				order_num.setOrder_totalprice(cart_total);
+				logger.info("토탈{}", cart_total); 
+				dao.updateorder(order_num);
 			  return "cart/completeForm"; 
 			  
 		  }
