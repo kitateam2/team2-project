@@ -15,7 +15,9 @@
 		<typeAlias type="com.sesoc.team2.vo.BookReview" alias="reviewVO" />
 		<typeAlias type="com.sesoc.team2.vo.Book" alias="bookVO" /> 
 		<typeAlias type="com.sesoc.team2.vo.Follow" alias="follow" /> 		
-		<typeAlias type="com.sesoc.team2.vo.Chatroom" alias="chatroom" /> 		
+		<typeAlias type="com.sesoc.team2.vo.Chatroom" alias="chatroom" /> 	
+		<typeAlias type="com.sesoc.team2.vo.Chat" alias="chat" /> 	
+			
 
 		
 	</typeAliases>
@@ -31,7 +33,6 @@
 		<mapper resource="mapper/followMapper.xml" />
 		<mapper resource="mapper/serviceMapper.xml" />
 		<mapper resource="mapper/reviewMapper.xml" />
-		<mapper resource="mapper/BookDetailMapper.xml" />
 		
 	</mappers>
 </configuration>

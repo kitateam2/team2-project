@@ -33,6 +33,8 @@ public interface BlogPostMapper {
 
 	public int get_total(HashMap<String, String> map);
 
+	public int post_comment_edit(PostComment postcomment);
+
 
 	
 

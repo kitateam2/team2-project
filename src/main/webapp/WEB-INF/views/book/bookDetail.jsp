@@ -24,6 +24,33 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <script>
+//bt1 버튼 클릭했을때 실행될 함수
+function bt1Click(n){
+	
+	alert('장바구니 이동');
+	$.ajax({
+		url:'ajaxcart',
+		type:'post',
+		data: {book_isbn: n},
+		dataType:'text',
+		success: function() { alert('장바구니에 담았습니다.'); },
+		error: function() { alert('로그인을 해주세요'); }
+	});
+}
+
+function bt2Click(n){
+	
+	alert('위시리스트이동');
+	$.ajax({
+		url:'ajaxwishlist',
+		type:'post',
+		data: {book_isbn: n},
+		dataType:'text',
+		success: function() { alert('위시리스트에 담았습니다.'); },
+		error: function() { alert('로그인을 해주세요'); }
+	});
+}
+
 //검색 페이지 이동
 function bookPage() {
 	var bookname = document.getElementById("bookName").value;
@@ -57,12 +84,15 @@ function book_review_delete(book_review_no, book_review_star){
 <!-- header부분 -->
 <div class="box3">
 <br>
-<h1><center>
-	<p>Book Store &nbsp; &nbsp;
 	<!-- 검색폼 -->
-		<input id="bookName" type="text" placeholder="검색어 입력" value="${searchText}">
-		<button id="search" onclick="bookPage();" value="검색">검색</button>	</p></center>
-	</h1>
+	<h1><center>
+	<p><a href="/team2" style="color:black;">Book Store</a> &nbsp; &nbsp;
+	<form id="bookName" method="get" action="list">
+		<input type="hidden" name="page" id="page" />
+		<input type="text" placeholder="검색어 입력" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }"/>
+		<input type="button" id="search" onclick="javascript: pagingFormSubmit(1); bookPage();" value="검색">
+	</form></p></center></h1>
+	<!-- /검색폼 --> 
 	<br>
 	<div class="navigation_bar">
 	<table class="gnb_main add_1">
@@ -89,16 +119,48 @@ function book_review_delete(book_review_no, book_review_star){
 
 <!-- 여기까지가 header 부분 -->
 
+<!-- 책 상세내용 부분 시작-->
+<table style="padding-top:10px;">
+
+<tr>
+	<td rowspan="3" class="center" style="width:200px; object-fit:cover;"><img src="download?filename=${book.book_image}"></td>
+	<td class="center" style="width:600px; text-align:left;">
+		<p style="font-size: 20px; font-weight:bold;">${book.book_title}</p>  
+		<p style="font-size: 18px; font-weight:normal;">저자: ${book.book_author}</p>
+		<p style="font-size: 14px; font-weight:bold; color:#acacac;"><${book.book_public}></p>
+	</td>
+</tr>
+
+<tr>
+	<td><p style="font-size: 14px; font-weight:normal; color:black;">${book.book_contents}</p></td>
+</tr>
+
+
+</table> <!-- 책 상세내용 끗-->
+
+
+
+
+	<td class="center" style="width:150px; text-align:center; font-size: 14px;">${book.book_reward}</td>
+	<td class="center" style="width:150px; text-align:center; font-size: 14px;"><fmt:formatNumber value="${book.book_price}" pattern="###,###" />원</td>
+	<td class="center" style="width:70px; text-align:center; font-size: 14px;">장바구니       
+		<c:forEach var="cart" items="${Cart_book1}">
+			<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
+		</c:forEach>
+		
+		<c:forEach var="wishlist" items="${wishCart_book1}">
+			<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
+		</c:forEach>           
+	</td>
+</tr>
+ 
 
 
 
 
 
 
-
-
-
-
+<!-- 책 상세내용 끗-->
 
 <!-- 댓글 자리 -->
 	<form class="card" id="book_review_form" action="book_review" method="post"  onsubmit="return book_review_form()">

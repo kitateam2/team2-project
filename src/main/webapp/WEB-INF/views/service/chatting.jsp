@@ -12,26 +12,43 @@
 
 <link rel="stylesheet" href="resources/css/chat.css">
 <script>
-$(document).ready(  function() {
-	connectStomp();
-	$('.chat-submit').on('click', function(evt) {
-        evt.preventDefault();
-        if (!isStomp && socket.readyState !== 1) return;
-        
-        let msg = $('#chat-insert').val();
-        console.log("mmmmmmmmmmmm>>", msg)
-        $('#chat-insert').val('');
-        if (isStomp)
-        	socket.send('/TTT', {}, JSON.stringify(
-        			{profile: 'mmmmessage', nname: "${sessionScope.loginId}", content: msg}));
-        	//socket.send('/TTT', {}, msg);
-        else
-            socket.send(msg);
-    });
-});
-
 var socket = null;
 var isStomp = false;
+var roomid = "${roomid}";
+
+$(document).ready(  function() {
+	connectStomp();
+	$('.chat-submit').on('click', sendMessage);
+	$('#chat-insert').on('keypress', textKeyPress);
+});
+
+//입력란에서 엔터쳤을 때 서버로 메시지 전송
+function textKeyPress(event) {
+	if (event.which == 13) {
+		sendMessage(event);
+	}
+}
+function sendMessage(evt) {
+	 evt.preventDefault();
+     if (!isStomp && socket.readyState !== 1) return;
+     let today = new Date();   
+	 let hours = today.getHours(); // 시
+	 let minutes = today.getMinutes();  // 분
+	 hours = (hours > 12) ? "오후 " + (hours-12) : "오전 " + hours; 
+	 let time = hours + ':' + minutes;
+	 
+     let msg = $('#chat-insert').val();
+     console.log("mmmmmmmmmmmm>>", msg)
+     $('#chat-insert').val('');
+     if (isStomp)
+     	socket.send('/TTT/'+roomid, {}, JSON.stringify(
+     			{nname: "${sessionScope.loginId}", content: msg, datetime: time}));
+     	//socket.send('/TTT', {}, msg);
+     else
+         socket.send(msg);
+     
+     
+}
 
 function connectStomp() {
 	var sock = new SockJS("/team2/chatting"); // endpoint
@@ -44,57 +61,37 @@ function connectStomp() {
         // Controller's MessageMapping, header, message(자유형식)
         //client.send('/TTT', {}, "msg: Haha~~~");
 
-        // 해당 토픽을 구독한다! 메세지 받는곳
-        client.subscribe('/topic/message', function (message) {
-        	var new_chat = JSON.parse(message.body);
-            console.log("!!!!!!!!!!!!event>>", new_chat)
+        // 해당 토픽을 구독한다. 메세지 받는곳
+        client.subscribe('/topic/message/'+roomid, function (message) {
+        	var message_body = JSON.parse(message.body);
+        	var id = message_body.nname;
+        	var new_chat = message_body.content;
+        	var time = message_body.datetime;
+            console.log("!!!!!!!!!!!!event>>", message_body)
+            var LR = ("${sessionScope.loginId}" == id)? "me-chat" : "friend-chat";
+            var appendMsg = '<div class="' + LR + '"><div class="' + LR + '-col"><div class="profile-name">' + id +
+			'</div><div class="balloon">' + new_chat + '</div></div>' + 
+			'<time>' + time + '</time></div>';
+			
+			$('.main-chat').append(appendMsg);
+			
+			var insertchat = id + '/' + new_chat + '/' + time + '/' + roomid;
+			$.ajax({
+				url : "insertchat",
+				type : "POST", 
+				data : {"insertchat":insertchat}, 			
+				success: function(){
+					console.log(insertchat); 
+				},
+				error:function(request,status,error){
+			        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); 
+			    }
+			 });	
+			
         });
     });
 
 }
-/* var url;
-var ws;
-var socket = null;
-var isStomp = false;
-
-$(document).ready(function() {
-
-	connectStomp();
-	$('.chat-submit').on('click', sendMessage);
-	$('#chat-insert').on('keypress', textKeyPress);
-});
-	
-	//입력란에서 엔터쳤을 때 서버로 메시지 전송
-	function textKeyPress(event) {
-		if (event.which == 13) {
-			sendMessage();
-		}
-	}
-	//버튼을 클릭하면 서버로 메시지 전송
-	function sendMessage() {
-		var text = $('#chat-insert').val();
-		ws.send(text);
-		$('#chat-insert').val('');
-	}
-	//메시지를 받으면 화면에 출력
-	function receiveMessage(msg) {
-		var message = msg.data;
-		var messageArray = message.split(",");
-		var id = messageArray[0];
-		var content = messageArray[1];
-		var LR = (${sessionScope.loginId} == id)? "me-chat" : "friend-chat";
-		let today = new Date();   
-	 
-		let hours = today.getHours(); // 시
-		let minutes = today.getMinutes();  // 분
-		hours = (hours > 12) ? "오후 " + (hours-12) : "오전 " + hours; 
-		
-		var appendMsg = '<div class="' + LR + '"><div class="' + LR + '-col"><div class="profile-name">' + id +
-						'</div><div class="balloon">' + content + '</div></div>' + 
-						'<time>' + hours + ':' + minutes + '</time></div>';
-		$('.main-chat').append(appendMsg);
-	}  */
-
 </script>
 </head>
 <body>
@@ -125,7 +122,7 @@ $(document).ready(function() {
                         </div>
                         <div class="me-chat">
                             <div class="me-chat-col">
-                                <div class="balloon">ㅇㅋzz</div>
+                                <div class="balloon">ㅇㅋzz${roomid}</div>
                             </div>
                             <time datetime="07:32:00+09:00">오전 7:32</time>
                         </div>

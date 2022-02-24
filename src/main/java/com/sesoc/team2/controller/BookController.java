@@ -1,11 +1,7 @@
 package com.sesoc.team2.controller;
 
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 
-import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,20 +9,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.sesoc.team2.dao.ReviewDAO;
 import com.sesoc.team2.util.PageNavigator;
-import com.sesoc.team2.vo.BlogPost;
 import com.sesoc.team2.vo.Book;
 import com.sesoc.team2.vo.BookReview;
-import com.sesoc.team2.vo.PostComment;
 import com.sesoc.team2.dao.BookInfoDAO;
 
 @Controller
@@ -40,13 +29,6 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	@Autowired
 	BookInfoDAO infodao;
 	
-	
-	//책 상세정보 페이지
-//	@RequestMapping (value="booksdetail", method=RequestMethod.GET)
-//	public String bookDetail() {
-//		return "book/bookDetail";
-//	}
-		
 	
 	//게시판 관련 상수값들
 	final int countPerPage = 10;			//페이지당 글 수
@@ -83,20 +65,21 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	
 	/**
 	 * 글 읽기
-	 * @param book_no 읽을 글번호
+	 * @param book_isbn 읽을 글번호
 	 * @return 해당 글 정보
 	 */
 	@RequestMapping (value="read", method=RequestMethod.GET)  //value 확인!!
-	public String read(String book_no, Model model) {
-		logger.debug("read경로에 파라미터 book_no: {}", book_no);
+	public String read(String book_isbn, Model model) {
+		logger.debug("read경로에 파라미터 book_isbn: {}", book_isbn);
 		//전달된 글 번호로 해당 글정보 읽기
-		Book book = infodao.getBook(book_no);
+		Book book = infodao.getBook(book_isbn);
 		if (book == null) {
 			return "redirect:list"; //list가 어디에 있는 경로인지 확인!!
 		}
 		
+		
 		//해당 글에 달린 리플목록 읽기
-		ArrayList<BookReview> ReviewList = dao.BookReviewList(book_no);
+		ArrayList<BookReview> ReviewList = dao.BookReviewList(book_isbn);
 		logger.debug("결과값 ReviewList: {}", ReviewList);
 		
 		//본문글정보와 리플목록을 모델에 저장

@@ -160,7 +160,7 @@ function bookPage() {
 <tr>
 	<td class="center" style="width:140px; text-align:center;"><img src="download?filename=${book.book_image}"></td>  
 	<td class="center" style="width:370px; text-align:left;">
-		<p style="font-size: 16px; font-weight:bold;"><a href="read?book_no=${book.book_isbn}">${book.book_title}</a></p>  <!-- read다음 book_no는 parameterType값 ; controller와 일치해야함 -->
+		<p style="font-size: 16px; font-weight:bold;"><a href="read?book_isbn=${book.book_isbn}">${book.book_title}</a></p>  <!-- read다음 book_no는 parameterType값 ; controller와 일치해야함 -->
 		<p style="font-size: 14px; font-weight:normal;">저자: ${book.book_author}</p>
 		<p style="font-size: 12x; font-weight:bold; color:#acacac;"><${book.book_public}></p>
 	</td>

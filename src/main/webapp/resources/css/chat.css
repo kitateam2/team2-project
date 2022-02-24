@@ -22,7 +22,7 @@ body{
 
 /* 배경화면 설정 */
 #chat-body, .setting_bar, .main-menu, header{
-    background-image: url(../pic/talk_background.jpg);
+    /* background-image: url(../pic/talk_background.jpg); */
     background-repeat: repeat;
     background-position: top left;
     background-attachment: fixed;

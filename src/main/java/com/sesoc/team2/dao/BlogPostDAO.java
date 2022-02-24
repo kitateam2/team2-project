@@ -101,4 +101,10 @@ public class BlogPostDAO {
 		return total;
 	}
 
+	public int post_comment_edit(PostComment postcomment) {
+		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
+		int result = mapper.post_comment_edit(postcomment);
+		return result;
+	}
+
 }

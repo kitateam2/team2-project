@@ -256,7 +256,18 @@ public class MyblogController {
 		dao.post_comment_like(postcomment);
 		return "redirect:"+ id +"/one_post?post_no=" + postcomment.getPost_no();
 	}
-	//댓글 수정
 	
+	//댓글 수정
+	@RequestMapping (value="post_comment_edit", method=RequestMethod.POST) 
+	public String post_comment_edit(PostComment postcomment, HttpSession session){
+		/* 로그인한 사람의 정보를 저장 */
+		String id = (String) session.getAttribute("loginId");
+		postcomment.setPost_comment_writter(id);
+		
+		//댓글 수정 처리
+		dao.post_comment_edit(postcomment);
+		return "redirect:"+ id +"/one_post?post_no=" + postcomment.getPost_no();
+	}
+		
 
 }

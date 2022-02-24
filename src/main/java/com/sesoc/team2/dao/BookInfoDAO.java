@@ -20,10 +20,10 @@ public class BookInfoDAO {
 	 * @param boardnum 검색할 글번호
 	 * @return 검색된 게시글 정보. 없으면 null.
 	 */
-	public Book getBook(String book_no) {
+	public Book getBook(String book_isbn) {
 		BookInfoMapper mapper = sqlSession.getMapper(BookInfoMapper.class);
 		//해당 번호의 글정보 읽기
-		Book book = mapper.getBook(book_no);
+		Book book = mapper.getBook(book_isbn);
 		return book;
 	}
 	
