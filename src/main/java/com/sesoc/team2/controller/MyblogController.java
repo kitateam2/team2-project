@@ -218,30 +218,33 @@ public class MyblogController {
 	@RequestMapping (value="post_comment", method=RequestMethod.POST)
 	public String post_comment_insert(PostComment postcomment
 				                      , HttpSession session
-				                      ,  Model model){
+				                      ,  Model model
+				                      , String user_id){
+		/* user_id는 게시글 주인 아이디 */
 		/* 로그인한 사람의 정보를 저장 */
 		String id = (String) session.getAttribute("loginId");	
 		logger.info("컨트롤러{}",id);
 		postcomment.setPost_comment_writter(id);
 		logger.info("컨트롤러{}",postcomment);
 		dao.post_comment_insert(postcomment);
-		return "redirect:" +id+ "/one_post?post_no=" + postcomment.getPost_no();
+		return "redirect:" +user_id+ "/one_post?post_no=" + postcomment.getPost_no();
 	}
 	
 	
 	
 	//게시글 댓글 불러오기 --는 게시글 상세보기에서 같이 실행
-	//게시글 댓글 삭제
+	//게시글 댓글 삭제        //삭제하기에 널값이 들어가는거 어떡하지
 	@RequestMapping (value="post_comment_delete", method=RequestMethod.GET) 
 	public String post_comment_delete(PostComment postcomment
-				                      , HttpSession session){
+				                      , HttpSession session
+				                      , String user_id){
 		/* 로그인한 사람의 정보를 저장 */
 		String id = (String) session.getAttribute("loginId");
 		postcomment.setPost_comment_writter(id);
 		
 		dao.post_comment_delete(postcomment);
 		logger.info("ㅇㅇ{}", postcomment.getPost_no());
-	return "redirect:"+ id +"/one_post?post_no=" + postcomment.getPost_no();
+	return "redirect:"+ user_id +"/one_post?post_no=" + postcomment.getPost_no();
 	}
 	
 	//댓글 좋아요
@@ -259,14 +262,16 @@ public class MyblogController {
 	
 	//댓글 수정
 	@RequestMapping (value="post_comment_edit", method=RequestMethod.POST) 
-	public String post_comment_edit(PostComment postcomment, HttpSession session){
+	public String post_comment_edit(PostComment postcomment
+									, HttpSession session
+									, String user_id){
 		/* 로그인한 사람의 정보를 저장 */
 		String id = (String) session.getAttribute("loginId");
 		postcomment.setPost_comment_writter(id);
 		
 		//댓글 수정 처리
 		dao.post_comment_edit(postcomment);
-		return "redirect:"+ id +"/one_post?post_no=" + postcomment.getPost_no();
+		return "redirect:"+ user_id +"/one_post?post_no=" + postcomment.getPost_no(); 
 	}
 		
 

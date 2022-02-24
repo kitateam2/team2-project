@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.sesoc.team2.dao.MessageDAO;
@@ -143,9 +144,10 @@ public class MessageController {
 				return "redirect:window";
 			}
 	//보내는 사람 자동완성
-			@RequestMapping(value = "{user_id}/json_auto", method = RequestMethod.POST)
-			public String json_auto(Locale locale, Model model) {
-				ArrayList<String> array_recv_id = dao.get_recv_id();
+			@ResponseBody
+			@RequestMapping(value = "{user_id}/json_auto", method = RequestMethod.GET)
+			public String json_auto(String text) {
+				ArrayList<String> array_recv_id = dao.get_recv_id(text);
 				logger.info("array_recv_id{}", array_recv_id);
 				//어레이를 가지고 와서 불러와야지
 				Gson gson = new Gson();

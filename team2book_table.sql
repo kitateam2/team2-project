@@ -116,7 +116,7 @@ CREATE TABLE BOOK_REVIEW
 	book_review_star number DEFAULT 0 NOT NULL,
 	-- 책 인덱스
 	-- 
-	book_isbn varchar2(30) NOT NULL UNIQUE,
+	book_isbn varchar2(30) NOT NULL,
 	PRIMARY KEY (book_review_no)
 );
 

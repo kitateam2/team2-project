@@ -85,6 +85,7 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 		//본문글정보와 리플목록을 모델에 저장
 		model.addAttribute("book", book);
 		model.addAttribute("replylist", ReviewList);
+		model.addAttribute("book_isbn", book_isbn);
 		
 		return "book/bookDetail";
 	}
@@ -98,7 +99,8 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 		review.setBook_review_writer(id);
 		logger.info("컨트롤러{}", review);
 		dao.insert(review);
-		return "redirect:bookDetail"; //나중에 고치기!!!!!!!
+		logger.info("메서드 끝");
+		return "redirect:/bookDetail"; //나중에 고치기!!!!!!!
 	}
 
 
