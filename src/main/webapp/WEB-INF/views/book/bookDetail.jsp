@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,44 +124,41 @@ function book_review_delete(book_review_no, book_review_star){
 <table style="padding-top:10px;">
 
 <tr>
-	<td rowspan="3" class="center" style="width:200px; object-fit:cover;"><img src="download?filename=${book.book_image}"></td>
+	<td colspan="2" style="height:30px;"></td>
+</tr>
+<tr>
+	<td rowspan="2" class="center" style="width:200px; object-fit:cover;"><img src="download?filename=${book.book_image}"></td>
 	<td class="center" style="width:600px; text-align:left;">
-		<p style="font-size: 20px; font-weight:bold;">${book.book_title}</p>  
-		<p style="font-size: 18px; font-weight:normal;">저자: ${book.book_author}</p>
-		<p style="font-size: 14px; font-weight:bold; color:#acacac;"><${book.book_public}></p>
+		<p style="font-size: 24px; font-weight:bold; color:#3A60DF">${book.book_title}</p>  
+		<p style="font-size: 14px; font-weight:normal;">저자: ${book.book_author}&nbsp;<span style="font-size: 14px; font-weight:bold; color:#acacac;"><${book.book_public}></span></p>
+		
 	</td>
 </tr>
-
 <tr>
 	<td><p style="font-size: 14px; font-weight:normal; color:black;">${book.book_contents}</p></td>
 </tr>
-
+<tr>
+	<td rowspan="2" class="center" style="width:200px; object-fit:cover;"></td>
+	<td class="center" style="width:600px; text-align:left;">
+		<p style="width:150px; text-align:left; font-size: 14px;">별점: ${book.book_reward}</p>
+		<p style="width:150px; text-align:left; font-size: 14px;">정가: <span style="font-size: 24px; font-weight:bold; color:#F84450"><fmt:formatNumber value="${book.book_price}" pattern="###,###" /></span>원</p>
+		<p style="width:150px; text-align:left; font-size: 14px;">장바구니   |  위시리스트
+			<c:forEach var="cart" items="${Cart_book1}">
+				<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
+			</c:forEach>
+			<c:forEach var="wishlist" items="${wishCart_book1}">
+				<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
+			</c:forEach>
+		</p>
+	</td>
+</tr>
+<tr>
+	<td colspan="2" style="height:30px;"></td>
+</tr>
 
 </table> <!-- 책 상세내용 끗-->
 
 
-
-
-	<td class="center" style="width:150px; text-align:center; font-size: 14px;">${book.book_reward}</td>
-	<td class="center" style="width:150px; text-align:center; font-size: 14px;"><fmt:formatNumber value="${book.book_price}" pattern="###,###" />원</td>
-	<td class="center" style="width:70px; text-align:center; font-size: 14px;">장바구니       
-		<c:forEach var="cart" items="${Cart_book1}">
-			<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
-		</c:forEach>
-		
-		<c:forEach var="wishlist" items="${wishCart_book1}">
-			<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
-		</c:forEach>           
-	</td>
-</tr>
- 
-
-
-
-
-
-
-<!-- 책 상세내용 끗-->
 
 <!-- 댓글 자리 -->
 	<form class="card" id="book_review_form" action="book_review" method="post"  onsubmit="return book_review_form()">
