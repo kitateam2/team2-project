@@ -27,6 +27,38 @@ DROP TABLE USER_INFO CASCADE CONSTRAINTS;
 
 
 
+/* Drop Sequences */
+
+DROP SEQUENCE book_info_seq;
+DROP SEQUENCE book_review_seq;
+DROP SEQUENCE cart_book_seq;
+DROP SEQUENCE chat_seq;
+DROP SEQUENCE follow_seq;
+DROP SEQUENCE member_seq;
+DROP SEQUENCE message_seq;
+DROP SEQUENCE order_detail_seq;
+DROP SEQUENCE post_comment_seq;
+DROP SEQUENCE post_no_seq;
+DROP SEQUENCE user_wishlist_no_seq;
+
+
+
+
+/* Create Sequences */
+
+CREATE SEQUENCE book_info_seq;
+CREATE SEQUENCE book_review_seq;
+CREATE SEQUENCE cart_book_seq;
+CREATE SEQUENCE chat_seq;
+CREATE SEQUENCE follow_seq;
+CREATE SEQUENCE member_seq;
+CREATE SEQUENCE message_seq;
+CREATE SEQUENCE order_detail_seq;
+CREATE SEQUENCE post_comment_seq;
+CREATE SEQUENCE post_no_seq;
+CREATE SEQUENCE user_wishlist_no_seq;
+
+
 
 /* Create Tables */
 
@@ -469,25 +501,25 @@ ALTER TABLE EVENT
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (follow_ed_id)
-	REFERENCES USER_INFO (user_id)
-;
-
-
-ALTER TABLE FOLLOW
 	ADD FOREIGN KEY (follow_ing_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
-ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_sent_id)
+ALTER TABLE FOLLOW
+	ADD FOREIGN KEY (follow_ed_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE MESSAGE
 	ADD FOREIGN KEY (message_recv_id)
+	REFERENCES USER_INFO (user_id)
+;
+
+
+ALTER TABLE MESSAGE
+	ADD FOREIGN KEY (message_sent_id)
 	REFERENCES USER_INFO (user_id)
 ;
 

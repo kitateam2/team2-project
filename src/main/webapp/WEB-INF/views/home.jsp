@@ -76,7 +76,7 @@ function bookPage() {
 	
 		<!-- 검색폼 -->
 	<h1><center>
-	<p style="type"><a href="/team2" style="color:black;">Book Store</a> &nbsp; &nbsp;
+	<p style="type"><a href="/team2" style="color:black; font-size:35px; font-weight:bold;">Book Store</a> &nbsp; &nbsp;
 	<form id="bookName" method="get" action="list">
 		<input type="hidden" name="page" id="page" />
 		<input type="text" placeholder="검색어 입력" id="searchInput" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }"/>
@@ -90,25 +90,25 @@ function bookPage() {
 	<table class="gnb_main add_1">
 		<tr colspan="5" id="blank"></tr>
 		<tr style="font-size: 13px;" > 
-				<td class="class_item"><a href="url" class="text" style="color:white;">국내도서</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="url" class="text" style="color:white;">외국도서</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="bookInfo" class="text" style="color:white;">책 상세정보</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="blogmain" class="text" style="color:white;">블로그 메인</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="userService" class="text" style="color:white;">고객센터</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="url" class="text" style="color:white; font-size:16px;">국내도서</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="url" class="text" style="color:white; font-size:16px;">외국도서</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="bookInfo" class="text" style="color:white; font-size:16px;">책 상세정보</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="blogmain" class="text" style="color:white; font-size:16px;">블로그 메인</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="userService" class="text" style="color:white; font-size:16px;">고객센터</a></td><td>&nbsp;</td>
 		</tr>	
 	</table>
 	
 		<c:if test="${sessionScope.loginId == null}">
-				<td><a href="condition" style="color:white; position: relative; top: 10px;" class="fa fa-user-plus fa-2x"></a></td><td>&nbsp;</td>
-				<td><a href="login" style="color:white; position: relative; top: 10px;" class="fa fa-user fa-2x"></a></td><td>&nbsp;</td>
+				<td><a href="condition" style="color:white; position: relative; top: 10px; font-size:16px;" class="fa fa-user-plus fa-2x"></a></td><td>&nbsp;</td>
+				<td><a href="login" style="color:white; position: relative; top: 10px; font-size:16px;" class="fa fa-user fa-2x"></a></td><td>&nbsp;</td>
 			</c:if>
 			<c:if test="${sessionScope.loginId != null}">
-				<a href="logout" style="color:white;position: relative; top: 10px;">로그아웃</a></td><td>&nbsp;</td>
-				<a href="updatemember" style="color:white; position: relative; top: 10px;">회원정보수정</a></td><td>&nbsp;</td>
-				<a href="cart" style="color:white; position: relative; top: 10px;" class="fa fa-shopping-cart fa-2x"></a></td><td>&nbsp;</td>
-				<a href="wish" style="color:white; position: relative; top: 10px;" class="fa fa-heart fa-2x"></a></td><td>&nbsp;</td>
-				<a href="myblog/${sessionScope.loginId}" style="color:white; position: relative; top: 10px;">개인 블로그</a></td><td>&nbsp;</td>
-				<a style="position: relative; top: 10px;">${sessionScope.loginId}님 환영합니다.</a>
+				<a href="logout" style="color:white;position: relative; top: 10px; font-size:16px;">로그아웃</a></td><td>&nbsp;</td>
+				<a href="updatemember" style="color:white; position: relative; top: 10px; font-size:16px;">회원정보수정</a></td><td>&nbsp;</td>
+				<a href="cart" style="color:white; position: relative; top: 10px; font-size:16px;" class="fa fa-shopping-cart fa-2x"></a></td><td>&nbsp;</td>
+				<a href="wish" style="color:white; position: relative; top: 10px; font-size:16px;" class="fa fa-heart fa-2x"></a></td><td>&nbsp;</td>
+				<a href="myblog/${sessionScope.loginId}" style="color:white; position: relative; top: 10px; font-size:16px;">개인 블로그</a></td><td>&nbsp;</td>
+				<a style="position: relative; top: 10px; font-size:16px;">${sessionScope.loginId}님 환영합니다.</a>
 			</c:if>
 			
 	</div> <!-- navigation bar -->

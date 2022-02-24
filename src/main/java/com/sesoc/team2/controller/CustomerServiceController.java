@@ -49,11 +49,15 @@ public class CustomerServiceController {
 		return "service/chat";
 	}
 	
+	//방 클릭시 roomid 받아와서 채팅페이지로 이동
 	@RequestMapping(value = "/chatting", method = RequestMethod.GET)
 	public String chaTest(HttpSession session, Model model, String roomid) {
 		String id = (String)session.getAttribute("loginId");
-		logger.info("chatting{}",roomid);
+		logger.info("roomid{}",roomid);
+		ArrayList<Chat> chatlist = sdao.chatlist(roomid);
+		logger.info("chatlist{}",chatlist);
 		model.addAttribute("roomid",roomid);
+		model.addAttribute("chatlist",chatlist);
 		return "service/chatting";
 	}
 	
@@ -64,6 +68,16 @@ public class CustomerServiceController {
 		ArrayList<User_infoVO> idList = sdao.idList();
 		//logger.info("리스트{}", idList);
 		model.addAttribute("idlist",idList);
+		return "service/chatinvite";
+	}
+	//방생성 오류시 사용자 초대페이지 이동
+	@RequestMapping(value = "/chatinviteerror", method = RequestMethod.GET)
+	public String chatinviteerror(HttpSession session, Model model) {
+		String id = (String)session.getAttribute("loginId");
+		ArrayList<User_infoVO> idList = sdao.idList();
+		//logger.info("리스트{}", idList);
+		model.addAttribute("idlist",idList);
+		model.addAttribute("error", "1");
 		return "service/chatinvite";
 	}
 	
@@ -119,9 +133,15 @@ public class CustomerServiceController {
 	
 	//ajax후에 DB에 초대한 사용자들 저장
 	@RequestMapping(value = "/createroom", method = RequestMethod.GET)
-	public String chatmain(HttpSession session, Model model, String ids) {
+	public String chatmain(HttpSession session, String ids, Model model) {
 		String id = (String)session.getAttribute("loginId");
-		model.addAttribute("ids",ids);
+		ArrayList<Chatroom> roomlist = sdao.roomlist(id);
+		for (Chatroom chatroom : roomlist) {
+			if(chatroom.getChatroom_id().contains(ids) || chatroom.getChatroom_id() == null) {
+				return "redirect:/chatinviteerror";
+			}
+		}
+		
 		sdao.insertChatroom(ids);
 		return "redirect:/chatmain";
 	}

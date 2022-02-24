@@ -16,4 +16,6 @@ public interface ServiceMapper {
 
 	public void insertchat(Chat chat);
 
+	public ArrayList<Chat> chatlist(String roomid);
+
 }

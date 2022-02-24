@@ -44,27 +44,27 @@
 function bt1Click(n){
 	
 	alert('장바구니 이동');
-	$.ajax({
+	/* $.ajax({
 		url:'ajaxcart',
 		type:'post',
 		data: {book_isbn: n},
 		dataType:'text',
 		success: function() { alert('장바구니에 담았습니다.'); },
 		error: function() { alert('로그인을 해주세요'); }
-	});
+	}); */
 }
 
 function bt2Click(n){
 	
 	alert('위시리스트이동');
-	$.ajax({
+	/* $.ajax({
 		url:'ajaxwishlist',
 		type:'post',
 		data: {book_isbn: n},
 		dataType:'text',
 		success: function() { alert('위시리스트에 담았습니다.'); },
 		error: function() { alert('로그인을 해주세요'); }
-	});
+	}); */
 }
 
 //페이지 넘버링
@@ -108,7 +108,7 @@ function bookPage() {
 	
 	<!-- 검색폼 -->
 	<h1><center>
-	<p><a href="/team2" style="color:black;">Book Store</a> &nbsp; &nbsp;
+	<p><a href="/team2" style="color:black; font-size:35px; font-weight:bold;">Book Store</a> &nbsp; &nbsp;
 	<form id="bookName" method="get" action="list">
 		<input type="hidden" name="page" id="page" />
 		<input type="text" placeholder="검색어 입력" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }"/>
@@ -121,20 +121,20 @@ function bookPage() {
 	<table class="gnb_main add_1">
 		<tr colspan="5" id="blank"></tr>
 		<tr> 
-				<td class="class_item"><a href="url" class="text" style="color:white;">국내도서</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="url" class="text" style="color:white;">외국도서</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="bookInfo" class="text" style="color:white;">책 상세정보</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="blogmain" class="text" style="color:white;">블로그 메인</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="blogmain" class="text" style="color:white;">고객센터</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="url" class="text" style="color:white; font-size:16px;">국내도서</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="url" class="text" style="color:white; font-size:16px;">외국도서</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="bookInfo" class="text" style="color:white; font-size:16px;">책 상세정보</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="blogmain" class="text" style="color:white; font-size:16px;">블로그 메인</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="blogmain" class="text" style="color:white; font-size:16px;">고객센터</a></td><td>&nbsp;</td>
 			<c:if test="${sessionScope.loginId == null}">
-				<td class="class_item2"><a href="condition" style="color:white;">회원가입</a></td><td>&nbsp;</td>
-				<td class="class_item2"><a href="login" style="color:white;">로그인</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="condition" style="color:white; font-size:16px;">회원가입</a></td><td>&nbsp;</td>
+				<td class="class_item2"><a href="login" style="color:white; font-size:16px;">로그인</a></td><td>&nbsp;</td>
 			</c:if>
 			<c:if test="${sessionScope.loginId != null}">
-				<td class="class_item2" style="color:white;"><a href="logout">로그아웃</a></td><td>&nbsp;</td>
-				<td class="class_item2" style="color:white;"><a href="cart">장바구니</a></td><td>&nbsp;</td>
-				<td class="class_item2" style="color:white;"><a href="myblog">개인 블로그</a></td><td>&nbsp;</td>
-				<td class="class_item3" style="color:white;">${sessionScope.loginId}님 환영합니다.</td>
+				<td class="class_item2" style="color:white; font-size:16px;"><a href="logout">로그아웃</a></td><td>&nbsp;</td>
+				<td class="class_item2" style="color:white; font-size:16px;"><a href="cart">장바구니</a></td><td>&nbsp;</td>
+				<td class="class_item2" style="color:white; font-size:16px;"><a href="myblog">개인 블로그</a></td><td>&nbsp;</td>
+				<td class="class_item3" style="color:white; font-size:16px;">${sessionScope.loginId}님 환영합니다.</td>
 			</c:if>
 		</tr>	
 	</table>
@@ -162,17 +162,14 @@ function bookPage() {
 	<td class="center" style="width:370px; text-align:left;">
 		<p style="font-size: 16px; font-weight:bold;"><a href="read?book_isbn=${book.book_isbn}">${book.book_title}</a></p>  <!-- read다음 book_no는 parameterType값 ; controller와 일치해야함 -->
 		<p style="font-size: 14px; font-weight:normal;">저자: ${book.book_author}</p>
-		<p style="font-size: 12x; font-weight:bold; color:#acacac;"><${book.book_public}></p>
+		<p style="font-size: 12px; font-weight:bold; color:#acacac;"><${book.book_public}></p>
 	</td>
 	<td class="center" style="width:150px; text-align:center; font-size: 14px;">${book.book_reward}</td>
 	<td class="center" style="width:150px; text-align:center; font-size: 14px;"><fmt:formatNumber value="${book.book_price}" pattern="###,###" />원</td>
-	<td class="center" style="width:70px; text-align:center;">장바구니       <c:forEach var="cart" items="${Cart_book1}">
-		<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
-		</c:forEach>
-		
-		<c:forEach var="wishlist" items="${wishCart_book1}">
-		<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
-		</c:forEach>           </td>
+	<td class="center" style="width:70px; text-align:center;">    
+			<a href="#" onclick="bt1Click(${book.book_isbn});" class="btn btn-primary">Add to Cart</a><br><br>
+			<a href="#" onclick="bt2Click(${book.book_isbn});" class="btn btn-primary">위시리스트</a>
+	</td>
 </tr>
 
 </c:forEach>        
