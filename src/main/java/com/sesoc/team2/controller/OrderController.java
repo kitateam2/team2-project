@@ -56,12 +56,14 @@ import com.sesoc.team2.vo.User_infoVO;
 		  public String list1( cart_book cart_book1,Model model,HttpSession session) {
 		  String user_id1 = (String) session.getAttribute("loginId");
 		  ArrayList<cart_book> cart = dao.selectbook1(user_id1);
-		  cart_book cb = cart.get(0);
-		  int user_cart_no = cb.getUser_cart_no();
-		  model.addAttribute("Cart_book1",cart);
-		  model.addAttribute("user_cart_no",user_cart_no);
-		  
-		  
+		  logger.info("if문 위에: {}", cart);
+		  if(!cart.isEmpty()) {
+			  logger.info("카트가 널일때");
+			  cart_book cb = cart.get(0);
+			  int user_cart_no = cb.getUser_cart_no();
+			  model.addAttribute("Cart_book1",cart);
+			  model.addAttribute("user_cart_no",user_cart_no);
+		  }
 		  int cart_total = dao.total(cart_book1.getUser_cart_no()); //토탈 찍고 모델에 담아서 뿌리기
 		  model.addAttribute("cart_total", cart_total);
 		  logger.debug("토탈 : {} ", cart_total);
