@@ -162,7 +162,8 @@ function book_review_delete(book_review_no, book_review_star){
 
 <!-- 댓글 자리 -->
 	<form class="card" id="book_review_form" action="book_review" method="post"  onsubmit="return book_review_form()">
-		<div class="card-body"><textarea name="book_review_short" id="book_review_short" class="form-control" rows="1"></textarea></div>
+		<div class="card-body"><textarea name="book_review_short" id="book_review_short" class="form-control" rows="1"></textarea></div> <!-- vo의 컬럼으로 name을 설정 -->
+		<input type="hidden" name="book_isbn" value="${book_isbn}">
 		<input type="submit" value="댓글등록" />
 	</form>
 

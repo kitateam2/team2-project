@@ -22,8 +22,9 @@ public class ReviewDAO {
 	//댓글 저장
 	public int insert(BookReview review) {
 		ReviewMapper mapper = sqlsession.getMapper(ReviewMapper.class);
+		logger.info("DAO시작{}");
 		int result = mapper.insert(review);
-		logger.info("DAO{}", result);
+		logger.info("DAO끝{}", result);
 		return result;
 	}
 	
