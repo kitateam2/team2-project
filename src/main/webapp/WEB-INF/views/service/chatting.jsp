@@ -49,7 +49,7 @@ function sendMessage(evt) {
      else
          socket.send(msg);
      
-     
+     $("html").scrollTop($(document).height());
 }
 
 function connectStomp() {
@@ -90,6 +90,7 @@ function connectStomp() {
 			    }
 			 });	
 			
+			$("html").scrollTop($(document).height());
         });
     });
 
