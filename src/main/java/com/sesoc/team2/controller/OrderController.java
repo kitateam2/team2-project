@@ -22,8 +22,8 @@
 	/*주문, 장바구니, 위시리스트, 결제 등 주문상세에 대한 컨트롤러*/
 	 
 		  
-		  @Controller public class OrderController { private static final Logger logger
-		  = LoggerFactory.getLogger(OrderController.class);
+		  @Controller public class OrderController { 
+			  private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 		  
 		  @Autowired CartDAO dao;
 		  
@@ -33,7 +33,9 @@
 		  public String list(HttpSession session,String book_isbn) { 
 			  String user_id1 = (String) session.getAttribute("loginId"); 
 			  int user_cart_no = dao.selectuser_cart_no(user_id1); 
+			  logger.info("북isbn {}" , book_isbn);
 			  cart_book cartbook = dao.selectbook(book_isbn); 
+			  logger.info("카트북 : {} ", cartbook);
 			  cart_book book = new cart_book();
 		  book.setUser_cart_no(user_cart_no);
 		  logger.debug("유저카트넘버 : {} ", user_cart_no);

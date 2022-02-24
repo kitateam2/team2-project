@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.sesoc.team2.controller.OrderController;
 import com.sesoc.team2.vo.cart_book;
 import com.sesoc.team2.vo.user_wishlist;
 
@@ -15,7 +16,7 @@ import com.sesoc.team2.vo.user_wishlist;
 
 @Repository
 public class CartDAO {
-	
+	private static final Logger logger = LoggerFactory.getLogger(CartDAO.class);
 	
 	@Autowired
 	SqlSession sqlSession;
@@ -38,6 +39,7 @@ public class CartDAO {
 		 return list; 
 		 }
 	public cart_book selectbook(String book_isbn) {
+		logger.debug("카트북 : {} ", book_isbn);
 		CartMapper mapper = sqlSession.getMapper(CartMapper.class); 
 		cart_book cartbook = mapper.cartbook(book_isbn);
 		return cartbook;

@@ -20,7 +20,11 @@
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
+<style>
+.container {
+height: 600;
+}
+</style>
 <script>
 
 //bt1 버튼 클릭했을때 실행될 함수
@@ -33,7 +37,9 @@ function bt1Click(n){
 		data: {book_isbn: n},
 		dataType:'text',
 		success: function() { alert('장바구니에 담았습니다.'); },
-		error: function() { alert('로그인을 해주세요'); }
+		error:function(request,status,error){
+	        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); 
+	    }
 	});
 }
 
@@ -70,7 +76,7 @@ function bookPage() {
 	
 		<!-- 검색폼 -->
 	<h1><center>
-	<p><a href="/team2" style="color:black;">Book Store</a> &nbsp; &nbsp;
+	<p style="type"><a href="/team2" style="color:black;">Book Store</a> &nbsp; &nbsp;
 	<form id="bookName" method="get" action="list">
 		<input type="hidden" name="page" id="page" />
 		<input type="text" placeholder="검색어 입력" id="searchInput" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }"/>
@@ -149,7 +155,7 @@ function bookPage() {
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div><br><br><br><br><br><br>
+</div>
 
         <section class="product" id="product">
             <h1>신간도서</h1>
@@ -429,7 +435,13 @@ function bookPage() {
 
 <div class="card-footer">Footer</div>
             
-          
+            <c:forEach var="cart" items="${Cart_book1}">  
+            <a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
+            </c:forEach>
+            
+		<c:forEach var="wishlist" items="${wishCart_book1}">
+		<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
+		</c:forEach>           
 
 </body>
 </html>
