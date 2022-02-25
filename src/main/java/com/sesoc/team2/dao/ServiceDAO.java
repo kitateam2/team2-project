@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.sesoc.team2.vo.Chat;
 import com.sesoc.team2.vo.Chatroom;
+import com.sesoc.team2.vo.Searchid;
 import com.sesoc.team2.vo.User_infoVO;
 
 @Repository
@@ -19,9 +20,9 @@ public class ServiceDAO {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ServiceDAO.class);
 
-	public ArrayList<User_infoVO> idList() {
+	public ArrayList<User_infoVO> idList(String id) {
 		ServiceMapper mapper = sqlSession.getMapper(ServiceMapper.class);
-		ArrayList<User_infoVO> idList = mapper.idList();
+		ArrayList<User_infoVO> idList = mapper.idList(id);
 		return idList;
 	}
 
@@ -45,6 +46,12 @@ public class ServiceDAO {
 		ServiceMapper mapper = sqlSession.getMapper(ServiceMapper.class);
 		ArrayList<Chat> chatlist = mapper.chatlist(roomid);
 		return chatlist;
+	}
+
+	public ArrayList<User_infoVO> idsearch(Searchid searchid) {
+		ServiceMapper mapper = sqlSession.getMapper(ServiceMapper.class);
+		ArrayList<User_infoVO> idsearch = mapper.idsearch(searchid);
+		return idsearch;
 	}
 	
 	

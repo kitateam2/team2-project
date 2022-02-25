@@ -7,8 +7,9 @@
   <!-- 리뷰 불러와서 DB 저장 SQL -->
 <mapper namespace="com.sesoc.team2.dao.ServiceMapper">
 	<!-- 모든 회원정보 조회 -->
-	<select id="idList" resultType="User_infoVO">
+	<select id="idList" resultType="User_infoVO" parameterType="String">
 		select * from user_info
+		where user_id != #{id}
 	</select>
 
 	<!-- 채팅방 생성 -->
@@ -43,5 +44,11 @@
 	<select id="chatlist" resultType="chat" parameterType="String">
 		select * from chat where
 		chatroom_id = #{roomid}
+	</select>
+	
+	<!-- id검색 -->
+	<select id="idsearch" resultType="User_infoVO" parameterType="searchid">
+		select * from user_info
+		where user_id != #{user_id} and user_id like '%' || #{searchtext} || '%'
 	</select>
 </mapper>
