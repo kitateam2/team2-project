@@ -5,12 +5,6 @@
     
 <html>
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 function message_window(){
 	
@@ -34,31 +28,12 @@ function pagingFormSubmit(currentPage) {
 </style>
 
 
-<title>>My Blog</title>
+<title>${user_id} 블로그</title>
 </head>
 <body>
 <div class ="container">
 
-	 <!-- 개인블로그 헤더 -->
-	<header class="col-md-12 row" style="background-color:rgb(169, 169, 169); height:4em; width:100%; cursor: pointer; --bs-gutter-x:0rem; --bs-gutter-x:0rem">
-		<div class="col-md-3 align-self-center" onclick="location.href='/team2'"><h2>BOOK STORE</h2></div> <!-- 로고 -->
-		<div class="col-md-2 offset-md-4 align-self-center " style="text-align:right;"><a onclick="location.href='/team2'">메인페이지</a></div>
-		<div class="col-md-1 align-self-center" style="text-align:right;"><a onclick="location.href='/team2/blogmain'">블로그홈</a></div>
-		<c:if test="${sessionScope.loginId != null}">
-			<div class="col-md-1 align-self-center" style="text-align:right;">
-			<a onclick="location.href='/team2/myblog/${sessionScope.loginId}'">${sessionScope.loginId}님</a> 
-			</div>
-			<div class="col-md-1 align-self-center" style="text-align:right;" onclick="location.href='${pageContext.request.contextPath}/myblog/logout'"><a>로그아웃</a></div>
-		</c:if>
-		<c:if test="${sessionScope.loginId == null}">
-			<div class="col-md-1 align-self-center" style="text-align:right;">
-				<a onclick="location.href='../condition'">회원가입</a> 
-			</div>
-			<div class="col-md-1 align-self-center" style="text-align:right;"><a onclick="location.href='../loginForm'">로그인</a></div>
-		
-		
-		</c:if>
-	</header><!-- 개인블로그 헤더 -->
+	 <jsp:include page="myblogHeader.jsp"></jsp:include>
 	
 	<!-- 개인블로그 이미지 -->
 	<div class="col-md-12" style="padding:0.3em 0em"><img src="../resources/img/myblogimg.jpeg" style="width:100%; opacity: 0.4;"></div>
@@ -148,39 +123,62 @@ function pagingFormSubmit(currentPage) {
 			
 			<!-- right -->
 			<div class="col-md-10" style="background-color:#F8D7DA">
-				<div class="offset-md-11 col-md-1">
-					<input onclick="location.href='newPost'" type="button" class="btn btn-outline-primary" value="글쓰기">
+			
+				<div class="row" style="padding: 0rem 1rem;">
+					<div class="col-md-1">전체 : ${navi.totalRecordsCount} </div>
+					<div class="offset-md-10 col-md-1">
+						<input onclick="location.href='newPost'" type="button" class="btn btn-outline-primary" value="글쓰기">
+					</div>
 				</div>
+				<hr class="my-4" />
+				<br>
+				<c:forEach var="postlist" items="${postlist}"> 
+				  <!--  <!-- Post preview-->
+				  <div class="row" style="padding: 0rem 2rem; ">
+				  	<div class="col-md-1">No. ${postlist.post_no}</div>
+				  	<div class="offset-md-9 col-md-2" style="text-align:right;">조회수 : ${postlist.post_hits}</div>
+				  </div>
+                    <div class="post-preview" style="padding: 0rem 1rem; ">
+                        <a href="${postlist.user_id}/one_post?post_no=${postlist.post_no}">
+                            <h2 class="post-title">${postlist.post_title}</h2>
+                            <h3 class="post-subtitle">${postlist.post_contents}</h3>
+                        </a>
+                        <p class="post-meta">
+                          date. ${postlist.post_uploaddate}
+                        </p>
+                    </div>
+                    <hr class="my-4" />
+                    </c:forEach>
 				
 				<div><!-- 글 목록 한덩어리- 글목록 조회수  -->
 				전체 : ${navi.totalRecordsCount} <!-- 질문 -->
-					<table border="1">
-					
-						<tr>
-							<th colspan="4">게시글 목록</th>
-							
-						</tr>
-					<!-- 참고한 주소 https://freehoon.tistory.com/106 -->
+					<table border="1" style="width:90%">
 					<c:forEach var="postlist" items="${postlist}"> <!-- 리스트 저장한 거 가지고 오는 거  -->
 						<tr>
-							<td>게시글 번호 : ${postlist.post_no}</td>
+							<td>No. ${postlist.post_no}</td>
+						</tr>
+						<tr>
 							<td>
 							<a href="${postlist.user_id}/one_post?post_no=${postlist.post_no}">
-										게시글 제목 : ${postlist.post_title}</a>
+								<p class="post-title h3">${postlist.post_title}</p>
+								</a>
 							</td>
-							<td>blank</td>
-							<td>게시 시간 : ${postlist.post_uploaddate}</td>
 						</tr>
 						<tr>
-							<td colspan="4">게시글 내용 : ${postlist.post_contents} 내용에 링크</td>
+							<td colspan="4"><p class="post-subtitle">${postlist.post_contents}</p></td>
 						</tr>
 						<tr>
-							<td colspan="4">조회수 : ${postlist.post_hits} 오른쪽 정렬로 보여주기 </td>
+							<td>date. ${postlist.post_uploaddate}</td>
+						</tr>
+						<tr>
+							<td colspan="4">조회수 : ${postlist.post_hits}</td>
 						</tr>
 						
 					</c:forEach>
 					</table>
 				</div><!-- 글 목록 한덩어리- 글목록 조회수  -->
+				
+				
 				
 				<div id="navigator">
 				<!-- 페이지 이동 부분 -->                      
@@ -204,7 +202,7 @@ function pagingFormSubmit(currentPage) {
 				<!-- 검색폼 -->
 				<form id="pagingForm" method="get" action="${user_id}"><!-- 질문 -->
 					<input type="hidden" name="page" id="page" />
-					제목 : <input type="text"  name="searchText" value="${searchText}" />
+					내용 : <input type="text"  name="searchText" value="${searchText}" />
 					<input type="button" onclick="pagingFormSubmit(1)" value="검색">
 				</form>
 				<!-- /검색폼 --> 
