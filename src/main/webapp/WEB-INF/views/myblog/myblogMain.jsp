@@ -34,7 +34,7 @@ function pagingFormSubmit(currentPage) {
 </style>
 
 
-<title>Home</title>
+<title>>My Blog</title>
 </head>
 <body>
 <div class ="container">
@@ -85,7 +85,9 @@ function pagingFormSubmit(currentPage) {
 					<table>
 						<tr><td colspan="2"><img src="../resources/img/myblogimg2.png" style="width:50%;"></td></tr>
 						<tr><td colspan="2">${user_id}님의 블로그</td></tr>
-						<tr><td colspan="2" ><button onclick="message_window()"> 내 쪽지로 이동</button></td></tr>
+						<c:if test="${sessionScope.loginId != null}">
+						<tr><td colspan="2" ><button onclick="message_window()"> 내 쪽지로 이동</button></td></tr> <!-- 로그인 없으면 오류나는거 해결하기 -->
+						</c:if>
 					</table>
 				</div>
 			</c:if>
