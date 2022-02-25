@@ -41,7 +41,36 @@
 
 <script>
 
+<<<<<<< HEAD
 
+=======
+//bt1 버튼 클릭했을때 실행될 함수
+function bt1Click(){
+	var n = document.getElementById('book_isbn_param').value;
+	alert('장바구니 이동');
+	$.ajax({
+		url:'ajaxcart',
+		type:'post',
+		data: {book_isbn: n},
+		dataType:'text',
+		success: function() { alert('장바구니에 담았습니다.'); },
+		error: function() { alert('로그인을 해주세요'); }
+	}); 
+}
+
+function bt2Click(n){
+	var n = document.getElementById('book_isbn_param').value;
+	alert('위시리스트이동');
+	$.ajax({
+		url:'ajaxwishlist',
+		type:'post',
+		data: {book_isbn: n},
+		dataType:'text',
+		success: function() { alert('위시리스트에 담았습니다.'); },
+		error: function() { alert('로그인을 해주세요'); }
+	});
+}
+>>>>>>> b89ce971a3723ba7fb304fed55d46cab4f6e388f
 
 //페이지 넘버링
 function pagingFormSubmit(currentPage) {
