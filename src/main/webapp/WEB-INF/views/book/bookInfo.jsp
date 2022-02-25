@@ -43,7 +43,6 @@
 //bt1 버튼 클릭했을때 실행될 함수
 function bt1Click(){
 	var n = document.getElementById('book_isbn_param').value;
-	alert(n);
 	alert('장바구니 이동');
 	$.ajax({
 		url:'ajaxcart',
@@ -56,7 +55,7 @@ function bt1Click(){
 }
 
 function bt2Click(n){
-	
+	var n = document.getElementById('book_isbn_param').value;
 	alert('위시리스트이동');
 	$.ajax({
 		url:'ajaxwishlist',
