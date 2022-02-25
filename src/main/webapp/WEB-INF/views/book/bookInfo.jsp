@@ -41,8 +41,9 @@
 <script>
 
 //bt1 버튼 클릭했을때 실행될 함수
-function bt1Click(n){
-	
+function bt1Click(){
+	var n = document.getElementById('book_isbn_param').value;
+	alert(n);
 	alert('장바구니 이동');
 	$.ajax({
 		url:'ajaxcart',
@@ -167,7 +168,8 @@ function bookPage() {
 	<td class="center" style="width:150px; text-align:center; font-size: 14px;">${book.book_reward}</td>
 	<td class="center" style="width:150px; text-align:center; font-size: 14px;"><fmt:formatNumber value="${book.book_price}" pattern="###,###" />원</td>
 	<td class="center" style="width:70px; text-align:center;">    
-			<a href="#" onclick="bt1Click(${book.book_isbn});" class="btn btn-primary">Add to Cart</a><br><br>
+			<a href="#" onclick="bt1Click();" class="btn btn-primary">Add to Cart</a><br><br>
+			<input type="hidden" id="book_isbn_param" value="${book.book_isbn}">
 			<a href="#" onclick="bt2Click(${book.book_isbn});" class="btn btn-primary">위시리스트</a>
 	</td>
 </tr>

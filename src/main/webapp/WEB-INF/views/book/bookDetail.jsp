@@ -29,6 +29,7 @@
 function bt1Click(n){
 	
 	alert('장바구니 이동');
+	alert(n);
 	$.ajax({
 		url:'ajaxcart',
 		type:'post',
