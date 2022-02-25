@@ -124,23 +124,22 @@ function book_review_delete(book_review_no, book_review_star){
 <table style="padding-top:10px;">
 
 <tr>
-	<td colspan="3" style="height:30px;"></td>
+	<td colspan="3" style="height:35px;"></td>
 </tr>
 <tr>
 	<td rowspan="2" class="center"><img src="download?filename=${book.book_image}" style="object-fit:cover; width:200px; height:300px; vertical-align:top;"></td>
-	<td rowspan="3" style="width:100px;"></td>
+	<td rowspan="3" style="width:80px;"></td>
 	<td class="center" style="width:600px; text-align:left;">
-		<p style="font-size: 24px; font-weight:bold; color:#3A60DF; width:480px;">${book.book_title}</p>  
+		<p style="font-size: 22px; font-weight:bold; color:#3A60DF; width:480px;">${book.book_title}</p>  
 		<p style="font-size: 14px; font-weight:normal;">저자: ${book.book_author}&nbsp;<span style="font-size: 14px; font-weight:bold; color:#acacac;"><${book.book_public}></span></p>
 		<p style="font-size: 14px; font-weight:normal; color:black;">${book.book_contents}</p>
 	</td>
 </tr>
 
 <tr>
-	<td rowspan="2" class="center" style="width:200px; object-fit:cover;"></td>
 	<td class="center" style="width:600px; text-align:left;">
 		<p style="width:150px; text-align:left; font-size: 14px;">별점: ${book.book_reward}</p>
-		<p style="width:150px; text-align:left; font-size: 14px;">정가: <span style="font-size: 24px; font-weight:bold; color:#F84450"><fmt:formatNumber value="${book.book_price}" pattern="###,###" /></span>원</p>
+		<p style="width:150px; text-align:left; font-size: 14px;">정가: <span style="font-size: 22px; font-weight:bold; color:#F84450"><fmt:formatNumber value="${book.book_price}" pattern="###,###" /></span>원</p>
 		<p style="width:150px; text-align:left; font-size: 14px;">장바구니   |  위시리스트
 			<c:forEach var="cart" items="${Cart_book1}">
 				<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
@@ -190,7 +189,7 @@ function book_review_delete(book_review_no, book_review_star){
 		</c:forEach>
 		
 		<tr>
-			<td><p style="height: 20px;"></p></td>
+			<td><p style="height: 40px;"></p></td>
 		</tr>
 	</table>
 	

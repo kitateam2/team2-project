@@ -15,7 +15,14 @@
 </select>
 
 <select id ="cartbook" parameterType="String" resultType="cart_bookVO" >
-select book_isbn, book_price, book_title from book_info where book_isbn = #{book_isbn}
+			select 	
+				book_isbn
+				, book_price
+				, book_title 
+			from 	
+				book_info 
+			where 
+				book_isbn = #{book_isbn}
 </select>
 
 <select id ="select_wish_book" parameterType="String" resultType="cart_bookVO">

@@ -44,27 +44,27 @@
 function bt1Click(n){
 	
 	alert('장바구니 이동');
-	/* $.ajax({
+	$.ajax({
 		url:'ajaxcart',
 		type:'post',
 		data: {book_isbn: n},
 		dataType:'text',
 		success: function() { alert('장바구니에 담았습니다.'); },
 		error: function() { alert('로그인을 해주세요'); }
-	}); */
+	}); 
 }
 
 function bt2Click(n){
 	
 	alert('위시리스트이동');
-	/* $.ajax({
+	$.ajax({
 		url:'ajaxwishlist',
 		type:'post',
 		data: {book_isbn: n},
 		dataType:'text',
 		success: function() { alert('위시리스트에 담았습니다.'); },
 		error: function() { alert('로그인을 해주세요'); }
-	}); */
+	});
 }
 
 //페이지 넘버링
