@@ -138,7 +138,7 @@ function bookPage() {
 			<c:if test="${sessionScope.loginId != null}">
 				<td class="class_item2" style="color:white; font-size:16px;"><a href="logout">로그아웃</a></td><td>&nbsp;</td>
 				<td class="class_item2" style="color:white; font-size:16px;"><a href="cart">장바구니</a></td><td>&nbsp;</td>
-				<td class="class_item2" style="color:white; font-size:16px;"><a href="myblog">개인 블로그</a></td><td>&nbsp;</td>
+				<td class="class_item2" style="color:white; font-size:16px;"><a href="myblog/${sessionScope.loginId}">개인 블로그</a></td><td>&nbsp;</td>
 				<td class="class_item3" style="color:white; font-size:16px;">${sessionScope.loginId}님 환영합니다.</td>
 			</c:if>
 		</tr>	
@@ -179,7 +179,6 @@ function bookPage() {
 			<script>
 			//bt1 버튼 클릭했을때 실행될 함수
 			function bt1Click(n){
-			
 				alert(n);
 				alert('장바구니 이동');
 				$.ajax({
@@ -192,9 +191,7 @@ function bookPage() {
 				}); 
 			}
 
-			function bt2Click(){
-				var n = "${book.book_isbn}";
-				alert(n);
+			function bt2Click(n){
 				alert('위시리스트이동');
 				$.ajax({
 					url:'ajaxwishlist',

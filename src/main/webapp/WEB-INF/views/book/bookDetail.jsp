@@ -111,7 +111,7 @@ function book_review_delete(book_review_no, book_review_star){
 			<c:if test="${sessionScope.loginId != null}">
 				<td class="class_item2" style="color:white; font-size:16px;"><a href="logout">로그아웃</a></td><td>&nbsp;</td>
 				<td class="class_item2" style="color:white; font-size:16px;"><a href="cart">장바구니</a></td><td>&nbsp;</td>
-				<td class="class_item2" style="color:white; font-size:16px;"><a href="myblog">개인 블로그</a></td><td>&nbsp;</td>
+				<td class="class_item2" style="color:white; font-size:16px;"><a href="myblog/${sessionScope.loginId}">개인 블로그</a></td><td>&nbsp;</td>
 				<td class="class_item3" style="color:white; font-size:16px;">${sessionScope.loginId}님 환영합니다.</td>
 			</c:if>
 		</tr>	
