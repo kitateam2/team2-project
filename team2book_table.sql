@@ -161,13 +161,15 @@ CREATE TABLE CART_BOOK
 	cart_book_inputdate date DEFAULT sysdate NOT NULL,
 	-- 장바구니에 담은 책의 개수
 	cart_book_count number DEFAULT 0 NOT NULL,
+	-- 장바구니에 담긴 책가격
+	book_price number DEFAULT 0,
+	-- 책 제목
+	book_title varchar2(150),
 	-- 책 인덱스
 	-- 
 	book_isbn varchar2(30) NOT NULL,
 	-- 찜 번호
 	user_cart_no number DEFAULT 0 NOT NULL,
-	-- 장바구니에 담긴 책가격
-	cart_book_price number DEFAULT 0,
 	PRIMARY KEY (cart_book_no)
 );
 
@@ -252,12 +254,12 @@ CREATE TABLE MESSAGE
 	message_date date DEFAULT sysdate NOT NULL,
 	-- 메세지 조회했는지
 	message_hits number DEFAULT 0 NOT NULL,
+	-- 쪽지 첨부파일
+	message_file varchar2(200),
 	-- 메세지 보낸 아이디
 	message_sent_id varchar2(20) NOT NULL,
 	-- 메세지 받은 아이디
 	message_recv_id varchar2(20) NOT NULL,
-	-- 쪽지 첨부파일
-	message_file varchar2(200),
 	PRIMARY KEY (message_no)
 );
 
@@ -286,6 +288,8 @@ CREATE TABLE ORDER_LIST
 	order_totalprice number DEFAULT 0 NOT NULL,
 	-- 주문상태
 	order_state varchar2(30),
+	-- 배송지 주소
+	order_address varchar2(400),
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
 	PRIMARY KEY (order_no)
@@ -393,6 +397,8 @@ CREATE TABLE USER_WISH
 CREATE TABLE USER_WISHLIST
 (
 	user_wishlist_no number DEFAULT 0 NOT NULL,
+	-- 책제목
+	book_title varchar2(200),
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
 	-- 책 인덱스
@@ -400,8 +406,6 @@ CREATE TABLE USER_WISHLIST
 	book_isbn varchar2(30) NOT NULL,
 	-- user_wish 식별
 	user_wish_no number DEFAULT 0 NOT NULL,
-	-- 책제목
-	book_title varchar2(200),
 	PRIMARY KEY (user_wishlist_no),
 	UNIQUE (user_id, book_isbn)
 );
@@ -501,25 +505,25 @@ ALTER TABLE EVENT
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (follow_ing_id)
-	REFERENCES USER_INFO (user_id)
-;
-
-
-ALTER TABLE FOLLOW
 	ADD FOREIGN KEY (follow_ed_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
-ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_recv_id)
+ALTER TABLE FOLLOW
+	ADD FOREIGN KEY (follow_ing_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE MESSAGE
 	ADD FOREIGN KEY (message_sent_id)
+	REFERENCES USER_INFO (user_id)
+;
+
+
+ALTER TABLE MESSAGE
+	ADD FOREIGN KEY (message_recv_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
@@ -598,10 +602,11 @@ COMMENT ON COLUMN BOOK_REVIEW.book_isbn IS '책 인덱스
 COMMENT ON COLUMN CART_BOOK.cart_book_no IS '장바구니에 담긴 책 식별자';
 COMMENT ON COLUMN CART_BOOK.cart_book_inputdate IS '장바구니에 책을 담은 날짜';
 COMMENT ON COLUMN CART_BOOK.cart_book_count IS '장바구니에 담은 책의 개수';
+COMMENT ON COLUMN CART_BOOK.book_price IS '장바구니에 담긴 책가격';
+COMMENT ON COLUMN CART_BOOK.book_title IS '책 제목';
 COMMENT ON COLUMN CART_BOOK.book_isbn IS '책 인덱스
 ';
 COMMENT ON COLUMN CART_BOOK.user_cart_no IS '찜 번호';
-COMMENT ON COLUMN CART_BOOK.cart_book_price IS '장바구니에 담긴 책가격';
 COMMENT ON COLUMN CHAT.chat_id IS '메세지 번호';
 COMMENT ON COLUMN CHAT.chat_message IS '채팅 메세지';
 COMMENT ON COLUMN CHAT.chat_time IS '채팅한 시간';
@@ -624,9 +629,9 @@ COMMENT ON COLUMN MESSAGE.message_no IS '메세지 번호';
 COMMENT ON COLUMN MESSAGE.message_contents IS '메세지 내용';
 COMMENT ON COLUMN MESSAGE.message_date IS '메세지 보낸 날짜';
 COMMENT ON COLUMN MESSAGE.message_hits IS '메세지 조회했는지';
+COMMENT ON COLUMN MESSAGE.message_file IS '쪽지 첨부파일';
 COMMENT ON COLUMN MESSAGE.message_sent_id IS '메세지 보낸 아이디';
 COMMENT ON COLUMN MESSAGE.message_recv_id IS '메세지 받은 아이디';
-COMMENT ON COLUMN MESSAGE.message_file IS '쪽지 첨부파일';
 COMMENT ON COLUMN ORDER_DETAIL.book_isbn IS '책 인덱스
 ';
 COMMENT ON COLUMN ORDER_DETAIL.order_no IS '주문번호';
@@ -634,6 +639,7 @@ COMMENT ON COLUMN ORDER_LIST.order_no IS '주문번호';
 COMMENT ON COLUMN ORDER_LIST.order_date IS '주문날짜';
 COMMENT ON COLUMN ORDER_LIST.order_totalprice IS '총 주문 금액';
 COMMENT ON COLUMN ORDER_LIST.order_state IS '주문상태';
+COMMENT ON COLUMN ORDER_LIST.order_address IS '배송지 주소';
 COMMENT ON COLUMN ORDER_LIST.user_id IS '회원ID';
 COMMENT ON COLUMN POST_COMMENT.post_comment_writter IS '댓글 작성자 id';
 COMMENT ON COLUMN POST_COMMENT.post_no IS '블로그 게시글 번호';
@@ -660,11 +666,11 @@ COMMENT ON COLUMN USER_TRANSFER.user_transfer_phone IS '수신자 전화번호';
 COMMENT ON COLUMN USER_TRANSFER.user_transter_address IS '수신인 주소';
 COMMENT ON COLUMN USER_WISH.user_wish_no IS 'user_wish 식별';
 COMMENT ON COLUMN USER_WISH.user_id IS '회원ID';
+COMMENT ON COLUMN USER_WISHLIST.book_title IS '책제목';
 COMMENT ON COLUMN USER_WISHLIST.user_id IS '회원ID';
 COMMENT ON COLUMN USER_WISHLIST.book_isbn IS '책 인덱스
 ';
 COMMENT ON COLUMN USER_WISHLIST.user_wish_no IS 'user_wish 식별';
-COMMENT ON COLUMN USER_WISHLIST.book_title IS '책제목';
 
 
 

@@ -130,7 +130,7 @@ function bookPage() {
 				<td class="class_item"><a href="url" class="text" style="color:white; font-size:16px;">외국도서</a></td><td>&nbsp;</td>
 				<td class="class_item"><a href="bookInfo" class="text" style="color:white; font-size:16px;">책 상세정보</a></td><td>&nbsp;</td>
 				<td class="class_item"><a href="blogmain" class="text" style="color:white; font-size:16px;">블로그 메인</a></td><td>&nbsp;</td>
-				<td class="class_item"><a href="blogmain" class="text" style="color:white; font-size:16px;">고객센터</a></td><td>&nbsp;</td>
+				<td class="class_item"><a href="userService" class="text" style="color:white; font-size:16px;">고객센터</a></td><td>&nbsp;</td>
 			<c:if test="${sessionScope.loginId == null}">
 				<td class="class_item2"><a href="condition" style="color:white; font-size:16px;">회원가입</a></td><td>&nbsp;</td>
 				<td class="class_item2"><a href="login" style="color:white; font-size:16px;">로그인</a></td><td>&nbsp;</td>
@@ -138,7 +138,7 @@ function bookPage() {
 			<c:if test="${sessionScope.loginId != null}">
 				<td class="class_item2" style="color:white; font-size:16px;"><a href="logout">로그아웃</a></td><td>&nbsp;</td>
 				<td class="class_item2" style="color:white; font-size:16px;"><a href="cart">장바구니</a></td><td>&nbsp;</td>
-				<td class="class_item2" style="color:white; font-size:16px;"><a href="myblog">개인 블로그</a></td><td>&nbsp;</td>
+				<td class="class_item2" style="color:white; font-size:16px;"><a href="myblog/${sessionScope.loginId}">개인 블로그</a></td><td>&nbsp;</td>
 				<td class="class_item3" style="color:white; font-size:16px;">${sessionScope.loginId}님 환영합니다.</td>
 			</c:if>
 		</tr>	
@@ -172,14 +172,13 @@ function bookPage() {
 	<td class="center" style="width:150px; text-align:center; font-size: 14px;">${book.book_reward}</td>
 	<td class="center" style="width:150px; text-align:center; font-size: 14px;"><fmt:formatNumber value="${book.book_price}" pattern="###,###" />원</td>
 	<td class="center" style="width:70px; text-align:center;" value="${book.book_isbn}"	>    
-			<a href="#" onclick="bt1Click(${book.book_isbn});" class="btn btn-primary">Add to Cart</a><br><br>
+			<a href="#" onclick="bt1Click('${book.book_isbn}');" class="btn btn-primary">Add to Cart</a><br><br>
 			<input type="hidden" id="book_isbn_param${status.count}" value="${book.book_isbn}">
 			
 			<a href="#" onclick="bt2Click(${book.book_isbn});" class="btn btn-primary">위시리스트</a>
 			<script>
 			//bt1 버튼 클릭했을때 실행될 함수
-			function bt1Click(){
-				var n = "${book.book_isbn}";
+			function bt1Click(n){
 				alert(n);
 				alert('장바구니 이동');
 				$.ajax({
@@ -192,9 +191,7 @@ function bookPage() {
 				}); 
 			}
 
-			function bt2Click(){
-				var n = "${book.book_isbn}";
-				alert(n);
+			function bt2Click(n){
 				alert('위시리스트이동');
 				$.ajax({
 					url:'ajaxwishlist',

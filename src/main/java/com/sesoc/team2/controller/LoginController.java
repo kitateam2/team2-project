@@ -14,7 +14,6 @@ import com.sesoc.team2.dao.MemberDAO;
 import com.sesoc.team2.vo.User_infoVO;
 
 @Controller
-@RequestMapping("blogmain")
 public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
@@ -24,7 +23,7 @@ public class LoginController {
 	/**
 	 * 로그인 폼으로 이동
 	 */
-	@RequestMapping (value="login", method=RequestMethod.GET)
+	@RequestMapping (value="blogmain/login", method=RequestMethod.GET)
 	public String login() {
 		return "loginForm";
 	}
@@ -32,7 +31,7 @@ public class LoginController {
 	/**
 	 * 로그인 처리
 	 */
-	@RequestMapping(value = "login", method = RequestMethod.POST)
+	@RequestMapping(value = "blogmain/login", method = RequestMethod.POST)
 	public String login(User_infoVO member, HttpSession session) {
 		User_infoVO resultMember = memberdao.getMember(member.getUser_id());
 		
@@ -45,9 +44,11 @@ public class LoginController {
 	/**
 	 * 로그아웃
 	 */
-	@RequestMapping (value="logout", method=RequestMethod.GET)
+	@RequestMapping (value="blogmain/logout", method=RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.removeAttribute("loginId");		
 		return "redirect:/blogmain";
 	}
+	
+	
 }
