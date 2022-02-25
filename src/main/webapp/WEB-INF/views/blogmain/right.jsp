@@ -68,7 +68,7 @@
 						<c:if test="{i%j == 0}">
 							<tr>
 						</c:if>
-								<td class="td" onClick="location.href='${pageContext.request.contextPath}/myblog/one_post?post_no=${blog.post_no}'">
+								<td class="td" onClick="location.href='${pageContext.request.contextPath}/myblog/${blog.user_id}/one_post?post_no=${blog.post_no}'">
 							 		<div style="height:250px;"><img class="img" onerror="this.style.display='none'" src="${pageContext.request.contextPath}/myblog/${blog.user_id}/show_file?post_no=${blog.post_no}"></div><br>					
 									<div style="color:rgb(117, 117,117);">@${blog.user_id}</div><br>
 									<div class="ellipsis">${blog.post_contents}</div><br><br>
