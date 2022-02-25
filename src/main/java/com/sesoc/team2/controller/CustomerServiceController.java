@@ -1,6 +1,7 @@
 package com.sesoc.team2.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sesoc.team2.dao.ServiceDAO;
 import com.sesoc.team2.vo.Chat;
 import com.sesoc.team2.vo.Chatroom;
+import com.sesoc.team2.vo.Searchid;
 import com.sesoc.team2.vo.User_infoVO;
 
 /**
@@ -65,7 +68,7 @@ public class CustomerServiceController {
 	@RequestMapping(value = "/chatinvite", method = RequestMethod.GET)
 	public String chatinvite(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("loginId");
-		ArrayList<User_infoVO> idList = sdao.idList();
+		ArrayList<User_infoVO> idList = sdao.idList(id);
 		//logger.info("리스트{}", idList);
 		model.addAttribute("idlist",idList);
 		return "service/chatinvite";
@@ -74,7 +77,7 @@ public class CustomerServiceController {
 	@RequestMapping(value = "/chatinviteerror", method = RequestMethod.GET)
 	public String chatinviteerror(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("loginId");
-		ArrayList<User_infoVO> idList = sdao.idList();
+		ArrayList<User_infoVO> idList = sdao.idList(id);
 		//logger.info("리스트{}", idList);
 		model.addAttribute("idlist",idList);
 		model.addAttribute("error", "1");
@@ -83,13 +86,26 @@ public class CustomerServiceController {
 	
 	//아이디검색
 	@RequestMapping(value = "/chatinvite", method = RequestMethod.POST)
-	public String chatinvite1(HttpSession session, String searchId) {
+	public String chatinvite1(HttpSession session, String searchId, Model model) {
 		logger.info("포스트{}", searchId);
 		String id = (String)session.getAttribute("loginId");
 		
-		return "redirect:/chatinvite";
+		searchid.setUser_id(id);
+		searchid.setSearchtext(searchId);
+		//ArrayList<User_infoVO> idsearch = sdao.idsearch(searchid);
+		return "redirect:/idsearchresult";
+	}
+	Searchid searchid = new Searchid();
+	//아이디검색한거 get으로 반환
+	@RequestMapping(value = "/idsearchresult", method = RequestMethod.GET)
+	public String idsearchresult(HttpSession session, Model model) {
+		String id = (String)session.getAttribute("loginId");
+		ArrayList<User_infoVO> idsearch = sdao.idsearch(searchid);
+		model.addAttribute("idlist", idsearch);
+		return "service/chatinvite";
 	}
 	
+	//DB에 채팅한 내용 저장
 	@ResponseBody
 	@RequestMapping(value = "/insertchat", method = RequestMethod.POST)
 	public void insertchat(@RequestParam(value = "insertchat", required = false) String insertchat) {
@@ -112,23 +128,28 @@ public class CustomerServiceController {
 	@ResponseBody
 	@RequestMapping(value = "/createroom", method = RequestMethod.POST)
 	public String createroom(@RequestParam(value = "checkId", required = false) String[] ids, HttpSession session, HttpServletRequest req) {
-		//String[] ids = req.getParameterValues("checkId");
-		int idcount = ids.length;
-		System.out.println(idcount);
+		String id = (String)session.getAttribute("loginId");
 		String idsum = "";
-
 		for (int i = 0; i < ids.length; i++) {
 			idsum += ids[i];
-			if(i != idcount-1) {
+			if(i != ids.length-1) {
 				idsum += ",";
 			}
 		}
 		idsum = idsum.replace("[", "");
 		idsum = idsum.replace("]", "");
 		idsum = idsum.replaceAll("\"", "");
-		String id = (String)session.getAttribute("loginId");
-		System.out.println(idsum);
-		return idsum;
+		idsum = idsum + "," + id;
+		String[] idsorts = idsum.split(",");
+		Arrays.sort(idsorts);
+		String idsumsort = "";
+		for (int i = 0; i < idsorts.length; i++) {
+			idsumsort += idsorts[i];
+			if(i != idsorts.length-1) {
+				idsumsort += ",";
+			}
+		}
+		return idsumsort;
 	}
 	
 	//ajax후에 DB에 초대한 사용자들 저장

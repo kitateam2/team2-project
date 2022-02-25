@@ -2,8 +2,11 @@
 /* 메인페이지 큰 레이아웃은 grid로 구성함 */
 
 body{
-    margin-left: 100px !important; /* 페이지의 여유공간 없애버림 */
-    margin-right: 100px !important;
+    /* margin-left: 100px !important; 페이지의 여유공간 없애버림
+    margin-right: 100px !important; */
+    margin:0;
+    border:0;
+    padding:0;
 }
 
 /* grid container 적용 */

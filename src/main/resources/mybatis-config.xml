@@ -19,7 +19,7 @@
 		<typeAlias type="com.sesoc.team2.vo.Chat" alias="chat" />
 		<typeAlias type="com.sesoc.team2.vo.Order_detail" alias="Order_detailVO" />
 		<typeAlias type="com.sesoc.team2.vo.Order_list" alias="Order_listVO" />
-		
+		<typeAlias type="com.sesoc.team2.vo.Searchid" alias="searchid" />
 		 	
 			
 

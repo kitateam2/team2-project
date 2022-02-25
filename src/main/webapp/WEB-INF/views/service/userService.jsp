@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.getElementsByTagName("html")[0].className += " js";</script>
-  
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link href="resources/css/header.css" rel="stylesheet"/>
   <link rel="stylesheet" href="resources/css/faq.css"/>
   <title>자주 묻는 질문</title>
@@ -46,6 +46,9 @@
 				<td class="class_item2"><a href="cart">장바구니</a></td><td>&nbsp;</td>
 				<td class="class_item2"><a href="myblog/${sessionScope.loginId}" style="color:white;">개인 블로그</a></td><td>&nbsp;</td>
 				<td class="class_item3">${sessionScope.loginId}님 환영합니다.</td>
+				<td><a onclick="window.open('chatmain','','width=500,height=600,top=200,left=200,toolbar=no,menubar=no,scrollbars=1,resizable=1')" 
+				style="color: white; text-decoration:none;" >
+					&nbsp;&nbsp;&nbsp;<i class='far fa-comment-dots' style='font-size:40px'></i></a></td>
 			</c:if>
 		</tr>	
 	</table>
@@ -91,7 +94,6 @@
           <div class="text-component">
             <a href="chatView">관리자 1:1문의</a><br>
             <!-- <a href="chatting">다른채팅</a><br> -->
-            <a href="chatmain">채팅메인페이지</a><br>
           </div>
 				</div> <!-- cd-faq__content -->
 			</li>
