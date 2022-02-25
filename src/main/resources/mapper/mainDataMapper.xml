@@ -7,7 +7,7 @@
 <mapper namespace="com.sesoc.team2.dao.MainDataMapper">
 
 <!-- 데이터 입력 -->
-<!-- <insert id="insert_date" parameterType="BookVO">
+<!-- <insert id="datelist" parameterType="BookVO">
 		select * from (
 		select
 			book_image

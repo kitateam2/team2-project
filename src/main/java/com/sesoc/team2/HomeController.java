@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sesoc.team2.dao.CartDAO;
+import com.sesoc.team2.dao.MainDataDAO;
+import com.sesoc.team2.vo.Book;
 import com.sesoc.team2.vo.cart_book;
 import com.sesoc.team2.vo.user_wishlist;
 
@@ -28,6 +30,10 @@ public class HomeController {
 	
 	@Autowired
 	CartDAO dao;
+	
+	@Autowired
+	MainDataDAO mdao;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -36,6 +42,9 @@ public class HomeController {
 		model.addAttribute("Cart_book1",listcart);
 		model.addAttribute("wishCart_book1",wishlistcart);
 		logger.info("Welcome home! The client locale is {}.", listcart);
+		
+		ArrayList<Book> insertdate = mdao.insertdate();
+		model.addAttribute("insert_date", insertdate);
 		
 		return "home";
 	}	
