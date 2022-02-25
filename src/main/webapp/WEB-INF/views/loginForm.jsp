@@ -87,10 +87,11 @@
 	
 	<form action="login" method="post" onsubmit="return validationCheck();">
 	  <h2>Login</h2>
+	  <input type="hidden" name="url"  value="${url}">
       <input type="text" placeholder="Enter Username" id="username" name="user_id">
       <input type="password" placeholder="Enter password" id="password" name="user_pw">
       <input type="submit" name="" value="Login">
-      <input type="submit" value="취소">
+      <input type="reset" value="취소">
     </form>
     <div class="errorMsg">
 			${errorMsg}
