@@ -8,14 +8,17 @@
  import org.slf4j.Logger; import org.slf4j.LoggerFactory; import
  org.springframework.beans.factory.annotation.Autowired; import
  org.springframework.stereotype.Controller; import
- org.springframework.ui.Model; import
+ org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import
   org.springframework.web.bind.annotation.RequestMapping; import
   org.springframework.web.bind.annotation.RequestMethod; import
   org.springframework.web.bind.annotation.RequestParam; import
   org.springframework.web.bind.annotation.ResponseBody; import
   org.springframework.web.multipart.MultipartFile;
-  
- import com.sesoc.team2.dao.CartDAO;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.sesoc.team2.dao.CartDAO;
 import com.sesoc.team2.vo.Order_detail;
 import com.sesoc.team2.vo.Order_list;
 import com.sesoc.team2.vo.User_infoVO;
@@ -25,7 +28,8 @@ import com.sesoc.team2.vo.User_infoVO;
 	/*주문, 장바구니, 위시리스트, 결제 등 주문상세에 대한 컨트롤러*/
 	 
 		  
-		  @Controller public class OrderController { 
+		  @Controller public class OrderController {
+			  
 			  private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 		  
 		  @Autowired CartDAO dao;
@@ -177,26 +181,34 @@ import com.sesoc.team2.vo.User_infoVO;
 				return "redirect:/cart";
 			}
 		  
-		  @RequestMapping (value="checkout", method=RequestMethod.GET) 
-		  public String checkout(Model model,HttpSession session) { 
-			  
+		  @RequestMapping (value="checkout", method=RequestMethod.POST) 
+		  public String checkout(HttpSession session, String order_address, Model model) {
+			  String user_id1 = (String) session.getAttribute("loginId");
+			  Order_list order_list = dao.order_num(user_id1);
+			  model.addAttribute("order_address",order_address);
+	
+				
 			  return "cart/checkoutForm"; 
 			  
 		  }
 		  
 		  
 		  //결제버튼을 눌렀을떄 결제가 되는 메서드
-		  @RequestMapping (value="complete", method=RequestMethod.GET) 
-		  public String complete(Model model,HttpSession session) {
-			  logger.info("로거시작");
+		  @RequestMapping (value="complete", method=RequestMethod.POST) 
+		  public String complete(Model model,HttpSession session,String order_address) {
+			  logger.info("오더어드레스{}", order_address);
 			  String user_id1 = (String) session.getAttribute("loginId");
-			  Order_list order_num = dao.order_num(user_id1);
-			  logger.info("아아아아아아앙아{}", order_num);
-				int cart_total = dao.ordertotal(order_num); 
-				order_num.setOrder_no(order_num.getOrder_no());
-				order_num.setOrder_totalprice(cart_total);
-				logger.info("토탈{}", cart_total); 
-				dao.updateorder(order_num);
+			  Order_list order_list = dao.order_num(user_id1);
+			  logger.info("아아아아아아앙아{}", order_list);
+				int cart_total = dao.ordertotal(order_list); 
+				order_list.setOrder_no(order_list.getOrder_no());
+				order_list.setOrder_totalprice(cart_total);
+				order_list.setOrder_address(order_address);
+				logger.info("토탈{}", cart_total);
+				
+				dao.updateorder(order_list);
+				dao.updateaddress(order_list);
+			
 			  return "cart/completeForm"; 
 			  
 		  }

@@ -227,4 +227,13 @@ order_detail_seq.nextval
 		where
 			order_no = #{order_no}
 	</update> 
+	
+	<update id="orderaddress" parameterType="Order_listVO">
+		update
+			Order_list
+		set
+		   order_address = #{order_address}
+		where
+			order_no = #{order_no}
+	</update>
 </mapper>

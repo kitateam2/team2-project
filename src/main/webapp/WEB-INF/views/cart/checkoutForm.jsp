@@ -78,7 +78,7 @@ function text(){
 
     </div>
 
-    <form action="complete" method="get">
+    <form action="complete" method="post">
         <div class="inputBox">
             <span>card number</span>
             <input type="text" maxlength="16" class="card-number-input" id="numInput">
@@ -127,9 +127,13 @@ function text(){
                 <input type="text" maxlength="4" class="cvv-input">
             </div>
         </div>
+        <input type="hidden" name="order_address" value="${order_address}">
         <input type="submit" value="submit" class="submit-btn">
     </form>
+    </table>
 
-</div>    
+ </form>
+
+</div>   
 </body>
 </html>

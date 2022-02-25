@@ -6,10 +6,11 @@ String oder_date;
 int order_totalprice;
 String order_state;
 String user_id;
+String order_address;
 
 
 public Order_list() {
-
+	
 }
 
 
@@ -63,11 +64,25 @@ public void setUser_id(String user_id) {
 }
 
 
+public String getOrder_address() {
+	return order_address;
+}
+
+
+public void setOrder_address(String order_address) {
+	this.order_address = order_address;
+}
+
+
 @Override
 public String toString() {
 	return "Order_list [order_no=" + order_no + ", oder_date=" + oder_date + ", order_totalprice=" + order_totalprice
-			+ ", order_state=" + order_state + ", user_id=" + user_id + "]";
+			+ ", order_state=" + order_state + ", user_id=" + user_id + ", order_address=" + order_address + "]";
 }
+
+
+
+
 
 
 

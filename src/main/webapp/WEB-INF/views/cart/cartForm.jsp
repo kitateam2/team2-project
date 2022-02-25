@@ -162,9 +162,19 @@ left: 0;
 </style>
 <script>
 function btclick(){
-            alert('장바구니가 비었습니다')
+	var req2 = document.form.req2.checked;
+	 var num = 0;
+	 if(req2 == true){
+	  num = 1;
+	 }
+	 if(num==1){
+	  document.form.submit();
+	 }else{
+	  alert("장바구니가 비었습니다.");
+	 }
+	}
  
-        }
+        
 </script>
 </head>
 
@@ -215,13 +225,12 @@ function btclick(){
           <form action="checkout" method="get">
           <table>
           <tr>
-          <td colspan="2" class="center"><input type="button" value="Pay Now" onClick="location.href='http://localhost:8888/team2/checkout'"/></td>
+          <td colspan="2" class="center"><a href="orderdetail?user_cart_no=${user_cart_no}" class="btn btn-primary"><input type="button" value="Pay Now"></a></td>
           <td colspan="2" class="center"><a href="/team2" class="btn btn-primary"><input type="button" value="home"></a></td>
           <td>합계${cart_total}원 </td>
           </tr>
            </table>
           </form>
-         <a href="orderdetail?user_cart_no=${user_cart_no}" class="btn btn-primary" onclick="btclick()">결제</a>
           
           </div>
           </div>

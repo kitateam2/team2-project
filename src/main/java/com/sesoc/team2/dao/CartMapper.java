@@ -71,6 +71,12 @@ public interface CartMapper {
 
 	int deleteorderdetail();
 
+	int orderaddress(Order_list order_list);
+
+	
+
+	
+
 
 
 

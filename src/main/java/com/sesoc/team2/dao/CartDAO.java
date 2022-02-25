@@ -182,5 +182,11 @@ public class CartDAO {
 		return result;
 		
 	}
+	public int updateaddress(Order_list order_list) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.orderaddress(order_list);
+		return result;
+		
+	}
 	
 }

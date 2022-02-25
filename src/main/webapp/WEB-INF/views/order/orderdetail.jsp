@@ -28,6 +28,9 @@
  </c:forEach>
  </tbody>
           </table>
- <input type="button" value="Pay Now" onClick="location.href='http://localhost:8888/team2/checkout'"/>
+          <form action="checkout" method="post">
+          주소입력 <input type="text" name="order_address"><br>
+ <input type="submit" value="Pay Now">
+ </form>
 </body>
 </html>

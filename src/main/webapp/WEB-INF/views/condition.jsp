@@ -23,7 +23,7 @@ function chk(){
 }
 function nochk(){
  alert("동의하지 않으면 가입하실 수 없습니다");
-location.href="../index.jsp";}
+location.href="../index.jsp";} 
 
 function chk(){
 	 var req2 = document.form.req2.checked;
@@ -64,7 +64,7 @@ function chk(){
    <p align="left">
    </p>
    <br>
-   <textarea
+   <textarea>
      rows="20" cols="100">동의안하면 가입못하니까 동의하라고
    </textarea><br>
    <input type="checkbox" name="req2"> 동의합니다
