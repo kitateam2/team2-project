@@ -26,10 +26,9 @@
 
 <script>
 //bt1 버튼 클릭했을때 실행될 함수
-function bt1Click(n){
-	
+function bt1Click(){
+	var n = document.getElementById('book_isbn_param').value;
 	alert('장바구니 이동');
-	alert(n);
 	$.ajax({
 		url:'ajaxcart',
 		type:'post',
@@ -40,8 +39,8 @@ function bt1Click(n){
 	});
 }
 
-function bt2Click(n){
-	
+function bt2Click(){
+	var n = document.getElementById('book_isbn_param').value;
 	alert('위시리스트이동');
 	$.ajax({
 		url:'ajaxwishlist',
@@ -141,13 +140,12 @@ function book_review_delete(book_review_no, book_review_star){
 	<td class="center" style="width:600px; text-align:left;">
 		<p style="width:150px; text-align:left; font-size: 14px;">별점: ${book.book_reward}</p>
 		<p style="width:150px; text-align:left; font-size: 14px;">정가: <span style="font-size: 22px; font-weight:bold; color:#F84450"><fmt:formatNumber value="${book.book_price}" pattern="###,###" /></span>원</p>
-		<p style="width:150px; text-align:left; font-size: 14px;">장바구니   |  위시리스트
-			<c:forEach var="cart" items="${Cart_book1}">
-				<a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
-			</c:forEach>
-			<c:forEach var="wishlist" items="${wishCart_book1}">
-				<a href="#" onclick="bt2Click(${wishlist.book_isbn});" class="btn btn-primary">위시리스트</a>
-			</c:forEach>
+		<p style="width:150px; text-align:left; font-size: 14px;">장바구니 &nbsp; |  &nbsp;위시리스트
+			
+			<a href="#" onclick="bt1Click(${book.book_isbn});" class="btn btn-primary">Add to Cart</a>
+				<input type="hidden" id="book_isbn_param" value="${book.book_isbn}">
+			<a href="#" onclick="bt2Click(${book.book_isbn});" class="btn btn-primary">위시리스트</a>
+
 		</p>
 	</td>
 </tr>
