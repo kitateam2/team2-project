@@ -87,10 +87,10 @@ and uw.user_id = #{user_id1}
 
 <select id="total" parameterType="int" resultType="int">
 select 
-    NVL(sum(book_price*cart_book_count),0) 
+   NVL(sum(book_price*cart_book_count),0)
     <!-- sum(book_price*cart_book_count) -->
 from cart_book
-where user_cart_no = #{user_cart_no}
+where user_cart_no = #{user_cart_no} 
 </select>
 
 <select id="ordertotal" parameterType="Order_listVO" resultType="int">

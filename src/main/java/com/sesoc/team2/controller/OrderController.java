@@ -53,7 +53,7 @@ import com.sesoc.team2.vo.User_infoVO;
 		  
 		  //장바구니에 뿌려주기
 		  @RequestMapping(value = "cart", method = RequestMethod.GET) //담은걸 뿌리는 메서드
-		  public String list1( cart_book cart_book1,Model model,HttpSession session) {
+		  public String list1(Model model,HttpSession session) {
 		  String user_id1 = (String) session.getAttribute("loginId");
 		  ArrayList<cart_book> cart = dao.selectbook1(user_id1);
 		  logger.info("if문 위에: {}", cart);
@@ -63,10 +63,9 @@ import com.sesoc.team2.vo.User_infoVO;
 			  int user_cart_no = cb.getUser_cart_no();
 			  model.addAttribute("Cart_book1",cart);
 			  model.addAttribute("user_cart_no",user_cart_no);
+			  int cart_total = dao.total(user_cart_no); 
+			  model.addAttribute("cart_total", cart_total);
 		  }
-		  int cart_total = dao.total(cart_book1.getUser_cart_no()); //토탈 찍고 모델에 담아서 뿌리기
-		  model.addAttribute("cart_total", cart_total);
-		  logger.debug("토탈 : {} ", cart_total);
 		  return "cart/cartForm"; 
 		  
 		  }

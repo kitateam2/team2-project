@@ -160,7 +160,12 @@ left: 0;
 }
 
 </style>
-
+<script>
+function btclick(){
+            alert('장바구니가 비었습니다')
+ 
+        }
+</script>
 </head>
 
 <body>
@@ -216,7 +221,7 @@ left: 0;
           </tr>
            </table>
           </form>
-         <a href="orderdetail?user_cart_no=${user_cart_no}" class="btn btn-primary">결제</a>
+         <a href="orderdetail?user_cart_no=${user_cart_no}" class="btn btn-primary" onclick="btclick()">결제</a>
           
           </div>
           </div>
@@ -225,40 +230,6 @@ left: 0;
         
         <div>
       </div>
-
-
-<%-- <table  style="border:solid; 1px;">
-
-	<tr>
-		<th>번호</th>
-		<th>책제목</th>
-		<th style="width:220px">날짜</th>
-		<th>수량</th>
-		<th>유저카트넘버</th>
-		<th>가격</th> 
-	</tr>
-
-
-		
-	<c:forEach var="cart" items="${Cart_book1}">
-		<form action="update" method="get">
-		<tr>
-			<th>${cart.cart_book_no}</th>
-			<th>${cart.book_title}</th>
-			<th>${cart.cart_book_inputdate}</th>                                
-			<th>
-				<input type="hidden" id=cart_book_no name="cart_book_no" value="${cart.cart_book_no}">
-				<input type="number" name="cart_book_count" placeholder="${cart.cart_book_count} " id="count">
-			</th>
-			<th>${cart.user_cart_no}</th>
-			<th>${cart.book_price}</th>
-			<th><a href="delete?cart_book_no=${cart.cart_book_no}"  class="btn btn-primary">삭제</a></th>
-			<th><input type="submit" value="수정"></th>
-		</tr> 
-		</form>
-	</c:forEach>
-</table>
-	합계${cart_total}원 --%>
 
 </body>
 

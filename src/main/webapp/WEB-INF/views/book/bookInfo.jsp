@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -40,33 +41,7 @@
 
 <script>
 
-//bt1 버튼 클릭했을때 실행될 함수
-function bt1Click(){
-	var n = document.getElementById('book_isbn_param').value;
-	alert(n);
-	alert('장바구니 이동');
-	$.ajax({
-		url:'ajaxcart',
-		type:'post',
-		data: {book_isbn: n},
-		dataType:'text',
-		success: function() { alert('장바구니에 담았습니다.'); },
-		error: function() { alert('로그인을 해주세요'); }
-	}); 
-}
 
-function bt2Click(n){
-	
-	alert('위시리스트이동');
-	$.ajax({
-		url:'ajaxwishlist',
-		type:'post',
-		data: {book_isbn: n},
-		dataType:'text',
-		success: function() { alert('위시리스트에 담았습니다.'); },
-		error: function() { alert('로그인을 해주세요'); }
-	});
-}
 
 //페이지 넘버링
 function pagingFormSubmit(currentPage) {
@@ -157,7 +132,7 @@ function bookPage() {
 	<th class="bookInfo" style="width:70px; text-align:center;">Payment</th>
 </tr>
 <!-- 반복 시작 -->
-<c:forEach var="book" items="${booklist}">  
+<c:forEach var="book" items="${booklist}" varStatus="status">  
 <tr>
 	<td class="center" style="width:140px; text-align:center;"><img src="download?filename=${book.book_image}"></td>  
 	<td class="center" style="width:370px; text-align:left;">
@@ -167,10 +142,41 @@ function bookPage() {
 	</td>
 	<td class="center" style="width:150px; text-align:center; font-size: 14px;">${book.book_reward}</td>
 	<td class="center" style="width:150px; text-align:center; font-size: 14px;"><fmt:formatNumber value="${book.book_price}" pattern="###,###" />원</td>
-	<td class="center" style="width:70px; text-align:center;">    
-			<a href="#" onclick="bt1Click();" class="btn btn-primary">Add to Cart</a><br><br>
-			<input type="hidden" id="book_isbn_param" value="${book.book_isbn}">
+	<td class="center" style="width:70px; text-align:center;" value="${book.book_isbn}"	>    
+			<a href="#" onclick="bt1Click(${book.book_isbn});" class="btn btn-primary">Add to Cart</a><br><br>
+			<input type="hidden" id="book_isbn_param${status.count}" value="${book.book_isbn}">
+			
 			<a href="#" onclick="bt2Click(${book.book_isbn});" class="btn btn-primary">위시리스트</a>
+			<script>
+			//bt1 버튼 클릭했을때 실행될 함수
+			function bt1Click(){
+				var n = "${book.book_isbn}";
+				alert(n);
+				alert('장바구니 이동');
+				$.ajax({
+					url:'ajaxcart',
+					type:'post',
+					data: {book_isbn: n},
+					dataType:'text',
+					success: function() { alert('장바구니에 담았습니다.'); },
+					error: function() { alert('로그인을 해주세요'); }
+				}); 
+			}
+
+			function bt2Click(){
+				var n = "${book.book_isbn}";
+				alert(n);
+				alert('위시리스트이동');
+				$.ajax({
+					url:'ajaxwishlist',
+					type:'post',
+					data: {book_isbn: n},
+					dataType:'text',
+					success: function() { alert('위시리스트에 담았습니다.'); },
+					error: function() { alert('로그인을 해주세요'); }
+				});
+			}
+			</script>
 	</td>
 </tr>
 
