@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.sesoc.team2.dao.ReviewDAO;
 import com.sesoc.team2.util.PageNavigator;
+import com.sesoc.team2.vo.BlogPost;
 import com.sesoc.team2.vo.Book;
 import com.sesoc.team2.vo.BookReview;
 import com.sesoc.team2.dao.BookInfoDAO;
@@ -82,10 +83,15 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 		ArrayList<BookReview> ReviewList = dao.BookReviewList(book_isbn);
 		logger.debug("결과값 ReviewList: {}", ReviewList);
 		
+		//해당 글에 달린 블로그 게시글 읽기 일단은 조건없이 모든 게시글이 다 옴
+		ArrayList<BlogPost> detailPostList = dao.detailPostList();
+		logger.info("detailPostList 컨트롤러{}", detailPostList);
+		
 		//본문글정보와 리플목록을 모델에 저장
 		model.addAttribute("book", book);
 		model.addAttribute("ReviewList", ReviewList);
 		model.addAttribute("book_isbn", book_isbn);
+		model.addAttribute("detailPostList", detailPostList);
 		
 		return "book/bookDetail";
 	}

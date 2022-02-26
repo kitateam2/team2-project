@@ -32,7 +32,7 @@ public class ReviewDAO {
 	public ArrayList<BookReview> BookReviewList(String book_isbn) {
 		ReviewMapper mapper = sqlsession.getMapper(ReviewMapper.class);
 		ArrayList<BookReview> BookReviewList = mapper.BookReviewList(book_isbn);
-		logger.info("댓글리스트 dao :", BookReviewList);
+		logger.info("댓글리스트 dao {} :", BookReviewList);
 		return BookReviewList;
 	}
 	
@@ -48,6 +48,13 @@ public class ReviewDAO {
 		ReviewMapper mapper = sqlsession.getMapper(ReviewMapper.class);
 		int result = mapper.bookReview_edit(review);
 		return result;
+	}
+
+	public ArrayList<BlogPost> detailPostList() {
+		ReviewMapper mapper = sqlsession.getMapper(ReviewMapper.class);
+		ArrayList<BlogPost> detailPostList = mapper.detailPostList();
+		logger.info("datailPostList 다오 {}", detailPostList);
+		return detailPostList;
 	}
 
 }

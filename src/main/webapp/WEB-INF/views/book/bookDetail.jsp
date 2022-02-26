@@ -192,7 +192,41 @@ function book_review_delete(book_review_no, book_review_star){
 		</tr>
 	</table>
 	
+	<!-- 블로그 포스트 목록 불러오기 
+	일단은 조건 없이 제목을 스트링으로 받아서 set한다음에 불렁오기 
+	나중에 자동완성 만들어서 map으로 isbn 같이 가지고 와서 제대로 책에 대한 조건에 맞게-->
+	<div>
+	<p style="font-size: 15px; font-weight:bold;"> 포스트 리스트 </p>
+	<table border="1" style="width:90%">
+	
+					<c:forEach var="detail_post" items="${detailPostList}"> <!-- 리스트 저장한 거 가지고 오는 거  -->
+						<tr>
+							<td>No. ${detail_post.post_no}</td>
+						</tr>
+						<tr>
+							<td>
+							<a href="${detail_post.user_id}/one_post?post_no=${detail_post.post_no}">
+								<p class="post-title h3">${detail_post.post_title}</p>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4"><p class="post-subtitle">${detail_post.post_contents}</p></td>
+						</tr>
+						<tr>
+							<td>date. ${detail_post.post_uploaddate}</td>
+						</tr>
+						<tr>
+							<td colspan="4">조회수 : ${detail_post.post_hits}</td>
+						</tr>
+						
+					</c:forEach>
+					</table>
+	
+	</div><!-- 블로그 포스트 목록 불러오기 -->
+	
 </div><!-- box3 -->
+
 
 <div class="card-footer">Footer</div>
 </body>
