@@ -55,7 +55,7 @@ function pagingFormSubmit(currentPage) {
 			<div class="col-md-1 align-self-center" style="text-align:right;">
 				<a onclick="location.href='../condition'">회원가입</a> 
 			</div>
-			<div class="col-md-1 align-self-center" style="text-align:right;"><a onclick="location.href='${pageContext.request.contextPath}/myblog/login?url=' + location.href">로그인</a></div>
+			<div class="col-md-1 align-self-center" style="text-align:right;"><a onclick="location.href='${pageContext.request.contextPath}/login?url=' + location.href">로그인</a></div>
 		</c:if>
 	</header><!-- 개인블로그 헤더 -->
 

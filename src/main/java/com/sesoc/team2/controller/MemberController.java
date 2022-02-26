@@ -45,12 +45,14 @@ public class MemberController {
 	
 	//로그인
 	@RequestMapping (value="login", method=RequestMethod.GET)
-	public String loginForm() {
+	public String loginForm(Model model, String url) {
+		logger.info("이전주소 1 :{}", url);
+		model.addAttribute(url);
 		return "loginForm";
 	}
 	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String login(User_infoVO member, HttpSession session, Model model) {
+	public String login(User_infoVO member, HttpSession session, Model model, String url ) {
 		User_infoVO resultMember = memberDAO.getMember(member.getUser_id());
 		
 		if (resultMember != null && member.getUser_pw().equals(resultMember.getUser_pw())) {
@@ -58,6 +60,11 @@ public class MemberController {
 			logger.info("{}",session.getAttribute("loginId"));
 			return "redirect:/";
 		}		
+		
+		if (url != null && !url.isEmpty()) {
+			return "redirect:" + url;
+			
+		}
 		
 		else {
 			model.addAttribute("errorMsg", "ID 또는 비밀번호가 틀립니다.");

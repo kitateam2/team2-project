@@ -55,6 +55,13 @@
 			<div>
 				<input type="file" name="upload" size="30">
 			</div>
+			
+			<!-- 책 제목을 받아야 하는 부분 검색하기.. 스트링으로 받아서 값을 받아-->
+		<!-- 	<div>
+				<label for="post_book_title">책 : </label>
+				<input type="text" name="post_book_title" id="post_book_title" placeholder="영감을 준 책 제목">
+			</div> -->
+			
 			<button type="submit" id="post_save">글 저장하기</button>
 		<!-- 나중에 ajex로 쓸 수 있겠지만 일단은 페이지가 바뀌는 것으로 하자 -->
 		</form>

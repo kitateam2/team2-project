@@ -59,6 +59,13 @@ public class MyblogController {
 		
 		//세션에서 로그인한 사용자의 아이디를 읽어서 Board객체의 작성자 정보에 세팅
 		String id = (String) session.getAttribute("loginId");
+		
+		/* 받은 책 이름을 저장을 해야하는 겅가 
+		 * 아니지 이럴 필요가 없지 그냥 스트링으로 blogpost에 저장이 되고 그거를 불러 올 때 그 값으로 객체를 생성해서 lsbn을 불러오고
+		 * 그걸로 해당 책을 찯아서 isbn이 같으면 그게 나타나게 해야하는 것인가
+		 */
+		/* String post_book_title = blogpost.getPost_book_title; */
+		
 		blogpost.setUser_id(id);
 		
 		logger.info("파일 정보 : {}", upload.getContentType());
@@ -204,6 +211,9 @@ public class MyblogController {
 			blogpost.setPost_originalfile(upload.getOriginalFilename());
 			blogpost.setPost_savedfile(post_savedfile);
 		}
+		
+		//그 뭐야 책이 없는거는 널값도 허용할 거니까 굳이 조건을 넣지 않아도 되지 않은가 
+
 		
 		
 		
