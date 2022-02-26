@@ -14,12 +14,11 @@
   			, post_contents
   			, post_uploaddate
   			, user_id
-  			<!-- 
+  			
   			<if test="post_book_title != null">
   			, post_book_title 
   			</if>
   			
-  			-->
   			<if test="post_originalfile != null and post_savedfile != null">
   			, post_originalfile
   			, post_savedfile
@@ -31,11 +30,11 @@
   			, #{post_contents}
   			, sysdate
   			, #{user_id}
-  			<!--
+  			
   			<if test="post_book_title != null">
   			 , #{post_book_title} 
-  			 </if>
-  			 -->
+  			</if>
+  			 
   			<if test="post_originalfile != null and post_savedfile != null">
   			, #{post_originalfile}
   			, #{post_savedfile}
@@ -96,11 +95,11 @@
   			, post_originalfile = #{post_originalfile}
   			, post_savedfile = #{post_savedfile}
   			</if>
-  			<!--
+  			
   			<if test="post_book_title != null">
   			 , post_book_title = #{post_book_title} 
-  			 </if>
-  			 -->
+  			</if>
+ 
   		where
   			post_no = #{post_no}
 			and user_id = #{user_id}
