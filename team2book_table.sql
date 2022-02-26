@@ -80,6 +80,8 @@ CREATE TABLE BLOG_POST
 	post_savedfile varchar2(200),
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
+	book_isbn varchar2(30),
+	book_title varchar2(150),
 	PRIMARY KEY (post_no)
 );
 
@@ -505,13 +507,13 @@ ALTER TABLE EVENT
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (follow_ed_id)
+	ADD FOREIGN KEY (follow_ing_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (follow_ing_id)
+	ADD FOREIGN KEY (follow_ed_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
