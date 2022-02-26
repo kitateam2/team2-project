@@ -51,6 +51,12 @@ public class CustomerServiceController {
 		logger.info("챗뷰{}",id);
 		return "service/chat";
 	}
+	@RequestMapping(value="shoptest", method=RequestMethod.GET)
+	public String shoptest(HttpSession session, Model model) {
+		String id = (String)session.getAttribute("loginId");
+		logger.info("챗뷰{}",id);
+		return "v1";
+	}
 	
 	//방 클릭시 roomid 받아와서 채팅페이지로 이동
 	@RequestMapping(value = "/chatting", method = RequestMethod.GET)
@@ -158,7 +164,7 @@ public class CustomerServiceController {
 		String id = (String)session.getAttribute("loginId");
 		ArrayList<Chatroom> roomlist = sdao.roomlist(id);
 		for (Chatroom chatroom : roomlist) {
-			if(chatroom.getChatroom_id().contains(ids) || chatroom.getChatroom_id() == null) {
+			if(chatroom.getChatroom_id().contains(ids) || ids.equals(","+id)) {
 				return "redirect:/chatinviteerror";
 			}
 		}
