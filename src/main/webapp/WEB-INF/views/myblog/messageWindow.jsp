@@ -85,7 +85,7 @@
 									alert("없는 정보 입니다.");
 									}//error
 							});
-						}
+						}//function(request, response)
 				
  			});
 		}
