@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sesoc.team2.dao.BlogMainDAO;
 import com.sesoc.team2.dao.MemberDAO;
+import com.sesoc.team2.util.PageNavigator;
 import com.sesoc.team2.vo.BlogMain;
+import com.sesoc.team2.vo.Follow;
 import com.sesoc.team2.vo.User_infoVO;
 
 /**
@@ -34,6 +36,9 @@ public class BlogMainController {
 	@Autowired
 	MemberDAO memberdao;
 	
+	final int countPerPage = 30; //페이지당 글 수
+	final int pagePerGroup = 5; //페이지 이동 링크 표시할 페이지 수
+	
 		//내 블로그 이동
 		@RequestMapping (value="myblog", method=RequestMethod.GET)
 		public String myblogForm() {
@@ -48,11 +53,19 @@ public class BlogMainController {
 				, String id
 				, HttpSession session
 				, Model model) {
-			ArrayList<BlogMain> list = blogmaindao.list(searchText);
-			ArrayList<BlogMain> ranklist = blogmaindao.ranklist();			
-			model.addAttribute("list", list);
+			int total = blogmaindao.getTotal(searchText);
+			PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);		
+			ArrayList<BlogMain> list = blogmaindao.list(searchText, navi.getStartRecord(), navi.getCountPerPage());
+			
+			model.addAttribute("list", list);			
 			model.addAttribute("searchText", searchText);
-			model.addAttribute("ranklist", ranklist);			
+			model.addAttribute("navi", navi);
+			
+			ArrayList<BlogMain> postlist = blogmaindao.postlist();
+			model.addAttribute("postlist", postlist);
+			
+			ArrayList<Follow> bloglist = blogmaindao.bloglist();
+			model.addAttribute("bloglist", bloglist);
 			
 			String object = (String) session.getAttribute("loginId");
 			if (object == null) {
