@@ -5,6 +5,7 @@
 
 <html>
 <head>
+
 <script>
 	function post_formCheck(){
 		var title = document.getElementById('post_title');
@@ -25,6 +26,38 @@
 		return true;
 	}
 	</script>
+	
+	<script>
+	function auto_book_complete(){
+		let text = $("#post_book_title").val();
+		if(text.length <2) return;
+
+		$( "#post_book_title" ).autocomplete({
+			autoFocus: true,
+			//source:["aaaaaa", "bbbbbb", "cccccc", "dddddd", "kkkkkk", "hhhhhh", "kkkfff"]
+			source: function(request, response){
+						$.ajax({
+							url:"json_auto_book",
+							type:'get',
+							data:{'text': text},
+							dataType:"json",
+
+							success: function(data){
+								response(
+									data		
+								)
+								},//success
+							erorr: function(){
+								alert("없는 정보 입니다.");
+								}//error
+							});
+				}//function(request, response)
+
+			});
+		}
+	</script>
+	
+	<!-- 한글오류나는거..  https://zzznara2.tistory.com/94 -->
 	<title>Home</title>
 </head>
 <body>
@@ -58,7 +91,7 @@
 			<!-- 책 제목을 받아야 하는 부분 검색하기.. 스트링으로 받아서 값을 받아-->
 			<div>
 				<label for="post_book_title">책</label>
-				<input type="text" name="post_book_title" id="post_book_title" placeholder="영감을 준 책 제목">
+				<input type="text" onkeyup="javascript:auto_book_complete();" name="post_book_title" id="post_book_title" placeholder="영감을 준 책 제목">
 			</div>
 			
 			<button type="submit" id="post_save">글 저장하기</button>

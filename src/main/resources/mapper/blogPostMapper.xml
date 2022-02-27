@@ -193,4 +193,15 @@
 			post_title like '%' || #{searchText} || '%'
 		</if>
 	</select>
+	
+	<!-- 책 제목 자동완성 -->
+	<select id="array_post_book" parameterType="string" resultType="String">
+   		select
+   			book_title
+   		from
+   			book_info
+   		where
+   			book_title like '%' || #{text} || '%'
+   	</select>
+   	
   </mapper>
