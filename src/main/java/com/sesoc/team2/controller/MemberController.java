@@ -1,5 +1,6 @@
 package com.sesoc.team2.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -68,9 +69,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session, HttpServletRequest request) {
 		session.removeAttribute("loginId");
-		return "redirect:/";
+		String referrer = request.getHeader("referer");
+		return "redirect:" + referrer;
 	}
 	
 	

@@ -1434,18 +1434,7 @@
                     </main>
                 </div>
                 <div id="secondary" class="sidebar cart-collaterals order-1" role="complementary">
-                    <div id="cartAccordion" class="border border-gray-900 bg-white mb-5">
-                       
-                            <div id="cartHeadingOne" class="cart-head">
-                                <a class="d-flex align-items-center justify-content-between text-dark" href="#"
-                                    data-toggle="collapse"
-                                    data-target="#cartCollapseOne"
-                                    aria-expanded="true"
-                                    aria-controls="cartCollapseOne">
-
-                                   
-                                </a>
-                            </div>
+  
 
                            
                         </div>
