@@ -36,7 +36,7 @@ public class BlogMainController {
 	@Autowired
 	MemberDAO memberdao;
 	
-	final int countPerPage = 30; //페이지당 글 수
+	final int countPerPage = 6; //페이지당 글 수
 	final int pagePerGroup = 5; //페이지 이동 링크 표시할 페이지 수
 	
 		//내 블로그 이동
@@ -60,6 +60,7 @@ public class BlogMainController {
 			model.addAttribute("list", list);			
 			model.addAttribute("searchText", searchText);
 			model.addAttribute("navi", navi);
+			System.out.println("navi"+ navi);
 			
 			ArrayList<BlogMain> postlist = blogmaindao.postlist();
 			model.addAttribute("postlist", postlist);
