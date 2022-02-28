@@ -128,6 +128,8 @@ function text(){
             </div>
         </div>
         <input type="hidden" name="order_address" value="${order_address}">
+        <input type="hidden" name="order_name" value="${order_name}">
+        <input type="hidden" name="order_phone" value="${order_phone}">
         <input type="submit" value="submit" class="submit-btn">
     </form>
     </table>

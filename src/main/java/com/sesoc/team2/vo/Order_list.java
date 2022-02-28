@@ -7,78 +7,85 @@ int order_totalprice;
 String order_state;
 String user_id;
 String order_address;
-
+String order_name;
+String order_phone;
 
 public Order_list() {
-	
-}
 
+}
 
 public int getOrder_no() {
 	return order_no;
 }
 
-
 public void setOrder_no(int order_no) {
 	this.order_no = order_no;
 }
-
 
 public String getOder_date() {
 	return oder_date;
 }
 
-
 public void setOder_date(String oder_date) {
 	this.oder_date = oder_date;
 }
-
 
 public int getOrder_totalprice() {
 	return order_totalprice;
 }
 
-
 public void setOrder_totalprice(int order_totalprice) {
 	this.order_totalprice = order_totalprice;
 }
-
 
 public String getOrder_state() {
 	return order_state;
 }
 
-
 public void setOrder_state(String order_state) {
 	this.order_state = order_state;
 }
-
 
 public String getUser_id() {
 	return user_id;
 }
 
-
 public void setUser_id(String user_id) {
 	this.user_id = user_id;
 }
-
 
 public String getOrder_address() {
 	return order_address;
 }
 
-
 public void setOrder_address(String order_address) {
 	this.order_address = order_address;
 }
 
+public String getOrder_name() {
+	return order_name;
+}
+
+public void setOrder_name(String order_name) {
+	this.order_name = order_name;
+}
+
+public String getOrder_phone() {
+	return order_phone;
+}
+
+public void setOrder_phone(String order_phone) {
+	this.order_phone = order_phone;
+}
 
 @Override
 public String toString() {
 	return "Order_list [order_no=" + order_no + ", oder_date=" + oder_date + ", order_totalprice=" + order_totalprice
-			+ ", order_state=" + order_state + ", user_id=" + user_id + ", order_address=" + order_address + "]";
+			+ ", order_state=" + order_state + ", user_id=" + user_id + ", order_address=" + order_address
+			+ ", order_name=" + order_name + ", order_phone=" + order_phone + "]";
 }
+
+
 
 
 

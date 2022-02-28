@@ -73,6 +73,10 @@ public interface CartMapper {
 
 	int orderaddress(Order_list order_list);
 
+	int ordername(Order_list order_list);
+
+	int orderphone(Order_list order_list);
+
 	
 
 	

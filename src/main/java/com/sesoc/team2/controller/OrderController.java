@@ -182,10 +182,12 @@ import com.sesoc.team2.vo.User_infoVO;
 			}
 		  
 		  @RequestMapping (value="checkout", method=RequestMethod.POST) 
-		  public String checkout(HttpSession session, String order_address, Model model) {
+		  public String checkout(HttpSession session, String order_address, Model model,String order_name,String order_phone) {
 			  String user_id1 = (String) session.getAttribute("loginId");
 			  Order_list order_list = dao.order_num(user_id1);
 			  model.addAttribute("order_address",order_address);
+			  model.addAttribute("order_name" , order_name);
+			  model.addAttribute("order_phone",order_phone);
 	
 				
 			  return "cart/checkoutForm"; 
@@ -195,7 +197,7 @@ import com.sesoc.team2.vo.User_infoVO;
 		  
 		  //결제버튼을 눌렀을떄 결제가 되는 메서드
 		  @RequestMapping (value="complete", method=RequestMethod.POST) 
-		  public String complete(Model model,HttpSession session,String order_address) {
+		  public String complete(Model model,HttpSession session,String order_address,String order_name,String order_phone) {
 			  logger.info("오더어드레스{}", order_address);
 			  String user_id1 = (String) session.getAttribute("loginId");
 			  Order_list order_list = dao.order_num(user_id1);
@@ -204,10 +206,15 @@ import com.sesoc.team2.vo.User_infoVO;
 				order_list.setOrder_no(order_list.getOrder_no());
 				order_list.setOrder_totalprice(cart_total);
 				order_list.setOrder_address(order_address);
+				order_list.setOrder_name(order_name);
+				order_list.setOrder_phone(order_phone);
 				logger.info("토탈{}", cart_total);
+				logger.info("토탈{}", order_name);
 				
 				dao.updateorder(order_list);
 				dao.updateaddress(order_list);
+				dao.updatename(order_list);
+				dao.updatephone(order_list);
 			
 			  return "cart/completeForm"; 
 			  

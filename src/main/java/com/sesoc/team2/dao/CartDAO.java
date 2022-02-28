@@ -188,5 +188,18 @@ public class CartDAO {
 		return result;
 		
 	}
+	public int updatename(Order_list order_list) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.ordername(order_list);
+		return result;
+		
+		
+	}
+	public int updatephone(Order_list order_list) {
+		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+		int result = mapper.orderphone(order_list);
+		return result;
+		
+	}
 	
 }

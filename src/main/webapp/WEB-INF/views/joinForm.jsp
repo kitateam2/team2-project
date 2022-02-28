@@ -91,7 +91,7 @@
 </head>
 <body>
 	<form action="join" method="post" onsubmit="return validationCheck();">
-	<h2>[회원가입]</h2>
+	<!-- <h2>[회원가입]</h2> -->
 			<input type="text" placeholder="Enter Userid" id="id" name="user_id">
 			<input type="password" placeholder="Enter password" id="password" name="user_pw">
 			<input type="password" placeholder="Enter password" id="password-check">
