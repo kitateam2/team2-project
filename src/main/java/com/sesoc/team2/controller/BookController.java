@@ -61,8 +61,10 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 		model.addAttribute("booklist", booklist);
 		model.addAttribute("navi", navi);
 		model.addAttribute("searchText", searchText);
+		logger.info("book 모델 저장: {}", booklist);
 		
-		return "book/bookInfo";
+		
+		return "book/bookInfoLists";
 	}
 	
 	/**
@@ -93,7 +95,7 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 		model.addAttribute("book_isbn", book_isbn);
 		model.addAttribute("detailPostList", detailPostList);
 		
-		return "book/bookDetail";
+		return "book/bookDetails";
 	}
 	
 	//댓글 저장

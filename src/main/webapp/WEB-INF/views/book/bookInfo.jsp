@@ -41,12 +41,10 @@
 
 <script>
 
-<<<<<<< HEAD
 
-=======
 //bt1 버튼 클릭했을때 실행될 함수
-function bt1Click(){
-	var n = document.getElementById('book_isbn_param').value;
+function bt1Click(n){
+	alert(n);
 	alert('장바구니 이동');
 	$.ajax({
 		url:'ajaxcart',
@@ -59,7 +57,6 @@ function bt1Click(){
 }
 
 function bt2Click(n){
-	var n = document.getElementById('book_isbn_param').value;
 	alert('위시리스트이동');
 	$.ajax({
 		url:'ajaxwishlist',
@@ -70,7 +67,6 @@ function bt2Click(n){
 		error: function() { alert('로그인을 해주세요'); }
 	});
 }
->>>>>>> b89ce971a3723ba7fb304fed55d46cab4f6e388f
 
 //페이지 넘버링
 function pagingFormSubmit(currentPage) {
@@ -175,34 +171,8 @@ function bookPage() {
 			<a href="#" onclick="bt1Click('${book.book_isbn}');" class="btn btn-primary">Add to Cart</a><br><br>
 			<input type="hidden" id="book_isbn_param${status.count}" value="${book.book_isbn}">
 			
-			<a href="#" onclick="bt2Click(${book.book_isbn});" class="btn btn-primary">위시리스트</a>
-			<script>
-			//bt1 버튼 클릭했을때 실행될 함수
-			function bt1Click(n){
-				alert(n);
-				alert('장바구니 이동');
-				$.ajax({
-					url:'ajaxcart',
-					type:'post',
-					data: {book_isbn: n},
-					dataType:'text',
-					success: function() { alert('장바구니에 담았습니다.'); },
-					error: function() { alert('로그인을 해주세요'); }
-				}); 
-			}
+			<a href="#" onclick="bt2Click('${book.book_isbn}');" class="btn btn-primary">위시리스트</a>
 
-			function bt2Click(n){
-				alert('위시리스트이동');
-				$.ajax({
-					url:'ajaxwishlist',
-					type:'post',
-					data: {book_isbn: n},
-					dataType:'text',
-					success: function() { alert('위시리스트에 담았습니다.'); },
-					error: function() { alert('로그인을 해주세요'); }
-				});
-			}
-			</script>
 	</td>
 </tr>
 

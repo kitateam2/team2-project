@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sesoc.team2.vo.Book;
-import com.sesoc.team2.vo.cart_book;
 
 @Repository
 public class MainDataDAO {
