@@ -1356,9 +1356,6 @@
 		<li><a class="cd-faq__category truncate" href="#payments">결제</a></li>
 		<li><a class="cd-faq__category truncate" href="#privacy">구매</a></li>
 		<li><a class="cd-faq__category truncate" href="#delivery">블로그</a></li>
-		<li><a onclick="window.open('chatmain','','width=448,height=540,top=200,left=800,toolbar=no,menubar=no,scrollbars=1,resizable=1')" 
-				style="text-decoration:none;" >
-					&nbsp;&nbsp;&nbsp;<i class='far fa-comment-dots' style='font-size:40px'></i></a></li>
 		
 	</ul> <!-- cd-faq__categories -->
 
@@ -1592,6 +1589,7 @@
   
   <div class="cd-faq__overlay" aria-hidden="true"></div>
 </section> <!-- cd-faq -->
+<%@ include file="footer.jsp" %>
 <script src="resources/js/faqutil.js"></script> <!-- util functions included in the CodyHouse framework -->
 	<script src="resources/js/faqmain.js"></script> 
 
