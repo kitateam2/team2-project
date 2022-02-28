@@ -178,16 +178,19 @@
         <div class="topbar border-bottom d-none d-md-block">
             <div class="container-fluid px-2 px-md-5 px-xl-8d75">
                 <div class="topbar__nav d-md-flex justify-content-between align-items-center">
-        <c:if test="${sessionScope.loginId != null}">
+                
+       <c:if test="${sessionScope.loginId != null}">
 				<a href="logout" style="color:black;position: relative; top: 3px; font-size:16px; left:1080px;">로그아웃</a>
 				<a style="position: relative; top: 3px; font-size:16px; left:550px;">${sessionScope.loginId}님 환영합니다.</a>
 		</c:if>
                 <ul class="topbar__nav--right nav mr-md-n3">
-                 
-  
+                  <li class="nav-item"><a href="condition" class="nav-link link-black-100"><i class="fa fa-user-plus fa"></i></a></li>
+                  <li class="nav-item"><a href="wish" class="nav-link link-black-100"><i class="glph-icon flaticon-heart"></i></a></li>
+                  <li class="nav-item"></li>
+                           
         <c:if test="${sessionScope.loginId == null}">
 				<a id="sidebarNavToggler" href="login" role="button" class="nav-link link-black-100">
-                   <li class="nav-item"><a href="condition" class="nav-link link-black-100"><i class="fa fa-user-plus fa"></i></a></li>
+                   <i class="glph-icon flaticon-user"></i>
                 </a>
         </c:if>
                </ul>
@@ -299,7 +302,7 @@
 
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="pagesDropdownInvoker" href="userservice" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
+                                <a id="pagesDropdownInvoker" href="userService" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                     data-unfold-event="hover"
@@ -722,7 +725,7 @@
                                         <!-- End Quantity -->
                                     </div>
 								<div class="product__hover d-flex align-items-center" style="value="${book.book_isbn}">
-                                    <button type="submit" name="add-to-cart" value="7145" class="btn btn-dark border-0 rounded-0 p-3 min-width-250 ml-md-4 single_add_to_cart_button button alt" onclick="bt1Click(${book.book_isbn});">Add to cart</button>&nbsp;&nbsp;&nbsp;
+                                    <button name="add-to-cart" value="7145" class="btn btn-dark border-0 rounded-0 p-3 min-width-250 ml-md-4 single_add_to_cart_button button alt" onclick="bt1Click('${book.book_isbn}');">Add to cart</button>&nbsp;&nbsp;&nbsp;
 									 <input type="hidden" id="book_isbn_param${status.count}" value="${book.book_isbn}">
 									 <a href="#" onclick="bt2Click('${book.book_isbn}');" class="fa fa-heart fa"> Add to Wishlist</a>
                                 </div>

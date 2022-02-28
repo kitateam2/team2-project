@@ -151,16 +151,18 @@
      	<c:if test="${sessionScope.loginId != null}">
 				<a href="logout" style="color:black;position: relative; top: 3px; font-size:16px; left:1080px;">로그아웃</a>
 				<a style="position: relative; top: 3px; font-size:16px; left:550px;">${sessionScope.loginId}님 환영합니다.</a>
-				
 		</c:if>
                 <ul class="topbar__nav--right nav mr-md-n3">
-                  
+                  <li class="nav-item"><a href="condition" class="nav-link link-black-100"><i class="fa fa-user-plus fa"></i></a></li>
+                  <li class="nav-item"><a href="wish" class="nav-link link-black-100"><i class="glph-icon flaticon-heart"></i></a></li>
+                  <li class="nav-item"></li>
                            
         <c:if test="${sessionScope.loginId == null}">
 				<a id="sidebarNavToggler" href="login" role="button" class="nav-link link-black-100">
-                   <li class="nav-item"><a href="condition" class="nav-link link-black-100"><i class="fa fa-user-plus fa"></i></a></li>
+                   <i class="glph-icon flaticon-user"></i>
                 </a>
         </c:if>
+        
                </ul>
                </div>
             </div>
@@ -924,7 +926,15 @@
     <!-- ====== MAIN CONTENT ====== -->
     <div class="page-header border-bottom mb-8">
         <div class="container">
-            
+            <div class="d-md-flex justify-content-between align-items-center py-4">
+                <h1 class="page-title font-size-3 font-weight-medium m-0 text-lh-lg">Book Information</h1>
+                <nav class="woocommerce-breadcrumb font-size-2">
+                    <a href="../home/index.html" class="h-primary">Home</a>
+                    <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-right"></i></span>
+                    <a href="../shop/v1.html" class="h-primary">Book List</a>
+     
+                </nav>
+            </div>
         </div>
     </div>
     <div class="site-content space-bottom-3" id="content">
@@ -1023,7 +1033,7 @@
                                                 </a>
                                               
                                                 <a href="#" class="h-p-bg btn btn-outline-primary border-0" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO CART" onclick="bt2Click(${book.book_isbn});">
-                                                    <i class="flaticon-heart"></i>
+                                                    <i class="fa fa-heart fa"></i>
                                                 </a>
                                             </div>
                                         </div>
