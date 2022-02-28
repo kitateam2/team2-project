@@ -23,7 +23,18 @@
      <link rel="stylesheet" href="resources/assets/css/theme.css">
     <link rel="stylesheet" href="resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
    
+<!-- JS Global Compulsory -->
+<script src="resources/assets/vendor/jquery/dist/jquery.min.js"></script>
+<script src="resources//assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+<script src="resources/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+<script src="resources/assets/vendor/bootstrap/bootstrap.min.js"></script>
+
+<!-- JS Bookworm -->
+<script src="resources/assets/js/hs.core.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+
 </head>
+
 <body>
 <!--===== HEADER CONTENT =====-->
     <header id="site-header" class="site-header__v1">

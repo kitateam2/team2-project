@@ -1589,7 +1589,7 @@
   
   <div class="cd-faq__overlay" aria-hidden="true"></div>
 </section> <!-- cd-faq -->
-<%@ include file="footer.jsp" %>
+<%@ include file="../footer.jsp" %>
 <script src="resources/js/faqutil.js"></script> <!-- util functions included in the CodyHouse framework -->
 	<script src="resources/js/faqmain.js"></script> 
 
