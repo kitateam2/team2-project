@@ -63,30 +63,19 @@ function bt1Click(n){
         <c:if test="${sessionScope.loginId != null}">
 				<a href="logout" style="color:black;position: relative; top: 3px; font-size:16px; left:1080px;">로그아웃</a>
 				<a style="position: relative; top: 3px; font-size:16px; left:550px;">${sessionScope.loginId}님 환영합니다.</a>
-			</c:if>
-                    <ul class="topbar__nav--right nav mr-md-n3">
-                        <li class="nav-item"><a href="condition" class="nav-link link-black-100"><i class="fa fa-user-plus fa"></i></a></li>
-                        <li class="nav-item"><a href="wish" class="nav-link link-black-100"><i class="glph-icon flaticon-heart"></i></a></li>
-                        <li class="nav-item">
-                            <!-- Account Sidebar Toggle Button -->
-                               <c:if test="${sessionScope.loginId == null}">
-				
-				
-			
-                            <a id="sidebarNavToggler" href="login" role="button" class="nav-link link-black-100">
-                                
-                                <i class="glph-icon flaticon-user"></i>
-                            </a>
-                            </c:if>
-                            <!-- End Account Sidebar Toggle Button -->
-                        </li>
-                        <li class="nav-item">
-                            <!-- Cart Sidebar Toggle Button -->
-                          
-                            <!-- End Cart Sidebar Toggle Button -->
-                        </li>
-                    </ul>
-                </div>
+		</c:if>
+                <ul class="topbar__nav--right nav mr-md-n3">
+                  <li class="nav-item"><a href="condition" class="nav-link link-black-100"><i class="fa fa-user-plus fa"></i></a></li>
+                  <li class="nav-item"><a href="wish" class="nav-link link-black-100"><i class="glph-icon flaticon-heart"></i></a></li>
+                  <li class="nav-item"></li>
+                           
+        <c:if test="${sessionScope.loginId == null}">
+				<a id="sidebarNavToggler" href="login" role="button" class="nav-link link-black-100">
+                   <i class="glph-icon flaticon-user"></i>
+                </a>
+        </c:if>
+               </ul>
+               </div>
             </div>
         </div>
         <div class="masthead border-bottom position-relative" style="margin-bottom: -1px;">
@@ -137,7 +126,7 @@ function bt1Click(n){
                             <li class="nav-item"><a href="#" class="nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium active border-bottom border-primary border-width-2">Categories</a></li>
                             <li class="nav-item dropdown">
                                 <a id="shopDropdownInvoker" href="cart" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
-                                    Shop
+                                    Cart
                                 </a>
                                
                             <li class="nav-item">
@@ -181,89 +170,31 @@ function bt1Click(n){
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="blogDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="hover"
-                                    data-unfold-target="#blogDropdownMenu"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-duration="200"
-                                    data-unfold-delay="50"
-                                    data-unfold-hide-on-scroll="true"
-                                    data-unfold-animation-in="slideInUp"
-                                    data-unfold-animation-out="fadeOut">
+                                <a id="blogDropdownInvoker" href="blogmain" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Blog
                                 </a>
-                                <ul id="blogDropdownMenu" class="dropdown-unfold dropdown-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="blogDropdownInvoker">
-                                    <li><a href="../blog/blog-v1.html" class="dropdown-item link-black-100">Blog v1</a></li>
-                                    <li><a href="../blog/blog-v2.html" class="dropdown-item link-black-100">Blog v2</a></li>
-                                    <li><a href="../blog/blog-v3.html" class="dropdown-item link-black-100">Blog v3</a></li>
-                                    <li><a href="../blog/blog-single.html" class="dropdown-item link-black-100">Blog Single</a></li>
-                                </ul>
+  
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="pagesDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="hover"
-                                    data-unfold-target="#pagesDropdownMenu"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-duration="200"
-                                    data-unfold-delay="50"
-                                    data-unfold-hide-on-scroll="true"
-                                    data-unfold-animation-in="slideInUp"
-                                    data-unfold-animation-out="fadeOut">
-                                    Others
+                                <a id="pagesDropdownInvoker" href="userservice" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
+                                    C/S
                                 </a>
-                                <ul id="pagesDropdownMenu" class="dropdown-unfold dropdown-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="pagesDropdownInvoker">
-                                    <li><a href="../others/404.html" class="dropdown-item link-black-100">404</a></li>
-                                    <li><a href="../others/about.html" class="dropdown-item link-black-100">About Us</a></li>
-                                    <li><a href="../others/authors-list.html" class="dropdown-item link-black-100">Authors List</a></li>
-                                    <li><a href="../others/authors-single.html" class="dropdown-item link-black-100">Authors Single</a></li>
-                                    <li><a href="../others/coming-soon.html" class="dropdown-item link-black-100">Coming Soon</a></li>
-                                    <li><a href="../others/contact.html" class="dropdown-item link-black-100">Contact Us</a></li>
-                                    <li><a href="../others/faq.html" class="dropdown-item link-black-100">FAQ</a></li>
-                                    <li><a href="../others/pricing-table.html" class="dropdown-item link-black-100">Pricing Table</a></li>
-                                    <li><a href="../others/terms-conditions.html" class="dropdown-item link-black-100">Terms Conditions</a></li>
-                                </ul>
                             </li>
                         </ul>
                     </div>
 
-                    <ul class="d-md-none nav mr-md-n3 ml-auto">
-                        <li class="nav-item">
-                            <!-- Account Sidebar Toggle Button - Mobile -->
-                            <a id="sidebarNavToggler9" href="javascript:;" role="button" class="px-2 nav-link link-black-100"
-                                aria-controls="sidebarContent9"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                                data-unfold-event="click"
-                                data-unfold-hide-on-scroll="false"
-                                data-unfold-target="#sidebarContent9"
-                                data-unfold-type="css-animation"
-                                data-unfold-overlay='{
-                                    "className": "u-sidebar-bg-overlay",
-                                    "background": "rgba(0, 0, 0, .7)",
-                                    "animationSpeed": 500
-                                }'
-                                data-unfold-animation-in="fadeInRight"
-                                data-unfold-animation-out="fadeOutRight"
-                                data-unfold-duration="500">
-                                <i class="glph-icon flaticon-user"></i>
-                            </a>
-                            <!-- End Account Sidebar Toggle Button - Mobile -->
-                        </li>
-                    </ul>
+
 
                     <div class="site-search ml-xl-0 ml-md-auto w-r-100 my-2 my-xl-0">
-                        <form class="form-inline">
+                        <form class="form-inline" id="bookName" method="get" action="list">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <i class="glph-icon flaticon-loupe input-group-text py-2d75 bg-white-100 border-white-100"></i>
                                 </div>
-                                <input class="form-control bg-white-100 min-width-380 py-2d75 height-4 border-white-100" type="search" placeholder="Search for Books by Keyword ..." aria-label="Search">
+                                <input type="hidden" name="page" id="page" />
+                                <input class="form-control bg-white-100 min-width-380 py-2d75 height-4 border-white-100" type="text" placeholder="검색어 입력 ..." aria-label="Search" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }">
                             </div>
-                            <button class="btn btn-outline-success my-2 my-sm-0 sr-only" type="submit">Search</button>
+                            <button class="btn btn-outline-success my-2 my-sm-0 sr-only" type="submit" id="search" onclick="javascript: pagingFormSubmit(1); bookPage();" value="검색">Search</button>
                         </form>
                     </div>
                 </div>

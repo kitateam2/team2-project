@@ -147,63 +147,25 @@
         <div class="topbar border-bottom d-none d-md-block">
             <div class="container-fluid px-2 px-md-5 px-xl-8d75">
                 <div class="topbar__nav d-md-flex justify-content-between align-items-center">
-                    <ul class="topbar__nav--left nav ml-md-n3">
-                        <li class="nav-item"><a href="#" class="nav-link link-black-100"><i class="glph-icon flaticon-question mr-2"></i>Can we help you?</a></li>
-                        <li class="nav-item"><a href="tel:+1246-345-0695" class="nav-link link-black-100"><i class="glph-icon flaticon-phone mr-2"></i>+1 246-345-0695</a></li>
-                    </ul>
-                    <ul class="topbar__nav--right nav mr-md-n3">
-                        <li class="nav-item"><a href="#" class="nav-link link-black-100"><i class="glph-icon flaticon-pin"></i></a></li>
-                        <li class="nav-item"><a href="#" class="nav-link link-black-100"><i class="glph-icon flaticon-switch"></i></a></li>
-                        <li class="nav-item"><a href="#" class="nav-link link-black-100"><i class="glph-icon flaticon-heart"></i></a></li>
-                        <li class="nav-item">
-                            <!-- Account Sidebar Toggle Button -->
-                            <a id="sidebarNavToggler" href="javascript:;" role="button" class="nav-link link-black-100"
-                                aria-controls="sidebarContent"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                                data-unfold-event="click"
-                                data-unfold-hide-on-scroll="false"
-                                data-unfold-target="#sidebarContent"
-                                data-unfold-type="css-animation"
-                                data-unfold-overlay='{
-                                    "className": "u-sidebar-bg-overlay",
-                                    "background": "rgba(0, 0, 0, .7)",
-                                    "animationSpeed": 500
-                                }'
-                                data-unfold-animation-in="fadeInRight"
-                                data-unfold-animation-out="fadeOutRight"
-                                data-unfold-duration="500">
-                                <i class="glph-icon flaticon-user"></i>
-                            </a>
-                            <!-- End Account Sidebar Toggle Button -->
-                        </li>
-                        <li class="nav-item">
-                            <!-- Cart Sidebar Toggle Button -->
-                            <a id="sidebarNavToggler1" href="javascript:;" role="button" class="nav-link link-black-100 position-relative"
-                                aria-controls="sidebarContent1"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                                data-unfold-event="click"
-                                data-unfold-hide-on-scroll="false"
-                                data-unfold-target="#sidebarContent1"
-                                data-unfold-type="css-animation"
-                                data-unfold-overlay='{
-                                    "className": "u-sidebar-bg-overlay",
-                                    "background": "rgba(0, 0, 0, .7)",
-                                    "animationSpeed": 500
-                                }'
-                                data-unfold-animation-in="fadeInRight"
-                                data-unfold-animation-out="fadeOutRight"
-                                data-unfold-duration="500">
-                                <span class="position-absolute bg-dark width-16 height-16 rounded-circle d-flex align-items-center justify-content-center text-white font-size-n9 right-0">3</span>
-                                <i class="glph-icon flaticon-icon-126515"></i>
-                            </a>
-                            <!-- End Cart Sidebar Toggle Button -->
-                        </li>
-                    </ul>
-                </div>
+    
+     	<c:if test="${sessionScope.loginId != null}">
+				<a href="logout" style="color:black;position: relative; top: 3px; font-size:16px; left:1080px;">로그아웃</a>
+				<a style="position: relative; top: 3px; font-size:16px; left:550px;">${sessionScope.loginId}님 환영합니다.</a>
+				
+		</c:if>
+                <ul class="topbar__nav--right nav mr-md-n3">
+                  
+                           
+        <c:if test="${sessionScope.loginId == null}">
+				<a id="sidebarNavToggler" href="login" role="button" class="nav-link link-black-100">
+                   <li class="nav-item"><a href="condition" class="nav-link link-black-100"><i class="fa fa-user-plus fa"></i></a></li>
+                </a>
+        </c:if>
+               </ul>
+               </div>
             </div>
         </div>
+    
         <div class="masthead border-bottom position-relative" style="margin-bottom: -1px;">
             <div class="container-fluid px-3 px-md-5 px-xl-8d75 py-2 py-md-0">
                 <div class="d-flex align-items-center position-relative flex-wrap">
@@ -232,7 +194,7 @@
                         </a>
                     </div>
                     <div class="site-branding pr-md-4">
-                        <a href="../home/index.html" class="d-block mb-1">
+                        <a href="/team2" class="d-block mb-1">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="170px" height="30px">
                                 <path fill-rule="evenodd" fill="rgb(25, 17, 11)"
                                 d="M166.225,28.691 L165.065,15.398 L160.598,28.691 L158.229,28.691 L153.762,15.398 L152.590,28.691 L148.928,28.691 L150.405,11.052 L155.629,11.052 L159.389,22.124 L163.198,11.052 L168.422,11.052 L169.875,28.691 L166.225,28.691 ZM142.641,28.691 L138.051,20.928 L136.989,20.928 L136.989,28.691 L133.327,28.691 L133.327,11.052 L139.724,11.052 C140.692,11.052 141.546,11.189 142.287,11.461 C143.028,11.734 143.620,12.112 144.063,12.596 C144.507,13.081 144.840,13.636 145.064,14.263 C145.288,14.889 145.400,15.577 145.400,16.326 C145.400,17.506 145.078,18.472 144.436,19.225 C143.793,19.978 142.869,20.484 141.665,20.745 L146.975,28.691 L142.641,28.691 ZM141.896,16.204 C141.896,15.544 141.673,15.028 141.225,14.653 C140.777,14.279 140.086,14.092 139.150,14.092 L136.989,14.092 L136.989,18.303 L139.150,18.303 C140.981,18.303 141.896,17.603 141.896,16.204 ZM125.570,27.831 C124.206,28.567 122.666,28.936 120.949,28.936 C119.224,28.936 117.680,28.567 116.317,27.831 C114.953,27.094 113.881,26.034 113.100,24.651 C112.319,23.267 111.928,21.672 111.928,19.866 C111.928,18.051 112.319,16.454 113.100,15.074 C113.881,13.695 114.953,12.639 116.317,11.907 C117.680,11.174 119.224,10.808 120.949,10.808 C122.674,10.808 124.217,11.174 125.576,11.907 C126.935,12.639 128.005,13.695 128.786,15.074 C129.567,16.454 129.958,18.051 129.958,19.866 C129.958,21.672 129.567,23.267 128.786,24.651 C128.005,26.034 126.933,27.094 125.570,27.831 ZM124.807,15.715 C123.797,14.690 122.512,14.177 120.949,14.177 C119.387,14.177 118.101,14.690 117.092,15.715 C116.083,16.741 115.578,18.124 115.578,19.866 C115.578,21.616 116.083,23.005 117.092,24.034 C118.101,25.064 119.387,25.579 120.949,25.579 C122.512,25.579 123.797,25.064 124.807,24.034 C125.816,23.005 126.320,21.616 126.320,19.866 C126.320,18.124 125.816,16.741 124.807,15.715 ZM66.872,28.691 L61.391,21.196 L60.097,21.196 L60.097,28.691 L56.435,28.691 L56.435,11.052 L60.097,11.052 L60.097,17.986 L61.342,17.986 L66.872,11.052 L71.340,11.052 L64.504,19.487 L71.547,28.691 L66.872,28.691 ZM48.677,27.831 C47.314,28.567 45.774,28.936 44.057,28.936 C42.332,28.936 40.788,28.567 39.425,27.831 C38.061,27.094 36.989,26.034 36.208,24.651 C35.427,23.267 35.036,21.672 35.036,19.866 C35.036,18.051 35.427,16.454 36.208,15.074 C36.989,13.695 38.061,12.639 39.425,11.907 C40.788,11.174 42.332,10.808 44.057,10.808 C45.782,10.808 47.324,11.174 48.684,11.907 C50.043,12.639 51.113,13.695 51.894,15.074 C52.675,16.454 53.066,18.051 53.066,19.866 C53.066,21.672 52.675,23.267 51.894,24.651 C51.113,26.034 50.040,27.094 48.677,27.831 ZM47.915,15.715 C46.905,14.690 45.620,14.177 44.057,14.177 C42.495,14.177 41.209,14.690 40.200,15.715 C39.191,16.741 38.686,18.124 38.686,19.866 C38.686,21.616 39.191,23.005 40.200,24.034 C41.209,25.064 42.495,25.579 44.057,25.579 C45.620,25.579 46.905,25.064 47.915,24.034 C48.924,23.005 49.428,21.616 49.428,19.866 C49.428,18.124 48.924,16.741 47.915,15.715 ZM28.487,27.831 C27.124,28.567 25.584,28.936 23.867,28.936 C22.141,28.936 20.597,28.567 19.234,27.831 C17.871,27.094 16.799,26.034 16.018,24.651 C15.236,23.267 14.846,21.672 14.846,19.866 C14.846,18.051 15.236,16.454 16.018,15.074 C16.799,13.695 17.871,12.639 19.234,11.907 C20.597,11.174 22.141,10.808 23.867,10.808 C25.592,10.808 27.134,11.174 28.493,11.907 C29.852,12.639 30.922,13.695 31.704,15.074 C32.485,16.454 32.875,18.051 32.875,19.866 C32.875,21.672 32.485,23.267 31.704,24.651 C30.922,26.034 29.850,27.094 28.487,27.831 ZM27.724,15.715 C26.715,14.690 25.429,14.177 23.867,14.177 C22.304,14.177 21.018,14.690 20.009,15.715 C19.000,16.741 18.496,18.124 18.496,19.866 C18.496,21.616 19.000,23.005 20.009,24.034 C21.018,25.064 22.304,25.579 23.867,25.579 C25.429,25.579 26.715,25.064 27.724,24.034 C28.733,23.005 29.238,21.616 29.238,19.866 C29.238,18.124 28.733,16.741 27.724,15.715 ZM11.672,27.367 C10.736,28.250 9.361,28.691 7.546,28.691 L0.283,28.691 L0.283,11.052 L5.996,11.052 C7.875,11.052 9.314,11.478 10.311,12.328 C11.308,13.178 11.806,14.365 11.806,15.886 C11.806,16.676 11.633,17.374 11.287,17.980 C10.941,18.586 10.431,19.052 9.755,19.377 C11.969,19.988 13.076,21.445 13.076,23.748 C13.076,25.278 12.608,26.484 11.672,27.367 ZM7.827,14.647 C7.420,14.277 6.821,14.092 6.032,14.092 L3.811,14.092 L3.811,18.242 L6.191,18.242 C6.940,18.242 7.501,18.047 7.875,17.656 C8.250,17.266 8.437,16.753 8.437,16.118 C8.437,15.508 8.233,15.018 7.827,14.647 ZM8.876,21.709 C8.445,21.278 7.749,21.062 6.789,21.062 L3.811,21.062 L3.811,25.554 L6.862,25.554 C7.782,25.554 8.455,25.347 8.883,24.932 C9.310,24.517 9.523,23.988 9.523,23.345 C9.523,22.686 9.308,22.140 8.876,21.709 Z" />
@@ -244,81 +206,31 @@
                     <div class="site-navigation mr-auto d-none d-xl-block">
                         <ul class="nav">
                             <li class="nav-item dropdown">
-                                <a id="homeDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="hover"
-                                    data-unfold-target="#homeDropdownMenu"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-duration="200"
-                                    data-unfold-delay="50"
-                                    data-unfold-hide-on-scroll="true"
-                                    data-unfold-animation-in="slideInUp"
-                                    data-unfold-animation-out="fadeOut">
+                                <a id="homeDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Home
                                 </a>
                                 
                             </li>
                             <li class="nav-item"><a href="#" class="nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium active border-bottom border-primary border-width-2">Categories</a></li>
                             <li class="nav-item dropdown">
-                                <a id="shopDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="hover"
-                                    data-unfold-target="#shopDropdownMenu"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-duration="200"
-                                    data-unfold-delay="50"
-                                    data-unfold-hide-on-scroll="true"
-                                    data-unfold-animation-in="slideInUp"
-                                    data-unfold-animation-out="fadeOut">
-                                    Shop
+                                <a id="shopDropdownInvoker" href="cart" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
+                                    Cart
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="featuresDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="hover"
-                                    data-unfold-target="#featuresDropdownMenu"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-duration="200"
-                                    data-unfold-delay="50"
-                                    data-unfold-hide-on-scroll="true"
-                                    data-unfold-animation-in="slideInUp"
-                                    data-unfold-animation-out="fadeOut">
+                                <a id="featuresDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Pages
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="blogDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="hover"
-                                    data-unfold-target="#blogDropdownMenu"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-duration="200"
-                                    data-unfold-delay="50"
-                                    data-unfold-hide-on-scroll="true"
-                                    data-unfold-animation-in="slideInUp"
-                                    data-unfold-animation-out="fadeOut">
+                                <a id="blogDropdownInvoker" href="blogmain" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Blog
                                 </a>
                                
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="pagesDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="hover"
-                                    data-unfold-target="#pagesDropdownMenu"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-duration="200"
-                                    data-unfold-delay="50"
-                                    data-unfold-hide-on-scroll="true"
-                                    data-unfold-animation-in="slideInUp"
-                                    data-unfold-animation-out="fadeOut">
-                                    Others
+                                <a id="pagesDropdownInvoker" href="userService" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
+                                    C/S
                                 </a>
                                
                             </li>
@@ -338,7 +250,7 @@
                                     <i class="glph-icon flaticon-loupe input-group-text py-2d75 bg-white-100 border-white-100"></i>
                                 </div>
                                 <input type="hidden" name="page" id="page" />
-                                <input class="form-control bg-white-100 min-width-380 py-2d75 height-4 border-white-100" type="text" placeholder="검색어 입력 ..." aria-label="Search" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }">
+                                <input class="form-control bg-white-100 min-width-380 py-2d75 height-4 border-white-100" type="text" placeholder="검색어 입력 ..." aria-label="Search" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }">
                             </div>
                             <button class="btn btn-outline-success my-2 my-sm-0 sr-only" type="submit" id="search" onclick="javascript: pagingFormSubmit(1); bookPage();" value="검색">Search</button>
                         </form>
@@ -414,7 +326,7 @@
                             <div class="px-4 py-5 px-md-6 border-bottom">
                                 <div class="media">
                                     <c:forEach var="book" items="${booklist}" varStatus="status"> 
-                                    <a href="#" class="d-block"><img src="download?filename=${book.book_image}"></a>
+                                    <a href="read?book_isbn=${book.book_isbn}"><img src="download?filename=${book.book_image}"></a>
                                     <div class="media-body ml-4d875">
                                         <div class="text-primary text-uppercase font-size-1 mb-1 text-truncate"><a href="#">Hard Cover</a></div>
                                         <h2 class="woocommerce-loop-product__title h6 text-lh-md mb-1 text-height-2 crop-text-2">
@@ -426,7 +338,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-3 ml-3">
-                                        <a href="#" class="text-dark"><i class="fas fa-times"></i></a>
+                                        <i class="fas fa-times"></i>
                                     </div>
                                 </c:forEach> 
                                 </div>
@@ -1094,7 +1006,7 @@
                                     <div class="product__inner overflow-hidden p-3 p-md-4d875">
                                         <div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
                                             <div class="woocommerce-loop-product__thumbnail">
-                                                <a href="../shop/single-product-v5.html" class="d-block"><img src="download?filename=${book.book_image}"></a>
+                                                <a href="read?book_isbn=${book.book_isbn}" class="d-block"><img src="download?filename=${book.book_image}"></a>
                                             </div>
                                             <div class="woocommerce-loop-product__body product__body pt-3 bg-white">                                            
                                                 <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="read?book_isbn=${book.book_isbn}">${book.book_title}</a></h2>
@@ -1109,11 +1021,8 @@
                                                     <input type="hidden" id="book_isbn_param${status.count}" value="${book.book_isbn}">
                                                     <span class="product__add-to-cart-icon font-size-4"><i class="flaticon-icon-126515"></i></span>
                                                 </a>
-                                                 <a href="../shop/single-product-v5.html" class="text-uppercase text-dark h-dark font-weight-medium mr-auto" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO CART" onclick="bt2Click(${book.book_isbn});">
-                                                <a href="../shop/single-product-v5.html" class="mr-1 h-p-bg btn btn-outline-primary border-0">
-                                                    <i class="flaticon-switch"></i>
-                                                </a>
-                                                <a href="../shop/single-product-v5.html" class="h-p-bg btn btn-outline-primary border-0">
+                                              
+                                                <a href="#" class="h-p-bg btn btn-outline-primary border-0" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO CART" onclick="bt2Click(${book.book_isbn});">
                                                     <i class="flaticon-heart"></i>
                                                 </a>
                                             </div>
