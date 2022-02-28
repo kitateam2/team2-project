@@ -53,6 +53,12 @@ public class ServiceDAO {
 		ArrayList<User_infoVO> idsearch = mapper.idsearch(searchid);
 		return idsearch;
 	}
+
+	public int updatelastchat(Chat chat) {
+		ServiceMapper mapper = sqlSession.getMapper(ServiceMapper.class);
+		int result = mapper.updatelastchat(chat);
+		return result;
+	}
 	
 	
 }

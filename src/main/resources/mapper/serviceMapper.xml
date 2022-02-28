@@ -40,6 +40,18 @@
 		)
 	</insert>
 	
+	<!-- 채팅 입력시 채팅룸 DB에 마지막채팅 업뎃 -->
+	<update id="updatelastchat" parameterType="chat">
+		update
+			chatroom
+		set
+  			chatroom_lastid = #{user_id}
+  			, chatroom_lastchat = #{chat_message}
+  			, chatroom_lastchattime = #{chat_time}
+  		where
+  			chatroom_id = #{chatroom_id}
+	</update>
+	
 	<!-- 모든 과거채팅 조회 -->
 	<select id="chatlist" resultType="chat" parameterType="String">
 		select * from chat where

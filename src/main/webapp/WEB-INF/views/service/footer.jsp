@@ -5,67 +5,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>WebSocket Chatting</title>
-<style>
-#outputDiv {
-	width: 500px;
-	height: 400px;
-	border: 1px solid black;
-	overflow-y:scroll;
-}
-#text {
-	width: 300px;
-}
-</style>
-<script src="./resources/js/jquery-3.6.0.min.js"></script>
+<title>footer</title>
+<link rel="stylesheet" href="resources/css/footer.css">
+<script src="resources/js/jquery-3.6.0.min.js"></script>
 <script>
-var url;
-var sock;
 
-$(document).ready(function() {
-	openSession();
-	$('#sendBt').on('click', sendMessage);
-	$('#text').on('keypress', textKeyPress);
-});
-
-//웹 소켓 오픈
-function openSession() {
-	url = 'ws://localhost:8888/team2/footer';
-	sock = new WebSocket(url);
-	sock.onopen = function() {
-		alert('Open');
-	}
-	sock.onclose = function() {
-		alert('Close');
-	}
-	sock.onmessage = receiveMessage;
-	
-}
-//입력란에서 엔터쳤을 때 서버로 메시지 전송
-function textKeyPress(event) {
-	if (event.which == 13) {
-		sendMessage();
-	}
-}
-//버튼을 클릭하면 서버로 메시지 전송
-function sendMessage() {
-	var text = $('#text').val();
-	sock.send(text);
-	$('#text').val('');
-}
-//메시지를 받으면 화면에 출력
-function receiveMessage(msg) {
-	$('#outputDiv').append(msg.data + '<br>');
-}
 </script>
 </head>
 <body>
-<p>${sessionScope.loginId}세션아이디</p>
-
-<div id="outputDiv"></div>
-
-<input type="text" id="text">
-<input type="button" id="sendBt" value="전송">
-
+<div id="sy-whatshelp">
+	<a class="sywh-open-services" onclick="window.open('chatmain','','width=448,height=540,top=200,left=800,toolbar=no,menubar=no,scrollbars=1,resizable=1')" 
+				style="text-decoration:none;" ><i class='far fa-comments'></i></a>
+</div>
 </body>
 </html>
