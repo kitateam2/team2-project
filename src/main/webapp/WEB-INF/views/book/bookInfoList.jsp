@@ -1094,16 +1094,16 @@
                                                 </div>
                                             </div>
                                             <div class="product__hover d-flex align-items-center" style="value="${book.book_isbn}">
-                                                <a href="../shop/single-product-v5.html" class="text-uppercase text-dark h-dark font-weight-medium mr-auto" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO CART" onclick="bt1Click('${book.book_isbn}');">
+                                                <a href="#" class="text-uppercase text-dark h-dark font-weight-medium mr-auto" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO CART" onclick="bt1Click('${book.book_isbn}');">
                                                     <span class="product__add-to-cart">ADD TO CART</span>
                                                     <input type="hidden" id="book_isbn_param${status.count}" value="${book.book_isbn}">
                                                     <span class="product__add-to-cart-icon font-size-4"><i class="flaticon-icon-126515"></i></span>
                                                 </a>
-                                                 <a href="../shop/single-product-v5.html" class="text-uppercase text-dark h-dark font-weight-medium mr-auto" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO CART" onclick="bt2Click(${book.book_isbn});">
-                                                <a href="../shop/single-product-v5.html" class="mr-1 h-p-bg btn btn-outline-primary border-0">
+                                                 <a href="#" class="text-uppercase text-dark h-dark font-weight-medium mr-auto" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO CART" onclick="bt2Click(${book.book_isbn});">
+                                                <a href="#" class="mr-1 h-p-bg btn btn-outline-primary border-0">
                                                     <i class="flaticon-switch"></i>
                                                 </a>
-                                                <a href="../shop/single-product-v5.html" class="h-p-bg btn btn-outline-primary border-0">
+                                                <a href="#" class="h-p-bg btn btn-outline-primary border-0">
                                                     <i class="flaticon-heart"></i>
                                                 </a>
                                             </div>
