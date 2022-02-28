@@ -19,36 +19,37 @@ import com.sesoc.team2.vo.Book;
 import com.sesoc.team2.vo.cart_book;
 import com.sesoc.team2.vo.user_wishlist;
 
-
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	@Autowired
 	CartDAO dao;
-	
+
 	@Autowired
 	MainDataDAO mdao;
-	
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		ArrayList<cart_book> listcart=dao.select();
-		ArrayList<user_wishlist> wishlistcart=dao.selectwish();
-		model.addAttribute("Cart_book1",listcart);
-		model.addAttribute("wishCart_book1",wishlistcart);
+		ArrayList<cart_book> listcart = dao.select();
+		ArrayList<user_wishlist> wishlistcart = dao.selectwish();
+		model.addAttribute("Cart_book1", listcart);
+		model.addAttribute("wishCart_book1", wishlistcart);
 		logger.info("Welcome home! The client locale is {}.", listcart);
+
+
+		ArrayList<Book> insertdate = mdao.insertdate();
+		model.addAttribute("insert_date", insertdate);
 		
-		/*
-		 * ArrayList<Book> insertdate = mdao.insertdate();
-		 * model.addAttribute("insert_date", insertdate);
-		 */	
+		ArrayList<Book> insertBest = mdao.insertBest();
+		model.addAttribute("insert_best", insertBest);
+		 
 		return "home";
-	}	
-	
-	  
+	}
+
 }

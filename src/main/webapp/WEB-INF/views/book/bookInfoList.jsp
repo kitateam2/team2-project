@@ -1084,7 +1084,7 @@
                                     <div class="product__inner overflow-hidden p-3 p-md-4d875">
                                         <div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
                                             <div class="woocommerce-loop-product__thumbnail">
-                                                <a href="../shop/single-product-v5.html" class="d-block"><img src="download?filename=${book.book_image}"></a>
+                                                <a href="read?book_isbn=${book.book_isbn}" class="d-block"><img src="download?filename=${book.book_image}"></a>
                                             </div>
                                             <div class="woocommerce-loop-product__body product__body pt-3 bg-white">                                            
                                                 <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="read?book_isbn=${book.book_isbn}">${book.book_title}</a></h2>
@@ -1093,7 +1093,7 @@
                                                     <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span><fmt:formatNumber value="${book.book_price}" pattern="###,###" />원</span>
                                                 </div>
                                             </div>
-                                            <div class="product__hover d-flex align-items-center" style="value="${book.book_isbn}">
+                                            <div class="product__hover d-flex align-items-center" value="${book.book_isbn}">
                                                 <a href="#" class="text-uppercase text-dark h-dark font-weight-medium mr-auto" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO CART" onclick="bt1Click('${book.book_isbn}');">
                                                     <span class="product__add-to-cart">ADD TO CART</span>
                                                     <input type="hidden" id="book_isbn_param${status.count}" value="${book.book_isbn}">

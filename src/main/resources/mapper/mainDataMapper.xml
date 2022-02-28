@@ -6,18 +6,34 @@
   <!-- 책 API 불러와서 DB 저장 SQL -->
 <mapper namespace="com.sesoc.team2.dao.MainDataMapper">
 
-<!-- 데이터 입력 -->
+<!-- 신작 도서 데이터 입력 -->
 <select id="datelist" resultType="BookVO">
 		select * from (
 		select
 			book_image
 			, book_title
 			, book_author
+			, book_price
 		, row_number() over (order by book_inputdate DESC) as rank
 		from
 			book_info
 		    )
-		<!-- where rownum <= 6; -->
+		where rownum between 1 and 18
+</select> 
+
+<!-- 베스트셀러 도서 데이터 입력 -->
+<select id="bestlist" resultType="BookVO">
+		select * from (
+		select
+			book_image
+			, book_title
+			, book_author
+			, book_price
+		, row_number() over (order by book_reward DESC) as rank
+		from
+			book_info
+		    )
+		where rownum between 1 and 5
 </select> 
 
 </mapper>
