@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="resources/assets/vendor/slick-carousel/slick/slick.css"/>
      <link rel="stylesheet" href="resources/assets/css/theme.css">
     <link rel="stylesheet" href="resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
-
+<link rel="stylesheet" href="resources/css/footer.css">
+<script src="resources/js/jquery-3.6.0.min.js"></script>
 <!-- JS Global Compulsory -->
 <script src="resources/assets/vendor/jquery/dist/jquery.min.js"></script>
 <script src="resources//assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>

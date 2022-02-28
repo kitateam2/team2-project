@@ -31,6 +31,9 @@
 		<mvc:mapping path="/myblog/newPost" />
 		<mvc:mapping path="/cart" />
 		<mvc:mapping path="/wish" />
+		<mvc:mapping path="/chatmain" />
+		<mvc:mapping path="/chatinvite" />
+		<mvc:mapping path="/createroom" />
 		<beans:ref bean="loginInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
