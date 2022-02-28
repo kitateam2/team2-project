@@ -51,11 +51,11 @@ function chk(){
    <td width="100%" height="50%" align="center">
    <p align="left">
    <span style="padding-left: 160px">
-   term and condition</span>
+   회원가입 약관동의</span>
    </p>
    <br>
    <textarea
-     rows="20" cols="100">동의안하면 가입못하니까 동의하라고
+     rows="20" cols="100"> 동의안하면 가입못하니까 동의하라고
    </textarea>
    <br>
    <input type="checkbox" name="req"> 동의합니다
@@ -64,7 +64,7 @@ function chk(){
    <p align="left">
    </p>
    <br>
-   <textarea>
+   <textarea
      rows="20" cols="100">동의안하면 가입못하니까 동의하라고
    </textarea><br>
    <input type="checkbox" name="req2"> 동의합니다

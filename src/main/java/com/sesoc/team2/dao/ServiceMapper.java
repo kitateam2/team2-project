@@ -21,4 +21,6 @@ public interface ServiceMapper {
 
 	public ArrayList<User_infoVO> idsearch(Searchid searchid);
 
+	public int updatelastchat(Chat chat);
+
 }

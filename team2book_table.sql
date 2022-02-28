@@ -11,7 +11,6 @@ DROP TABLE USER_WISHLIST CASCADE CONSTRAINTS;
 DROP TABLE BOOK_INFO CASCADE CONSTRAINTS;
 DROP TABLE BOOK_PUBLIC CASCADE CONSTRAINTS;
 DROP TABLE CHAT CASCADE CONSTRAINTS;
-DROP TABLE CHATJOIN CASCADE CONSTRAINTS;
 DROP TABLE CHATROOM CASCADE CONSTRAINTS;
 DROP TABLE EVENT CASCADE CONSTRAINTS;
 DROP TABLE FOLLOW CASCADE CONSTRAINTS;
@@ -192,22 +191,16 @@ CREATE TABLE CHAT
 );
 
 
-CREATE TABLE CHATJOIN
-(
-	-- 식별자
-	chatjoin_no number DEFAULT 0 NOT NULL,
-	-- 채팅방 경로
-	chatroom_id varchar2(200) NOT NULL,
-	-- 회원ID
-	user_id varchar2(20) NOT NULL,
-	PRIMARY KEY (chatjoin_no)
-);
-
-
 CREATE TABLE CHATROOM
 (
 	-- 채팅방 경로
 	chatroom_id varchar2(200) NOT NULL,
+	-- 최근에 친 채팅
+	chatroom_lastchat varchar2(300),
+	-- 마지막 채팅친 시간
+	chatroom_lastchattime varchar2(40),
+	-- 최근에 채팅친 ID
+	chatroom_lastid varchar2(20),
 	PRIMARY KEY (chatroom_id)
 );
 
@@ -294,6 +287,10 @@ CREATE TABLE ORDER_LIST
 	order_address varchar2(400),
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
+	-- 배송할때 입력할 이름
+	order_name varchar2(200),
+	-- 배송할때 입력할 전화번호
+	order_phone varchar2(50),
 	PRIMARY KEY (order_no)
 );
 
@@ -452,12 +449,6 @@ ALTER TABLE CHAT
 ;
 
 
-ALTER TABLE CHATJOIN
-	ADD FOREIGN KEY (chatroom_id)
-	REFERENCES CHATROOM (chatroom_id)
-;
-
-
 ALTER TABLE ORDER_DETAIL
 	ADD FOREIGN KEY (order_no)
 	REFERENCES ORDER_LIST (order_no)
@@ -494,8 +485,8 @@ ALTER TABLE CHAT
 ;
 
 
-ALTER TABLE CHATJOIN
-	ADD FOREIGN KEY (user_id)
+ALTER TABLE CHATROOM
+	ADD FOREIGN KEY (chatroom_lastid)
 	REFERENCES USER_INFO (user_id)
 ;
 
@@ -519,13 +510,13 @@ ALTER TABLE FOLLOW
 
 
 ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_recv_id)
+	ADD FOREIGN KEY (message_sent_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_sent_id)
+	ADD FOREIGN KEY (message_recv_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
@@ -614,10 +605,10 @@ COMMENT ON COLUMN CHAT.chat_message IS '채팅 메세지';
 COMMENT ON COLUMN CHAT.chat_time IS '채팅한 시간';
 COMMENT ON COLUMN CHAT.chatroom_id IS '채팅방 경로';
 COMMENT ON COLUMN CHAT.user_id IS '회원ID';
-COMMENT ON COLUMN CHATJOIN.chatjoin_no IS '식별자';
-COMMENT ON COLUMN CHATJOIN.chatroom_id IS '채팅방 경로';
-COMMENT ON COLUMN CHATJOIN.user_id IS '회원ID';
 COMMENT ON COLUMN CHATROOM.chatroom_id IS '채팅방 경로';
+COMMENT ON COLUMN CHATROOM.chatroom_lastchat IS '최근에 친 채팅';
+COMMENT ON COLUMN CHATROOM.chatroom_lastchattime IS '마지막 채팅친 시간';
+COMMENT ON COLUMN CHATROOM.chatroom_lastid IS '최근에 채팅친 ID';
 COMMENT ON COLUMN EVENT.event_name IS '이벤트 이름';
 COMMENT ON COLUMN EVENT.event_result IS '0:꽝
 1:당첨';
@@ -643,6 +634,8 @@ COMMENT ON COLUMN ORDER_LIST.order_totalprice IS '총 주문 금액';
 COMMENT ON COLUMN ORDER_LIST.order_state IS '주문상태';
 COMMENT ON COLUMN ORDER_LIST.order_address IS '배송지 주소';
 COMMENT ON COLUMN ORDER_LIST.user_id IS '회원ID';
+COMMENT ON COLUMN ORDER_LIST.order_name IS '배송할때 입력할 이름';
+COMMENT ON COLUMN ORDER_LIST.order_phone IS '배송할때 입력할 전화번호';
 COMMENT ON COLUMN POST_COMMENT.post_comment_writter IS '댓글 작성자 id';
 COMMENT ON COLUMN POST_COMMENT.post_no IS '블로그 게시글 번호';
 COMMENT ON COLUMN USER_CART.user_cart_no IS '찜 번호';

@@ -114,7 +114,7 @@ function connectStomp() {
                     </div>
                     <!-- 채팅 내용 -->
                     <div class="main-chat">
-                        <div class="friend-chat">
+                        <%-- <div class="friend-chat">
                             <div class="friend-chat-col">
                                 <div class="profile-name">사원</div>
                                 <div class="balloon">대리님, 혹시 7시50분에 시간 괜찮으세요?</div>
@@ -127,7 +127,7 @@ function connectStomp() {
                                 <div class="balloon">ㅇㅋzz${roomid}</div>
                             </div>
                             <time datetime="07:32:00+09:00">오전 7:32</time>
-                        </div>
+                        </div> --%>
                         
                         <c:forEach var="chat" items="${chatlist}">
                         	<c:if test="${sessionScope.loginId eq chat.user_id}">

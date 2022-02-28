@@ -128,6 +128,8 @@ public class CustomerServiceController {
 		chat.setChatroom_id(roomid);
 		chat.setUser_id(id);
 		sdao.insertchat(chat);
+		
+		sdao.updatelastchat(chat);
 	}
 	
 	//사용자 초대 ajax
@@ -177,7 +179,9 @@ public class CustomerServiceController {
 	@RequestMapping(value="/chatmain", method=RequestMethod.GET)
 	public String chatmain(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("loginId");
+		System.out.println("roomlist전");
 		ArrayList<Chatroom> roomlist = sdao.roomlist(id);
+		System.out.println("roomlist후"+roomlist);
 		model.addAttribute("roomlist",roomlist);
 		return "service/chatmain";
 	}

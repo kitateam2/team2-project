@@ -33,14 +33,14 @@
                     <a href="friend.html">
                         <i class="icon-adult" alt="친구메뉴" title="친구"></i>
                     </a>
-                    <a href="chatting.html">
+                    <!-- <a href="chatting.html">
                         <i class="icon-chat" alt="채팅메뉴" title="채팅"></i>
                         <span class="alert-balloon" alt="알림수">3</span>
                     </a>
                     <a href="more_menu.html">
                         <i class="icon-ellipsis" alt="더보기버튼" title="더보기"></i>
                         <span class="alert-balloon" alt="알림수">N</span>
-                    </a>
+                    </a> -->
                 </div>
                 <div class="sub-menu">
                     <a href="temp.html" target="_blank">
@@ -56,14 +56,16 @@
                     <li>
 						<a onclick="window.open('chatting?roomid=${room.chatroom_id}','','width=500,height=600,top=200,left=1000,toolbar=no,menubar=no,scrollbars=1,resizable=1')" 
 				style="text-decoration:none;" >
-							<img src="./pic/k-pay.png" class="profile-img" alt="k페이프로필사진">
+							<img src="resources/img/customer.png" class="profile-img" alt="k페이프로필사진">
                             <div class="talk">
                                 <p class="friend-name">${room.chatroom_id}님의 채팅방</p>
-                                <p class="chat-content">메시지가 도착했습니다.</p>
+                                <c:if test="${room.chatroom_lastid ne null}">
+                                	<p class="chat-content">${room.chatroom_lastid}: ${room.chatroom_lastchat}</p>
+                            	</c:if>
                             </div>
                             <div class="chat-status">
-                                <time datetime="15:40:00+09:00">오후 3:40</time>
-                                <span class="chat-balloon">1</sapn>
+                                <time>${room.chatroom_lastchattime}</time>
+                                <span class="chat-balloon">N</sapn>
                             </div>
 						</a>
                     </li>

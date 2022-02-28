@@ -28,68 +28,7 @@
 <body>
 
 <body class="right-sidebar woocommerce-cart">
-    <!--===== HEADER CONTENT =====-->
-    <header id="site-header" class="u-header site-header__v1">
-        <div class="topbar border-bottom d-none d-md-block">
-            <div class="container-fluid px-2 px-md-5 px-xl-8d75">
-                <div class="topbar__nav d-md-flex justify-content-between align-items-center">
-                    <ul class="topbar__nav--left nav ml-md-n3">
-                        <li class="nav-item"><a href="#" class="nav-link link-black-100"><i class="glph-icon flaticon-question mr-2"></i>Can we help you?</a></li>
-                        <li class="nav-item"><a href="tel:+1246-345-0695" class="nav-link link-black-100"><i class="glph-icon flaticon-phone mr-2"></i>+1 246-345-0695</a></li>
-                    </ul>
-                    <ul class="topbar__nav--right nav mr-md-n3">
-                        <li class="nav-item"><a href="#" class="nav-link link-black-100"><i class="glph-icon flaticon-pin"></i></a></li>
-                        <li class="nav-item"><a href="#" class="nav-link link-black-100"><i class="glph-icon flaticon-switch"></i></a></li>
-                        <li class="nav-item"><a href="#" class="nav-link link-black-100"><i class="glph-icon flaticon-heart"></i></a></li>
-                        <li class="nav-item">
-                            <!-- Account Sidebar Toggle Button -->
-                            <a id="sidebarNavToggler" href="javascript:;" role="button" class="nav-link link-black-100"
-                                aria-controls="sidebarContent"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                                data-unfold-event="click"
-                                data-unfold-hide-on-scroll="false"
-                                data-unfold-target="#sidebarContent"
-                                data-unfold-type="css-animation"
-                                data-unfold-overlay='{
-                                    "className": "u-sidebar-bg-overlay",
-                                    "background": "rgba(0, 0, 0, .7)",
-                                    "animationSpeed": 500
-                                }'
-                                data-unfold-animation-in="fadeInRight"
-                                data-unfold-animation-out="fadeOutRight"
-                                data-unfold-duration="500">
-                                <i class="glph-icon flaticon-user"></i>
-                            </a>
-                            <!-- End Account Sidebar Toggle Button -->
-                        </li>
-                        <li class="nav-item">
-                            <!-- Cart Sidebar Toggle Button -->
-                            <a id="sidebarNavToggler1" href="javascript:;" role="button" class="nav-link link-black-100 position-relative"
-                                aria-controls="sidebarContent1"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                                data-unfold-event="click"
-                                data-unfold-hide-on-scroll="false"
-                                data-unfold-target="#sidebarContent1"
-                                data-unfold-type="css-animation"
-                                data-unfold-overlay='{
-                                    "className": "u-sidebar-bg-overlay",
-                                    "background": "rgba(0, 0, 0, .7)",
-                                    "animationSpeed": 500
-                                }'
-                                data-unfold-animation-in="fadeInRight"
-                                data-unfold-animation-out="fadeOutRight"
-                                data-unfold-duration="500">
-                                <span class="position-absolute bg-dark width-16 height-16 rounded-circle d-flex align-items-center justify-content-center text-white font-size-n9 right-0">3</span>
-                                <i class="glph-icon flaticon-icon-126515"></i>
-                            </a>
-                            <!-- End Cart Sidebar Toggle Button -->
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<!-- 가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다 -->
         <div class="masthead border-bottom position-relative" style="margin-bottom: -1px;">
             <div class="container-fluid px-3 px-md-5 px-xl-8d75 py-2 py-md-0">
                 <div class="d-flex align-items-center position-relative flex-wrap">
@@ -130,264 +69,28 @@
                     <div class="site-navigation mr-auto d-none d-xl-block">
                         <ul class="nav">
                             <li class="nav-item dropdown">
-                                <a id="homeDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="hover"
-                                    data-unfold-target="#homeDropdownMenu"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-duration="200"
-                                    data-unfold-delay="50"
-                                    data-unfold-hide-on-scroll="true"
-                                    data-unfold-animation-in="slideInUp"
-                                    data-unfold-animation-out="fadeOut">
+                                <a id="homeDropdownInvoker" href="/team2" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Home
                                 </a>
-                                <ul id="homeDropdownMenu" class="dropdown-unfold dropdown-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="homeDropdownInvoker">
-                                    <li><a href="../home/index.html" class="dropdown-item link-black-100">Home v1</a></li>
-                                    <li><a href="../home/home-v2.html" class="dropdown-item link-black-100">Home v2</a></li>
-                                    <li><a href="../home/home-v3.html" class="dropdown-item link-black-100">Home v3</a></li>
-                                    <li><a href="../home/home-v4.html" class="dropdown-item link-black-100">Home v4</a></li>
-                                    <li><a href="../home/home-v5.html" class="dropdown-item link-black-100">Home v5</a></li>
-                                    <li><a href="../home/home-v6.html" class="dropdown-item link-black-100">Home v6</a></li>
-                                    <li><a href="../home/home-v7.html" class="dropdown-item link-black-100">Home v7</a></li>
-                                    <li><a href="../home/home-v8.html" class="dropdown-item link-black-100">Home v8</a></li>
-                                    <li><a href="../home/home-v9.html" class="dropdown-item link-black-100">Home v9</a></li>
-                                    <li><a href="../home/home-v10.html" class="dropdown-item link-black-100">Home v10</a></li>
-                                    <li><a href="../home/home-v11.html" class="dropdown-item link-black-100">Home v11</a></li>
-                                    <li><a href="../home/home-v12.html" class="dropdown-item link-black-100">Home v12</a></li>
-                                    <li><a href="../home/home-v13.html" class="dropdown-item link-black-100">Home v13</a></li>
-                                </ul>
                             </li>
-                            <li class="nav-item"><a href="#" class="nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium active border-bottom border-primary border-width-2">Categories</a></li>
+                            <li class="nav-item"><a href="cart" class="nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium active border-bottom border-primary border-width-2">Categories</a></li>
                             <li class="nav-item dropdown">
-                                <a id="shopDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="hover"
-                                    data-unfold-target="#shopDropdownMenu"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-duration="200"
-                                    data-unfold-delay="50"
-                                    data-unfold-hide-on-scroll="true"
-                                    data-unfold-animation-in="slideInUp"
-                                    data-unfold-animation-out="fadeOut">
+                                <a id="shopDropdownInvoker" href="cart" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Shop
                                 </a>
-                                <ul id="shopDropdownMenu" class="dropdown-unfold dropdown-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="shopDropdownInvoker">
-                                    <li class="position-relative">
-                                        <a id="shopDropdownsubmenuoneInvoker" href="#" class="dropdown-toggle dropdown-item dropdown-item__sub-menu link-black-100 d-flex align-items-center justify-content-between"
-                                            aria-haspopup="true"
-                                            aria-expanded="false"
-                                            data-unfold-event="hover"
-                                            data-unfold-target="#shopDropdownsubMenuone"
-                                            data-unfold-type="css-animation"
-                                            data-unfold-duration="200"
-                                            data-unfold-delay="100"
-                                            data-unfold-hide-on-scroll="true"
-                                            data-unfold-animation-in="slideInUp"
-                                            data-unfold-animation-out="fadeOut">Shop List
-                                        </a>
-                                        <ul id="shopDropdownsubMenuone" class="dropdown-unfold dropdown-menu dropdown-sub-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="shopDropdownsubmenuoneInvoker">
-                                            <li><a href="../shop/v1.html" class="dropdown-item link-black-100">Shop List v1</a></li>
-                                            <li><a href="../shop/v2.html" class="dropdown-item link-black-100">Shop List v2</a></li>
-                                            <li><a href="../shop/v3.html" class="dropdown-item link-black-100">Shop List v3</a></li>
-                                            <li><a href="../shop/v4.html" class="dropdown-item link-black-100">Shop List v4</a></li>
-                                            <li><a href="../shop/v5.html" class="dropdown-item link-black-100">Shop List v5</a></li>
-                                            <li><a href="../shop/v6.html" class="dropdown-item link-black-100">Shop List v6</a></li>
-                                            <li><a href="../shop/v7.html" class="dropdown-item link-black-100">Shop List v7</a></li>
-                                            <li><a href="../shop/v8.html" class="dropdown-item link-black-100">Shop List v8</a></li>
-                                            <li><a href="../shop/v9.html" class="dropdown-item link-black-100">Shop List v9</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="position-relative">
-                                        <a id="shopDropdownsubmenutwoInvoker" href="#" class="dropdown-toggle dropdown-item dropdown-item__sub-menu link-black-100 d-flex align-items-center justify-content-between"
-                                            aria-haspopup="true"
-                                            aria-expanded="false"
-                                            data-unfold-event="hover"
-                                            data-unfold-target="#shopDropdownsubMenutwo"
-                                            data-unfold-type="css-animation"
-                                            data-unfold-duration="200"
-                                            data-unfold-delay="100"
-                                            data-unfold-hide-on-scroll="true"
-                                            data-unfold-animation-in="slideInUp"
-                                            data-unfold-animation-out="fadeOut">Single Product
-                                        </a>
-                                        <ul id="shopDropdownsubMenutwo" class="dropdown-unfold dropdown-menu dropdown-sub-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="shopDropdownsubmenutwoInvoker">
-                                            <li><a href="../shop/single-product-v1.html" class="dropdown-item link-black-100">Shop Single v1</a></li>
-                                            <li><a href="../shop/single-product-v2.html" class="dropdown-item link-black-100">Shop Single v2</a></li>
-                                            <li><a href="../shop/single-product-v3.html" class="dropdown-item link-black-100">Shop Single v3</a></li>
-                                            <li><a href="../shop/single-product-v4.html" class="dropdown-item link-black-100">Shop Single v4</a></li>
-                                            <li><a href="../shop/single-product-v5.html" class="dropdown-item link-black-100">Shop Single v5</a></li>
-                                            <li><a href="../shop/single-product-v6.html" class="dropdown-item link-black-100">Shop Single v6</a></li>
-                                            <li><a href="../shop/single-product-v7.html" class="dropdown-item link-black-100">Shop Single v7</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="../shop/cart.html" class="dropdown-item link-black-100">Shop cart</a></li>
-                                    <li><a href="../shop/checkout.html" class="dropdown-item link-black-100">Shop checkout</a></li>
-                                    <li><a href="../shop/my-account.html" class="dropdown-item link-black-100">Shop My Account</a></li>
-                                    <li><a href="../shop/order-received.html" class="dropdown-item link-black-100">Shop Order Received</a></li>
-                                    <li><a href="../shop/order-tracking.html" class="dropdown-item link-black-100">Shop Order Tracking</a></li>
-                                    <li><a href="../shop/store-location.html" class="dropdown-item link-black-100">Shop Store Location</a></li>
-                                </ul>
                             </li>
-                            <li class="nav-item">
-                                <a id="featuresDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="hover"
-                                    data-unfold-target="#featuresDropdownMenu"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-duration="200"
-                                    data-unfold-delay="50"
-                                    data-unfold-hide-on-scroll="true"
-                                    data-unfold-animation-in="slideInUp"
-                                    data-unfold-animation-out="fadeOut">
-                                    Pages
-                                </a>
-                                <div id="featuresDropdownMenu" class="p-0 dropdown-unfold dropdown-menu megamenu font-size-2 rounded-0 border-gray-900" aria-labelledby="featuresDropdownInvoker" style="width:1100px;">
-                                    <div class="row no-gutters">
-                                        <div class="col-8 px-1">
-                                            <div class="px-5 py-2 pb-5">
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <ul class="menu list-unstyled">
-                                                            <li><span class=" d-block link-black-100 py-3 font-size-3 font-weight-medium">Home</span></li>
-                                                            <li><a href="../home/index.html" class="d-block link-black-100 py-1">Home v1</a></li>
-                                                            <li><a href="../home/home-v2.html" class="d-block link-black-100 py-1">Home v2</a></li>
-                                                            <li><a href="../home/home-v3.html" class="d-block link-black-100 py-1">Home v3</a></li>
-                                                            <li><a href="../home/home-v4.html" class="d-block link-black-100 py-1">Home v4</a></li>
-                                                            <li><a href="../home/home-v5.html" class="d-block link-black-100 py-1">Home v5</a></li>
-                                                            <li><a href="../home/home-v6.html" class="d-block link-black-100 py-1">Home v6</a></li>
-                                                            <li><a href="../home/home-v7.html" class="d-block link-black-100 py-1">Home v7</a></li>
-                                                            <li><a href="../home/home-v8.html" class="d-block link-black-100 py-1">Home v8</a></li>
-                                                            <li><a href="../home/home-v9.html" class="d-block link-black-100 py-1">Home v9</a></li>
-                                                            <li><a href="../home/home-v10.html" class="d-block link-black-100 py-1">Home v10</a></li>
-                                                            <li><a href="../home/home-v11.html" class="d-block link-black-100 py-1">Home v11</a></li>
-                                                            <li><a href="../home/home-v12.html" class="d-block link-black-100 py-1">Home v12</a></li>
-                                                            <li><a href="../home/home-v13.html" class="d-block link-black-100 py-1">Home v13</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <ul class="menu list-unstyled">
-                                                            <li><span class=" d-block link-black-100 py-3 font-size-3 font-weight-medium">Single Product</span></li>
-                                                            <li><a href="../shop/single-product-v1.html" class="d-block link-black-100 py-1">Single Product v1</a></li>
-                                                            <li><a href="../shop/single-product-v2.html" class="d-block link-black-100 py-1">Single Product v2</a></li>
-                                                            <li><a href="../shop/single-product-v3.html" class="d-block link-black-100 py-1">Single Product v3</a></li>
-                                                            <li><a href="../shop/single-product-v4.html" class="d-block link-black-100 py-1">Single Product v4</a></li>
-                                                            <li><a href="../shop/single-product-v5.html" class="d-block link-black-100 py-1">Single Product v5</a></li>
-                                                            <li><a href="../shop/single-product-v6.html" class="d-block link-black-100 py-1">Single Product v6</a></li>
-                                                            <li><a href="../shop/single-product-v7.html" class="d-block link-black-100 py-1">Single Product v7</a></li>
-                                                            <li><span class=" d-block link-black-100 py-3 font-size-3 font-weight-medium">Shop Pages</span></li>
-                                                            <li><a href="../shop/cart.html" class="d-block link-black-100 py-1">Shop cart</a></li>
-                                                            <li><a href="../shop/checkout.html" class="d-block link-black-100 py-1">Shop checkout</a></li>
-                                                            <li><a href="../shop/my-account.html" class="d-block link-black-100 py-1">Shop My Account</a></li>
-                                                            <li><a href="../shop/order-received.html" class="d-block link-black-100 py-1">Shop Order Received</a></li>
-                                                            <li><a href="../shop/order-tracking.html" class="d-block link-black-100 py-1">Shop Order Tracking</a></li>
-                                                            <li><a href="../shop/store-location.html" class="d-block link-black-100 py-1">Shop Store Location</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <ul class="menu list-unstyled">
-                                                            <li><span class=" d-block link-black-100 py-3 font-size-3 font-weight-medium">Shop List</span></li>
-                                                            <li><a href="../shop/v1.html" class="d-block link-black-100 py-1">Shop List v1</a></li>
-                                                            <li><a href="../shop/v2.html" class="d-block link-black-100 py-1">Shop List v2</a></li>
-                                                            <li><a href="../shop/v3.html" class="d-block link-black-100 py-1">Shop List v3</a></li>
-                                                            <li><a href="../shop/v4.html" class="d-block link-black-100 py-1">Shop List v4</a></li>
-                                                            <li><a href="../shop/v5.html" class="d-block link-black-100 py-1">Shop List v5</a></li>
-                                                            <li><a href="../shop/v6.html" class="d-block link-black-100 py-1">Shop List v6</a></li>
-                                                            <li><a href="../shop/v7.html" class="d-block link-black-100 py-1">Shop List v7</a></li>
-                                                            <li><a href="../shop/v8.html" class="d-block link-black-100 py-1">Shop List v8</a></li>
-                                                            <li><a href="../shop/v9.html" class="d-block link-black-100 py-1">Shop List v9</a></li>
-                                                            <li><span class=" d-block link-black-100 py-3 font-size-3 font-weight-medium">Blog</span></li>
-                                                            <li><a href="../blog/blog-v1.html" class="d-block link-black-100 py-1">Blog v1</a></li>
-                                                            <li><a href="../blog/blog-v2.html" class="d-block link-black-100 py-1">Blog v2</a></li>
-                                                            <li><a href="../blog/blog-v3.html" class="d-block link-black-100 py-1">Blog v3</a></li>
-                                                            <li><a href="../blog/blog-single.html" class="d-block link-black-100 py-1">Blog Single</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <ul class="menu list-unstyled">
-                                                            <li><span class=" d-block link-black-100 py-3 font-size-3 font-weight-medium">Others</span></li>
-                                                            <li><a href="../others/404.html" class="d-block link-black-100 py-1">404</a></li>
-                                                            <li><a href="../others/about.html" class="d-block link-black-100 py-1">About Us</a></li>
-                                                            <li><a href="../others/authors-list.html" class="d-block link-black-100 py-1">Authors List</a></li>
-                                                            <li><a href="../others/authors-single.html" class="d-block link-black-100 py-1">Authors Single</a></li>
-                                                            <li><a href="../others/coming-soon.html" class="d-block link-black-100 py-1">Coming Soon</a></li>
-                                                            <li><a href="../others/contact.html" class="d-block link-black-100 py-1">Contact Us</a></li>
-                                                            <li><a href="../others/faq.html" class="d-block link-black-100 py-1">FAQ</a></li>
-                                                            <li><a href="../others/pricing-table.html" class="d-block link-black-100 py-1">Pricing Table</a></li>
-                                                            <li><a href="../others/terms-conditions.html" class="d-block link-black-100 py-1">Terms Conditions</a></li>
-                              <li><a href="../../documentation/index.html" class="btn btn-primary mb-3 mb-md-0 mb-xl-3 mt-4 font-size-2 btn-block">Documentation</a></li>
-                              <li><a href="../../starter/index.html" class="btn btn-secondary font-size-2 btn-block mb-2">Starter</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 bg-gray-200">
-                                            <div class="banner px-8 py-5">
-                                                <div class="banner__body">
-                                                    <h3 class="banner_text m-0">
-                                                        <span class="d-block mb-1 font-size-7 font-weight-regular">Deals in </span>
-                                                        <span class="d-block mb-2 font-size-10 text-primary font-weight-bold">Books</span>
-                                                    </h3>
-                                                    <a href="#" class="d-block link-black-100 mb-6">Shop Now</a>
-                                                    <div class="banner__image">
-                                                        <img src="https://placehold.it/280x210" class="img-fluid" alt="image-description">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                            
                             <li class="nav-item dropdown">
-                                <a id="blogDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="hover"
-                                    data-unfold-target="#blogDropdownMenu"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-duration="200"
-                                    data-unfold-delay="50"
-                                    data-unfold-hide-on-scroll="true"
-                                    data-unfold-animation-in="slideInUp"
-                                    data-unfold-animation-out="fadeOut">
+                                <a id="blogDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Blog
                                 </a>
-                                <ul id="blogDropdownMenu" class="dropdown-unfold dropdown-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="blogDropdownInvoker">
-                                    <li><a href="../blog/blog-v1.html" class="dropdown-item link-black-100">Blog v1</a></li>
-                                    <li><a href="../blog/blog-v2.html" class="dropdown-item link-black-100">Blog v2</a></li>
-                                    <li><a href="../blog/blog-v3.html" class="dropdown-item link-black-100">Blog v3</a></li>
-                                    <li><a href="../blog/blog-single.html" class="dropdown-item link-black-100">Blog Single</a></li>
-                                </ul>
+
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="pagesDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="hover"
-                                    data-unfold-target="#pagesDropdownMenu"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-duration="200"
-                                    data-unfold-delay="50"
-                                    data-unfold-hide-on-scroll="true"
-                                    data-unfold-animation-in="slideInUp"
-                                    data-unfold-animation-out="fadeOut">
+                                <a id="pagesDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Others
                                 </a>
-                                <ul id="pagesDropdownMenu" class="dropdown-unfold dropdown-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="pagesDropdownInvoker">
-                                    <li><a href="../others/404.html" class="dropdown-item link-black-100">404</a></li>
-                                    <li><a href="../others/about.html" class="dropdown-item link-black-100">About Us</a></li>
-                                    <li><a href="../others/authors-list.html" class="dropdown-item link-black-100">Authors List</a></li>
-                                    <li><a href="../others/authors-single.html" class="dropdown-item link-black-100">Authors Single</a></li>
-                                    <li><a href="../others/coming-soon.html" class="dropdown-item link-black-100">Coming Soon</a></li>
-                                    <li><a href="../others/contact.html" class="dropdown-item link-black-100">Contact Us</a></li>
-                                    <li><a href="../others/faq.html" class="dropdown-item link-black-100">FAQ</a></li>
-                                    <li><a href="../others/pricing-table.html" class="dropdown-item link-black-100">Pricing Table</a></li>
-                                    <li><a href="../others/terms-conditions.html" class="dropdown-item link-black-100">Terms Conditions</a></li>
-                                </ul>
+
                             </li>
                         </ul>
                     </div>
@@ -395,24 +98,7 @@
                     <ul class="d-md-none nav mr-md-n3 ml-auto">
                         <li class="nav-item">
                             <!-- Account Sidebar Toggle Button - Mobile -->
-                            <a id="sidebarNavToggler9" href="javascript:;" role="button" class="px-2 nav-link link-black-100"
-                                aria-controls="sidebarContent9"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                                data-unfold-event="click"
-                                data-unfold-hide-on-scroll="false"
-                                data-unfold-target="#sidebarContent9"
-                                data-unfold-type="css-animation"
-                                data-unfold-overlay='{
-                                    "className": "u-sidebar-bg-overlay",
-                                    "background": "rgba(0, 0, 0, .7)",
-                                    "animationSpeed": 500
-                                }'
-                                data-unfold-animation-in="fadeInRight"
-                                data-unfold-animation-out="fadeOutRight"
-                                data-unfold-duration="500">
-                                <i class="glph-icon flaticon-user"></i>
-                            </a>
+
                             <!-- End Account Sidebar Toggle Button - Mobile -->
                         </li>
                     </ul>
@@ -1632,11 +1318,11 @@
     <div class="page-header border-bottom">
         <div class="container">
             <div class="d-md-flex justify-content-between align-items-center py-4">
-                <h1 class="page-title font-size-3 font-weight-medium m-0 text-lh-lg">Shop Single</h1>
+                <h1 class="page-title font-size-3 font-weight-medium m-0 text-lh-lg">위시리스트</h1>
                 <nav class="woocommerce-breadcrumb font-size-2">
-                    <a href="#" class="h-primary">Home</a>
+                    <a href="/team2" class="h-primary">Home</a>
                     <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-right"></i></span>
-                    <a href="#" class="h-primary">Shop</a>
+                    <a href="cart" class="h-primary">장바구니</a>
                     <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-right"></i></span>Shop Single
                 </nav>
             </div>
@@ -1748,18 +1434,7 @@
                     </main>
                 </div>
                 <div id="secondary" class="sidebar cart-collaterals order-1" role="complementary">
-                    <div id="cartAccordion" class="border border-gray-900 bg-white mb-5">
-                       
-                            <div id="cartHeadingOne" class="cart-head">
-                                <a class="d-flex align-items-center justify-content-between text-dark" href="#"
-                                    data-toggle="collapse"
-                                    data-target="#cartCollapseOne"
-                                    aria-expanded="true"
-                                    aria-controls="cartCollapseOne">
-
-                                   
-                                </a>
-                            </div>
+  
 
                            
                         </div>
