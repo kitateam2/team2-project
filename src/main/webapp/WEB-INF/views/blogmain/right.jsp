@@ -7,6 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+function pagingFormSubmit(currentPage) {
+	var form = document.getElementById('pagingForm');
+	var page = document.getElementById('page');
+	page.value = currentPage;
+	form.submit();
+}
+</script>
 <style>
 	#right {		
 		background-color: white;
@@ -83,7 +91,11 @@
 				</c:when>
 			</c:choose>
 		</table>
-	</div>
+		<div style="text-align:center;">
+		<a href="javascript:pagingFormSubmit(${navi.currentPage + 1})" style="text-decoration:none; color:black;">▼</a>
+		</div>
+</div>
+
 </div>
 </body>
 </html>

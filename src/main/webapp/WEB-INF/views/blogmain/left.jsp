@@ -40,13 +40,22 @@
 		border: 1px solid rgb(210, 210, 230);		
 	}
 		
-	.idlist {
+	.sublist {
 		margin: auto;		
 		width: 170px;
 		text-align: center;
 		border: 4px solid rgb(210, 210, 230);
 		border-collapse: collapse;		
   		border-radius: 10px;  		
+	}
+	
+	.post_title {
+		width: 123px;
+		padding: 0;
+      	overflow: hidden;
+      	text-overflow: ellipsis;
+      	white-space: nowrap;
+      	text-align: left;
 	}
 	
 	.footer {
@@ -83,21 +92,41 @@
 		</form>
 	</div>
 
-<!-- 블로그 글 조회수 합계순위 -->
+<!-- 인기포스트 -->
 <br><br>
 	<div>
-		<table class="idlist">	
+		<table class="sublist">	
 				<tr style="background-color:rgb(210, 210, 230);">
 					<td colspan="2">
-						<div title="블로그 포스트 조회수의 합이 높은 순서로 보여줍니다." style="cursor:help;">
-							<div style="display:inling-block;">추천 블로그</div>						
+						<div title="30일간 조회수가 높은 상위 5개 포스트" style="cursor:help;">
+							<div style="display:inling-block;">추천 포스트</div>						
 						</div>				
 					</td>
 				</tr>
-			<c:forEach var="rank" items="${ranklist}" varStatus="status">
-				<tr style="border: 2px solid rgb(210, 210, 230); cursor: pointer;" onclick="location.href='${pageContext.request.contextPath}/myblog/${rank.user_id}'">
+			<c:forEach var="rank" items="${postlist}" varStatus="status">
+				<tr style="border: 2px solid rgb(210, 210, 230); cursor: pointer;" onclick="location.href='${pageContext.request.contextPath}/myblog/${rank.user_id}/one_post?post_no=${rank.post_no}'">
 					<td width="35px;" style="font-weight:bold;">${status.count}</td>
-					<td>${rank.user_id}</td>				
+					<td><div class="post_title">${rank.post_title}</div></td>				
+				</tr>	
+			</c:forEach>
+		</table>
+	</div>
+	
+<!-- 인기블로그 -->
+<br><br>
+	<div>
+		<table class="sublist">	
+				<tr style="background-color:rgb(210, 210, 230);">
+					<td colspan="2">
+						<div title="팔로워가 많은 상위 5개 블로그" style="cursor:help;">
+							<div style="display:inling-block;">파워 블로그</div>						
+						</div>				
+					</td>
+				</tr>
+			<c:forEach var="rank" items="${bloglist}" varStatus="status">
+				<tr style="border: 2px solid rgb(210, 210, 230); cursor: pointer;" onclick="location.href='${pageContext.request.contextPath}/myblog/${rank.follow_ed_id}'">
+					<td width="35px;" style="font-weight:bold;">${status.count}</td>
+					<td><div>${rank.follow_ed_id}</div></td>				
 				</tr>	
 			</c:forEach>
 		</table>

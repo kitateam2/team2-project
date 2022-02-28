@@ -5,8 +5,12 @@
     
 <html>
 <head>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -55,7 +59,7 @@ function pagingFormSubmit(currentPage) {
 			<div class="col-md-1 align-self-center" style="text-align:right;">
 				<a onclick="location.href='../condition'">회원가입</a> 
 			</div>
-			<div class="col-md-1 align-self-center" style="text-align:right;"><a onclick="location.href='${pageContext.request.contextPath}/myblog/login?url=' + location.href">로그인</a></div>
+			<div class="col-md-1 align-self-center" style="text-align:right;"><a onclick="location.href='${pageContext.request.contextPath}/login?url=' + location.href">로그인</a></div>
 		</c:if>
 	</header><!-- 개인블로그 헤더 -->
 

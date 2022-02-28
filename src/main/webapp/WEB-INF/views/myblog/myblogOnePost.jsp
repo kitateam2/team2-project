@@ -103,6 +103,18 @@ function replyEditCancle(div) {
 					</td>
 				</tr>
 				</c:if>
+				
+			<%-- 관련된 책 있는지 보고 있으면 보여주기 		--%>
+				<c:if test="${one_post.post_book_title != null}">
+				<tr>
+					<th>책 이름</th>
+					<td>
+						${one_post.post_book_title}
+					</td>
+				</tr>
+				</c:if> 
+			
+				
 				<tr>
 					<th>내용</th>
 					<td>

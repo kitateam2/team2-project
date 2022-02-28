@@ -19,11 +19,14 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.google.gson.Gson;
 import com.sesoc.team2.dao.BlogPostDAO;
 import com.sesoc.team2.util.FileService;
 import com.sesoc.team2.vo.BlogPost;
+import com.sesoc.team2.vo.Book;
 import com.sesoc.team2.vo.PostComment;
 
 //게시글 쓰기, 게시글 읽기, 팔로우 리스트
@@ -59,6 +62,13 @@ public class MyblogController {
 		
 		//세션에서 로그인한 사용자의 아이디를 읽어서 Board객체의 작성자 정보에 세팅
 		String id = (String) session.getAttribute("loginId");
+		
+		/* 받은 책 이름을 저장을 해야하는 겅가 
+		 * 아니지 이럴 필요가 없지 그냥 스트링으로 blogpost에 저장이 되고 그거를 불러 올 때 그 값으로 객체를 생성해서 lsbn을 불러오고
+		 * 그걸로 해당 책을 찯아서 isbn이 같으면 그게 나타나게 해야하는 것인가
+		 */
+		/* String post_book_title = blogpost.getPost_book_title; */
+		
 		blogpost.setUser_id(id);
 		
 		logger.info("파일 정보 : {}", upload.getContentType());
@@ -205,6 +215,9 @@ public class MyblogController {
 			blogpost.setPost_savedfile(post_savedfile);
 		}
 		
+		//그 뭐야 책이 없는거는 널값도 허용할 거니까 굳이 조건을 넣지 않아도 되지 않은가 
+
+		
 		
 		
 		int result = dao.post_edit(blogpost);
@@ -272,6 +285,16 @@ public class MyblogController {
 		//댓글 수정 처리
 		dao.post_comment_edit(postcomment);
 		return "redirect:"+ user_id +"/one_post?post_no=" + postcomment.getPost_no(); 
+	}
+	
+	//책 제목 자동완성
+	@ResponseBody
+	@RequestMapping(value = "/json_auto_book", method = RequestMethod.GET)
+	public String json_auto_book(String text) throws Exception {
+		ArrayList<Book> array_post_book = dao.array_post_book(text);
+		logger.debug("제목 자동완성 {}", array_post_book);
+		Gson gson = new Gson();
+		return gson.toJson(array_post_book);
 	}
 		
 

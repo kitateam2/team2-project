@@ -14,6 +14,11 @@
   			, post_contents
   			, post_uploaddate
   			, user_id
+  			
+  			<if test="post_book_title != null">
+  			, post_book_title 
+  			</if>
+  			
   			<if test="post_originalfile != null and post_savedfile != null">
   			, post_originalfile
   			, post_savedfile
@@ -25,6 +30,11 @@
   			, #{post_contents}
   			, sysdate
   			, #{user_id}
+  			
+  			<if test="post_book_title != null">
+  			 , #{post_book_title} 
+  			</if>
+  			 
   			<if test="post_originalfile != null and post_savedfile != null">
   			, #{post_originalfile}
   			, #{post_savedfile}
@@ -46,6 +56,8 @@
   			and
 			post_title like '%' || #{searchText} || '%'
 			</if>
+			
+			<!-- 와... 책으로 검색하기도 있어야 하는거 아니야? -->
   		order by
   			post_no desc
   	</select>
@@ -83,6 +95,11 @@
   			, post_originalfile = #{post_originalfile}
   			, post_savedfile = #{post_savedfile}
   			</if>
+  			
+  			<if test="post_book_title != null">
+  			 , post_book_title = #{post_book_title} 
+  			</if>
+ 
   		where
   			post_no = #{post_no}
 			and user_id = #{user_id}
@@ -176,4 +193,15 @@
 			post_title like '%' || #{searchText} || '%'
 		</if>
 	</select>
+	
+	<!-- 책 제목 자동완성 -->
+	<select id="array_post_book" parameterType="string" resultType="String">
+   		select
+   			book_title
+   		from
+   			book_info
+   		where
+   			book_title like '%' || #{text} || '%'
+   	</select>
+   	
   </mapper>

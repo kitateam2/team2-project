@@ -64,6 +64,14 @@
 		and book_review_writer = #{book_review_writer}
 </update>
 
-
+<select id="detailPostList" parameterType="String" resultType="BlogPostVO">
+		select
+  			*
+  		from
+  			blog_post
+<!--   			지금은 조건없이 모든 것을 가지고 와서 나중에 where로 isbn 걸러야함
+ -->  		order by
+  			post_no desc
+</select>
 
 </mapper>

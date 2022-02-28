@@ -6,6 +6,7 @@ import java.util.HashMap;
 import org.apache.ibatis.session.RowBounds;
 
 import com.sesoc.team2.vo.BlogPost;
+import com.sesoc.team2.vo.Book;
 import com.sesoc.team2.vo.PostComment;
 
 public interface BlogPostMapper {
@@ -34,6 +35,9 @@ public interface BlogPostMapper {
 	public int get_total(HashMap<String, String> map);
 
 	public int post_comment_edit(PostComment postcomment);
+	
+	/* 책제목 자동완성 */
+	public ArrayList<Book> array_post_book(String text);
 
 
 	

@@ -46,6 +46,7 @@ public class MemberController {
 	//로그인
 	@RequestMapping (value="login", method=RequestMethod.GET)
 	public String loginForm() {
+		
 		return "loginForm";
 	}
 	
@@ -58,6 +59,7 @@ public class MemberController {
 			logger.info("{}",session.getAttribute("loginId"));
 			return "redirect:/";
 		}		
+		
 		
 		else {
 			model.addAttribute("errorMsg", "ID 또는 비밀번호가 틀립니다.");

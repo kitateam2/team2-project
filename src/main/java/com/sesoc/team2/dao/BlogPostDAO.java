@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.sesoc.team2.controller.MyblogController;
 import com.sesoc.team2.vo.BlogPost;
+import com.sesoc.team2.vo.Book;
 import com.sesoc.team2.vo.PostComment;
 
 @Repository
@@ -105,6 +106,14 @@ public class BlogPostDAO {
 		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
 		int result = mapper.post_comment_edit(postcomment);
 		return result;
+	}
+	
+	//책제목 자동완성
+	public ArrayList<Book> array_post_book(String text) {
+		BlogPostMapper mapper = sqlSession.getMapper(BlogPostMapper.class);
+		ArrayList<Book> array_post_book = mapper.array_post_book(text);
+		logger.debug("책 자동완성 다오{}", array_post_book);
+		return array_post_book;
 	}
 
 }

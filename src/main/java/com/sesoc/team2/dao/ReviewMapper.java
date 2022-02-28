@@ -2,6 +2,7 @@ package com.sesoc.team2.dao;
 
 import java.util.ArrayList;
 
+import com.sesoc.team2.vo.BlogPost;
 import com.sesoc.team2.vo.BookReview;
 
 public interface ReviewMapper {
@@ -17,6 +18,8 @@ public interface ReviewMapper {
 	
 	//댓글 수정
 	public int bookReview_edit(BookReview review);
+
+	public ArrayList<BlogPost> detailPostList();
 
 	
 }

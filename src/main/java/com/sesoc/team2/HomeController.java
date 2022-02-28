@@ -43,9 +43,10 @@ public class HomeController {
 		model.addAttribute("wishCart_book1",wishlistcart);
 		logger.info("Welcome home! The client locale is {}.", listcart);
 		
-		ArrayList<Book> insertdate = mdao.insertdate();
-		model.addAttribute("insert_date", insertdate);
-		
+		/*
+		 * ArrayList<Book> insertdate = mdao.insertdate();
+		 * model.addAttribute("insert_date", insertdate);
+		 */	
 		return "home";
 	}	
 	
