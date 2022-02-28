@@ -7,7 +7,7 @@
 <mapper namespace="com.sesoc.team2.dao.MainDataMapper">
 
 <!-- 데이터 입력 -->
-<!-- <insert id="datelist" parameterType="BookVO">
+<select id="datelist" resultType="BookVO">
 		select * from (
 		select
 			book_image
@@ -17,7 +17,7 @@
 		from
 			book_info
 		    )
-		where rownum <= 6;
-</insert> -->
+		<!-- where rownum <= 6; -->
+</select> 
 
 </mapper>
