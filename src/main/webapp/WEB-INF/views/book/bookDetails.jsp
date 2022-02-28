@@ -179,8 +179,8 @@
             <div class="container-fluid px-2 px-md-5 px-xl-8d75">
                 <div class="topbar__nav d-md-flex justify-content-between align-items-center">
                     <ul class="topbar__nav--left nav ml-md-n3">
-                        <li class="nav-item"><a href="#" class="nav-link link-black-100"><i class="glph-icon flaticon-question mr-2"></i>Can we help you?</a></li>
-                        <li class="nav-item"><a href="tel:+1246-345-0695" class="nav-link link-black-100"><i class="glph-icon flaticon-phone mr-2"></i>+1 246-345-0695</a></li>
+                        <li class="nav-item"><i class="glph-icon flaticon-question mr-2"></i></li>
+                        <li class="nav-item"><i class="glph-icon flaticon-phone mr-2"></i></li>
                     </ul>
                     <ul class="topbar__nav--right nav mr-md-n3">
                         <li class="nav-item"><a href="#" class="nav-link link-black-100"><i class="glph-icon flaticon-pin"></i></a></li>
