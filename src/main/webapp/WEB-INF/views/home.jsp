@@ -257,14 +257,15 @@ function bt1Click(n){
                     </ul>
 
                     <div class="site-search ml-xl-0 ml-md-auto w-r-100 my-2 my-xl-0">
-                        <form class="form-inline">
+                        <form class="form-inline" id="bookName" method="get" action="list">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <i class="glph-icon flaticon-loupe input-group-text py-2d75 bg-white-100 border-white-100"></i>
                                 </div>
-                                <input class="form-control bg-white-100 min-width-380 py-2d75 height-4 border-white-100" type="search" placeholder="Search for Books by Keyword ..." aria-label="Search">
+                                <input type="hidden" name="page" id="page" />
+                                <input class="form-control bg-white-100 min-width-380 py-2d75 height-4 border-white-100" type="text" placeholder="검색어 입력 ..." aria-label="Search" name="searchText" value="${searchText}" onkeypress="if(event.keyCode == 13){ bookPage(); }">
                             </div>
-                            <button class="btn btn-outline-success my-2 my-sm-0 sr-only" type="button">Search</button>
+                            <button class="btn btn-outline-success my-2 my-sm-0 sr-only" type="submit" id="search" onclick="javascript: pagingFormSubmit(1); bookPage();" value="검색">Search</button>
                         </form>
                     </div>
                 </div>
