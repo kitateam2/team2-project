@@ -4,6 +4,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+			<!-- Title -->
+		    <title>Blog Single | Bookworm</title>
+		
+		    <!-- Required Meta Tags Always Come First -->
+		    <meta charset="utf-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		    <!-- Favicon -->
+		    <link rel="shortcut icon" href="../../assets/img/favicon.png">
+		
+		    <!-- Font -->
+		    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+		
+		    <!-- CSS Implementing Plugins -->
+		    <link rel="stylesheet" href="../../assets/vendor/font-awesome/css/fontawesome-all.min.css">
+		    <link rel="stylesheet" href="../../assets/vendor/flaticon/font/flaticon.css">
+		    <link rel="stylesheet" href="../../assets/vendor/animate.css/animate.css">
+		    <link rel="stylesheet" href="../../assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+		    <link rel="stylesheet" href="../../assets/vendor/slick-carousel/slick/slick.css"/>
+		    <link rel="stylesheet" href="../../assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+		
+		    <!-- CSS Bookworm Template -->
+		    <link rel="stylesheet" href="../../assets/css/theme.css">
+		    
+		    
+		    
 <script>
 //게시글 삭제하기
 function bt_delete(post_no) {
@@ -73,9 +99,279 @@ function replyEditCancle(div) {
 }
 
 </script>
-	<title>게시글 상세보기</title>
+
+
+	
 </head>
 <body>
+
+				 <!-- ====== MAIN CONTENT ===== -->
+				    <main id="content" role="main">
+				        <div class="mb-5 mb-lg-8 pb-xl-1">
+				            <div class="mb-5 mb-lg-8 pb-xl-1">
+				                <div class="page-header border-bottom">
+				                    <div class="container">
+				                        <div class="d-md-flex justify-content-between align-items-center py-4">
+				                            <h1 class="page-title font-size-3 font-weight-medium m-0 text-lh-lg">Blog Post</h1>
+				                            <nav class="woocommerce-breadcrumb font-size-2">
+				                                <a href="../home/index.html" class="h-primary">Home</a>
+				                                <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-right"></i></span>
+				                                <span>Blog Post</span>
+				                            </nav>
+				                        </div>
+				                    </div>
+				                </div>
+				            </div>
+				            <div class="container">
+				                <div>
+				                   
+				                    <div class="d-flex">
+				                    	<!-- 왼쪽에 공간 -->
+				                        <button  class="btn btn-dark btn-wide rounded-0 transition-3d-hover" onclick="location.href='../${one_post.user_id}';">목록
+				                        </button>
+				                        <button  class="btn btn-dark btn-wide rounded-0 transition-3d-hover" onclick="bt_edit(${one_post.post_no}">수정
+				                        </button>
+				                         <button  class="btn btn-dark btn-wide rounded-0 transition-3d-hover" onclick="bt_delete(${one_post.post_no}">삭제
+				                        </button>
+				                        
+				                    </div>
+				
+				                    <div class="max-width-940 mx-auto bg-white position-relative">
+				                        <div class=" mt-n10 mt-md-n13 pt-5 pt-lg-7 px-3 px-md-5 pl-xl-10 pr-xl-8">
+				                            <div class="ml-xl-4">
+				                                <div class="mb-5 mb-lg-7">
+				                                    <div class="mb-2">
+				                                        <span class="font-size-2 text-primary">${one_post.user_id} Romance(블로그 주인 이름)</span>
+				                                    </div>
+				                                    <h6 class="font-size-10 crop-text-2 font-weight-medium text-lh-1dot4">
+				                                        ${one_post.post_title}(제목)
+				                                    </h6>
+				                                    <div class="font-size-2 text-secondary-gray-700">
+				                                        <span>${one_post.post_uploaddate} 10 November, 2020 날짜</span>
+				                                        <span class="ml-3">${one_post.post_hits}   0 comments 조회수 자리</span>
+				                                    </div>
+				                                </div>
+				                                
+											<c:if test="${one_post.post_originalfile != null}">
+				                                        <!-- Images Carousel 이미지를 위에다 넣고 싶어 -->
+				                                        <div class="js-slick-carousel u-slick u-slick--gutters-3 my-5 my-lg-8"
+				                                        data-infinite="true"
+				                                        data-slides-show="1"
+				                                        data-slides-scroll="1"
+				                                        data-center-mode="true"
+				                                        data-center-padding="350px"
+				                                        data-pagi-classes="text-center u-slick__pagination mt-5 mb-0"
+				                                        data-responsive='[{
+				                                        "breakpoint": 992,
+				                                        "settings": {
+				                                            "centerPadding": "120px"
+				                                        }
+				                                        }, {
+				                                        "breakpoint": 768,
+				                                        "settings": {
+				                                            "centerPadding": "80px"
+				                                        }
+				                                        }, {
+				                                        "breakpoint": 554,
+				                                        "settings": {
+				                                            "centerPadding": "50px"
+				                                        }
+				                                        }]'>
+				                                        <img src="../${one_post.user_id}/show_file?post_no=${one_post.post_no}">
+				                                        <div class="bg-img-hero min-height-350" style="background-image: url(https://placehold.it/393x350);">
+				                                        </div>
+				
+				                                        <div class="bg-img-hero min-height-350" style="background-image: url(https://placehold.it/393x350);">
+				                                        </div>
+				
+				                                        <div class="bg-img-hero min-height-350" style="background-image: url(https://placehold.it/393x350);">
+				                                        </div>
+				
+				                                        <div class="bg-img-hero min-height-350" style="background-image: url(https://placehold.it/393x350);">
+				                                        </div>
+				
+				                                        <div class="bg-img-hero min-height-350" style="background-image: url(https://placehold.it/393x350);">
+				                                        </div>
+				
+				                                        <div class="bg-img-hero min-height-350" style="background-image: url(https://placehold.it/393x350);">
+				                                        </div>
+				                                        </div>
+				                                        <!-- End Images Carousel -->
+				                                     </c:if>		
+				
+				
+												<c:if test="${one_post.post_book_title != null}">
+					                                <p class="font-weight-medium">${one_post.post_book_title} 관련된 책이 있으면 책이 보이게orem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus mollis et.
+					                                </p>
+				                                </c:if>
+				
+				                                <p class="font-size-2 text-lh-1dot72 mb-4">${one_post.post_contents} 내용 Mauris tempus erat laoreet turpis lobortis, eu tincidunt erat fermentum. Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. Proin sed ultrices erat. Praesent varius ultrices massa at faucibus. Aenean dignissim, orci sed faucibus pharetra, dui mi dignissim tortor, sit amet condimentum mi ligula sit amet augue. Pellentesque vitae eros eget enim mollis placerat. Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. Proin sed ultrices erat. Praesent varius ultrices massa at faucibus. Aenean dignissim, orci sed faucibus pharetra, dui mi dignissim tortor, sit amet condimentum mi ligula sit amet augue. Pellentesque vitae eros eget enim mollis placerat.</p>
+				                                <p class="font-size-2 text-lh-1dot72 mb-3 pb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis diam erat. Duis velit lectus, posuere a blandit sit amet, tempor at lorem. Donec ultricies, lorem sed ultrices interdum, leo metus luctus sem, vel vulputate diam ipsum sed lorem. Donec tempor arcu nisl, et molestie massa scelerisque ut. Nunc at rutrum leo. Mauris metus mauris, tristique quis sapien eu, rutrum vulputate enim.</p>
+				
+				                                <p class="font-size-2 text-lh-1dot72">Pellentesque sodales augue eget ultricies ultricies. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur sagittis ultrices condimentum.</p>
+				                            </div>
+				                        </div>
+				                    </div>
+				                    
+				
+				
+				                    <div class="col-lg-9 mx-auto">
+				                        <div class="px-3 px-md-5 pl-xl-10 pr-xl-4">
+				                            <div class="ml-xl-4">
+				                        
+				                                
+				                            <!-- 리뷰자리 -->
+				                                <br>
+				                                <hr>
+				                                <h4 class="font-size-3 mb-5 mb-md-8 font-weight-medium">Reviews (7)</h4>
+				                                <ul class="list-unstyled mb-5 mb-md-8">
+
+				                                 <c:forEach var="post_comment" items="${post_comment_list}">
+				                                    <li class="mb-4 pb-5 border-bottom">
+				                                        <div class="d-md-flex align-items-center mb-3">
+				                                            <h6 class="mb-2 mb-md-0">I read this book short...</h6>
+				                                            <div class="text-yellow-darker ml-md-3">
+				                                                <small class="fas fa-star"></small>
+				                                                <small class="fas fa-star"></small>
+				                                                <small class="fas fa-star"></small>
+				                                                <small class="fas fa-star"></small>
+				                                                <small class="far fa-star"></small>
+				                                            </div>
+				                                        </div>
+				                                        <p class="mb-4 text-lh-md">${post_comment.post_comment_content}I read this book shortly after I got it and didn't just put it on my TBR shelf mainly because I saw it on Reese Witherspoon's bookclub September read. It was one of the best books I've read this year, and reminded me some of Kristen Hannah's The Great Alone. </p>
+				                                        <div class="text-gray-600 mb-4">${post_comment.post_comment_writter}, February 22, 2020 </div>
+				                                        <ul class="nav">
+				                                            <li class="mr-5 mr-md-7">
+				                                                <a onclick="javascript:post_comment_like(${post_comment.post_comment_no}, ${post_comment.post_no} class="text-gray-600 d-flex align-items-center">
+				                                                    <i class="text-dark font-size-5 flaticon-like-1"></i>
+				                                                    <span class="ml-2">90</span>
+				                                                </a>
+				                                                
+				                                             </li>
+				                                             <li class="mr-5 mr-md-7">
+				                                                <c:if test="${loginId != post_comment.post_comment_writter}">
+																	<td><input type="button" value="도움이 되었어요" onclick="javascript:post_comment_like(${post_comment.post_comment_no}, ${post_comment.post_no})"></td>
+																</c:if>
+				                                                <c:if test="${loginId == post_comment.post_comment_writter}">
+																	[<a href="javascript:post_comment_edit(${post_comment.post_comment_no}, ${post_comment.post_no}, '${post_comment.post_comment_content}')">수정</a>]
+																</c:if>
+																<c:if test="${loginId == post_comment.post_comment_writter}">
+																	[<a href="javascript:post_comment_delete(${post_comment.post_comment_no}, ${post_comment.post_no})">삭제</a>]
+																</c:if>
+																<div id="div${post_comment.post_comment_no}"></div>
+				                                            </li>
+				                                        </ul>
+				                                    </li>
+												</c:forEach>
+				
+				
+				                                </ul>
+				                                <h4 class="font-size-3 mb-4">Write a Review</h4>
+				                                <div class="js-form-message form-group mb-4">
+				                                    <label for="descriptionTextarea" class="form-label text-dark h6 mb-3">Details please! Your review helps other shoppers.</label>
+				                                    <textarea class="form-control rounded-0 p-4" rows="7" id="descriptionTextarea" placeholder="What did you like or dislike? What should other shoppers know before buying?" required="" data-msg="Please enter your message." data-error-class="u-has-error" data-success-class="u-has-success"></textarea>
+				                                </div>
+				                                
+				                                <div class="d-flex">
+				                                    <button type="submit" class="btn btn-dark btn-wide rounded-0 transition-3d-hover">Submit Review</button>
+				                                </div>
+				
+				                                <br>
+				                                <hr>
+				
+				                            </div>
+				                        </div>
+				                    </div>
+				                </div>
+				            </div>
+				        </div>
+				    </main>
+				    <!-- ====== END MAIN CONTENT ===== -->
+				
+				
+				    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+				    <script src="../../assets/vendor/jquery/dist/jquery.min.js"></script>
+				    <script src="../../assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+				    <script src="../../assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+				    <script src="../../assets/vendor/bootstrap/bootstrap.min.js"></script>
+				    <script src="../../assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+				    <script src="../../assets/vendor/slick-carousel/slick/slick.min.js"></script>
+				    <script src="../../assets/vendor/multilevel-sliding-mobile-menu/dist/jquery.zeynep.js"></script>
+				    <script src="../../assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+				
+				
+				    <!-- JS HS Components -->
+				    <script src="../../assets/js/hs.core.js"></script>
+				    <script src="../../assets/js/components/hs.unfold.js"></script>
+				    <script src="../../assets/js/components/hs.malihu-scrollbar.js"></script>
+				    <script src="../../assets/js/components/hs.header.js"></script>
+				    <script src="../../assets/js/components/hs.slick-carousel.js"></script>
+				    <script src="../../assets/js/components/hs.selectpicker.js"></script>
+				    <script src="../../assets/js/components/hs.show-animation.js"></script>
+				
+				    <!-- JS Bookworm -->
+				    <!-- <script src="../../assets/js/bookworm.js"></script> -->
+				    <script>
+				        $(document).on('ready', function () {
+				            // initialization of unfold component
+				            $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
+				
+				            // initialization of slick carousel
+				            $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+				
+				            // initialization of header
+				            $.HSCore.components.HSHeader.init($('#header'));
+				
+				            // initialization of malihu scrollbar
+				            $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+				
+				            // initialization of show animations
+				            $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+				
+				            // init zeynepjs
+				            var zeynep = $('.zeynep').zeynep({
+				                onClosed: function () {
+				                    // enable main wrapper element clicks on any its children element
+				                    $("body main").attr("style", "");
+				
+				                    console.log('the side menu is closed.');
+				                },
+				                onOpened: function () {
+				                    // disable main wrapper element clicks on any its children element
+				                    $("body main").attr("style", "pointer-events: none;");
+				
+				                    console.log('the side menu is opened.');
+				                }
+				            });
+				
+				            // handle zeynep overlay click
+				            $(".zeynep-overlay").click(function () {
+				                zeynep.close();
+				            });
+				
+				            // open side menu if the button is clicked
+				            $(".cat-menu").click(function () {
+				                if ($("html").hasClass("zeynep-opened")) {
+				                    zeynep.close();
+				                } else {
+				                    zeynep.open();
+				                }
+				            });
+				        });
+				    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container" >
 
 		 <jsp:include page="myblogHeader.jsp"></jsp:include>
