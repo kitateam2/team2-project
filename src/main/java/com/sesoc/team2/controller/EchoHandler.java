@@ -11,8 +11,8 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 
 //클라이언트와 WebSocket을 이용한 메시지 송수신
-public class ChattingHandler extends AbstractWebSocketHandler {
-	private static final Logger logger = LoggerFactory.getLogger(ChattingHandler.class);
+public class EchoHandler extends AbstractWebSocketHandler {
+	private static final Logger logger = LoggerFactory.getLogger(EchoHandler.class);
 
 	//채팅에 참여한 클라이언트들과의 연결
 	ArrayList<WebSocketSession> list = new ArrayList<>();
@@ -35,7 +35,7 @@ public class ChattingHandler extends AbstractWebSocketHandler {
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 		logger.info("서버측 수신 : {}, ID: {}", message.getPayload(), session.getId());
 		Map<String, Object> map = session.getAttributes();
-		String userId = "123";//(String)map.get("userId");
+		String userId = (String)map.get("userId");
 		
 		TextMessage msg = new TextMessage(userId + "," + message.getPayload());
 		for(WebSocketSession ss: list) {

@@ -15,6 +15,14 @@
 var socket = null;
 var isStomp = false;
 var roomid = "${roomid}";
+var roomidlist = roomid.split(',');
+for(var i=0; i<roomidlist.length; i++){
+	if(roomidlist[i] === "${sessionScope.loginId}"){
+		roomidlist.splice(i,1);
+		i--;
+	}
+}
+console.log(roomidlist);
 
 $(document).ready(  function() {
 	connectStomp();
@@ -42,10 +50,17 @@ function sendMessage(evt) {
      let msg = $('#chat-insert').val();
      console.log("mmmmmmmmmmmm>>", msg)
      $('#chat-insert').val('');
-     if (isStomp)
+     if (isStomp){
      	socket.send('/TTT/'+roomid, {}, JSON.stringify(
      			{nname: "${sessionScope.loginId}", content: msg, datetime: time}));
-     	//socket.send('/TTT', {}, msg);
+     	console.log("에코소켓: ", echosocket);
+     	if(echosocket){
+     		for(var i=0; i<roomidlist.length; i++){
+     			console.log("echosocket send하기직전")
+     			echosocket.send("chat/${sessionScope.loginId}/" + roomidlist[i] + "/" + roomid);
+     		}
+     	}
+	 }
      else
          socket.send(msg);
      
@@ -98,6 +113,7 @@ function connectStomp() {
 </script>
 </head>
 <body>
+<%@ include file="../footerEcho.jsp" %>
 <div id="chat-body">
 	<main>
                 <!-- 고정된 공지사항 영역 -->

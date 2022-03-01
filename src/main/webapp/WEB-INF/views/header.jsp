@@ -36,6 +36,8 @@
 </head>
 
 <body>
+<!-- 채팅/댓글 알림 div -->
+<div id="socketAlert" class="alert alert-success" role="alert" style="display:none;"></div>
 <!--===== HEADER CONTENT =====-->
     <header id="site-header" class="site-header__v1">
         <div class="topbar border-bottom d-none d-md-block">

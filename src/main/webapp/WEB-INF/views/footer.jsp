@@ -309,5 +309,6 @@
             });
         });
     </script>
+    <%@ include file="footerEcho.jsp" %>
 </body>
 </html>

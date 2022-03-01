@@ -25,9 +25,8 @@ public class FooterHandler extends AbstractWebSocketHandler {
 		logger.info("세션 오픈 : {}, ID: {}", session.getLocalAddress(), session.getId());
 		logger.info("세션 전체 : {}", session); //세션ID와 uri가 온다
 		list.add(session);		//연결된 세션들을 보관
-		logger.info(list.toString());
-		String userId = getId(session);
-		userLists.put(userId, session);
+		String senderId = getId(session);
+		userLists.put(senderId, session);
 		logger.info("유저맵: {} ",userLists);
 	}
 	
@@ -40,30 +39,31 @@ public class FooterHandler extends AbstractWebSocketHandler {
 
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-		logger.info("서버측 수신 : {}, ID: {}", message.getPayload(), session.getId());
-		logger.info("message: {}, session:{}", message, session);
-		String userId = getId(session);
-		//handshakerinterceptor에서 사용자와 방에대한 정보를 가져와서 list를 다뿌리는게 아니라 조건을 줘야됨
-	    //결국 아래 for문을 뿌셔야된다.
-		//TextMessage msg = new TextMessage(userId + ": " + message.getPayload());
-		//for(WebSocketSession ss: list) {
-		//	ss.sendMessage(msg);
-		//}
-		//protocol: cmd, 댓글작성자, 게시글작성자, bno(reply,user2,user1,234)
+		logger.info("echo서버측 수신 : {}, ID: {}", message.getPayload(), session.getId());
+		logger.info("echomessage: {}, session:{}", message, session);
+		String senderId = getId(session);
+		//protocol: cmd, 댓글작성자, 게시글작성자, index (chat/reply,user2,user1,234)
 		String msg = message.getPayload();
 		if(!StringUtils.isEmpty(msg)) {
-			String[] strs = message.getPayload().split(",");
+			String[] strs = message.getPayload().split("/");
 			//protocol이 4개라 4
 			if(strs != null && strs.length == 4 ) {				
 				String cmd = strs[0];
-				String replyWriter = strs[1];
-				String boardWriter = strs[2];
-				String bno = strs[3];
-				
-				WebSocketSession boardWriterSession = userLists.get(boardWriter);  //글작성자 세션
+				String sender = strs[1];
+				String receiver = strs[2];
+				String index = strs[3];
+		
+				WebSocketSession boardWriterSession = userLists.get(receiver);  //글작성자 세션
 				logger.info("글작성자세션: {}", boardWriterSession);
-				if("reply".equals(cmd) && boardWriterSession != null ) {
-					TextMessage tmpMsg = new TextMessage(replyWriter + "님이 " + bno + "번 게시글에 댓글을 달았습니다." );
+				if("chat".equals(cmd) && boardWriterSession != null ) {
+					TextMessage tmpMsg = new TextMessage(sender + "님의 메세지가 " 
+							+ "<a onclick=\"window.open('chatting?roomid=" + index 
+							+ "','','width=500,height=600,top=200,left=1000,toolbar=no,menubar=no,scrollbars=1,resizable=1')\" style=\"text-decoration:none;\">"
+							+ index + "</a>채팅방에 도착했습니다." );
+					boardWriterSession.sendMessage(tmpMsg);
+				}
+				else if("reply".equals(cmd) && boardWriterSession != null ) {
+					TextMessage tmpMsg = new TextMessage(sender + "님이 " + index + "번 게시글에 댓글을 달았습니다." );
 					boardWriterSession.sendMessage(tmpMsg);
 				}
 			}
