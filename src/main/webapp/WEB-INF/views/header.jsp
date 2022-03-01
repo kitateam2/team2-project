@@ -163,16 +163,18 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="blogDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
+                                <a id="blogDropdownInvoker" href="blogmain" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Blog
                                 </a>
                             </li>
+                             <c:if test="${sessionScope.loginId != null}">
                             <li class="nav-item dropdown">
-                                <a id="pagesDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
-                                    Others
+                                <a id="pagesDropdownInvoker" href="myblog/${sessionScope.loginId}" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
+                                    Myblog
                                 </a>
 
                             </li>
+                            </c:if>
                         </ul>
                     </div>
 
