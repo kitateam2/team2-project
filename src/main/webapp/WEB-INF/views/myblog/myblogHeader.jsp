@@ -33,12 +33,6 @@ function pagingFormSubmit(currentPage) {
 	form.submit();
 }
 </script>
-<style type="text/css">
-.row >* {
-	padding-right: 0; 
-    padding-left: 0;
-}
-</style>
 
 
 <title>${user_id} 블로그</title>
