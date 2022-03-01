@@ -5,7 +5,107 @@
 
 <html>
 <head>
+		    <!-- Required Meta Tags Always Come First -->
+			    <meta charset="utf-8">
+			    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			
+			    <!-- Favicon -->
+			    <link rel="shortcut icon" href="../../resources/assets/img/favicon.png">
+			
+			    <!-- Font -->
+			    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+			
+			    <!-- CSS Implementing Plugins -->
+			    <link rel="stylesheet" href="../resources/assets/vendor/font-awesome/css/fontawesome-all.min.css">
+			    <link rel="stylesheet" href="../resources/assets/vendor/flaticon/font/flaticon.css">
+			    <link rel="stylesheet" href="../resources/assets/vendor/animate.css/animate.css">
+			    <link rel="stylesheet" href="../resources/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+			    <link rel="stylesheet" href="../resources/assets/vendor/slick-carousel/slick/slick.css"/>
+			    <link rel="stylesheet" href="../resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+			
+			    <!-- CSS Bookworm Template -->
+			    <link rel="stylesheet" href="../resources/assets/css/theme.css">
+			    
+			    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../resources/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../resources/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="../resources/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../resources/assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="../resources/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../resources/assets/vendor/slick-carousel/slick/slick.min.js"></script>
+    <script src="../resources/assets/vendor/multilevel-sliding-mobile-menu/dist/jquery.zeynep.js"></script>
+    <script src="../resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 
+
+    <!-- JS HS Components -->
+    <script src="../resources/assets/js/hs.core.js"></script>
+    <script src="../resources/assets/js/components/hs.unfold.js"></script>
+    <script src="../resources/assets/js/components/hs.malihu-scrollbar.js"></script>
+    <script src="../resources/assets/js/components/hs.header.js"></script>
+    <script src="../resources/assets/js/components/hs.slick-carousel.js"></script>
+    <script src="../resources/assets/js/components/hs.selectpicker.js"></script>
+    <script src="../resources/assets/js/components/hs.show-animation.js"></script>
+    
+  	<script src="../resources/js/summernote/summernote-lite.js"></script>
+	<script src="../resources/js/summernote/lang/summernote-ko-KR.js"></script>
+
+	<link rel="stylesheet" href="../resources/css/summernote/summernote-lite.css">
+
+    <!-- JS Bookworm -->
+    <!-- <script src="../resources/assets/js/bookworm.js"></script> -->
+    <script>
+        $(document).on('ready', function () {
+            // initialization of unfold component
+            $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
+
+            // initialization of slick carousel
+            $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+
+            // initialization of header
+            $.HSCore.components.HSHeader.init($('#header'));
+
+            // initialization of malihu scrollbar
+            $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+
+            // initialization of show animations
+            $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+ 
+            // init zeynepjs
+            var zeynep = $('.zeynep').zeynep({
+                onClosed: function () {
+                    // enable main wrapper element clicks on any its children element
+                    $("body main").attr("style", "");
+
+                    console.log('the side menu is closed.');
+                },
+                onOpened: function () {
+                    // disable main wrapper element clicks on any its children element
+                    $("body main").attr("style", "pointer-events: none;");
+
+                    console.log('the side menu is opened.');
+                }
+            }); 
+
+            // handle zeynep overlay click
+            $(".zeynep-overlay").click(function () {
+                zeynep.close();
+            });
+
+            // open side menu if the button is clicked
+            $(".cat-menu").click(function () {
+                if ($("html").hasClass("zeynep-opened")) {
+                    zeynep.close();
+                } else {
+                    zeynep.open();
+                }
+            });
+        });
+    </script>
+
+
+
+			    
 <script>
 	function post_formCheck(){
 		var title = document.getElementById('post_title');
@@ -56,56 +156,71 @@
 			});
 		}
 	</script>
-	
-	<!-- 한글오류나는거..  https://zzznara2.tistory.com/94 -->
-	<title>Home</title>
-</head>
-<body>
-<div class="container" >
-	 <jsp:include page="myblogHeader.jsp"></jsp:include>
-
-	<h2>새로 글 작성하기</h2>
-	
-	<!--  메인에 있는 좌측 (
-	개인정보 덩어리
-	친구목록 덩어리 
-	카테고리 덩어리는 그대로 가지고 와야하나? 아니면 그냥 글쓰기만 ?
-	아니면 글 쓸 때 쓰는 툴들 이미지로?)
-	
-	글쓰기 폼 덩어리-->
-	<div>
-		<form id="post_write" action="post_write" method="post"
-			enctype="multipart/form-data" onsubmit="return post_formCheck()">
-			<div>
-				<label for="post_title"> 글 제목</label>
-				<input type="text" name="post_title" id="post_title" placeholder="제목을 입력하세요">
-			</div>
-			<div>
-			<label for="post_contents"> 내용</label>
-				<textarea rows="10" cols="10" class="summernote" id="post_contents" name="post_contents" ></textarea>
-			</div>
-			<div>
-				<input type="file" name="upload" size="30">
-			</div>
-			
-			<!-- 책 제목을 받아야 하는 부분 검색하기.. 스트링으로 받아서 값을 받아-->
-			<div>
-				<label for="post_book_title">책</label>
-				<input type="text" onkeyup="javascript:auto_book_complete();" name="post_book_title" id="post_book_title" placeholder="영감을 준 책 제목">
-			</div>
-			
-			<button type="submit" id="post_save">글 저장하기</button>
-		<!-- 나중에 ajex로 쓸 수 있겠지만 일단은 페이지가 바뀌는 것으로 하자 -->
-		</form>
-			<button onclick="location.href='${sessionScope.loginId}';">목록으로 돌아가기</button>
-	</div>
 		<script>
 	      $('.summernote').summernote({
 	        placeholder: '내용을 입력하세요',
 	        tabsize: 2,
+	        lang: "ko-KR",
 	        height: 300
 	      });
 	    </script>
-    </div>
+	
+	
+	
+	<!-- 한글오류나는거..  https://zzznara2.tistory.com/94 -->
+	<title>새 글쓰기</title>
+</head>
+<body>
+
+<main id="content">
+			<div class="mb-5 mb-lg-8 pb-xl-1">
+                <div class="page-header border-bottom">
+                    <div class="container">
+                        <div class="d-md-flex justify-content-between align-items-center py-4">
+                            <h1 class="page-title font-size-3 font-weight-medium m-0 text-lh-lg">New Post</h1>
+                            <nav class="woocommerce-breadcrumb font-size-2">
+				                    <a href="/team2/blogmain" class="h-primary">Blog Main</a>
+				                 <span> > </span>
+				                    <a href="${sessionScope.loginId}" class="h-primary">Blog List(${sessionScope.loginId})</a>
+				                </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="container">
+            <div class="space-bottom-1 space-bottom-lg-2 space-bottom-xl-3">
+                <div class="pb-lg-4">
+                    <div class="py-4 py-lg-5 py-xl-8">
+                        <h6 class="font-weight-medium font-size-7 font-size-xs-25 text-center">NEW POST</h6>
+                    </div>
+
+                    <form id="post_write" action="post_write" method="post"
+			enctype="multipart/form-data" onsubmit="return post_formCheck()">
+                    <div class="mb-5 mb-lg-8">
+                        <h6 class="font-weight-medium font-size-4 mb-4 pb-1">Title</h6>
+                        <input class="list-unstyled mb-0" type="text" name="post_title" id="post_title" placeholder="제목을 입력하세요">
+                        
+                    </div>
+                    <div class="mb-5 mb-lg-9">
+                        <h6 class="font-weight-medium font-size-4 mb-4 pb-1">Contents</h6>
+                        <textarea rows="10" cols="10" class="summernote" id="post_contents" name="post_contents" ></textarea>
+                    </div>
+                    <div class="mb-5 mb-lg-10">
+                        <h6 class="font-weight-medium font-size-4 mb-4 pb-1">File</h6>
+                        <input type="file" name="upload" size="30">
+                    </div>
+                    <div class="mb-5 mb-lg-10">
+                        <h6 class="font-weight-medium font-size-4 mb-4 pb-1">About Book</h6>
+                        <input type="text" onkeyup="javascript:auto_book_complete();" name="post_book_title" id="post_book_title" placeholder="영감을 준 책 제목">
+
+                    </div>
+                        <button class="btn btn-dark btn-wide rounded-0 transition-3d-hover" type="submit" id="post_save">글 저장하기</button>
+                    </form>
+                        <button class="btn btn-dark btn-wide rounded-0 transition-3d-hover" onclick="location.href='${sessionScope.loginId}';">목록으로 돌아가기</button>
+
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

@@ -2,53 +2,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
 <html>
 <head>
-			 <!-- Title -->
-			    <title>글 상세보기</title>
-			
-			    <!-- Required Meta Tags Always Come First -->
+			<!-- Title -->
+		    <title>Blog Single | Bookworm</title>
+		    
+		     <!-- Required Meta Tags Always Come First -->
 			    <meta charset="utf-8">
 			    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 			
 			    <!-- Favicon -->
-			    <link rel="shortcut icon" href="../../resources/assets/img/favicon.png">
+			    <link rel="shortcut icon" href="../resources/assets/img/favicon.png">
 			
 			    <!-- Font -->
 			    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 			
 			    <!-- CSS Implementing Plugins -->
-			    <link rel="stylesheet" href="../../resources/assets/vendor/font-awesome/css/fontawesome-all.min.css">
-			    <link rel="stylesheet" href="../../resources/assets/vendor/flaticon/font/flaticon.css">
-			    <link rel="stylesheet" href="../../resources/assets/vendor/animate.css/animate.css">
-			    <link rel="stylesheet" href="../../resources/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
-			    <link rel="stylesheet" href="../../resources/assets/vendor/slick-carousel/slick/slick.css"/>
-			    <link rel="stylesheet" href="../../resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+			    <link rel="stylesheet" href="../resources/assets/vendor/font-awesome/css/fontawesome-all.min.css">
+			    <link rel="stylesheet" href="../resources/assets/vendor/flaticon/font/flaticon.css">
+			    <link rel="stylesheet" href="../resources/assets/vendor/animate.css/animate.css">
+			    <link rel="stylesheet" href="../resources/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+			    <link rel="stylesheet" href="../resources/assets/vendor/slick-carousel/slick/slick.css"/>
+			    <link rel="stylesheet" href="../resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
 			
 			    <!-- CSS Bookworm Template -->
-			    <link rel="stylesheet" href="../../resources/assets/css/theme.css">
+			    <link rel="stylesheet" href="../resources/assets/css/theme.css">
 			    
 			    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../../resources/assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../../resources/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
-    <script src="../../resources/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../../resources/assets/vendor/bootstrap/bootstrap.min.js"></script>
-    <script src="../../resources/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="../../resources/assets/vendor/slick-carousel/slick/slick.min.js"></script>
-    <script src="../../resources/assets/vendor/multilevel-sliding-mobile-menu/dist/jquery.zeynep.js"></script>
-    <script src="../../resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../resources/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../resources/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="../resources/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../resources/assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="../resources/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../resources/assets/vendor/slick-carousel/slick/slick.min.js"></script>
+    <script src="../resources/assets/vendor/multilevel-sliding-mobile-menu/dist/jquery.zeynep.js"></script>
+    <script src="../resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 
 
     <!-- JS HS Components -->
-    <script src="../../resources/assets/js/hs.core.js"></script>
-    <script src="../../resources/assets/js/components/hs.unfold.js"></script>
-    <script src="../../resources/assets/js/components/hs.malihu-scrollbar.js"></script>
-    <script src="../../resources/assets/js/components/hs.header.js"></script>
-    <script src="../../resources/assets/js/components/hs.slick-carousel.js"></script>
-    <script src="../../resources/assets/js/components/hs.selectpicker.js"></script>
-    <script src="../../resources/assets/js/components/hs.show-animation.js"></script>
+    <script src="../resources/assets/js/hs.core.js"></script>
+    <script src="../resources/assets/js/components/hs.unfold.js"></script>
+    <script src="../resources/assets/js/components/hs.malihu-scrollbar.js"></script>
+    <script src="../resources/assets/js/components/hs.header.js"></script>
+    <script src="../resources/assets/js/components/hs.slick-carousel.js"></script>
+    <script src="../resources/assets/js/components/hs.selectpicker.js"></script>
+    <script src="../resources/assets/js/components/hs.show-animation.js"></script>
 
     <!-- JS Bookworm -->
     <!-- <script src="../resources/assets/js/bookworm.js"></script> -->
@@ -101,7 +100,8 @@
         });
     </script>
 
-	
+		    
+		
 		    
 <script>
 //게시글 삭제하기
@@ -173,9 +173,26 @@ function replyEditCancle(div) {
 
 </script>
 
+<script>
+function message_window(){
+	
+	var w = window.open('../message/${sessionScope.loginId}/window', '메시지', 'top=200,left=500,width=1200,height=600');
+}
+
+<!-- 페이지 이동 스크립트  -->
+
+function pagingFormSubmit(currentPage) {
+	var form = document.getElementById('pagingForm');
+	var page = document.getElementById('page');
+	page.value = currentPage;
+	form.submit();
+}
+</script>
+
+	
 </head>
 <body>
-<!-- ====== MAIN CONTENT ===== -->
+    <!-- ====== MAIN CONTENT ===== -->
     <main id="content" role="main">
         <div class="mb-5 mb-lg-8 pb-xl-1">
             <div class="mb-5 mb-lg-8 pb-xl-1">
@@ -184,10 +201,10 @@ function replyEditCancle(div) {
                         <div class="d-md-flex justify-content-between align-items-center py-4">
                             <h1 class="page-title font-size-3 font-weight-medium m-0 text-lh-lg">Blog Single</h1>
                             <nav class="woocommerce-breadcrumb font-size-2">
-				                    <a href="/team2/blogmain" class="h-primary">Blog Main</a>
-				                 <span> > </span>
-				                    <a href="${user_id}" class="h-primary">Blog List(${user_id})</a>
-				             </nav>
+                                <a href="../home/index.html" class="h-primary">Home</a>
+                                <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-right"></i></span>
+                                <span>Blog Single</span>
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -317,5 +334,6 @@ function replyEditCancle(div) {
         </div>
     </main>
     <!-- ====== END MAIN CONTENT ===== -->
+				
 </body>
 </html>
