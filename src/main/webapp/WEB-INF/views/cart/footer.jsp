@@ -1,276 +1,58 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<html>
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+
 <!-- Favicon -->
-<!-- <link rel="shortcut icon" href="favicon.png"> -->
+<link rel="shortcut icon" href="favicon.png">
 
 <!-- Required meta tags -->
-<!-- <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- CSS Bookworm Template -->
-<!-- CSS Implementing Plugins -->
-  <!--   <link rel="stylesheet" href="resources/assets/vendor/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="resources/assets/css/theme.css">
+   <link rel="stylesheet" href="resources/assets/vendor/font-awesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="resources/assets/vendor/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="resources/assets/vendor/animate.css/animate.css">
     <link rel="stylesheet" href="resources/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="resources/assets/vendor/slick-carousel/slick/slick.css"/>
+     <link rel="stylesheet" href="resources/assets/css/theme.css">
     <link rel="stylesheet" href="resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+<link rel="stylesheet" href="resources/css/footer.css">
+<script src="resources/js/jquery-3.6.0.min.js"></script>
+<!-- JS Global Compulsory -->
+<script src="resources/assets/vendor/jquery/dist/jquery.min.js"></script>
+<script src="resources//assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+<script src="resources/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+<script src="resources/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="resources/assets/css/theme.css"> -->
+<!-- JS Bookworm -->
+<script src="resources/assets/js/hs.core.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+
 </head>
 
 <body>
-
-<body class="right-sidebar woocommerce-cart">
-<%@ include file="header.jsp" %> 
-    <!--===== HEADER CONTENT =====-->
-    
-
-
-    <!-- ====== MAIN CONTENT ====== -->
-    <div class="page-header border-bottom">
-        <div class="container">
-            <div class="d-md-flex justify-content-between align-items-center py-4">
-                <h1 class="page-title font-size-3 font-weight-medium m-0 text-lh-lg">Shop Single</h1>
-                <nav class="woocommerce-breadcrumb font-size-2">
-                    <a href="#" class="h-primary">Home</a>
-                    <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-right"></i></span>
-                    <a href="#" class="h-primary">Shop</a>
-                    <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-right"></i></span>Shop Single
-                </nav>
-            </div>
-        </div>
-    </div>
-    <div class="site-content bg-punch-light overflow-hidden" id="content">
-        <div class="container">
-
-
-            <div class="row pb-8">
-                <div id="primary" class="content-area">
-                    <main id="main" class="site-main ">
-                        <div class="page type-page status-publish hentry">
-                            <!-- .entry-header -->
-                            <div class="entry-content">
-                                <div class="woocommerce">
-                                        <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents">
-                                            <thead>
-                                                <tr>
-                                                    <th  class="product-name">Product</th>
-                                                    <th class="product-price">Price</th>
-                                                    <th class="product-quantity">Quantity</th>
-                                                    <th class="product-subtotal">번호</th>
-                                                    <th class="product-subtotal">카트북넘버</th>
-                                                    <th class="product-remove">삭제수정</th>
-                                                </tr>
-                                            </thead>
-
-                                            <tbody>
-                                            <c:forEach var="cart" items="${Cart_book1}">
-                                            <form action="update" method="get">
-                                                <tr class="woocommerce-cart-form__cart-item cart_item">
-                                                    <td  class="product-name" data-title="Product">
-                                                        <div class="d-flex align-items-center">
-                                                            <a href="#">
-                                                                <img src="https://placehold.it/80x120" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
-                                                            </a>
-                                                            <div class="ml-3 m-w-200-lg-down">                                                            
-                                                                ${cart.book_title}                                                          
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="product-price" data-title="Price">                                      
-                                                         
-                                                         ${cart.book_price}
-                                                                
-                                                    </td>
-
-                                                    <td class="product-quantity" data-title="Quantity">
-                                                        <div class="quantity d-flex align-items-center">
-                                                            <!-- Quantity -->
-                                                            <div class="border px-3 width-120">
-                                                                <div class="js-quantity">
-                                                                    <div class="d-flex align-items-center">
-                                                                        <label class="screen-reader-text sr-only">Quantity</label>
-                                                                        <a class="js-minus text-dark" href="javascript:;">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10px" height="1px">
-                                                                                <path fill-rule="evenodd" fill="rgb(22, 22, 25)" d="M-0.000,-0.000 L10.000,-0.000 L10.000,1.000 L-0.000,1.000 L-0.000,-0.000 Z" />
-                                                                            </svg>
-                                                                        </a>
-                                                                        <input type="hidden" id=cart_book_no name="cart_book_no" value="${cart.cart_book_no}">
-                                                                        <input type="number" name="cart_book_count" placeholder="${cart.cart_book_count}" id="count" style="width:50px">
-                                                                        <a class="js-plus text-dark" href="javascript:;">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10px" height="10px">
-                                                                                <path fill-rule="evenodd" fill="rgb(22, 22, 25)" d="M10.000,5.000 L6.000,5.000 L6.000,10.000 L5.000,10.000 L5.000,5.000 L-0.000,5.000 L-0.000,4.000 L5.000,4.000 L5.000,-0.000 L6.000,-0.000 L6.000,4.000 L10.000,4.000 L10.000,5.000 Z" />
-                                                                            </svg>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- End Quantity -->
-                                                        </div>
-                                                    </td>
-
-                                                    <td class="product-subtotal" data-title="Total">
-                                                  
-                                                        ${cart.user_cart_no}
-                                                        
-                                                    </td>
-                                                    
-                                                    <td class="product-remove">
-                                             
-                                                       ${cart.cart_book_no}                                                           
-                                                    </td>
-                                                    <td class="product-remove">
-                                             
-                                                        <a href="delete?cart_book_no=${cart.cart_book_no}" class="remove" aria-label="Remove this item">삭제</a>
-                                                        <input type="submit" value="수정">                                                            
-                                                    </td>
-                                                    </tr>
-													 </form>
-                                                </c:forEach>
-                                                     
-
-                                                   
-                                            
-
-                                                
-                                                <tr>
-                                                    <td colspan="5" class="actions">
-                                                        <!-- <div class="coupon">
-                                                            <label for="coupon_code">Coupon:</label>
-                                                            <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code" autocomplete="off"> <input type="submit" class="button" name="apply_coupon" value="Apply coupon">
-                                                        </div> -->
-
-                                                       
-
-                                                        <input type="hidden" id="_wpnonce" name="_wpnonce" value="db025d7a70"><input type="hidden" name="_wp_http_referer" value="/storefront/cart/">
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- .entry-content -->
-                        </div>
-                    </main>
-                </div>
-                <div id="secondary" class="sidebar cart-collaterals order-1" role="complementary">
-                    <div id="cartAccordion" class="border border-gray-900 bg-white mb-5">
-                        <div  class="p-4d875 border">
-                            <div id="cartHeadingOne" class="cart-head">
-                                <a class="d-flex align-items-center justify-content-between text-dark" href="#"
-                                    data-toggle="collapse"
-                                    data-target="#cartCollapseOne"
-                                    aria-expanded="true"
-                                    aria-controls="cartCollapseOne">
-
-                                    <h3 class="cart-title mb-0 font-weight-medium font-size-3">Cart Totals</h3>
-
-                                    <svg class="mins" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="2px">
-                                        <path fill-rule="evenodd" fill="rgb(22, 22, 25)" d="M0.000,-0.000 L15.000,-0.000 L15.000,2.000 L0.000,2.000 L0.000,-0.000 Z" />
-                                    </svg>
-
-                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px">
-                                        <path fill-rule="evenodd" fill="rgb(22, 22, 25)" d="M15.000,8.000 L9.000,8.000 L9.000,15.000 L7.000,15.000 L7.000,8.000 L0.000,8.000 L0.000,6.000 L7.000,6.000 L7.000,-0.000 L9.000,-0.000 L9.000,6.000 L15.000,6.000 L15.000,8.000 Z" />
-                                    </svg>
-                                </a>
-                            </div>
-
-                            <div id="cartCollapseOne" class="mt-4 cart-content collapse show"
-                                aria-labelledby="cartHeadingOne"
-                                data-parent="#cartAccordion">
-                                <table class="shop_table shop_table_responsive">
-                                    <tbody>
-                                        <tr class="cart-subtotal">
-                                            <th>Subtotal</th>
-                                            <td data-title="Subtotal"></td>
-                                        </tr>
-
-                                        <tr class="order-shipping">
-                                            <th>Shipping</th>
-                                            <td data-title="Shipping">Free Shipping</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="p-4d875 border">
-                            <div id="cartHeadingTwo" class="cart-head">
-                                <a class="d-flex align-items-center justify-content-between text-dark" href="#"
-                                    data-toggle="collapse"
-                                    data-target="#cartCollapseTwo"
-                                    aria-expanded="true"
-                                    aria-controls="cartCollapseTwo">
-
-                                    <h3 class="cart-title mb-0 font-weight-medium font-size-3">Shipping</h3>
-
-                                    <svg class="mins" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="2px">
-                                        <path fill-rule="evenodd" fill="rgb(22, 22, 25)" d="M0.000,-0.000 L15.000,-0.000 L15.000,2.000 L0.000,2.000 L0.000,-0.000 Z" />
-                                    </svg>
-
-                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px">
-                                        <path fill-rule="evenodd" fill="rgb(22, 22, 25)" d="M15.000,8.000 L9.000,8.000 L9.000,15.000 L7.000,15.000 L7.000,8.000 L0.000,8.000 L0.000,6.000 L7.000,6.000 L7.000,-0.000 L9.000,-0.000 L9.000,6.000 L15.000,6.000 L15.000,8.000 Z" />
-                                    </svg>
-                                </a>
-                            </div>
-
-                            <div id="cartCollapseTwo" class="mt-4 cart-content collapse show"
-                                aria-labelledby="cartHeadingTwo"
-                                data-parent="#cartAccordion">
-                                <!-- Checkboxes -->
-                                <ul id="shipping_method">
-                                    <li>
-                                        <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_flat_rate1" value="flat_rate:1" class="shipping_method">
-                                        <label for="shipping_method_0_flat_rate1">Free shipping</label>
-                                    </li>
-                                </ul>
-                                <!-- End Checkboxes -->
-                                
-                            </div>
-                        </div>
-
-                       
-
-                        <div class="p-4d875 border">
-                            <table class="shop_table shop_table_responsive">
-                                <tbody>
-                                    <tr class="order-total">
-                                        <th>Total</th>
-                                        <td data-title="Total">${cart_total}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="wc-proceed-to-checkout">
-
-                        <a href="orderdetail?user_cart_no=${user_cart_no}" class="checkout-button button alt wc-forward btn btn-dark btn-block rounded-0 py-4">Proceed to checkout</a>
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ====== END MAIN CONTENT ====== -->
-
-    <!-- ========== FOOTER ========== -->
-   <!--  <footer>
+<div id="sy-whatshelp">
+	<a class="sywh-open-services" onclick="window.open('chatmain','','width=448,height=540,top=200,left=800,toolbar=no,menubar=no,scrollbars=1,resizable=1')" 
+				style="text-decoration:none;" ><i class='far fa-comments'></i></a>
+</div>
+<!-- ========== FOOTER ========== -->
+    <footer>
         <div class="border-top space-top-3">
             <div class="border-bottom pb-5 space-bottom-lg-3">
                 <div class="container">
-                    Newsletter
+                    <!-- Newsletter -->
                     <div class="space-bottom-2 space-bottom-md-3">
                         <div class="text-center mb-5">
                             <h5 class="font-size-7 font-weight-medium">Join Our Newsletter</h5>
                             <p class="text-gray-700">Signup to be the first to hear about exclusive deals, special offers and upcoming collections</p>
                         </div>
-                        Form Group
+                        <!-- Form Group -->
                         <div class="form-row justify-content-center">
                             <div class="col-md-5 mb-3 mb-md-2">
                                 <div class="js-form-message">
@@ -284,9 +66,9 @@
                                 </button>
                             </div>
                         </div>
-                        End Form Group
+                        <!-- End Form Group -->
                     </div>
-                    End  Newsletter
+                    <!-- End  Newsletter -->
                     <div class="row">
                         <div class="col-lg-4 mb-6 mb-lg-0">
                             <div class="pb-6">
@@ -420,16 +202,16 @@
             <div class="space-1">
                 <div class="container">
                     <div class="d-lg-flex text-center text-lg-left justify-content-between align-items-center">
-                        Copyright
+                        <!-- Copyright -->
                         <p class="mb-3 mb-lg-0 font-size-2">©2020 Book Worm. All rights reserved</p>
-                        End Copyright
+                        <!-- End Copyright -->
 
                         <div class="ml-auto d-lg-flex align-items-center">
                             <div class="mb-4 mb-lg-0 mr-5">
                                <img class="img-fluid" src="../../assets/img/324x38/img1.png" alt="Image-Description">
                             </div>
 
-                            Select
+                            <!-- Select -->
                             <select class="js-select selectpicker dropdown-select mb-3 mb-lg-0"
                                 data-style="border px-4 py-2 rounded-0 height-5 outline-none shadow-none form-control font-size-2"
                                 data-dropdown-align-right="true">
@@ -438,9 +220,9 @@
                                 <option value="three">Français</option>
                                 <option value="four">Español</option>
                             </select>
-                            End Select
+                            <!-- End Select -->
 
-                            Select
+                            <!-- Select -->
                             <select class="js-select selectpicker dropdown-select ml-md-3"
                                 data-style="border px-4 py-2 rounded-0 height-5 outline-none shadow-none form-control font-size-2"
                                 data-dropdown-align-right="true"
@@ -455,9 +237,8 @@
                 </div>
             </div>
         </div>
-    </footer> -->
+    </footer>
     <!-- ========== END FOOTER ========== -->
-
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="resources/assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="resources/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
@@ -481,127 +262,52 @@
     <!-- JS Bookworm -->
     <!-- <script src="../../assets/js/bookworm.js"></script> -->
     <script>
-    $(document).on('ready', function () {
-        // initialization of unfold component
-        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
+        $(document).on('ready', function () {
+            // initialization of unfold component
+            $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
 
-        // initialization of slick carousel
-        $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+            // initialization of slick carousel
+            $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
 
-        // initialization of header
-        $.HSCore.components.HSHeader.init($('#header'));
+            // initialization of header
+            $.HSCore.components.HSHeader.init($('#header'));
 
-        // initialization of malihu scrollbar
-        $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+            // initialization of malihu scrollbar
+            $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
 
-        // initialization of show animations
-        $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+            // initialization of show animations
+            $.HSCore.components.HSShowAnimation.init('.js-animation-link');
 
-        // init zeynepjs
-        var zeynep = $('.zeynep').zeynep({
-            onClosed: function () {
-                // enable main wrapper element clicks on any its children element
-                $("body main").attr("style", "");
+            // init zeynepjs
+            var zeynep = $('.zeynep').zeynep({
+                onClosed: function () {
+                    // enable main wrapper element clicks on any its children element
+                    $("body main").attr("style", "");
 
-                console.log('the side menu is closed.');
-            },
-            onOpened: function () {
-                // disable main wrapper element clicks on any its children element
-                $("body main").attr("style", "pointer-events: none;");
+                    console.log('the side menu is closed.');
+                },
+                onOpened: function () {
+                    // disable main wrapper element clicks on any its children element
+                    $("body main").attr("style", "pointer-events: none;");
 
-                console.log('the side menu is opened.');
-            }
-        });
+                    console.log('the side menu is opened.');
+                }
+            });
 
-        // handle zeynep overlay click
-        $(".zeynep-overlay").click(function () {
-            zeynep.close();
-        });
-
-        // open side menu if the button is clicked
-        $(".cat-menu").click(function () {
-            if ($("html").hasClass("zeynep-opened")) {
+            // handle zeynep overlay click
+            $(".zeynep-overlay").click(function () {
                 zeynep.close();
-            } else {
-                zeynep.open();
-            }
+            });
+
+            // open side menu if the button is clicked
+            $(".cat-menu").click(function () {
+                if ($("html").hasClass("zeynep-opened")) {
+                    zeynep.close();
+                } else {
+                    zeynep.open();
+                }
+            });
         });
-    });
     </script>
-    <%@ include file = "footer.jsp" %>
 </body>
- <%-- <div class="container">
-        <div class="tab"></div>
-        <div class="paid"><p>Receipt Paid successfully</p></div>
-        <div class="receipt">
-        <div class="paper">
-          <div class="title">장바구니</div>
-          <div class="date">Date: 20/07/2013</div>    
-          <table>
-            <tbody>
-            <tr>
-		<th>번호</th>
-		<th>책제목</th>
-		<th style="width:220px">날짜</th>
-		<th>수량</th>
-		<th>유저카트넘버</th>
-		<th>가격</th> 
-	</tr>
-	
-	
-              <c:forEach var="cart" items="${Cart_book1}">
-		<form action="update" method="get">
-		<tr>
-			<th>${cart.cart_book_no}</th>
-			<th>${cart.book_title}</th>
-			<th>${cart.cart_book_inputdate}</th>                                
-			<th>
-				<input type="hidden" id=cart_book_no name="cart_book_no" value="${cart.cart_book_no}">
-				<input type="number" name="cart_book_count" placeholder="${cart.cart_book_count}" id="count" style="width:50px">
-			</th>
-			<th>${cart.user_cart_no}</th>
-			<th>${cart.book_price}₩</th>
-			<th><a href="delete?cart_book_no=${cart.cart_book_no}"  class="btn btn-primary">삭제</a></th>
-			<th><input type="submit" value="수정"></th>
-			
-			
-		</tr> 
-		</form>
-		</c:forEach>
-		
-      
-          </tbody>
-          </table>
-          <form action="checkout" method="get">
-          <table>
-          <tr>
-          <td colspan="2" class="center"><a href="orderdetail?user_cart_no=${user_cart_no}" class="btn btn-primary"><input type="button" value="Pay Now"></a></td>
-          <td colspan="2" class="center"><a href="/team2" class="btn btn-primary"><input type="button" value="home"></a></td>
-          <td>합계${cart_total}원 </td>
-          </tr>
-           </table>
-          </form>
-          
-          </div>
-          </div>
-   
-        </div>
-        
-        <div>
-      </div>
-
-</body>
-
-<footer class="footer">
-<div class="sign center">
-            <div class="barcode"></div>
-            <br/>
-            <!-- 0123456789 -->
-            <br/>
-            <div class="thankyou">
-            Thank you for your business 
-            </div>
-          </div>
-</div>
-</footer> --%>
-            
+</html>

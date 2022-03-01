@@ -165,51 +165,15 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="blogDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="hover"
-                                    data-unfold-target="#blogDropdownMenu"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-duration="200"
-                                    data-unfold-delay="50"
-                                    data-unfold-hide-on-scroll="true"
-                                    data-unfold-animation-in="slideInUp"
-                                    data-unfold-animation-out="fadeOut">
+                                <a id="blogDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Blog
                                 </a>
-                                <ul id="blogDropdownMenu" class="dropdown-unfold dropdown-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="blogDropdownInvoker">
-                                    <li><a href="../blog/blog-v1.html" class="dropdown-item link-black-100">Blog v1</a></li>
-                                    <li><a href="../blog/blog-v2.html" class="dropdown-item link-black-100">Blog v2</a></li>
-                                    <li><a href="../blog/blog-v3.html" class="dropdown-item link-black-100">Blog v3</a></li>
-                                    <li><a href="../blog/blog-single.html" class="dropdown-item link-black-100">Blog Single</a></li>
-                                </ul>
+                           
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="pagesDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="hover"
-                                    data-unfold-target="#pagesDropdownMenu"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-duration="200"
-                                    data-unfold-delay="50"
-                                    data-unfold-hide-on-scroll="true"
-                                    data-unfold-animation-in="slideInUp"
-                                    data-unfold-animation-out="fadeOut">
+                                <a id="pagesDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Others
                                 </a>
-                                <ul id="pagesDropdownMenu" class="dropdown-unfold dropdown-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="pagesDropdownInvoker">
-                                    <li><a href="../others/404.html" class="dropdown-item link-black-100">404</a></li>
-                                    <li><a href="../others/about.html" class="dropdown-item link-black-100">About Us</a></li>
-                                    <li><a href="../others/authors-list.html" class="dropdown-item link-black-100">Authors List</a></li>
-                                    <li><a href="../others/authors-single.html" class="dropdown-item link-black-100">Authors Single</a></li>
-                                    <li><a href="../others/coming-soon.html" class="dropdown-item link-black-100">Coming Soon</a></li>
-                                    <li><a href="../others/contact.html" class="dropdown-item link-black-100">Contact Us</a></li>
-                                    <li><a href="../others/faq.html" class="dropdown-item link-black-100">FAQ</a></li>
-                                    <li><a href="../others/pricing-table.html" class="dropdown-item link-black-100">Pricing Table</a></li>
-                                    <li><a href="../others/terms-conditions.html" class="dropdown-item link-black-100">Terms Conditions</a></li>
-                                </ul>
                             </li>
                         </ul>
                     </div>
