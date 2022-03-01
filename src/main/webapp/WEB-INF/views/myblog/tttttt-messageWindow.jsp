@@ -11,106 +11,7 @@
 %>
 <html>
 <head>
-
- <!-- Title -->
-			    <title>메세지</title>
-			
-			    <!-- Required Meta Tags Always Come First -->
-			    <meta charset="utf-8">
-			    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-			
-			    <!-- Favicon -->
-			    <link rel="shortcut icon" href="../../resources/assets/img/favicon.png">
-			
-			    <!-- Font -->
-			    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-			
-			    <!-- CSS Implementing Plugins -->
-			    <link rel="stylesheet" href="../resources/assets/vendor/font-awesome/css/fontawesome-all.min.css">
-			    <link rel="stylesheet" href="../resources/assets/vendor/flaticon/font/flaticon.css">
-			    <link rel="stylesheet" href="../resources/assets/vendor/animate.css/animate.css">
-			    <link rel="stylesheet" href="../resources/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
-			    <link rel="stylesheet" href="../resources/assets/vendor/slick-carousel/slick/slick.css"/>
-			    <link rel="stylesheet" href="../resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
-			
-			    <!-- CSS Bookworm Template -->
-			    <link rel="stylesheet" href="../resources/assets/css/theme.css">
-			    
-			    
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../resources/assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../resources/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
-    <script src="../resources/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../resources/assets/vendor/bootstrap/bootstrap.min.js"></script>
-    <script src="../resources/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="../resources/assets/vendor/slick-carousel/slick/slick.min.js"></script>
-    <script src="../resources/assets/vendor/multilevel-sliding-mobile-menu/dist/jquery.zeynep.js"></script>
-    <script src="../resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-
-
-    <!-- JS HS Components -->
-    <script src="../resources/assets/js/hs.core.js"></script>
-    <script src="../resources/assets/js/components/hs.unfold.js"></script>
-    <script src="../resources/assets/js/components/hs.malihu-scrollbar.js"></script>
-    <script src="../resources/assets/js/components/hs.header.js"></script>
-    <script src="../resources/assets/js/components/hs.slick-carousel.js"></script>
-    <script src="../resources/assets/js/components/hs.selectpicker.js"></script>
-    <script src="../resources/assets/js/components/hs.show-animation.js"></script>
-
-    <!-- JS Bookworm -->
-    <!-- <script src="../resources/assets/js/bookworm.js"></script> -->
-    <script>
-        $(document).on('ready', function () {
-            // initialization of unfold component
-            $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
-
-            // initialization of slick carousel
-            $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
-
-            // initialization of header
-            $.HSCore.components.HSHeader.init($('#header'));
-
-            // initialization of malihu scrollbar
-            $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
-
-            // initialization of show animations
-            $.HSCore.components.HSShowAnimation.init('.js-animation-link');
- 
-            // init zeynepjs
-            var zeynep = $('.zeynep').zeynep({
-                onClosed: function () {
-                    // enable main wrapper element clicks on any its children element
-                    $("body main").attr("style", "");
-
-                    console.log('the side menu is closed.');
-                },
-                onOpened: function () {
-                    // disable main wrapper element clicks on any its children element
-                    $("body main").attr("style", "pointer-events: none;");
-
-                    console.log('the side menu is opened.');
-                }
-            }); 
-
-            // handle zeynep overlay click
-            $(".zeynep-overlay").click(function () {
-                zeynep.close();
-            });
-
-            // open side menu if the button is clicked
-            $(".cat-menu").click(function () {
-                if ($("html").hasClass("zeynep-opened")) {
-                    zeynep.close();
-                } else {
-                    zeynep.open();
-                }
-            });
-        });
-    </script>
-
-
-
-
+	<script src=""></script>
 	<link rel="stylesheet"
 			href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -219,7 +120,7 @@
 				str += '</td>';
 				str += '</tr>';
 				str += '<tr>';
-				str += '<td><textarea name="message_contents" id="message_contents" rows="15"></textarea></td>';
+				str += '<td><textarea name="message_contents" id="message_contents" rows="20"></textarea></td>';
 				str += '</tr>';
 				str += '<tr><td><input type="submit" value="보내기"></td></tr>';
 				str += '</table>';
@@ -303,30 +204,26 @@
 	<title>Home</title>
 </head>
 <body>
+<h1>
+	Hello world! 
+	${sessionScope.loginId} 님 오늘도 친구들과 즐거운 소통하세요~ 
+</h1>
 
-                <div class="page-header border-bottom">
-                    <div class="container">
-                        <div class="d-md-flex justify-content-between align-items-center py-3">
-                            <h4 class="page-title font-size-3 font-weight-medium m-0 text-lh-lg">MESSAGE</h4>
-                             <nav class="woocommerce-breadcrumb font-size-2">
-				                    <a href="/team2/blogmain" class="h-primary">Blog Main</a>
-				                    <a href="${sessionScope.loginId}" class="h-primary">/ My Blog</a>
-				             </nav>
-                        </div>
-                    </div>
-                </div>
-
+쪽지 메인페이지
 
 <div class="btn-group">
-  <button type="button" class="btn btn-dark btn-wide rounded-0 transition-3d-hover mail_sent_btn">받은 메일</button>
-  <button type="button"  class="btn btn-dark btn-wide rounded-0 transition-3d-hover mail_recv_btn">보낸 메일</button>
-  <button type="button"  class="btn btn-dark btn-wide rounded-0 transition-3d-hover mail_unopened_btn">읽지 않은 메일</button>
-  <button type="button"  class="btn btn-dark btn-wide rounded-0 transition-3d-hover mail_fav_btn">자주 읽은 메일</button>
+  <button type="button" class="btn btn-primary mail_sent_btn">받은 메일</button>
+  <button type="button" class="btn btn-primary mail_recv_btn">보낸 메일</button>
+  <button type="button" class="btn btn-primary mail_unopened_btn">읽지 않은 메일</button>
+  <button type="button" class="btn btn-primary mail_fav_btn">자주 읽은 메일</button>
 </div>
 
 
 <!-- 검색, 목록별, 수신인 자동완성 -->
 
+	<h4>쪽지 리스트(받은 목록)</h4><br>
+	
+	
 	<div class="container-fluid row">
 	
 	<!-- 받은메일 -->
@@ -376,7 +273,7 @@
 			<form id="pagingForm" method="get" action="../${user_id}/window"><!-- 질문 -->
 				<input type="hidden" name="page" id="page" />
 				내용 : <input type="text"  name="searchText" value="${searchText}" />
-				<input type="button" class="btn btn-dark btn-wide rounded-0 transition-3d-hover onclick="pagingFormSubmit(1)" value="검색">
+				<input type="button" onclick="pagingFormSubmit(1)" value="검색">
 			</form><!-- /검색폼 --> 
 	</div> <!-- 받은메일 -->
 	
@@ -429,7 +326,7 @@
 			<form id="pagingForm" method="get" action="../${user_id}/window"><!-- 질문 -->
 				<input type="hidden" name="page" id="page" />
 				내용 : <input type="text"  name="searchText" value="${searchText}" />
-				<input type="button" class="btn btn-dark btn-wide rounded-0 transition-3d-hover onclick="pagingFormSubmit(1)" value="검색">
+				<input type="button" onclick="pagingFormSubmit(1)" value="검색">
 			</form><!-- /검색폼 --> 
 	</div> <!-- 보낸메일 -->
 	
@@ -480,7 +377,7 @@
 			<form id="pagingForm" method="get" action="../${user_id}/window">
 				<input type="hidden" name="page" id="page" />
 				내용 : <input type="text"  name="searchText" value="${searchText}" />
-				<input type="button" class="btn btn-dark btn-wide rounded-0 transition-3d-hover onclick="pagingFormSubmit(1)" value="검색">
+				<input type="button" onclick="pagingFormSubmit(1)" value="검색">
 			</form><!-- /검색폼 --> 
 	</div> <!-- _unopened -->
 	
@@ -532,7 +429,7 @@
 			<form id="pagingForm" method="get" action="../${user_id}/window">
 				<input type="hidden" name="page" id="page" />
 				내용 : <input type="text"  name="searchText" value="${searchText}" />
-				<input type="button" class="btn btn-dark btn-wide rounded-0 transition-3d-hover onclick="pagingFormSubmit(1)" value="검색">
+				<input type="button" onclick="pagingFormSubmit(1)" value="검색">
 			</form><!-- /검색폼 --> 
 	</div> <!-- _unopened -->
 	
