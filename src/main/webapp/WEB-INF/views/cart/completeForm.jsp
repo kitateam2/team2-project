@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="header.jsp" %> 
 주문이 완료되었습니다
-<a href="/team2" class="btn btn-primary"><input type="button" value="home">
+<a href="/team2">
 </body>
 </html>
