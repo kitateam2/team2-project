@@ -71,7 +71,7 @@ function post_comment_like(post_comment_no, post_no){
 }
 
 //댓글 수정 
-function post_comment_edit(post_comment_no, post_no, retext){
+function post_comment_edit(post_comment_no, post_no, descriptionTextarea){
 
 		var div = document.getElementById("div"+post_comment_no);
 	<!-- 댓글 자리 -->
@@ -79,7 +79,7 @@ function post_comment_edit(post_comment_no, post_no, retext){
 	var str = '<form class="card" name="post_comment_form'+ post_comment_no +'" action="../post_comment_edit?user_id=${one_post.user_id}" method="post"  onsubmit="return post_comment_form()">';
 		str += '<input type="hidden" name="post_no" value="'+ post_no +'"/>';
 		str += '<input type="hidden" name="post_comment_no" value="'+ post_comment_no +'"/>';
-		str += '<div class="card-body"><textarea name="post_comment_content" value="'+ retext +'" class="form-control" rows="1"></textarea></div>';
+		str += '<div class="card-body"><textarea name="post_comment_content" value="'+ descriptionTextarea +'" class="form-control" rows="1"></textarea></div>';
 		str += '<a href="javascript:replyEdit(document.post_comment_form' + post_comment_no + ')">저장하기</a>';
 		str += '<a href="javascript:replyEditCancle(document.getElementById(\'div' + post_comment_no + '\'))">취소하기</a>';
 		str += '</form>';
@@ -100,21 +100,40 @@ function replyEditCancle(div) {
 
 </script>
 
+<script>
+function message_window(){
+	
+	var w = window.open('../message/${sessionScope.loginId}/window', '메시지', 'top=200,left=500,width=1200,height=600');
+}
+
+<!-- 페이지 이동 스크립트  -->
+
+function pagingFormSubmit(currentPage) {
+	var form = document.getElementById('pagingForm');
+	var page = document.getElementById('page');
+	page.value = currentPage;
+	form.submit();
+}
+</script>
 
 	
 </head>
 <body>
+<%@ include file="../header.jsp" %>
 
 				 <!-- ====== MAIN CONTENT ===== -->
 				    <main id="content" role="main">
 				        <div class="mb-5 mb-lg-8 pb-xl-1">
 				            <div class="mb-5 mb-lg-8 pb-xl-1">
-				                <div class="page-header border-bottom">
+				                <div class="page-header border-bottom" style="background-color:rgb(255,246,246)">
 				                    <div class="container">
 				                        <div class="d-md-flex justify-content-between align-items-center py-4">
 				                            <h1 class="page-title font-size-3 font-weight-medium m-0 text-lh-lg">Blog Post</h1>
 				                            <nav class="woocommerce-breadcrumb font-size-2">
-				                                <a href="../home/index.html" class="h-primary">Home</a>
+				                                <a href="/team2/blogmain" class="h-primary">Blog Main</a>
+				                                <span> > </span>
+				                                <a href="../${one_post.user_id}" class="h-primary">Blog(${one_post.user_id})</a>
+				                                 <span> > </span>
 				                                <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-right"></i></span>
 				                                <span>Blog Post</span>
 				                            </nav>
@@ -129,11 +148,11 @@ function replyEditCancle(div) {
 				                    	<!-- 왼쪽에 공간 -->
 				                        <button  class="btn btn-dark btn-wide rounded-0 transition-3d-hover" onclick="location.href='../${one_post.user_id}';">목록
 				                        </button>
-				                        <button  class="btn btn-dark btn-wide rounded-0 transition-3d-hover" onclick="bt_edit(${one_post.post_no}">수정
-				                        </button>
-				                         <button  class="btn btn-dark btn-wide rounded-0 transition-3d-hover" onclick="bt_delete(${one_post.post_no}">삭제
-				                        </button>
 				                        
+				                        <a class="btn btn-dark btn-wide rounded-0 transition-3d-hover" href="javascript:bt_edit(${one_post.post_no})">수정</a>
+				                        <a class="btn btn-dark btn-wide rounded-0 transition-3d-hover" href="javascript:bt_delete(${one_post.post_no})">삭제</a>
+				                        
+				                       
 				                    </div>
 				
 				                    <div class="max-width-940 mx-auto bg-white position-relative">
@@ -141,14 +160,14 @@ function replyEditCancle(div) {
 				                            <div class="ml-xl-4">
 				                                <div class="mb-5 mb-lg-7">
 				                                    <div class="mb-2">
-				                                        <span class="font-size-2 text-primary">${one_post.user_id} Romance(블로그 주인 이름)</span>
+				                                        <span class="font-size-2 text-primary">${one_post.user_id} (글쓴이)</span>
 				                                    </div>
 				                                    <h6 class="font-size-10 crop-text-2 font-weight-medium text-lh-1dot4">
 				                                        ${one_post.post_title}(제목)
 				                                    </h6>
 				                                    <div class="font-size-2 text-secondary-gray-700">
-				                                        <span>${one_post.post_uploaddate} 10 November, 2020 날짜</span>
-				                                        <span class="ml-3">${one_post.post_hits}   0 comments 조회수 자리</span>
+				                                        <span>${one_post.post_uploaddate}</span>
+				                                        <span class="ml-3">read ${one_post.post_hits}</span>
 				                                    </div>
 				                                </div>
 				                                
@@ -201,8 +220,9 @@ function replyEditCancle(div) {
 				
 				
 												<c:if test="${one_post.post_book_title != null}">
-					                                <p class="font-weight-medium">${one_post.post_book_title} 관련된 책이 있으면 책이 보이게orem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus mollis et.
+					                                <p class="font-weight-medium">source : ${one_post.post_book_title} 관련된 책이 있으면 책이 보이게orem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus mollis et.
 					                                </p>
+					                             	 <hr>
 				                                </c:if>
 				
 				                                <p class="font-size-2 text-lh-1dot72 mb-4">${one_post.post_contents} 내용 Mauris tempus erat laoreet turpis lobortis, eu tincidunt erat fermentum. Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. Proin sed ultrices erat. Praesent varius ultrices massa at faucibus. Aenean dignissim, orci sed faucibus pharetra, dui mi dignissim tortor, sit amet condimentum mi ligula sit amet augue. Pellentesque vitae eros eget enim mollis placerat. Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. Proin sed ultrices erat. Praesent varius ultrices massa at faucibus. Aenean dignissim, orci sed faucibus pharetra, dui mi dignissim tortor, sit amet condimentum mi ligula sit amet augue. Pellentesque vitae eros eget enim mollis placerat.</p>
@@ -223,7 +243,7 @@ function replyEditCancle(div) {
 				                            <!-- 리뷰자리 -->
 				                                <br>
 				                                <hr>
-				                                <h4 class="font-size-3 mb-5 mb-md-8 font-weight-medium">Reviews (7)</h4>
+				                                <h4 class="font-size-3 mb-5 mb-md-8 font-weight-medium">Reviews</h4>
 				                                <ul class="list-unstyled mb-5 mb-md-8">
 
 				                                 <c:forEach var="post_comment" items="${post_comment_list}">
@@ -266,15 +286,23 @@ function replyEditCancle(div) {
 				
 				
 				                                </ul>
-				                                <h4 class="font-size-3 mb-4">Write a Review</h4>
-				                                <div class="js-form-message form-group mb-4">
-				                                    <label for="descriptionTextarea" class="form-label text-dark h6 mb-3">Details please! Your review helps other shoppers.</label>
-				                                    <textarea class="form-control rounded-0 p-4" rows="7" id="descriptionTextarea" placeholder="What did you like or dislike? What should other shoppers know before buying?" required="" data-msg="Please enter your message." data-error-class="u-has-error" data-success-class="u-has-success"></textarea>
-				                                </div>
 				                                
-				                                <div class="d-flex">
-				                                    <button type="submit" class="btn btn-dark btn-wide rounded-0 transition-3d-hover">Submit Review</button>
-				                                </div>
+				                                
+				                                
+				                                
+				                                
+				                                <h4 class="font-size-3 mb-4">Write a Review</h4>
+				                                <form class="card" id="post_comment_form" action="../post_comment?user_id=${one_post.user_id}" method="post"  onsubmit="return post_comment_form()">
+					                                <div class="js-form-message form-group mb-4">
+					                                    <input type="hidden" name="post_no" value="${one_post.post_no}"/>
+					                                    <label for="descriptionTextarea" class="form-label text-dark h6 mb-3">Details please! Your review helps other shoppers.</label>
+					                                    <textarea class="form-control rounded-0 p-4" name="post_comment_content" rows="7" id="descriptionTextarea" placeholder="What did you like or dislike? What should other shoppers know before buying?" required="" data-msg="Please enter your message." data-error-class="u-has-error" data-success-class="u-has-success"></textarea>
+					                                </div>
+					                                
+					                                <div class="d-flex">
+					                                    <button type="submit" class="btn btn-dark btn-wide rounded-0 transition-3d-hover">Submit Review</button>
+					                                </div>
+				                                </form>
 				
 				                                <br>
 				                                <hr>
