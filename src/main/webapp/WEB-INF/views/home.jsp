@@ -52,22 +52,6 @@ function bt1Click(n){
 </head>
 <body>
 <%@ include file="header.jsp" %>
-                    <!-- Content -->
-                    <div class="js-scrollbar u-sidebar__body">
-                        <div class="u-sidebar__content u-header-sidebar__content">
-                           
-                        </div>
-                    </div>
-                    <!-- End Content -->
-                </div>
-            </div>
-        </div>
-    </aside>
-    <!-- End Account Sidebar Navigation - Mobile -->
-
-    <!-- Account Sidebar Navigation - Desktop -->
-   
- 
 
     <!-- ====== MAIN CONTENT ====== -->
     <section class="space-bottom-3">

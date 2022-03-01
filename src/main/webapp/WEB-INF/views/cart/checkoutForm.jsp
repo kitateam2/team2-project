@@ -16,7 +16,7 @@ $(document).ready(function(){
 	$('.card-number-input').on('keyup', text);
 	$('.card-holder-input').on('keyup', text);
 	$('.inputBox').on('change', text);
-	$('.cvv-input').on('mouseover', text); //mouseover mouseenter
+	$('.inputBox').on('mouseenter', text); //mouseover mouseenter 
 	
 })
 
@@ -25,12 +25,12 @@ function text(){
 	var cc= document.getElementById('nameInput').value;
 	var dd= document.getElementById('inputmonth').value;
 	var ee= document.getElementById('inputyear').value;
-	var ff= document.getElementById('inputyear').value;
+    var ff= document.getElementById('inputcvv').value;  
 	$('.card-number-box').html(bb);
 	$('.card-holder-name').html(cc);
 	$('.exp-month').html(dd);
 	$('.exp-year').html(ee);
-	$('.cvv-box').html(ee);
+    $('.inputcvv').html(ff); 
 	
 
 }
@@ -70,7 +70,7 @@ function text(){
         <div class="back">
             <div class="stripe"></div>
             <div class="box">
-                <span>cvv</span>
+                <span class="inputcvv">cvv</span>
                 <div class="cvv-box"></div>
                 <img src="image/visa.png" alt="">
             </div>
@@ -124,7 +124,7 @@ function text(){
             </div>
             <div class="inputBox">
                 <span>cvv</span>
-                <input type="text" maxlength="4" class="cvv-input">
+                <input type="text" maxlength="4" id="inputcvv" class="cvv-input">
             </div>
         </div>
         <input type="hidden" name="order_address" value="${order_address}">
@@ -132,9 +132,9 @@ function text(){
         <input type="hidden" name="order_phone" value="${order_phone}">
         <input type="submit" value="submit" class="submit-btn">
     </form>
-    </table>
+  
 
- </form>
+ 
 
 </div>   
 </body>
