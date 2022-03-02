@@ -16,7 +16,7 @@ $(document).ready(function(){
 	$('.card-number-input').on('keyup', text);
 	$('.card-holder-input').on('keyup', text);
 	$('.inputBox').on('change', text);
-	$('.inputBox').on('mouseenter', text); //mouseover mouseenter 
+	$('.inputBox').on('mouseover', text); //mouseover mouseenter 
 	
 })
 

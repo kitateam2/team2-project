@@ -54,7 +54,7 @@
 
                                             <tbody>
                                             <c:forEach var="cart" items="${Cart_book1}">
-                                            <form action="update" method="get">
+                                            <form action="update" method="get" id="aa">
                                                 <tr class="woocommerce-cart-form__cart-item cart_item">
                                                     <td  class="product-name" data-title="Product">
                                                         <div class="d-flex align-items-center">
@@ -78,7 +78,7 @@
                                                             
                                                                       
                                                                         <input type="hidden" id=cart_book_no name="cart_book_no" value="${cart.cart_book_no}">
-                                                                        <input type="number" name="cart_book_count" placeholder="${cart.cart_book_count}" id="count" style="width:50px">
+                                                                        <input type="number" min="1" max="100" name="cart_book_count" placeholder="${cart.cart_book_count}" id="count" style="width:50px">
                                                                        
                                                                    
                                                                     </div>
@@ -204,10 +204,14 @@
                             </table>
                         </div>
                     </div>
-                    <div class="wc-proceed-to-checkout">
-
-                        <a href="orderdetail?user_cart_no=${user_cart_no}" onclick="aa()" id="aa" class="checkout-button button alt wc-forward btn btn-dark btn-block rounded-0 py-4">Proceed to checkout</a>
-                    
+                    <div style="color:white;"class="wc-proceed-to-checkout">
+					<c:if test="${user_cart_no == null or user_cart_no ==''}">
+                        <a onclick="aa()" id="user_cart_no" class="checkout-button button alt wc-forward btn btn-dark btn-block rounded-0 py-4">Proceed to checkout</a>
+                    </c:if>
+                     <div style="color:white;" class="wc-proceed-to-checkout">
+					<c:if test="${user_cart_no != null }">                    
+                        <a href="orderdetail?user_cart_no=${user_cart_no}" class="checkout-button button alt wc-forward btn btn-dark btn-block rounded-0 py-4">Proceed to checkout</a>
+                    </c:if>
                     </div>
                 </div>
             </div>
@@ -233,14 +237,11 @@
     <script src="resources/assets/js/components/hs.slick-carousel.js"></script>
     <script src="resources/assets/js/components/hs.selectpicker.js"></script>
     <script src="resources/assets/js/components/hs.show-animation.js"></script>
+    <script src="resources/assets/js/summernote/jquery-3.6.0.min.js"></script>
+   
     <script>
     	function aa() {
-    		var bb = document.getElementById('aa');
-    		if (aa < 1) {
-				alert('장바구니가 비었습니다');
-				return false;
-			}
-    		return true;
+			alert('장바구니가 비었습니다');
     	}
     	
     	

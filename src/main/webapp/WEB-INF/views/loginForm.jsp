@@ -54,6 +54,14 @@
   form input[type="password"] {
     border: solid 2px green;
   }
+  form a[class="btn"]{
+  border: solid 2px #ec3b3b;
+    box-sizing: border-box;
+    height: 40px;
+    width: 50%;
+    cursor: pointer;
+    text-decoration-line: none;
+  }
   form input[type="submit"] {
     border: solid 2px #ec3b3b;
     box-sizing: border-box;
@@ -62,6 +70,21 @@
     cursor: pointer;
   }
   
+  form a {
+    border: none;
+    background: none;
+    text-align: center;
+    outline: none;
+    padding: 10px;
+    margin: 20px;
+    color: black;
+    height: 30px;
+    width: 70%;
+    border-radius: 40px;
+    transition: 0.2s ease-in;
+  }
+  
+
 </style>
 
 <script>
@@ -81,6 +104,11 @@
 			
 			return true;
 		}
+		
+		function test3() {
+			location.href = 'http://localhost:8888/team2/'
+		}
+		
 	</script>
 </head>
 <body>
@@ -91,7 +119,7 @@
       <input type="text" placeholder="Enter Username" id="username" name="user_id">
       <input type="password" placeholder="Enter password" id="password" name="user_pw">
       <input type="submit" name="" value="Login">
-      <input type="reset" value="취소">
+       <a class="btn" href="javascript:test3()">cancel</a>
     </form>
     <div class="errorMsg">
 			${errorMsg}

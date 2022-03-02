@@ -297,14 +297,14 @@ function chk(){
  <table width="1400" height="650">
   <tr>
    <td width="100%" height="50%" align="center">
-   <p align="left">
+   <p align="center">
    <span style="padding-left: 160px">
    회원가입 약관동의</span>
    </p>
    <br>
 
   <textarea
-     rows="10" cols="100" style="padding-left:30;padding-right:10;padding-bottom:100; padding-top:150;">Lorsque vous vous rendez sur un site web, des informations peuvent être stockées sur votre navigateur ou récupérées à partir de celui-ci, généralement sous la forme de cookies. Ces informations peuvent porter sur vous, sur vos préférences ou sur votre appareil et sont principalement utilisées pour s'assurer que le site fonctionne comme prévu. Les données enregistrées ne permettent généralement pas de vous identifier directement, mais peuvent vous permettre de bénéficier d'une expérience web personnalisée. Vous pouvez choisir de bloquer certains types de cookies. Cliquez sur les différentes catégories pour obtenir plus de détails sur chacune d'entre elles, et pour modifier les paramètres par défaut. Veuillez noter, cependant, que si vous bloquez certains types de cookies, votre expérience de navigation et les services que nous sommes en mesure de vous offrir peuvent être impactés.
+     rows="10" cols="80" style="padding-left:30;padding-right:10;padding-bottom:30; padding-top:70;">Lorsque vous vous rendez sur un site web, des informations peuvent être stockées sur votre navigateur ou récupérées à partir de celui-ci, généralement sous la forme de cookies. Ces informations peuvent porter sur vous, sur vos préférences ou sur votre appareil et sont principalement utilisées pour s'assurer que le site fonctionne comme prévu. Les données enregistrées ne permettent généralement pas de vous identifier directement, mais peuvent vous permettre de bénéficier d'une expérience web personnalisée. Vous pouvez choisir de bloquer certains types de cookies. Cliquez sur les différentes catégories pour obtenir plus de détails sur chacune d'entre elles, et pour modifier les paramètres par défaut. Veuillez noter, cependant, que si vous bloquez certains types de cookies, votre expérience de navigation et les services que nous sommes en mesure de vous offrir peuvent être impactés.
    </textarea><br>
 
    <br>
@@ -315,13 +315,13 @@ function chk(){
    </p>
    <br>
    <textarea
-     rows="10" cols="100" style="padding-left:30;padding-right:10;padding-bottom:100; padding-top:150;">Lorsque vous vous rendez sur un site web, des informations peuvent être stockées sur votre navigateur ou récupérées à partir de celui-ci, généralement sous la forme de cookies. Ces informations peuvent porter sur vous, sur vos préférences ou sur votre appareil et sont principalement utilisées pour s'assurer que le site fonctionne comme prévu. Les données enregistrées ne permettent généralement pas de vous identifier directement, mais peuvent vous permettre de bénéficier d'une expérience web personnalisée. Vous pouvez choisir de bloquer certains types de cookies. Cliquez sur les différentes catégories pour obtenir plus de détails sur chacune d'entre elles, et pour modifier les paramètres par défaut. Veuillez noter, cependant, que si vous bloquez certains types de cookies, votre expérience de navigation et les services que nous sommes en mesure de vous offrir peuvent être impactés.
-   </textarea><br>
-   <input type="checkbox" name="req2"> 동의합니다
+     rows="10" cols="80" style="padding-left:30;padding-right:10;padding-bottom:100; padding-top:150;">Lorsque vous vous rendez sur un site web, des informations peuvent être stockées sur votre navigateur ou récupérées à partir de celui-ci, généralement sous la forme de cookies. Ces informations peuvent porter sur vous, sur vos préférences ou sur votre appareil et sont principalement utilisées pour s'assurer que le site fonctionne comme prévu. Les données enregistrées ne permettent généralement pas de vous identifier directement, mais peuvent vous permettre de bénéficier d'une expérience web personnalisée. Vous pouvez choisir de bloquer certains types de cookies. Cliquez sur les différentes catégories pour obtenir plus de détails sur chacune d'entre elles, et pour modifier les paramètres par défaut. Veuillez noter, cependant, que si vous bloquez certains types de cookies, votre expérience de navigation et les services que nous sommes en mesure de vous offrir peuvent être impactés.
+   </textarea><br><br>
+   <input type="checkbox" name="req2"> 동의합니다<br>
    </td>
   </tr>
   <tr>
-   <td align="center" valign="top">
+   <td align="center" valign="top"><br>
     <input type="button" value="동의" onclick="chk()"/>&nbsp;&nbsp;&nbsp;
     <input type="button" value="동의하지 않습니다" onclick="nochk()"/>
    </td>
