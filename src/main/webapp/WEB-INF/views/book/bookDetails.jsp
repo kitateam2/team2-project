@@ -755,19 +755,10 @@
                                             Description
                                         </a>
                                     </li>
-                                    <li class="flex-shrink-0 flex-md-shrink-1 nav-item">
-                                        <a class="nav-link py-4 font-weight-medium" href="#ProductDetails">
-                                            Product Details
-                                        </a>
-                                    </li>
-                                    <li class="flex-shrink-0 flex-md-shrink-1 nav-item">
-                                        <a class="nav-link py-4 font-weight-medium" href="#ProductVideos">
-                                            Videos
-                                        </a>
-                                    </li>
+                     
                                     <li class="flex-shrink-0 flex-md-shrink-1 nav-item">
                                         <a class="nav-link py-4 font-weight-medium" href="#ProductReviews">
-                                            Reviews (0)
+                                            Reviews
                                         </a>
                                     </li>
                                 </ul>
@@ -797,142 +788,11 @@
                         </div>
 
                         <div id="ProductDetails" class="">
-                            <div class="border-top border-bottom">
-                                <ul class="container tabs wc-tabs nav justify-content-md-center flex-nowrap flex-md-wrap overflow-auto overflow-md-visble">
-                                    <li class="flex-shrink-0 flex-md-shrink-1 nav-item">
-                                        <a class="nav-link py-4 font-weight-medium" href="#Description">
-                                            Description
-                                        </a>
-                                    </li>
-                                    <li class="flex-shrink-0 flex-md-shrink-1 nav-item active">
-                                        <a class="nav-link py-4 font-weight-medium active" href="#ProductDetails">
-                                            Product Details
-                                        </a>
-                                    </li>
-                                    <li class="flex-shrink-0 flex-md-shrink-1 nav-item">
-                                        <a class="nav-link py-4 font-weight-medium" href="#ProductVideos">
-                                            Videos
-                                        </a>
-                                    </li>
-                                    <li class="flex-shrink-0 flex-md-shrink-1 nav-item">
-                                        <a class="nav-link py-4 font-weight-medium" href="#ProductReviews">
-                                            Reviews (0)
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            
 
-                            <!-- Tab Content -->
-                            <div class="tab-content font-size-2 container">
-                                <div class="row">
-                                    <div class="col-xl-8 offset-xl-2">
-                                        <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab pt-9">
-                                            <!-- Mockup Block -->
-                                            <div class="table-responsive mb-4">
-                                                <table class="table table-hover table-borderless">
-                                                    <tbody>
-                                                        <tr>
-                                                            <th class="px-4 px-xl-5">Format: </th>
-                                                            <td class="">Paperback | 384 pages</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="px-4 px-xl-5">Dimensions</th>
-                                                            <td>9126 x 194 x 28mm | 301g</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="px-4 px-xl-5">Publication date: </th>
-                                                            <td>20 Dec 2020</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="px-4 px-xl-5">Publisher:</th>
-                                                            <td>Little, Brown Book Group</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="px-4 px-xl-5">Imprint:</th>
-                                                            <td>Corsair</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="px-4 px-xl-5">Publication City/Country:</th>
-                                                            <td>London, United Kingdom</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="px-4 px-xl-5">Language:</th>
-                                                            <td>English</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <!-- End Mockup Block -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Tab Content -->
+                            
                         </div>
 
-                        <div id="ProductVideos" class="">
-                            <div class="border-top border-bottom">
-                                <ul class="container tabs wc-tabs nav justify-content-md-center flex-nowrap flex-md-wrap overflow-auto overflow-md-visble">
-                                    <li class="flex-shrink-0 flex-md-shrink-1 nav-item">
-                                        <a class="nav-link py-4 font-weight-medium" href="#Description">
-                                            Description
-                                        </a>
-                                    </li>
-                                    <li class="flex-shrink-0 flex-md-shrink-1 nav-item">
-                                        <a class="nav-link py-4 font-weight-medium" href="#ProductDetails">
-                                            Product Details
-                                        </a>
-                                    </li>
-                                    <li class="flex-shrink-0 flex-md-shrink-1 nav-item active">
-                                        <a class="nav-link py-4 font-weight-medium active" href="#ProductVideos">
-                                            Videos
-                                        </a>
-                                    </li>
-                                    <li class="flex-shrink-0 flex-md-shrink-1 nav-item">
-                                        <a class="nav-link py-4 font-weight-medium" href="#ProductReviews">
-                                            Reviews (0)
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Tab Content -->
-                            <div class="tab-content font-size-2 container">
-                                <div class="row">
-                                    <div class="col-xl-8 offset-xl-2">
-                                        <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab pt-9">
-                                            <!-- Mockup Block -->
-                                            <div class="d-flex mb-8 justify-content-center">
-                                                <a href="javascript:;" class="product__video js-fancybox d-block p-4 border position-relative max-width-234"
-                                                    data-src="//www.youtube.com/watch?v=u-0Z0iVBxUY?autoplay=0"
-                                                    data-speed="700">
-                                                    <span class="position-absolute-center text-dark font-size-10"><i class="flaticon-multimedia"></i></span>
-                                                    <div class="hover-area">
-                                                        <img src="https://placehold.it/120x180" class="img-fluid d-block mx-auto mb-3" alt="image-description">
-                                                        <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-dark">Where The Crawdads Sing Overview</h2>
-                                                        <div class="font-size-2 text-gray-700">Solomon</div>
-                                                    </div>
-                                                    <span class="text-white bg-dark px-3 py-1 position-absolute bottom-0 right-0">1:45</span>
-                                                </a>
-                                                <a href="javascript:;" class="product__video js-fancybox d-block p-4 border position-relative max-width-234"
-                                                    data-src="www.youtube.com/watch?v=F7yO1tYCYxQ?autoplay=0"
-                                                    data-speed="700">
-                                                    <span class="position-absolute-center text-dark font-size-10"><i class="flaticon-multimedia"></i></span>
-                                                    <div class="hover-area">
-                                                        <img src="https://placehold.it/120x180" class="img-fluid d-block mx-auto mb-3" alt="image-description">
-                                                        <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-dark">Where The Crawdads Sing Overview</h2>
-                                                        <div class="font-size-2 text-gray-700">Solomon</div>
-                                                    </div>
-                                                    <span class="text-white bg-dark px-3 py-1 position-absolute bottom-0 right-0">2:21</span>
-                                                </a>
-                                            </div>
-                                            <!-- End Mockup Block -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Tab Content -->
-                        </div>
 
                         <div id="ProductReviews" class="">
                             <div class="border-top border-bottom">
@@ -942,19 +802,10 @@
                                             Description
                                         </a>
                                     </li>
-                                    <li class="flex-shrink-0 flex-md-shrink-1 nav-item">
-                                        <a class="nav-link py-4 font-weight-medium" href="#ProductDetails">
-                                            Product Details
-                                        </a>
-                                    </li>
-                                    <li class="flex-shrink-0 flex-md-shrink-1 nav-item">
-                                        <a class="nav-link py-4 font-weight-medium" href="#ProductVideos">
-                                            Videos
-                                        </a>
-                                    </li>
+                       
                                     <li class="flex-shrink-0 flex-md-shrink-1 nav-item active">
                                         <a class="nav-link py-4 font-weight-medium active" href="#ProductReviews">
-                                            Reviews (0)
+                                            Reviews
                                         </a>
                                     </li>
                                 </ul>
@@ -1073,11 +924,11 @@
                                             </div>
 
                                             <h4 class="font-size-3 mb-8">1-5 of 44 reviews</h4>
-
+										 <c:forEach var="book_review" items="${ReviewList}">
                                             <ul class="list-unstyled mb-8">
                                                 <li class="mb-4 pb-5 border-bottom">
                                                     <div class="d-flex align-items-center mb-3">
-                                                        <h6 class="mb-0">Amazing Story! You will LOVE it</h6>
+                                                        <h6 class="mb-0">제목없음</h6>
                                                         <div class="text-yellow-darker ml-3">
                                                             <small class="fas fa-star"></small>
                                                             <small class="fas fa-star"></small>
@@ -1086,120 +937,32 @@
                                                             <small class="far fa-star"></small>
                                                         </div>
                                                     </div>
-                                                    <p class="mb-4 text-lh-md">Such an incredibly complex story! I had to buy it because there was a waiting list of 30+ at the local library for this book. Thrilled that I made the purchase</p>
-                                                    <div class="text-gray-600 mb-4">Staci, February 22, 2020 </div>
+                                                  
+                                                    <p class="mb-4 text-lh-md">${book_review.book_review_short}</p>
+                                                    <div class="text-gray-600 mb-4">${book_review.book_review_writer}&nbsp;${book_review.book_review_date}</div>
+                                                   
+                                                    <c:if test="${loginId == book_review.book_review_writer}">
                                                     <ul class="nav">
-                                                        <li class="mr-7">
-                                                            <a href="#" class="text-gray-600 d-flex align-items-center">
-                                                                <i class="text-dark font-size-5 flaticon-like-1"></i>
-                                                                <span class="ml-2">90</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="mr-7">
-                                                            <a href="#" class="text-gray-600 d-flex align-items-center">
-                                                                <i class="text-dark font-size-5 flaticon-dislike"></i>
-                                                                <span class="ml-2">10</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="mr-7">
-                                                            <a href="#" class="text-gray-600 d-flex align-items-center">
-                                                                <i class="text-dark font-size-5 flaticon-flag"></i>
-                                                            </a>
-                                                        </li>
-
+                                                		<li>[<a href="javascript:replyEditForm(${book_review.book_review_no},'${book_review.book_review_short}')">수정</a>]</li>
+                                                		<li>[<a href="javascript:book_review_delete(${book_review.book_review_no})">삭제</a>]</li>
                                                     </ul>
-                                                </li>
-                                                <li class="mb-4 pb-5 border-bottom">
-                                                    <div class="d-flex align-items-center mb-3">
-                                                        <h6 class="mb-0">Get the best seller at a great price.</h6>
-                                                        <div class="text-yellow-darker ml-3">
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="far fa-star"></small>
-                                                        </div>
-                                                    </div>
-                                                    <p class="mb-4 text-lh-md">Awesome book, great price, fast delivery. Thanks so much.</p>
-                                                    <div class="text-gray-600 mb-4">Staci, February 22, 2020 </div>
-                                                    <ul class="nav">
-                                                        <li class="mr-7">
-                                                            <a href="#" class="text-gray-600 d-flex align-items-center">
-                                                                <i class="text-dark font-size-5 flaticon-like-1"></i>
-                                                                <span class="ml-2">90</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="mr-7">
-                                                            <a href="#" class="text-gray-600 d-flex align-items-center">
-                                                                <i class="text-dark font-size-5 flaticon-dislike"></i>
-                                                                <span class="ml-2">10</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="mr-7">
-                                                            <a href="#" class="text-gray-600 d-flex align-items-center">
-                                                                <i class="text-dark font-size-5 flaticon-flag"></i>
-                                                            </a>
-                                                        </li>
-
-                                                    </ul>
-                                                </li>
-                                                <li class="mb-4 pb-5 border-bottom">
-                                                    <div class="d-flex align-items-center mb-3">
-                                                        <h6 class="mb-0">I read this book short...</h6>
-                                                        <div class="text-yellow-darker ml-3">
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="far fa-star"></small>
-                                                        </div>
-                                                    </div>
-                                                    <p class="mb-4 text-lh-md">I read this book shortly after I got it and didn't just put it on my TBR shelf mainly because I saw it on Reese Witherspoon's bookclub September read. It was one of the best books I've read this year, and reminded me some of Kristen Hannah's The Great Alone. </p>
-                                                    <div class="text-gray-600 mb-4">Staci, February 22, 2020 </div>
-                                                    <ul class="nav">
-                                                        <li class="mr-7">
-                                                            <a href="#" class="text-gray-600 d-flex align-items-center">
-                                                                <i class="text-dark font-size-5 flaticon-like-1"></i>
-                                                                <span class="ml-2">90</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="mr-7">
-                                                            <a href="#" class="text-gray-600 d-flex align-items-center">
-                                                                <i class="text-dark font-size-5 flaticon-dislike"></i>
-                                                                <span class="ml-2">10</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="mr-7">
-                                                            <a href="#" class="text-gray-600 d-flex align-items-center">
-                                                                <i class="text-dark font-size-5 flaticon-flag"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
+                                                   </c:if>
+                                                   
+                                                </li>                          
                                             </ul>
+                                         </c:forEach>
 
                                             <h4 class="font-size-3 mb-4">Write a Review</h4>
-                                            <div class="d-flex align-items-center mb-6">
-                                                <h6 class="mb-0">Select a rating(required)</h6>
-                                                <div class="text-yellow-darker ml-3 font-size-4">
-                                                    <small class="far fa-star"></small>
-                                                    <small class="far fa-star"></small>
-                                                    <small class="far fa-star"></small>
-                                                    <small class="far fa-star"></small>
-                                                    <small class="far fa-star"></small>
-                                                </div>
-                                            </div>
+                                            <form class="card" id="book_review_form" action="book_review" method="post"  onsubmit="return book_review_form()">
                                             <div class="js-form-message form-group mb-4">
-                                                <label for="descriptionTextarea" class="form-label text-dark h6 mb-3">Details please! Your review helps other shoppers.</label>
-                                                <textarea class="form-control rounded-0 p-4" rows="7" id="descriptionTextarea" placeholder="What did you like or dislike? What should other shoppers know before buying?" required data-msg="Please enter your message." data-error-class="u-has-error" data-success-class="u-has-success"></textarea>
-                                            </div>
-                                            <div class="form-group mb-5">
-                                                <label for="inputCompanyName" class="form-label text-dark h6 mb-3">Add a title</label>
-                                                <input type="text" class="form-control rounded-0 px-4" name="companyName" id="inputCompanyName" placeholder="3000 characters remaining" aria-label="3000 characters remaining">
+	                                                
+	                                                <textarea name="book_review_short" class="form-control rounded-0 p-4" rows="7" id="book_review_short" placeholder="What did you like or dislike? What should other shoppers know before buying?" required data-msg="Please enter your message." data-error-class="u-has-error" data-success-class="u-has-success" rows="1"></textarea>
+	                                                <input type="hidden" name="book_isbn" value="${book_isbn}">
                                             </div>
                                             <div class="d-flex">
                                                 <button type="submit" class="btn btn-dark btn-wide rounded-0 transition-3d-hover">Submit Review</button>
                                             </div>
+                                            </form>
                                             <!-- End Mockup Block -->
                                         </div>
                                     </div>

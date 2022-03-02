@@ -48,6 +48,10 @@ public class HomeController {
 		
 		ArrayList<Book> insertBest = mdao.insertBest();
 		model.addAttribute("insert_best", insertBest);
+		logger.debug("베스트셀러 정보 :{}", insertBest);
+		
+		ArrayList<Book> insertReward = mdao.insertReward();
+		model.addAttribute("insert_reward", insertReward);
 		 
 		return "home";
 	}

@@ -29,11 +29,26 @@
 			, book_title
 			, book_author
 			, book_price
-		, row_number() over (order by book_reward DESC) as rank
+		, row_number() over (order by book_stock DESC) as rank
 		from
 			book_info
 		    )
 		where rownum between 1 and 5
+</select> 
+
+<!-- 별점 높은 순 도서 데이터 입력 -->
+<select id="rewardlist" resultType="BookVO">
+		select * from (
+		select
+			book_image
+			, book_title
+			, book_author
+			, book_price
+		, row_number() over (order by book_reward DESC) as rank
+		from
+			book_info
+		    )
+		where rownum between 1 and 18
 </select> 
 
 </mapper>
