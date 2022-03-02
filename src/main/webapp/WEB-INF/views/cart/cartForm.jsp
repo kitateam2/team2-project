@@ -48,7 +48,8 @@
                                                     <th class="product-quantity">Quantity</th>
                                                     <th class="product-subtotal">번호</th>
                                                     <th class="product-subtotal">카트북넘버</th>
-                                                    <th class="product-remove">수량변경 및 삭제</th>
+                                                    <th class="product-remove">삭제</th>
+                                                    <th class="product-remove">수량변경</th>
                                                 </tr>
                                             </thead>
 
@@ -100,9 +101,16 @@
                                                     </td>
                                                     <td class="product-remove">
                                              
-                                                        <a href="delete?cart_book_no=${cart.cart_book_no}" class="remove" aria-label="Remove this item">삭제</a>
+                                                        <a href="delete?cart_book_no=${cart.cart_book_no}" class="fa fa-trash"></a>
+                                                                                                                  
+                                                    </td>
+                                                    
+                                                    <td class="product-remove">
+                                             
+                                                        
                                                         <input type="submit" value="수량변경">                                                            
                                                     </td>
+                                                    
                                                     </tr>
 													 </form>
                                                 </c:forEach>                             

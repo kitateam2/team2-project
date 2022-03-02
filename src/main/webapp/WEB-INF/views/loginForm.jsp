@@ -41,7 +41,7 @@
     background: none;
     text-align: center;
     outline: none;
-    padding: 10px;
+    padding: 8px;
     margin: 20px;
     color: black;
     height: 30px;
@@ -105,7 +105,7 @@
 			return true;
 		}
 		
-		function test3() {
+		function cancel() {
 			location.href = 'http://localhost:8888/team2/'
 		}
 		
@@ -119,7 +119,7 @@
       <input type="text" placeholder="Enter Username" id="username" name="user_id">
       <input type="password" placeholder="Enter password" id="password" name="user_pw">
       <input type="submit" name="" value="Login">
-       <a class="btn" href="javascript:test3()">cancel</a>
+       <a class="btn" href="javascript:cancel()">cancel</a>
     </form>
     <div class="errorMsg">
 			${errorMsg}
