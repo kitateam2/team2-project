@@ -316,7 +316,7 @@ function bt1Click(n){
                         
                             <div style="position:relative; top:-50px;"class="col-lg-12 col-wd-12 mb-4 mb-lg-0">
                            
-                                <img class="img-fluid" src="./resources/assets/img/KakaoTalk_20220302_144747131.png" alt="image-description">
+                                <img class="img-fluid" src="resources/img/KakaoTalk_20220302_144747131.png" alt="image-description">
                             </div>
                             
                             
@@ -332,7 +332,7 @@ function bt1Click(n){
                               
                             </div>
                             <div style="position:relative; top:-50px; "class="col-lg-15 col-wd-12 mb-4 mb-lg-0">
-                                <img class="img-fluid" src="./resources/assets/img/KakaoTalk_20220302_144859714.png" alt="image-description">
+                                <img class="img-fluid" src="resources/img/KakaoTalk_20220302_144859714.png" alt="image-description">
                             </div>
                         </div>
                     </div>
@@ -341,7 +341,7 @@ function bt1Click(n){
                         <div class="hero row min-height-588 align-items-center">
                       
                             <div class="col-lg-15 col-wd-12 mb-4 mb-lg-0">
-                                <img class="img-fluid" src="./resources/assets/img/KakaoTalk_20220302_144747987.png" alt="image-description">
+                                <img class="img-fluid" src="resources/img/KakaoTalk_20220302_144747987.png" alt="image-description">
                             </div>
                         </div>
                     </div>
@@ -352,7 +352,7 @@ function bt1Click(n){
                             
                             </div>
                            <div style="position:relative; top:-50px; class="col-lg-15 col-wd-12 mb-4 mb-lg-0">
-                                <img class="img-fluid" src="./resources/assets/img/KakaoTalk_20220302_144747348.png" alt="image-description">
+                                <img class="img-fluid" src="resources/img/KakaoTalk_20220302_144747348.png" alt="image-description">
                             </div>
                         </div>
                     </div>
