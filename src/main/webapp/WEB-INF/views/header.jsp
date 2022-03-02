@@ -98,7 +98,7 @@
                         </a>
                     </div>
                     <div class="site-branding pr-md-4">
-                        <a href="/team2" class="d-block mb-1">
+                        <a href="${pageContext.request.contextPath}" class="d-block mb-1">
                         
                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="170px" height="30px">
                                 <path fill-rule="evenodd" fill="rgb(25, 17, 11)"
@@ -111,17 +111,15 @@
                     <div class="site-navigation mr-auto d-none d-xl-block">
                         <ul class="nav">
                             <li class="nav-item dropdown">
-                                <a id="homeDropdownInvoker" href="/team2" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
+                                <a id="homeDropdownInvoker" href="${pageContext.request.contextPath}" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Home
                                 </a>
-                                
-                           
-                            
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="shopDropdownInvoker" href="${pageContext.request.contextPath}/cart" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Shop
                                 </a>
-                               
+                             </li>  
                             <li class="nav-item">
                                 <a id="featuresDropdownInvoker" href="${pageContext.request.contextPath}/wish" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
                                     >
@@ -168,12 +166,12 @@
                                 </a>
                             </li>
                              <c:if test="${sessionScope.loginId != null}">
-                            <li class="nav-item dropdown">
-                                <a id="pagesDropdownInvoker" href="${pageContext.request.contextPath}/myblog/${sessionScope.loginId}" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
-                                    Myblog
-                                </a>
-
-                            </li>
+		                            <li class="nav-item dropdown">
+		                                <a id="pagesDropdownInvoker" href="${pageContext.request.contextPath}/myblog/${sessionScope.loginId}" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
+		                                    Myblog
+		                                </a>
+		
+		                            </li>
                             </c:if>
                         </ul>
                     </div>

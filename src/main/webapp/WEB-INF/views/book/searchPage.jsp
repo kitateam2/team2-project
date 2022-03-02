@@ -28,7 +28,7 @@ $(document).ready(function () {
 		$.ajax({
  	 		method: "GET",
   			url: "https://dapi.kakao.com/v3/search/book",
-  			data: { query: $("#bookName").val(), size:60 },
+  			data: { query: $("#bookName").val(), size:50 },
 			headers: { Authorization: "KakaoAK 90e1d3216d963adfc7f754516725431f"}
 		})
   			.done(function (res) {
