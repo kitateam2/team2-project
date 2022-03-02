@@ -51,4 +51,49 @@
 		where rownum between 1 and 18
 </select> 
 
+<!-- 베스트셀러 도서 데이터 입력 -->
+<select id="bestListUp" resultType="BookVO">
+		select * from (
+		select
+			book_image
+			, book_title
+			, book_author
+			, book_price
+		, row_number() over (order by book_stock DESC) as rank
+		from
+			book_info
+		    )
+		where rownum between 1 and 12
+</select> 
+
+<!-- 별점순 도서 데이터 입력 -->
+<select id="bestRating" resultType="BookVO">
+		select * from (
+		select
+			book_image
+			, book_title
+			, book_author
+			, book_price
+		, row_number() over (order by book_reward DESC) as rank
+		from
+			book_info
+		    )
+		where rownum between 1 and 12
+</select> 
+
+<!-- 최신순 도서 데이터 입력 -->
+<select id="latest" resultType="BookVO">
+		select * from (
+		select
+			book_image
+			, book_title
+			, book_author
+			, book_price
+		, row_number() over (order by book_inputdate DESC) as rank
+		from
+			book_info
+		    )
+		where rownum between 1 and 12
+</select> 
+
 </mapper>

@@ -1,6 +1,7 @@
 package com.sesoc.team2.controller;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
@@ -18,6 +19,7 @@ import com.sesoc.team2.vo.BlogPost;
 import com.sesoc.team2.vo.Book;
 import com.sesoc.team2.vo.BookReview;
 import com.sesoc.team2.dao.BookInfoDAO;
+import com.sesoc.team2.dao.MainDataDAO;
 
 @Controller
 public class BookController {
@@ -30,6 +32,8 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	@Autowired
 	BookInfoDAO infodao;
 	
+	@Autowired
+	MainDataDAO mdao;
 	
 	//게시판 관련 상수값들
 	final int countPerPage = 12;			//페이지당 글 수
@@ -65,6 +69,45 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 		
 		
 		return "book/bookInfoLists";
+	}
+	
+	//베스트셀러 목록
+	@RequestMapping (value="bestlist_up", method=RequestMethod.GET)
+	public String best(Locale locale, Model model) {
+		
+		ArrayList<Book> bestListUp = mdao.bestListUp();
+		//페이지 정보 객체와 글 목록, 검색어를 모델에 저장
+		model.addAttribute("bestlist_up", bestListUp);
+
+		logger.info("best 모델 저장: {}", bestListUp);
+		
+		return "book/bookBest";
+	}
+	
+	//별점순 목록
+	@RequestMapping (value="bestrating_up", method=RequestMethod.GET)
+	public String rating(Locale locale, Model model) {
+		
+		ArrayList<Book> bestRating = mdao.bestRating();
+		//페이지 정보 객체와 글 목록, 검색어를 모델에 저장
+		model.addAttribute("bestrating_up", bestRating);
+
+		logger.info("best 모델 저장: {}", bestRating);
+		
+		return "book/bookRating";
+	}
+	
+	//최신순 목록
+	@RequestMapping (value="latest_up", method=RequestMethod.GET)
+	public String recent(Locale locale, Model model) {
+		
+		ArrayList<Book> latest = mdao.latest();
+		//페이지 정보 객체와 글 목록, 검색어를 모델에 저장
+		model.addAttribute("latest_up", latest);
+
+		logger.info("latest 모델 저장: {}", latest);
+		
+		return "book/latest";
 	}
 	
 	/**
