@@ -68,15 +68,15 @@ CREATE TABLE BLOG_POST
 	-- 게시글 제목
 	post_title varchar2(200) NOT NULL,
 	-- 게시글 내용
-	post_contents varchar2(400) NOT NULL,
+	post_contents varchar2(2000) NOT NULL,
 	-- 게시글 날짜
 	post_uploaddate date DEFAULT sysdate NOT NULL,
 	-- 게시글 추천
 	post_hits number DEFAULT 0,
 	-- 업로드된 파일
-	post_originalfile varchar2(200),
+	post_originalfile varchar2(500),
 	-- 저장된 파일
-	post_savedfile varchar2(200),
+	post_savedfile varchar2(500),
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
 	post_book_isbn varchar2(30),
@@ -336,10 +336,10 @@ CREATE TABLE USER_INFO
 	-- 유저선호장르
 	user_genre varchar2(20) NOT NULL,
 	-- 유저 등급
-	-- 0-bronze
-	-- 1-silver
-	-- 2-gold
-	user_grade number DEFAULT 0 NOT NULL,
+	-- bronze
+	-- silver
+	-- gold
+	user_grade varchar2(30) NOT NULL,
 	PRIMARY KEY (user_id)
 );
 
@@ -498,13 +498,13 @@ ALTER TABLE EVENT
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (follow_ed_id)
+	ADD FOREIGN KEY (follow_ing_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (follow_ing_id)
+	ADD FOREIGN KEY (follow_ed_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
@@ -648,9 +648,9 @@ COMMENT ON COLUMN USER_INFO.user_phone IS '회원전화번호';
 COMMENT ON COLUMN USER_INFO.user_address IS '회원주소';
 COMMENT ON COLUMN USER_INFO.user_genre IS '유저선호장르';
 COMMENT ON COLUMN USER_INFO.user_grade IS '유저 등급
-0-bronze
-1-silver
-2-gold';
+bronze
+silver
+gold';
 COMMENT ON COLUMN USER_PAY.order_no IS '주문번호';
 COMMENT ON COLUMN USER_REWARD_HISTORY.user_reward_no IS '유저 포인트 리스트의 번호';
 COMMENT ON COLUMN USER_REWARD_HISTORY.book_reward_minus IS '책 포인트';
