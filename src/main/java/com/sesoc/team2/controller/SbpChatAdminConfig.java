@@ -8,11 +8,11 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 
 @Configuration
 @EnableWebSocketMessageBroker
-public class SbpWebSocketMessageBrokerConfig extends AbstractWebSocketMessageBrokerConfigurer{
+public class SbpChatAdminConfig extends AbstractWebSocketMessageBrokerConfigurer{
     
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/chatting").setAllowedOrigins("*").withSockJS();
+        registry.addEndpoint("/chatadmin").setAllowedOrigins("*").withSockJS();
     }
 	
 	@Override
@@ -23,7 +23,3 @@ public class SbpWebSocketMessageBrokerConfig extends AbstractWebSocketMessageBro
  
  
 }
-
-
-
-

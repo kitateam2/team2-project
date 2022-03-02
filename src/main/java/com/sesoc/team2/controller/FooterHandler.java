@@ -66,6 +66,13 @@ public class FooterHandler extends AbstractWebSocketHandler {
 					TextMessage tmpMsg = new TextMessage(sender + "님이 " + index + "번 게시글에 댓글을 달았습니다." );
 					boardWriterSession.sendMessage(tmpMsg);
 				}
+				else if("admin".equals(cmd) && boardWriterSession != null ) {
+					TextMessage tmpMsg = new TextMessage(sender + "님의 메세지가 " 
+							+ "<a onclick=\"window.open('chatadmin?roomid1=" + index 
+							+ "','','width=500,height=600,top=200,left=1000,toolbar=no,menubar=no,scrollbars=1,resizable=1')\" style=\"text-decoration:none;\">"
+							+ index + "</a>help에 도착했습니다." );
+					boardWriterSession.sendMessage(tmpMsg);
+				}
 			}
 		}
 	}
