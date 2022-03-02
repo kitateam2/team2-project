@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="resources/assets/css/theme.css">
 </head>
 <body>
+<%@ include file="../header.jsp" %>
     <!-- ====== MAIN CONTENT ===== -->
     <main id="content">
         <div class="mb-5 mb-lg-8 pb-xl-1">
@@ -196,6 +197,7 @@
         </div>
     </main>
     <!-- ====== END MAIN CONTENT ===== -->
+<%@ include file="../footer.jsp" %>
     
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="resources/assets/vendor/jquery/dist/jquery.min.js"></script>
