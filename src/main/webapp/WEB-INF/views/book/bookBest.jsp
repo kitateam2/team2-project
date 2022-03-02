@@ -208,7 +208,7 @@
 
                             <div class="px-4 py-5 px-md-6 border-bottom">
                                 <div class="media">
-                                    <c:forEach var="book" items="${booklist}" varStatus="status"> 
+                                    <c:forEach var="book" items="${bestlist_up}" varStatus="status"> 
                                     <a href="read?book_isbn=${book.book_isbn}"><img src="download?filename=${book.book_image}"></a>
                                     <div class="media-body ml-4d875">
                                         <div class="text-primary text-uppercase font-size-1 mb-1 text-truncate"><a href="#">Hard Cover</a></div>
@@ -255,7 +255,7 @@
                 <nav class="woocommerce-breadcrumb font-size-2">
                     <a href="../home/index.html" class="h-primary">Home</a>
                     <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-right"></i></span>
-                    <a href="../shop/v1.html" class="h-primary">Book List</a>
+                    <a href="../shop/v1.html" class="h-primary">Best Seller List</a>
      
                 </nav>
             </div>
@@ -267,7 +267,7 @@
                 <div id="primary" class="content-area order-2">
                     <div class="shop-control-bar d-lg-flex justify-content-between align-items-center mb-5 text-center text-md-left">
                         <div class="shop-control-bar__left mb-4 m-lg-0">
-                            <p class="woocommerce-result-count m-0" style="font-size:18px;">Book List</p>
+                            <p class="woocommerce-result-count m-0" style="font-size:18px;">Best Seller List</p>
                         </div>
                         <div class="shop-control-bar__right d-md-flex align-items-center">
                          
@@ -312,7 +312,7 @@
                             <!-- Mockup Block -->
                             <ul class="products list-unstyled row no-gutters row-cols-2 row-cols-lg-3 border-top border-left mb-6">
                                 <!-- 반복 시작 -->
-								<c:forEach var="book" items="${booklist}" varStatus="status">  
+								<c:forEach var="book" items="${bestlist_up}" varStatus="status">  
                                 <li class="product product__center col">
                                     <div class="product__inner overflow-hidden p-3 p-md-4d875">
                                         <div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
@@ -348,11 +348,16 @@
                         <div class="tab-pane fade" id="pills-two-example1" role="tabpanel" aria-labelledby="pills-two-example1-tab">
                             <!-- Mockup Block -->
                             <ul class="products list-unstyled mb-6">
-        
-
-        
 
 
+      
+
+
+
+
+
+
+          
                             </ul>
                             <!-- End Mockup Block -->
                         </div>
@@ -360,17 +365,7 @@
                     <!-- End Tab Content -->
 
 
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination pagination__custom justify-content-md-center flex-nowrap flex-md-wrap overflow-auto overflow-md-visble">
-                           <li class="flex-shrink-0 flex-md-shrink-1 page-item" ><a href="javascript:pagingFormSubmit(${navi.currentPage - 1})" class="page-link">◀</a></li>
-                            <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}"> 
-                            	<c:if test="${counter == navi.currentPage}"></c:if>
-                            <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a href="javascript:pagingFormSubmit(${counter})" class="page-link">${counter}</a></li>
-                            	<c:if test="${counter == navi.currentPage}"></c:if>
-                            </c:forEach>
-                            <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a href="javascript:pagingFormSubmit(${navi.currentPage + 1})" class="page-link">▶</a></li>
-                        </ul>
-                    </nav>
+           
                 </div>
                 <div id="secondary" class="sidebar widget-area order-1" role="complementary">
                     <div id="widgetAccordion">
@@ -399,7 +394,7 @@
                                 data-parent="#widgetAccordion">
                                 <ul class="product-categories">
                                     <li class="cat-item cat-item-9 cat-parent">
-                                        <a href="bestlist_up">Best Seller</a>
+                                         <a href="bestlist_up">Best Seller</a>
                                     </li>
                                     <li class="cat-item cat-item-69 cat-parent">
                                         <a href="bestrating_up">Best Rating</a>
@@ -416,17 +411,15 @@
                                             <li class="cat-item cat-item-13"><a href="#/music/singles/">Singles</a></li>
                                         </ul>
                                     </li>
-                         
+                          
                                 </ul>
                             </div>
                         </div>
 
+            
 
-             
+               
 
-                       
-
-  
                      
                             </div>
                         </div>
