@@ -68,15 +68,15 @@ CREATE TABLE BLOG_POST
 	-- 게시글 제목
 	post_title varchar2(200) NOT NULL,
 	-- 게시글 내용
-	post_contents varchar2(400) NOT NULL,
+	post_contents varchar2(2000) NOT NULL,
 	-- 게시글 날짜
 	post_uploaddate date DEFAULT sysdate NOT NULL,
 	-- 게시글 추천
 	post_hits number DEFAULT 0,
 	-- 업로드된 파일
-	post_originalfile varchar2(200),
+	post_originalfile varchar2(500),
 	-- 저장된 파일
-	post_savedfile varchar2(200),
+	post_savedfile varchar2(500),
 	-- 회원ID
 	user_id varchar2(20) NOT NULL,
 	post_book_isbn varchar2(30),
@@ -510,13 +510,13 @@ ALTER TABLE FOLLOW
 
 
 ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_recv_id)
+	ADD FOREIGN KEY (message_sent_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_sent_id)
+	ADD FOREIGN KEY (message_recv_id)
 	REFERENCES USER_INFO (user_id)
 ;
 

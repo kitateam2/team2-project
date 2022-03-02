@@ -12,7 +12,7 @@
 	<category_index>0</category_index>
 	<zoom>1.0</zoom>
 	<x>-6</x>
-	<y>390</y>
+	<y>362</y>
 	<default_color>
 		<r>128</r>
 		<g>128</g>
@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2022-02-08 11:34:39</creation_date>
-			<updated_date>2022-03-02 15:50:02</updated_date>
+			<updated_date>2022-03-02 15:55:33</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -1130,7 +1130,7 @@
 		</word>
 		<word>
 			<id>60</id>
-			<length>400</length>
+			<length>2000</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
@@ -1178,7 +1178,7 @@
 		</word>
 		<word>
 			<id>63</id>
-			<length>200</length>
+			<length>500</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
@@ -1194,7 +1194,7 @@
 		</word>
 		<word>
 			<id>64</id>
-			<length>200</length>
+			<length>500</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
@@ -3227,7 +3227,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>7</word_id>
+					<word_id>8</word_id>
 					<id>34</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -3929,7 +3929,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>8</word_id>
+					<word_id>7</word_id>
 					<id>51</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -4954,7 +4954,7 @@
 				<normal_column>
 					<id>74</id>
 					<referenced_column>76</referenced_column>
-					<relation>18</relation>
+					<relation>17</relation>
 					<description>메세지 보낸 아이디</description>
 					<unique_key_name></unique_key_name>
 					<logical_name>message_sent_id</logical_name>
@@ -4988,7 +4988,7 @@
 				<normal_column>
 					<id>75</id>
 					<referenced_column>76</referenced_column>
-					<relation>17</relation>
+					<relation>18</relation>
 					<description>메세지 받은 아이디</description>
 					<unique_key_name></unique_key_name>
 					<logical_name>message_recv_id</logical_name>
