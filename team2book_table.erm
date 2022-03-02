@@ -12,7 +12,7 @@
 	<category_index>0</category_index>
 	<zoom>1.0</zoom>
 	<x>-6</x>
-	<y>362</y>
+	<y>206</y>
 	<default_color>
 		<r>128</r>
 		<g>128</g>
@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2022-02-08 11:34:39</creation_date>
-			<updated_date>2022-03-02 15:55:33</updated_date>
+			<updated_date>2022-03-02 16:59:20</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -1322,7 +1322,7 @@
 		</word>
 		<word>
 			<id>72</id>
-			<length>null</length>
+			<length>30</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
@@ -1331,10 +1331,10 @@
 			<binary>false</binary>
 			<args></args>
 			<char_semantics>false</char_semantics>
-			<description>유저 등급&#x0D;&#x0A;0-bronze&#x0D;&#x0A;1-silver&#x0D;&#x0A;2-gold</description>
+			<description>유저 등급&#x0D;&#x0A;bronze&#x0D;&#x0A;silver&#x0D;&#x0A;gold</description>
 			<logical_name>user_grade</logical_name>
 			<physical_name>user_grade</physical_name>
-			<type>decimal</type>
+			<type>varchar(n)</type>
 		</word>
 		<word>
 			<id>73</id>
@@ -2813,7 +2813,7 @@
 							<g>0</g>
 							<b>0</b>
 						</color>
-					<child_cardinality>1</child_cardinality>
+					<child_cardinality>1..n</child_cardinality>
 					<parent_cardinality>1</parent_cardinality>
 					<reference_for_pk>true</reference_for_pk>
 					<name></name>
@@ -2835,7 +2835,7 @@
 							<g>0</g>
 							<b>0</b>
 						</color>
-					<child_cardinality>1..n</child_cardinality>
+					<child_cardinality>1</child_cardinality>
 					<parent_cardinality>1</parent_cardinality>
 					<reference_for_pk>true</reference_for_pk>
 					<name></name>
@@ -2888,7 +2888,7 @@
 				<normal_column>
 					<id>28</id>
 					<referenced_column>76</referenced_column>
-					<relation>6</relation>
+					<relation>5</relation>
 					<description>상대방 id</description>
 					<unique_key_name></unique_key_name>
 					<logical_name>follow_ing_id</logical_name>
@@ -2922,7 +2922,7 @@
 				<normal_column>
 					<id>29</id>
 					<referenced_column>76</referenced_column>
-					<relation>5</relation>
+					<relation>6</relation>
 					<description>본인 id</description>
 					<unique_key_name></unique_key_name>
 					<logical_name>follow_ed_id</logical_name>
@@ -3143,12 +3143,12 @@
 			<connections>
 				<relation>
 					<id>8</id>
-					<source>18</source>
+					<source>13</source>
 					<target>10</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
-						<target_xp>-1</target_xp>
-						<target_yp>-1</target_yp>
+						<target_xp>97</target_xp>
+						<target_yp>0</target_yp>
 						<color>
 							<r>0</r>
 							<g>0</g>
@@ -3165,12 +3165,12 @@
 				</relation>
 				<relation>
 					<id>9</id>
-					<source>13</source>
+					<source>18</source>
 					<target>10</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
-						<target_xp>97</target_xp>
-						<target_yp>0</target_yp>
+						<target_xp>-1</target_xp>
+						<target_yp>-1</target_yp>
 						<color>
 							<r>0</r>
 							<g>0</g>
@@ -3227,7 +3227,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>8</word_id>
+					<word_id>7</word_id>
 					<id>34</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -3295,7 +3295,7 @@
 				<normal_column>
 					<id>36</id>
 					<referenced_column>46</referenced_column>
-					<relation>9</relation>
+					<relation>8</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3329,7 +3329,7 @@
 				<normal_column>
 					<id>37</id>
 					<referenced_column>84</referenced_column>
-					<relation>8</relation>
+					<relation>9</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3929,7 +3929,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>7</word_id>
+					<word_id>8</word_id>
 					<id>51</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -4954,7 +4954,7 @@
 				<normal_column>
 					<id>74</id>
 					<referenced_column>76</referenced_column>
-					<relation>17</relation>
+					<relation>18</relation>
 					<description>메세지 보낸 아이디</description>
 					<unique_key_name></unique_key_name>
 					<logical_name>message_sent_id</logical_name>
@@ -4988,7 +4988,7 @@
 				<normal_column>
 					<id>75</id>
 					<referenced_column>76</referenced_column>
-					<relation>18</relation>
+					<relation>17</relation>
 					<description>메세지 받은 아이디</description>
 					<unique_key_name></unique_key_name>
 					<logical_name>message_recv_id</logical_name>
@@ -5288,9 +5288,9 @@
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>decimal</type>
+					<type>varchar(n)</type>
 					<constraint></constraint>
-					<default_value>0</default_value>
+					<default_value></default_value>
 					<auto_increment>false</auto_increment>
 					<foreign_key>false</foreign_key>
 					<not_null>true</not_null>
