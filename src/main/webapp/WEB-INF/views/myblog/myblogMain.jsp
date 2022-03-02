@@ -123,7 +123,7 @@ function pagingFormSubmit(currentPage) {
 
 </head>
 <body>
-<%-- <%@ include file="../header.jsp" %> --%>
+ <%@ include file="../header.jsp" %>
 
    
     <!-- ====== MAIN CONTENT ===== -->
@@ -396,5 +396,6 @@ function pagingFormSubmit(currentPage) {
         </div>
     </main>
     <!-- ====== END MAIN CONTENT ===== -->
+    <%@ include file="../footer.jsp" %>
 </body>
 </html>

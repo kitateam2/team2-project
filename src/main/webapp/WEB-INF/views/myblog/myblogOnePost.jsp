@@ -317,5 +317,6 @@ function replyEditCancle(div) {
         </div>
     </main>
     <!-- ====== END MAIN CONTENT ===== -->
+    <%@ include file="../footer.jsp" %>
 </body>
 </html>

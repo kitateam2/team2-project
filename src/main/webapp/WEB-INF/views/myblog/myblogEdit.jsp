@@ -171,7 +171,7 @@
 	<title>글 수정하기</title>
 </head>
 <body>
-
+ <%@ include file="../header.jsp" %>
 <main id="content">
 			<div class="mb-5 mb-lg-8 pb-xl-1">
                 <div class="page-header border-bottom">
@@ -204,7 +204,7 @@
                     </div>
                     <div class="mb-5 mb-lg-9">
                         <h6 class="font-weight-medium font-size-4 mb-4 pb-1">Contents</h6>
-                        <textarea rows="10" cols="10" class="summernote" id="post_contents" name="post_contents" ></textarea>
+                        <textarea rows="10" cols="10" class="summernote" id="post_contents" name="post_contents" style="width:100%"></textarea>
                     </div>
                     <div class="mb-5 mb-lg-10">
                         <h6 class="font-weight-medium font-size-4 mb-4 pb-1">File</h6>
@@ -223,5 +223,6 @@
             </div>
         </div>
     </main>
+    <%@ include file="../footer.jsp" %>
 </body>
 </html>

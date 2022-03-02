@@ -8,6 +8,9 @@
 		    <!-- Required Meta Tags Always Come First -->
 			    <meta charset="utf-8">
 			    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			    
+			  
+							    
 			
 			    <!-- Favicon -->
 			    <link rel="shortcut icon" href="../../resources/assets/img/favicon.png">
@@ -26,6 +29,8 @@
 			    <!-- CSS Bookworm Template -->
 			    <link rel="stylesheet" href="../resources/assets/css/theme.css">
 			    
+			    
+			   
 			    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="../resources/assets/vendor/jquery/dist/jquery.min.js"></script>
@@ -47,10 +52,7 @@
     <script src="../resources/assets/js/components/hs.selectpicker.js"></script>
     <script src="../resources/assets/js/components/hs.show-animation.js"></script>
     
-  	<script src="../resources/js/summernote/summernote-lite.js"></script>
-	<script src="../resources/js/summernote/lang/summernote-ko-KR.js"></script>
-
-	<link rel="stylesheet" href="../resources/css/summernote/summernote-lite.css">
+  	
 
     <!-- JS Bookworm -->
     <!-- <script src="../resources/assets/js/bookworm.js"></script> -->
@@ -127,6 +129,11 @@
 	}
 	</script>
 	
+	
+	 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+				  
 	<script>
 	function auto_book_complete(){
 		let text = $("#post_book_title").val();
@@ -156,11 +163,15 @@
 			});
 		}
 	</script>
+	
+	<script src="../resources/js/summernote/summernote-lite.js"></script>
+	<script src="../resources/js/summernote/lang/summernote-ko-KR.js"></script>
+
+	<link rel="stylesheet" href="../resources/css/summernote/summernote-lite.css">
 		<script>
 	      $('.summernote').summernote({
 	        placeholder: '내용을 입력하세요',
 	        tabsize: 2,
-	        lang: "ko-KR",
 	        height: 300
 	      });
 	    </script>
@@ -171,7 +182,7 @@
 	<title>새 글쓰기</title>
 </head>
 <body>
-
+ <%@ include file="../header.jsp" %>
 <main id="content">
 			<div class="mb-5 mb-lg-8 pb-xl-1">
                 <div class="page-header border-bottom">
@@ -203,7 +214,7 @@
                     </div>
                     <div class="mb-5 mb-lg-9">
                         <h6 class="font-weight-medium font-size-4 mb-4 pb-1">Contents</h6>
-                        <textarea rows="10" cols="10" class="summernote" id="post_contents" name="post_contents" ></textarea>
+                        <textarea rows="10" cols="10" class="summernote" id="post_contents" name="post_contents" style="width:100%"></textarea>
                     </div>
                     <div class="mb-5 mb-lg-10">
                         <h6 class="font-weight-medium font-size-4 mb-4 pb-1">File</h6>
@@ -222,5 +233,6 @@
             </div>
         </div>
     </main>
+    <%@ include file="../footer.jsp" %>
 </body>
 </html>

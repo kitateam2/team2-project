@@ -201,10 +201,10 @@
 			
 				str += '쪽지 보내기';
 				str += '<form id="message_new" action="new" method="post" onsubmit="return message_new_formCheck()">';
-				str += '<table  border="1">';
+				str += '<table>';
 				str += '<tr>';
 				str += '<td>';
-				str += '<table  border="1">';
+				str += '<table>';
 				str += '<tr>';
 				str += '<td>발신인  </td>';
 				str += '<td colspan="2">${sessionScope.loginId}</td>';
@@ -545,11 +545,11 @@
 	<div id="message_new_form" class="col-sm-8" style="background-color:lavenderblush;"> 
 	
 			<div>
-					<table  border="1">
+					<table >
 					
 						<tr>
 							<td colspan="2">
-											<table  border="1">
+											<table>
 												<!-- <tr>
 													<td>제목 : </td>
 													<td colspan="2">제목 받아오기</td>
@@ -558,6 +558,7 @@
 													<td>발신인 : </td>
 													<td colspan="2">${message.message_sent_id}</td>
 												</tr>
+												
 												<tr>
 													<td>수신인 : </td>
 													<td>${one_message.message_recv_id}</td>
