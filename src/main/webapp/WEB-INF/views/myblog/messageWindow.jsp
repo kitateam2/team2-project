@@ -12,105 +12,6 @@
 <html>
 <head>
 
- <!-- Title -->
-			    <title>메세지</title>
-			
-			    <!-- Required Meta Tags Always Come First -->
-			    <meta charset="utf-8">
-			    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-			
-			    <!-- Favicon -->
-			    <link rel="shortcut icon" href="../../resources/assets/img/favicon.png">
-			
-			    <!-- Font -->
-			    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-			
-			    <!-- CSS Implementing Plugins -->
-			    <link rel="stylesheet" href="../resources/assets/vendor/font-awesome/css/fontawesome-all.min.css">
-			    <link rel="stylesheet" href="../resources/assets/vendor/flaticon/font/flaticon.css">
-			    <link rel="stylesheet" href="../resources/assets/vendor/animate.css/animate.css">
-			    <link rel="stylesheet" href="../resources/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
-			    <link rel="stylesheet" href="../resources/assets/vendor/slick-carousel/slick/slick.css"/>
-			    <link rel="stylesheet" href="../resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
-			
-			    <!-- CSS Bookworm Template -->
-			    <link rel="stylesheet" href="../resources/assets/css/theme.css">
-			    
-			    
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../resources/assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../resources/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
-    <script src="../resources/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../resources/assets/vendor/bootstrap/bootstrap.min.js"></script>
-    <script src="../resources/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="../resources/assets/vendor/slick-carousel/slick/slick.min.js"></script>
-    <script src="../resources/assets/vendor/multilevel-sliding-mobile-menu/dist/jquery.zeynep.js"></script>
-    <script src="../resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-
-
-    <!-- JS HS Components -->
-    <script src="../resources/assets/js/hs.core.js"></script>
-    <script src="../resources/assets/js/components/hs.unfold.js"></script>
-    <script src="../resources/assets/js/components/hs.malihu-scrollbar.js"></script>
-    <script src="../resources/assets/js/components/hs.header.js"></script>
-    <script src="../resources/assets/js/components/hs.slick-carousel.js"></script>
-    <script src="../resources/assets/js/components/hs.selectpicker.js"></script>
-    <script src="../resources/assets/js/components/hs.show-animation.js"></script>
-
-    <!-- JS Bookworm -->
-    <!-- <script src="../resources/assets/js/bookworm.js"></script> -->
-    <script>
-        $(document).on('ready', function () {
-            // initialization of unfold component
-            $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
-
-            // initialization of slick carousel
-            $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
-
-            // initialization of header
-            $.HSCore.components.HSHeader.init($('#header'));
-
-            // initialization of malihu scrollbar
-            $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
-
-            // initialization of show animations
-            $.HSCore.components.HSShowAnimation.init('.js-animation-link');
- 
-            // init zeynepjs
-            var zeynep = $('.zeynep').zeynep({
-                onClosed: function () {
-                    // enable main wrapper element clicks on any its children element
-                    $("body main").attr("style", "");
-
-                    console.log('the side menu is closed.');
-                },
-                onOpened: function () {
-                    // disable main wrapper element clicks on any its children element
-                    $("body main").attr("style", "pointer-events: none;");
-
-                    console.log('the side menu is opened.');
-                }
-            }); 
-
-            // handle zeynep overlay click
-            $(".zeynep-overlay").click(function () {
-                zeynep.close();
-            });
-
-            // open side menu if the button is clicked
-            $(".cat-menu").click(function () {
-                if ($("html").hasClass("zeynep-opened")) {
-                    zeynep.close();
-                } else {
-                    zeynep.open();
-                }
-            });
-        });
-    </script>
-
-
-
-
 	<link rel="stylesheet"
 			href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -219,7 +120,7 @@
 				str += '</td>';
 				str += '</tr>';
 				str += '<tr>';
-				str += '<td><textarea name="message_contents" id="message_contents" rows="15"></textarea></td>';
+				str += '<td><textarea name="message_contents" id="message_contents" rows="15" style="width:100%"></textarea></td>';
 				str += '</tr>';
 				str += '<tr><td><input type="submit" value="보내기"></td></tr>';
 				str += '</table>';
@@ -300,7 +201,36 @@
 		)
 	 </script>
 	 
-	<title>Home</title>
+	<title>메세지</title>
+	
+	<style type="text/css">
+	
+	.page-item.active .page-link {
+	background-color: black;
+    border-color: black;
+	}
+	
+	a{
+	color: black;
+	}
+	
+	a.page-link{
+	color: black;
+	}
+	
+	p.ppp{
+	font-weight : bold;
+	}
+	
+	div.message-box{
+	height: 400px;
+	padding: 15px;
+	}
+	
+	ul{
+		list-style: none;
+	}
+	</style>
 </head>
 <body>
 
@@ -316,25 +246,28 @@
                     </div>
                 </div>
 
-
-<div class="btn-group">
-  <button type="button" class="btn btn-dark btn-wide rounded-0 transition-3d-hover mail_sent_btn">받은 메일</button>
-  <button type="button"  class="btn btn-dark btn-wide rounded-0 transition-3d-hover mail_recv_btn">보낸 메일</button>
-  <button type="button"  class="btn btn-dark btn-wide rounded-0 transition-3d-hover mail_unopened_btn">읽지 않은 메일</button>
-  <button type="button"  class="btn btn-dark btn-wide rounded-0 transition-3d-hover mail_fav_btn">자주 읽은 메일</button>
+<div class="container-fluid row">
+<div class="btn-group col-sm-6">
+  	<button type="button" class="btn btn-dark btn-wide rounded-0 transition-3d-hover mail_sent_btn">받은 메일(${navi_recv.totalRecordsCount})</button>
+  	<button type="button"  class="btn btn-dark btn-wide rounded-0 transition-3d-hover mail_recv_btn">보낸 메일(${navi_sent.totalRecordsCount})</button>
+ 	 <button type="button"  class="btn btn-dark btn-wide rounded-0 transition-3d-hover mail_unopened_btn">읽지 않은 메일(${navi_unopened.totalRecordsCount})</button>
+ 	 <button type="button"  class="btn btn-dark btn-wide rounded-0 transition-3d-hover mail_fav_btn">자주 읽은 메일(${navi_fav.totalRecordsCount})</button>
 </div>
-
+<div class="btn-group offset-sm-4  col-sm-2">
+	<a class="btn btn-dark rounded-0 transition-3d-hover" href="javascript:message_new()">새글 쓰기</a>
+</div>
+</div>
 
 <!-- 검색, 목록별, 수신인 자동완성 -->
 
 	<div class="container-fluid row">
 	
 	<!-- 받은메일 -->
-	<div class="col-sm-4 mail_sent" style="background-color:lavender; "> 
-			메시지 개수 : ${navi_recv.totalRecordsCount}
+	<div class="col-sm-6 mail_sent" style="background-color:lavender; "> 
+		<div class="message-box">
 			<table  border="1">
 				<c:forEach var="message_list_recv" items="${message_list_recv}">
-					<tr>
+				<%-- 	<tr>
 						<td>보낸사람: </td>
 						<td>${message_list_recv.message_sent_id}</td>
 					</tr>
@@ -344,46 +277,57 @@
 							${message_list_recv.message_title}</a>
 						</td>
 					</tr>
-					<%-- <tr>
-						<td>내용: </td>
-						<td><a href="window?message_no=${message_list_recv.message_no}">
-							${message_list_recv.message_contents}</a>
-						</td>
-					</tr> --%>
+				
 					<tr>
 						<td>조회수: </td>
 						<td> ${message_list_recv.message_hits}</td>
-					</tr>
+					</tr> --%>
+					
+					<ul>
+						<li><p class="ppp">보낸이: ${message_list_recv.message_sent_id}</p></li>
+						<li><a href="window?message_no=${message_list_recv.message_no}">
+							-> ${message_list_recv.message_title}</a></li>
+							<hr>
+					</ul>
+					
 				</c:forEach>
 			</table>
-		<a href="javascript:message_new()">새글 쓰기</a>
-			
-			<div id="navigator"><!-- 페이지 이동 부분 -->  
-				<a href="javascript:pagingFormSubmit(${navi_recv.currentPage - navi_recv.pagePerGroup})">◁◁ </a> &nbsp;&nbsp;
-				<a href="javascript:pagingFormSubmit(${navi_recv.currentPage - 1})">◀</a> &nbsp;&nbsp;
-			
-				<c:forEach var="counter" begin="${navi_recv.startPageGroup}" end="${navi_recv.endPageGroup}"> 
-					<c:if test="${counter == navi_recv.currentPage}"></c:if>
-						<a href="javascript:pagingFormSubmit(${counter})">${counter}</a>&nbsp;
-					<c:if test="${counter == navi_recv.currentPage}"></c:if>
-				</c:forEach>
-				&nbsp;&nbsp;
-				<a href="javascript:pagingFormSubmit(${navi_recv.currentPage + 1})">▶</a> &nbsp;&nbsp;
-				<a href="javascript:pagingFormSubmit(${navi_recv.currentPage + navi_recv.pagePerGroup})">▷▷</a>
-			</div><!-- /페이지 이동 끝 --> 
-			
+		</div>
 			<!-- 검색폼 -->
+			<div style="text-align:center;">
 			<form id="pagingForm" method="get" action="../${user_id}/window"><!-- 질문 -->
 				<input type="hidden" name="page" id="page" />
 				내용 : <input type="text"  name="searchText" value="${searchText}" />
 				<input type="button" class="btn btn-dark btn-wide rounded-0 transition-3d-hover onclick="pagingFormSubmit(1)" value="검색">
 			</form><!-- /검색폼 --> 
+			</div>
+			
+			<!-- 페이지 이동부분 -->
+			<div id="navigator">
+	                <nav aria-label="Page navigation example">
+	                    <ul class="pagination pagination__custom justify-content-md-center flex-nowrap flex-md-wrap overflow-auto overflow-md-visble mb-0">
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_recv.currentPage - navi_recv.pagePerGroup})">Pre</a></li>
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_recv.currentPage - 1})">◀</a></li>
+	                        
+	                        <c:forEach var="counter" begin="${navi_recv.startPageGroup}" end="${navi_recv.endPageGroup}"> 
+								<c:if test="${counter == navi_recv.currentPage}"></c:if>
+									<li class="flex-shrink-0 flex-md-shrink-1 page-item active" aria-current="page"><a class="page-link" href="javascript:pagingFormSubmit(${counter})">${counter}</a></li>
+								<c:if test="${counter == navi_recv.currentPage}"></c:if>
+							</c:forEach>
+	                        
+	                        
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_recv.currentPage + 1})">▶</a></li>
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_recv.currentPage + navi_recv.pagePerGroup})">Next</a></li>
+	                    </ul>
+	                </nav>
+                </div><!-- 페이지 이동부분 끝-->
+			
 	</div> <!-- 받은메일 -->
 	
 	
 	<!-- 보낸메일 -->
-	<div class="col-sm-4 mail_recv" style="background-color:aliceblue;"> 
-			메시지 개수 : ${navi_sent.totalRecordsCount}
+	<div class="col-sm-6 mail_recv" style="background-color:aliceblue;"> 
+		<div class="message-box">
 			<table  border="1">
 				<c:forEach var="message_list_sent" items="${message_list_sent}">
 					<tr>
@@ -408,34 +352,41 @@
 					</tr>
 				</c:forEach>
 			</table>
+		</div>
+			<!-- <검색폼> -->
+			<div style="text-align:center;">
+				<form id="pagingForm" method="get" action="../${user_id}/window"><!-- 질문 -->
+					<input type="hidden" name="page" id="page" />
+					내용 : <input type="text"  name="searchText" value="${searchText}" />
+					<input type="button" class="btn btn-dark btn-wide rounded-0 transition-3d-hover onclick="pagingFormSubmit(1)" value="검색">
+				</form>
+			</div><!-- /검색폼 --> 
 			
-		<a href="javascript:message_new()">새글 쓰기</a>
+			<!-- 페이지 이동부분 -->
+			<div id="navigator">
+	                <nav aria-label="Page navigation example">
+	                    <ul class="pagination pagination__custom justify-content-md-center flex-nowrap flex-md-wrap overflow-auto overflow-md-visble mb-0">
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_sent.currentPage - navi_sent.pagePerGroup})">Pre</a></li>
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_sent.currentPage - 1})">◀</a></li>
+	                        
+	                        <c:forEach var="counter" begin="${navi_sent.startPageGroup}" end="${navi_sent.endPageGroup}"> 
+								<c:if test="${counter == navi_sent.currentPage}"></c:if>
+									<li class="flex-shrink-0 flex-md-shrink-1 page-item active" aria-current="page"><a class="page-link" href="javascript:pagingFormSubmit(${counter})">${counter}</a></li>
+								<c:if test="${counter == navi_sent.currentPage}"></c:if>
+							</c:forEach>
+	                        
+	                        
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_sent.currentPage + 1})">▶</a></li>
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_sent.currentPage + navi_sent.pagePerGroup})">Next</a></li>
+	                    </ul>
+	                </nav>
+                </div><!-- 페이지 이동부분 끝-->
 			
-			<div id="navigator"><!-- 페이지 이동 부분 -->  
-				<a href="javascript:pagingFormSubmit(${navi_sent.currentPage - navi_sent.pagePerGroup})">◁◁ </a> &nbsp;&nbsp;
-				<a href="javascript:pagingFormSubmit(${navi_sent.currentPage - 1})">◀</a> &nbsp;&nbsp;
-			
-					<c:forEach var="counter" begin="${navi_sent.startPageGroup}" end="${navi_sent.endPageGroup}"> 
-						<c:if test="${counter == navi_sent.currentPage}"></c:if>
-							<a href="javascript:pagingFormSubmit(${counter})">${counter}</a>&nbsp;
-						<c:if test="${counter == navi_sent.currentPage}"></c:if>
-					</c:forEach>
-					&nbsp;&nbsp;
-				<a href="javascript:pagingFormSubmit(${navi_sent.currentPage + 1})">▶</a> &nbsp;&nbsp;
-				<a href="javascript:pagingFormSubmit(${navi_sent.currentPage + navi_sent.pagePerGroup})">▷▷</a>
-			</div><!-- /페이지 이동 끝 --> 
-			
-			<!-- 검색폼 -->
-			<form id="pagingForm" method="get" action="../${user_id}/window"><!-- 질문 -->
-				<input type="hidden" name="page" id="page" />
-				내용 : <input type="text"  name="searchText" value="${searchText}" />
-				<input type="button" class="btn btn-dark btn-wide rounded-0 transition-3d-hover onclick="pagingFormSubmit(1)" value="검색">
-			</form><!-- /검색폼 --> 
 	</div> <!-- 보낸메일 -->
 	
 	<!-- 읽지 않은 메일 -->
-	<div class="col-sm-4 mail_unopened" style="background-color:thistle;"> 
-				메시지 개수 : ${navi_unopened.totalRecordsCount}
+	<div class="col-sm-6 mail_unopened" style="background-color:thistle;"> 
+		<div class="message-box">
 			<table  border="1">
 				<c:forEach var="message_list_unopened" items="${message_list_unopened}">
 					<tr>
@@ -460,34 +411,43 @@
 					</tr>
 				</c:forEach>
 			</table>
-		<a href="javascript:message_new()">새글 쓰기</a>
-			
-			<div id="navigator"><!-- 페이지 이동 부분 -->  
-				<a href="javascript:pagingFormSubmit(${navi_unopened.currentPage - navi_unopened.pagePerGroup})">◁◁ </a> &nbsp;&nbsp;
-				<a href="javascript:pagingFormSubmit(${navi_unopened.currentPage - 1})">◀</a> &nbsp;&nbsp;
-			
-				<c:forEach var="counter" begin="${navi_unopened.startPageGroup}" end="${navi_unopened.endPageGroup}"> 
-					<c:if test="${counter == navi_unopened.currentPage}"></c:if>
-						<a href="javascript:pagingFormSubmit(${counter})">${counter}</a>&nbsp;
-					<c:if test="${counter == navi_unopened.currentPage}"></c:if>
-				</c:forEach>
-				&nbsp;&nbsp;
-				<a href="javascript:pagingFormSubmit(${navi_unopened.currentPage + 1})">▶</a> &nbsp;&nbsp;
-				<a href="javascript:pagingFormSubmit(${navi_unopened.currentPage + navi_unopened.pagePerGroup})">▷▷</a>
-			</div><!-- /페이지 이동 끝 --> 
-			
+		</div>	
 			<!-- 검색폼 -->
-			<form id="pagingForm" method="get" action="../${user_id}/window">
-				<input type="hidden" name="page" id="page" />
-				내용 : <input type="text"  name="searchText" value="${searchText}" />
-				<input type="button" class="btn btn-dark btn-wide rounded-0 transition-3d-hover onclick="pagingFormSubmit(1)" value="검색">
-			</form><!-- /검색폼 --> 
+			<div style="text-align:center;">
+				<form id="pagingForm" method="get" action="../${user_id}/window">
+					<input type="hidden" name="page" id="page" />
+					내용 : <input type="text"  name="searchText" value="${searchText}" />
+					<input type="button" class="btn btn-dark btn-wide rounded-0 transition-3d-hover onclick="pagingFormSubmit(1)" value="검색">
+				</form>
+			</div><!-- /검색폼 --> 
+			
+			<!-- 페이지 이동부분 -->
+			<div id="navigator">
+	                <nav aria-label="Page navigation example">
+	                    <ul class="pagination pagination__custom justify-content-md-center flex-nowrap flex-md-wrap overflow-auto overflow-md-visble mb-0">
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_unopened.currentPage - navi_unopened.pagePerGroup})">Pre</a></li>
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_unopened.currentPage - 1})">◀</a></li>
+	                        
+	                        <c:forEach var="counter" begin="${navi_unopened.startPageGroup}" end="${navi_unopened.endPageGroup}"> 
+								<c:if test="${counter == navi_unopened.currentPage}"></c:if>
+									<li class="flex-shrink-0 flex-md-shrink-1 page-item active" aria-current="page"><a class="page-link" href="javascript:pagingFormSubmit(${counter})">${counter}</a></li>
+								<c:if test="${counter == navi_unopened.currentPage}"></c:if>
+							</c:forEach>
+	                        
+	                        
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_unopened.currentPage + 1})">▶</a></li>
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_unopened.currentPage + navi_unopened.pagePerGroup})">Next</a></li>
+	                    </ul>
+	                </nav>
+                </div><!-- 페이지 이동부분 끝-->
+			
+			
 	</div> <!-- _unopened -->
 	
 	
 	<!-- 읽지 않은 메일 -->
-	<div class="col-sm-4 mail_fav" style="background-color:thistle;"> 
-				메시지 개수 : ${navi_fav.totalRecordsCount}
+	<div class="col-sm-6 mail_fav" style="background-color:thistle;"> 
+		<div class="message-box">
 			<table  border="1">
 				<c:forEach var="message_list_fav" items="${message_list_fav}">
 					<tr>
@@ -512,28 +472,37 @@
 					</tr>
 				</c:forEach>
 			</table>
-		<a href="javascript:message_new()">새글 쓰기</a>
-			
-			<div id="navigator"><!-- 페이지 이동 부분 -->  
-				<a href="javascript:pagingFormSubmit(${navi_fav.currentPage - navi_fav.pagePerGroup})">◁◁ </a> &nbsp;&nbsp;
-				<a href="javascript:pagingFormSubmit(${navi_fav.currentPage - 1})">◀</a> &nbsp;&nbsp;
-			
-				<c:forEach var="counter" begin="${navi_fav.startPageGroup}" end="${navi_fav.endPageGroup}"> 
-					<c:if test="${counter == navi_fav.currentPage}"></c:if>
-						<a href="javascript:pagingFormSubmit(${counter})">${counter}</a>&nbsp;
-					<c:if test="${counter == navi_fav.currentPage}"></c:if>
-				</c:forEach>
-				&nbsp;&nbsp;
-				<a href="javascript:pagingFormSubmit(${navi_fav.currentPage + 1})">▶</a> &nbsp;&nbsp;
-				<a href="javascript:pagingFormSubmit(${navi_fav.currentPage + navi_fav.pagePerGroup})">▷▷</a>
-			</div><!-- /페이지 이동 끝 --> 
-			
+		</div>
 			<!-- 검색폼 -->
-			<form id="pagingForm" method="get" action="../${user_id}/window">
-				<input type="hidden" name="page" id="page" />
-				내용 : <input type="text"  name="searchText" value="${searchText}" />
-				<input type="button" class="btn btn-dark btn-wide rounded-0 transition-3d-hover onclick="pagingFormSubmit(1)" value="검색">
-			</form><!-- /검색폼 --> 
+			<div style="text-align:center;">
+				<form id="pagingForm" method="get" action="../${user_id}/window">
+					<input type="hidden" name="page" id="page" />
+					내용 : <input type="text"  name="searchText" value="${searchText}" />
+					<input type="button" class="btn btn-dark btn-wide rounded-0 transition-3d-hover onclick="pagingFormSubmit(1)" value="검색">
+				</form>
+			</div><!-- /검색폼 --> 
+			
+			<!-- 페이지 이동부분 -->
+			<div id="navigator">
+	                <nav aria-label="Page navigation example">
+	                    <ul class="pagination pagination__custom justify-content-md-center flex-nowrap flex-md-wrap overflow-auto overflow-md-visble mb-0">
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_fav.currentPage - navi_fav.pagePerGroup})">Pre</a></li>
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_fav.currentPage - 1})">◀</a></li>
+	                        
+	                        <c:forEach var="counter" begin="${navi_fav.startPageGroup}" end="${navi_fav.endPageGroup}"> 
+								<c:if test="${counter == navi_fav.currentPage}"></c:if>
+									<li class="flex-shrink-0 flex-md-shrink-1 page-item active" aria-current="page"><a class="page-link" href="javascript:pagingFormSubmit(${counter})">${counter}</a></li>
+								<c:if test="${counter == navi_fav.currentPage}"></c:if>
+							</c:forEach>
+	                        
+	                        
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_fav.currentPage + 1})">▶</a></li>
+	                        <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="javascript:pagingFormSubmit(${navi_fav.currentPage + navi_fav.pagePerGroup})">Next</a></li>
+	                    </ul>
+	                </nav>
+                </div><!-- 페이지 이동부분 끝-->
+			
+			
 	</div> <!-- _unopened -->
 	
 	
@@ -542,9 +511,9 @@
 	
 	
 	<!-- 새 메시지 작성하기 -->
-	<div id="message_new_form" class="col-sm-8" style="background-color:lavenderblush;"> 
+	<div id="message_new_form" class="col-sm-6" style="background-color:lavenderblush;"> 
 	
-			<div>
+			<div class="message-box">
 					<table >
 					
 						<tr>
@@ -555,18 +524,18 @@
 													<td colspan="2">제목 받아오기</td>
 												</tr> -->
 												<tr>
-													<td>발신인 : </td>
-													<td colspan="2">${message.message_sent_id}</td>
+													<td><p class="ppp">발신인</p></td>
+													<td colspan="2"><p>: ${message.message_sent_id}</p></td>
 												</tr>
 												
 												<tr>
-													<td>수신인 : </td>
-													<td>${one_message.message_recv_id}</td>
+													<td><p class="ppp">수신인</p></td>
+													<td><p>: ${one_message.message_recv_id}</p></td>
 													<td></td>
 												</tr>
 												<tr>
-													<td>내용 : </td>
-													<td>${one_message.message_contents}</td>
+													<td><p class="ppp">내용</p></td>
+													<td><p>: ${one_message.message_contents}</p></td>
 													<td></td>
 												</tr>
 											</table>
