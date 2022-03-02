@@ -32,7 +32,7 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	
 	
 	//게시판 관련 상수값들
-	final int countPerPage = 10;			//페이지당 글 수
+	final int countPerPage = 12;			//페이지당 글 수
 	final int pagePerGroup = 5;				//페이지 이동 링크를 표시할 페이지 수
 	final String uploadPath = "/boardfile";	//파일 업로드 경로
 	
