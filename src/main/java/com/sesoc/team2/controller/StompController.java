@@ -20,4 +20,17 @@ public class StompController {
 		
 		return message;
 	}
+	
+	@MessageMapping("/ADMIN/{roomid1}")
+	@SendTo("/topic/admin/{roomid1}")
+  public ChatMessage admin(@DestinationVariable("roomid1") String roomid1,ChatMessage message) throws Exception {
+		System.out.println("admin 컨트롤러>>" + message);
+		System.out.println("admin roodid 방번호: " + roomid1);
+		//System.out.println("ID=" + message.getId());
+		//System.out.println("MSG=" + message.getMsg()); 
+		//messagingTemplate.convertAndSend("/topic/" + message.getRoomid(), message.getMsg());
+		//messagingTemplate.convertAndSendToUser(message.getId(), "/topic/" + message.getRoomid(), message.getMsg());
+		
+		return message;
+	}
 }

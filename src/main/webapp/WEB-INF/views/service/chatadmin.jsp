@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>채팅</title>
+<title>관리자 1:1채팅</title>
 <script src="resources/js/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.2/sockjs.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
@@ -14,9 +14,9 @@
 <script>
 var socket = null;
 var isStomp = false;
-var roomid = "${roomid}";
-alert(roomid);
-var roomidlist = roomid.split(',');
+var roomid1 = "${roomid1}";
+alert(roomid1);
+var roomidlist = roomid1.split(',');
 for(var i=0; i<roomidlist.length; i++){
 	if(roomidlist[i] === "${sessionScope.loginId}"){
 		roomidlist.splice(i,1);
@@ -52,31 +52,32 @@ function sendMessage(evt) {
      console.log("mmmmmmmmmmmm>>", msg)
      $('#chat-insert').val('');
      if (isStomp){
-     	socket.send('/TTT/'+roomid, {}, JSON.stringify(
+     	socket.send('/ADMIN/'+roomid1, {}, JSON.stringify(
      			{nname: "${sessionScope.loginId}", content: msg, datetime: time}));
      	console.log("에코소켓: ", echosocket);
      	if(echosocket){
      		for(var i=0; i<roomidlist.length; i++){
      			console.log("echosocket send하기직전")
-     			echosocket.send("chat/${sessionScope.loginId}/" + roomidlist[i] + "/" + roomid);
+     			echosocket.send("admin/${sessionScope.loginId}/" + roomidlist[i] + "/" + roomid1);
      		}
      	}
 	 }
      else
          socket.send(msg);
-     
+     console.log("sendmessage끝");
      $("html").scrollTop($(document).height());
 }
 
 function connectStomp() {
-	var sock = new SockJS("/team2/chatting"); // endpoint
+	var sock = new SockJS("/team2/chatadmin"); // endpoint
     var client = Stomp.over(sock);
 	isStomp = true;
 	socket = client;
     
     client.connect({}, function () {
+    	console.log("스톰프 커넥트");
         // 해당 토픽을 구독한다. 메세지 받는곳
-        client.subscribe('/topic/message/'+roomid, function (message) {
+        client.subscribe('/topic/admin/'+roomid1, function (message) {
         	var message_body = JSON.parse(message.body);
         	var id = message_body.nname;
         	var new_chat = message_body.content;
@@ -89,7 +90,7 @@ function connectStomp() {
 			
 			$('.main-chat').append(appendMsg);
 			
-			var insertchat = id + '/' + new_chat + '/' + time + '/' + roomid;
+			var insertchat = id + '/' + new_chat + '/' + time + '/' + roomid1;
 			$.ajax({
 				url : "insertchat",
 				type : "POST", 
@@ -116,7 +117,7 @@ function connectStomp() {
                 <!-- 고정된 공지사항 영역 -->
                 <div class="notice-bar">
                     <i class="icon-bullhorn"></i>
-                    <span>채팅 참여자: ${roomid}</span>
+                    <span>채팅 참여자: ${roomid1}</span>
                     <i class="icon-down-open-big"></i>
                 </div>
                 <!-- 채팅 내용 시작 -->
@@ -127,20 +128,7 @@ function connectStomp() {
                     </div>
                     <!-- 채팅 내용 -->
                     <div class="main-chat">
-                        <%-- <div class="friend-chat">
-                            <div class="friend-chat-col">
-                                <div class="profile-name">사원</div>
-                                <div class="balloon">대리님, 혹시 7시50분에 시간 괜찮으세요?</div>
-                                <div class="balloon">저와 커피 한잔 해주실 수 있으실까요? ㅜㅜ</div>
-                            </div>
-                            <time datetime="07:30:00+09:00">오전 7:30</time>
-                        </div>
-                        <div class="me-chat">
-                            <div class="me-chat-col">
-                                <div class="balloon">ㅇㅋzz${roomid}</div>
-                            </div>
-                            <time datetime="07:32:00+09:00">오전 7:32</time>
-                        </div> --%>
+                       
                         
                         <c:forEach var="chat" items="${chatlist}">
                         	<c:if test="${sessionScope.loginId eq chat.user_id}">

@@ -2,6 +2,7 @@ package com.sesoc.team2.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -51,12 +52,6 @@ public class CustomerServiceController {
 		logger.info("챗뷰{}",id);
 		return "service/chat";
 	}
-	@RequestMapping(value="shoptest", method=RequestMethod.GET)
-	public String shoptest(HttpSession session, Model model) {
-		String id = (String)session.getAttribute("loginId");
-		logger.info("챗뷰{}",id);
-		return "v1";
-	}
 	
 	//방 클릭시 roomid 받아와서 채팅페이지로 이동
 	@RequestMapping(value = "/chatting", method = RequestMethod.GET)
@@ -70,12 +65,36 @@ public class CustomerServiceController {
 		return "service/chatting";
 	}
 	
+	//관리자 페이지 이동
+		@RequestMapping(value = "/chatadmin", method = RequestMethod.GET)
+		public String chatadmin(HttpSession session, Model model, String roomid1) {
+			String id = (String)session.getAttribute("loginId");
+			logger.info("chatadmin jsp로 이동");
+			model.addAttribute("roomid1",roomid1);
+			ArrayList<Chatroom> roomlist = sdao.roomlist(id);
+			for (Chatroom chatroom : roomlist) {
+				if(chatroom.getChatroom_id().equals(roomid1)) {
+					ArrayList<Chat> chatlist = sdao.chatlist(roomid1);
+					model.addAttribute("chatlist",chatlist);
+					return "service/chatadmin";
+				}
+			}
+			sdao.insertChatroom("admin,"+id);
+			
+			return "service/chatadmin";
+		}
+	
 	//사용자 초대페이지 이동
 	@RequestMapping(value = "/chatinvite", method = RequestMethod.GET)
 	public String chatinvite(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("loginId");
 		ArrayList<User_infoVO> idList = sdao.idList(id);
-		//logger.info("리스트{}", idList);
+		for(Iterator<User_infoVO> it = idList.iterator() ; it.hasNext() ; ) {
+			User_infoVO value = it.next();
+			if(value.getUser_id().equals("admin")) {
+				it.remove();
+			}
+		}
 		model.addAttribute("idlist",idList);
 		return "service/chatinvite";
 	}
@@ -84,7 +103,12 @@ public class CustomerServiceController {
 	public String chatinviteerror(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("loginId");
 		ArrayList<User_infoVO> idList = sdao.idList(id);
-		//logger.info("리스트{}", idList);
+		for(Iterator<User_infoVO> it = idList.iterator() ; it.hasNext() ; ) {
+			User_infoVO value = it.next();
+			if(value.getUser_id().equals("admin")) {
+				it.remove();
+			}
+		}
 		model.addAttribute("idlist",idList);
 		model.addAttribute("error", "1");
 		return "service/chatinvite";
@@ -107,6 +131,12 @@ public class CustomerServiceController {
 	public String idsearchresult(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("loginId");
 		ArrayList<User_infoVO> idsearch = sdao.idsearch(searchid);
+		for(Iterator<User_infoVO> it = idsearch.iterator() ; it.hasNext() ; ) {
+			User_infoVO value = it.next();
+			if(value.getUser_id().equals("admin")) {
+				it.remove();
+			}
+		}
 		model.addAttribute("idlist", idsearch);
 		return "service/chatinvite";
 	}
@@ -181,8 +211,25 @@ public class CustomerServiceController {
 		String id = (String)session.getAttribute("loginId");
 		System.out.println("roomlist전");
 		ArrayList<Chatroom> roomlist = sdao.roomlist(id);
+
+		for(Iterator<Chatroom> it = roomlist.iterator() ; it.hasNext() ; ) {
+			Chatroom value = it.next();
+			if(value.getChatroom_id().equals("admin,"+id)) {
+				it.remove();
+			}
+		}
+		
 		System.out.println("roomlist후"+roomlist);
 		model.addAttribute("roomlist",roomlist);
 		return "service/chatmain";
 	}
+	
+	//관리자 페이지로 이동
+		@RequestMapping(value = "/admin", method = RequestMethod.GET)
+		public String admin(HttpSession session, Model model) {
+			String id = (String)session.getAttribute("loginId");
+			ArrayList<Chatroom> adminroomlist = sdao.roomlist(id);
+			model.addAttribute("adminroomlist",adminroomlist);
+			return "service/adminForm";
+		}
 }
