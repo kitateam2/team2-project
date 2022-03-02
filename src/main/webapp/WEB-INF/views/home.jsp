@@ -23,6 +23,7 @@
      <link rel="stylesheet" href="resources/assets/css/theme.css">
     <link rel="stylesheet" href="resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
 
+
 <!-- JS Global Compulsory -->
 <script src="resources/assets/vendor/jquery/dist/jquery.min.js"></script>
 <script src="resources//assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
@@ -52,7 +53,257 @@ function bt1Click(n){
 </head>
 <body>
 <%@ include file="header.jsp" %>
+<!-- Account Sidebar Navigation - Desktop -->
+    <aside id="sidebarContent" class="u-sidebar u-sidebar__lg" aria-labelledby="sidebarNavToggler">
+        <div class="u-sidebar__scroller">
+            <div class="u-sidebar__container">
+                <div class="u-header-sidebar__footer-offset">
+                    <!-- Toggle Button -->
+                    <div class="d-flex align-items-center position-absolute top-0 right-0 z-index-2 mt-5 mr-md-6 mr-4">
+                        <button type="button" class="close ml-auto"
+                            aria-controls="sidebarContent"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            data-unfold-event="click"
+                            data-unfold-hide-on-scroll="false"
+                            data-unfold-target="#sidebarContent"
+                            data-unfold-type="css-animation"
+                            data-unfold-animation-in="fadeInRight"
+                            data-unfold-animation-out="fadeOutRight"
+                            data-unfold-duration="500">
+                            <span aria-hidden="true">Close <i class="fas fa-times ml-2"></i></span>
+                        </button>
+                    </div>
+                    <!-- End Toggle Button -->
 
+                    <!-- Content -->
+                    <div class="js-scrollbar u-sidebar__body">
+                        <div class="u-sidebar__content u-header-sidebar__content">
+                            <form class="">
+                                <!-- Login -->
+                                <div id="login" data-target-group="idForm">
+                                    <!-- Title -->
+                                    <header class="border-bottom px-4 px-md-6 py-4">
+                                        <h2 class="font-size-3 mb-0 d-flex align-items-center"><i class="flaticon-user mr-3 font-size-5"></i>Account</h2>
+                                    </header>
+                                    <!-- End Title -->
+
+                                    <div class="p-4 p-md-6">
+                                        <!-- Form Group -->
+                                        <div class="form-group mb-4">
+                                            <div class="js-form-message js-focus-state">
+                                                <label id="signinEmailLabel" class="form-label" for="signinEmail">Username or email *</label>
+                                                <input type="text" class="form-control rounded-0 height-4 px-4" name="email" id="signinEmail" placeholder="creativelayers088@gmail.com" aria-label="creativelayers088@gmail.com" aria-describedby="signinEmailLabel" required>
+                                            </div>
+                                        </div>
+                                        <!-- End Form Group -->
+
+                                        <!-- Form Group -->
+                                        <div class="form-group mb-4">
+                                            <div class="js-form-message js-focus-state">
+                                                <label id="signinPasswordLabel" class="form-label" for="signinPassword">Password *</label>
+                                                <input type="password" class="form-control rounded-0 height-4 px-4" name="password" id="signinPassword" placeholder="" aria-label="" aria-describedby="signinPasswordLabel" required>
+                                            </div>
+                                        </div>
+                                        <!-- End Form Group -->
+
+                                        <div class="d-flex justify-content-between mb-5 align-items-center">
+                                            <!-- Checkbox -->
+                                            <div class="js-form-message">
+                                                <div class="custom-control custom-checkbox d-flex align-items-center text-muted">
+                                                    <input type="checkbox" class="custom-control-input" id="termsCheckbox" name="termsCheckbox" required>
+                                                    <label class="custom-control-label" for="termsCheckbox">
+                                                        <span class="font-size-2 text-secondary-gray-700">
+                                                            Remember me
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <!-- End Checkbox -->
+
+                                            <a class="js-animation-link text-dark font-size-2 t-d-u link-muted font-weight-medium" href="javascript:;"
+                                            data-target="#forgotPassword"
+                                            data-link-group="idForm"
+                                            data-animation-in="fadeIn">Forgot Password?</a>
+                                        </div>
+
+                                        <div class="mb-4d75">
+                                        <form action="login" method="post">
+                                        <input type="submit" name="" value="Login">
+                                        </form>
+                                        </div>
+
+                                        <div class="mb-2">
+                                            <a href="javascript:;" class="js-animation-link btn btn-block py-3 rounded-0 btn-outline-dark font-weight-medium"
+                                            data-target="#signup"
+                                            data-link-group="idForm"
+                                            data-animation-in="fadeIn">Create Account</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Signup -->
+                                <div id="signup" style="display: none; opacity: 0;" data-target-group="idForm">
+                                    <!-- Title -->
+                                    <header class="border-bottom px-4 px-md-6 py-4">
+                                        <h2 class="font-size-3 mb-0 d-flex align-items-center"><i class="flaticon-resume mr-3 font-size-5"></i>Create Account</h2>
+                                    </header>
+                                    <!-- End Title -->
+									<form action="join" method="post" onsubmit="return validationCheck();">
+                                    <div class="p-4 p-md-6">
+                                        <!-- Form Group -->
+                                        
+                                <!-- Forgot Password -->
+                                <div id="forgotPassword" style="display: none; opacity: 0;" data-target-group="idForm">
+                                    <!-- Title -->
+                                    <header class="border-bottom px-4 px-md-6 py-4">
+                                        <h2 class="font-size-3 mb-0 d-flex align-items-center"><i class="flaticon-question mr-3 font-size-5"></i>Forgot Password?</h2>
+                                    </header>
+                                    <!-- End Title -->
+
+                                    <div class="p-4 p-md-6">
+                                        <!-- Form Group -->
+                                        <div class="form-group mb-4">
+                                            <div class="js-form-message js-focus-state">
+                                                <label id="signinEmailLabel3" class="form-label" for="signinEmail3">Email *</label>
+                                                <input type="email" class="form-control rounded-0 height-4 px-4" name="email" id="signinEmail3" placeholder="creativelayers088@gmail.com" aria-label="creativelayers088@gmail.com" aria-describedby="signinEmailLabel3" required>
+                                            </div>
+                                        </div>
+                                        <!-- End Form Group -->
+
+                                        <div class="mb-3">
+                                            <button type="submit" class="btn btn-block py-3 rounded-0 btn-dark">Recover Password</button>
+                                        </div>
+
+                                        <div class="text-center mb-4">
+                                            <span class="small text-muted">Remember your password?</span>
+                                            <a class="js-animation-link small" href="javascript:;"
+                                                data-target="#login"
+                                                data-link-group="idForm"
+                                                data-animation-in="fadeIn">Login
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Forgot Password -->
+                            </form>
+                        </div>
+                    </div>
+                    <!-- End Content -->
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- End Account Sidebar Navigation - Desktop -->
+
+    <!-- Cart Sidebar Navigation -->
+    <aside id="sidebarContent1" class="u-sidebar u-sidebar__xl" aria-labelledby="sidebarNavToggler1">
+        <div class="u-sidebar__scroller js-scrollbar">
+            <div class="u-sidebar__container">
+                <div class="u-header-sidebar__footer-offset">
+                    <!-- Toggle Button -->
+                    <div class="d-flex align-items-center position-absolute top-0 right-0 z-index-2 mt-5 mr-md-6 mr-4">
+                        <button type="button" class="close ml-auto"
+                            aria-controls="sidebarContent1"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            data-unfold-event="click"
+                            data-unfold-hide-on-scroll="false"
+                            data-unfold-target="#sidebarContent1"
+                            data-unfold-type="css-animation"
+                            data-unfold-animation-in="fadeInRight"
+                            data-unfold-animation-out="fadeOutRight"
+                            data-unfold-duration="500">
+                            <span aria-hidden="true">Close <i class="fas fa-times ml-2"></i></span>
+                        </button>
+                    </div>
+                    <!-- End Toggle Button -->
+
+                    <!-- Content -->
+                    <div class="u-sidebar__body">
+                        <div class="u-sidebar__content u-header-sidebar__content">
+                            <!-- Title -->
+                            <header class="border-bottom px-4 px-md-6 py-4">
+                                <h2 class="font-size-3 mb-0 d-flex align-items-center"><i class="flaticon-icon-126515 mr-3 font-size-5"></i>Your shopping bag (3)</h2>
+                            </header>
+                            <!-- End Title -->
+
+                            <div class="px-4 py-5 px-md-6 border-bottom">
+                                <div class="media">
+                                    <a href="#" class="d-block"><img src="https://placehold.it/100x153" class="img-fluid" alt="image-description"></a>
+                                    <div class="media-body ml-4d875">
+                                        <div class="text-primary text-uppercase font-size-1 mb-1 text-truncate"><a href="#">Hard Cover</a></div>
+                                        <h2 class="woocommerce-loop-product__title h6 text-lh-md mb-1 text-height-2 crop-text-2">
+                                            <a href="#" class="text-dark">The Ride of a Lifetime: Lessons Learned  from 15 Years as CEO</a>
+                                        </h2>
+                                        <div class="font-size-2 mb-1 text-truncate"><a href="#" class="text-gray-700">Robert Iger</a></div>
+                                        <div class="price d-flex align-items-center font-weight-medium font-size-3">
+                                            <span class="woocommerce-Price-amount amount">1 x <span class="woocommerce-Price-currencySymbol">$</span>125.30</span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3 ml-3">
+                                        <a href="#" class="text-dark"><i class="fas fa-times"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="px-4 py-5 px-md-6 border-bottom">
+                                <div class="media">
+                                    <a href="#" class="d-block"><img src="https://placehold.it/100x153" class="img-fluid" alt="image-description"></a>
+                                    <div class="media-body ml-4d875">
+                                        <div class="text-primary text-uppercase font-size-1 mb-1 text-truncate"><a href="#">Hard Cover</a></div>
+                                        <h2 class="woocommerce-loop-product__title h6 text-lh-md mb-1 text-height-2 crop-text-2">
+                                            <a href="#" class="text-dark">The Rural Diaries: Love, Livestock, and  Big Life Lessons Down</a>
+                                        </h2>
+                                        <div class="font-size-2 mb-1 text-truncate"><a href="#" class="text-gray-700">Hillary Burton</a></div>
+                                        <div class="price d-flex align-items-center font-weight-medium font-size-3">
+                                            <span class="woocommerce-Price-amount amount">2 x <span class="woocommerce-Price-currencySymbol">$</span>200</span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3 ml-3">
+                                        <a href="#" class="text-dark"><i class="fas fa-times"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="px-4 py-5 px-md-6 border-bottom">
+                                <div class="media">
+                                    <a href="#" class="d-block"><img src="https://placehold.it/100x153" class="img-fluid" alt="image-description"></a>
+                                    <div class="media-body ml-4d875">
+                                        <div class="text-primary text-uppercase font-size-1 mb-1 text-truncate"><a href="#">Paperback</a></div>
+                                        <h2 class="woocommerce-loop-product__title h6 text-lh-md mb-1 text-height-2 crop-text-2">
+                                            <a href="#" class="text-dark">Russians Among Us: Sleeper Cells,  Ghost Stories, and the Hunt.</a>
+                                        </h2>
+                                        <div class="font-size-2 mb-1 text-truncate"><a href="#" class="text-gray-700">Gordon Corera</a></div>
+                                        <div class="price d-flex align-items-center font-weight-medium font-size-3">
+                                            <span class="woocommerce-Price-amount amount">6 x <span class="woocommerce-Price-currencySymbol">$</span>100</span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3 ml-3">
+                                        <a href="#" class="text-dark"><i class="fas fa-times"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="px-4 py-5 px-md-6 d-flex justify-content-between align-items-center font-size-3">
+                                <h4 class="mb-0 font-size-3">Subtotal:</h4>
+                                <div class="font-weight-medium">$750.00</div>
+                            </div>
+
+                            <div class="px-4 mb-8 px-md-6">
+                                <button type="submit" class="btn btn-block py-4 rounded-0 btn-outline-dark mb-4">View Cart</button>
+                                <button type="submit" class="btn btn-block py-4 rounded-0 btn-dark">Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Content -->
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- End Cart Sidebar Navigation -->
+    
+    
     <!-- ====== MAIN CONTENT ====== -->
     <section class="space-bottom-3">
         <div class="bg-gray-200 space-2 space-lg-0 bg-img-hero" style="background-image: url(../../assets/img/1920x588/img1.jpg);">
@@ -2342,7 +2593,7 @@ function bt1Click(n){
         </div>
     </section>
     <!-- ====== END MAIN CONTENT ====== -->
-	
+	<%@ include file="footer.jsp" %>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="resources/assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="resources/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
@@ -2416,7 +2667,7 @@ function bt1Click(n){
 <%--     <c:forEach var="cart" items="${Cart_book1}">  
             <a href="#" onclick="bt1Click(${cart.book_isbn});" class="btn btn-primary">Add to Cart</a>
             </c:forEach> --%>
-<%@ include file="footer.jsp" %>
+
 </body>
 
 

@@ -983,7 +983,7 @@
 				<div class="cd-faq__content">
           <div class="text-component">
             <a href="chatView">관리자 1:1문의</a><br>
-            <a href="shoptest">샵</a><br>
+            
           </div>
 				</div> <!-- cd-faq__content -->
 			</li>

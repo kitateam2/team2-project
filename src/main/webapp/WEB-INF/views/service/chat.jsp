@@ -81,7 +81,7 @@ function receiveMessage(msg) {
                         <time datetime="2021-03-29">2021년 3월 29일 월요일</time>
                     </div>
                     <!-- 채팅 내용 -->
-                    <div class="main-chat">
+                    <!-- <div class="main-chat">
                         <div class="friend-chat">
                             <div class="friend-chat-col">
                                 <div class="profile-name">사원</div>
@@ -97,7 +97,7 @@ function receiveMessage(msg) {
                             <time datetime="07:32:00+09:00">오전 7:32</time>
                         </div>
                         
-                    </div>
+                    </div> -->
                 </div>
                 <!-- 채팅 입력창 -->
                 <div class="insert-content">

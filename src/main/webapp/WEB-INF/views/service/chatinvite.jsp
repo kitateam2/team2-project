@@ -104,16 +104,16 @@ $(document).ready(  function() {
                     </div>
                     <ul>
                         <!-- <li>
-                            <img src="resources/img/friend1.png" alt="친구1프로필사진">
+                            <img src="resources/img/profile/profile1.jpg" alt="친구1프로필사진">
                             <div class="profile">
                                 <p>친구1</p>
                                 <p></p>
                             </div>
                         </li> -->
                         
-                        <c:forEach var="idl" items="${idlist}">
+                        <c:forEach var="idl" items="${idlist}" varStatus="status">
 							<li>
-								<img src="resources/img/friend2.png" alt="친구2프로필사진">
+								<img src="resources/img/profile/profile${status.count}.jpg" alt="친구2프로필사진">
 								<div class="profile">
 								<input type="checkbox" class="idcheckbox" value="${idl.user_id}">${idl.user_id}
 								</div>
