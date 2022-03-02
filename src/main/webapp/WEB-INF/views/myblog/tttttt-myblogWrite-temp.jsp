@@ -83,7 +83,6 @@
           
  </main>
 <div class="container" >
-	 <jsp:include page="myblogHeader.jsp"></jsp:include>
 
 	<!--  메인에 있는 좌측 (
 	개인정보 덩어리

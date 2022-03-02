@@ -30,7 +30,6 @@
 <body>
 <div class ="container">
 
-	<jsp:include page="myblogHeader.jsp"></jsp:include>
 	<h2>새로 글 수정하기</h2>
 	
 	<!--  메인에 있는 좌측 (

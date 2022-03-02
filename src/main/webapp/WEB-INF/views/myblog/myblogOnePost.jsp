@@ -176,6 +176,7 @@ function replyEditCancle(div) {
 </head>
 <body>
 <!-- ====== MAIN CONTENT ===== -->
+<%@ include file="../header.jsp" %>
     <main id="content" role="main">
         <div class="mb-5 mb-lg-8 pb-xl-1">
             <div class="mb-5 mb-lg-8 pb-xl-1">

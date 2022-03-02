@@ -33,7 +33,6 @@ function pagingFormSubmit(currentPage) {
 <body>
 <div class ="container">
 
-	 <jsp:include page="myblogHeader.jsp"></jsp:include>
 	
 	<!-- 개인블로그 이미지 -->
 	<div class="col-md-12" style="padding:0.3em 0em"><img src="../resources/img/myblogimg.jpeg" style="width:100%; opacity: 0.4;"></div>

@@ -8,10 +8,7 @@
 		    <!-- Required Meta Tags Always Come First -->
 			    <meta charset="utf-8">
 			    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-			    
-			  
-							    
-			
+	
 			    <!-- Favicon -->
 			    <link rel="shortcut icon" href="../../resources/assets/img/favicon.png">
 			
@@ -129,10 +126,6 @@
 	}
 	</script>
 	
-	
-	 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
-		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 				  
 	<script>
 	function auto_book_complete(){
@@ -164,10 +157,7 @@
 		}
 	</script>
 	
-	<script src="../resources/js/summernote/summernote-lite.js"></script>
-	<script src="../resources/js/summernote/lang/summernote-ko-KR.js"></script>
-
-	<link rel="stylesheet" href="../resources/css/summernote/summernote-lite.css">
+	
 		<script>
 	      $('.summernote').summernote({
 	        placeholder: '내용을 입력하세요',
