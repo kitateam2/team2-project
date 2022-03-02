@@ -35,7 +35,7 @@ public class MessageController {
 	MessageDAO dao;
 	
 	//쪽지 관련 상수 값 정의 
-	final int countPerPage = 5;			//페이지당 글 수
+	final int countPerPage = 4;			//페이지당 글 수
 	final int pagePerGroup = 5;				//페이지 이동 링크를 표시할 페이지 수
 
 	

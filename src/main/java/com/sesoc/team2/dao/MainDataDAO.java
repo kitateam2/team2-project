@@ -14,7 +14,7 @@ public class MainDataDAO {
 	@Autowired
 	SqlSession sqlSession;
 	
-//	//신작 도서 _메인페이지에 업데이트
+	//신작 도서 _메인페이지에 업데이트
 	public ArrayList<Book> insertdate() {
 		MainDataMapper mapper = sqlSession.getMapper(MainDataMapper.class);
 		ArrayList<Book> datelist = mapper.datelist();
@@ -22,10 +22,18 @@ public class MainDataDAO {
 	}
 	
 	//베스트 셀러 도서 _메인페이지에 업데이트
-		public ArrayList<Book> insertBest() {
-			MainDataMapper mapper = sqlSession.getMapper(MainDataMapper.class);
-			ArrayList<Book> bestlist = mapper.bestlist();
-			return bestlist;
-		}
+	public ArrayList<Book> insertBest() {
+		MainDataMapper mapper = sqlSession.getMapper(MainDataMapper.class);
+		ArrayList<Book> bestlist = mapper.bestlist();
+		return bestlist;
+	}
+		
+	//리워드 순 도서 _메인페이지에 업데이트
+	public ArrayList<Book> insertReward() {
+		MainDataMapper mapper = sqlSession.getMapper(MainDataMapper.class);
+		ArrayList<Book> rewardlist = mapper.rewardlist();
+		return rewardlist;
+	}
+
 
 }
