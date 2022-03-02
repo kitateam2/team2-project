@@ -46,30 +46,27 @@
                    
                   
         <c:if test="${sessionScope.loginId != null}">
-				<a href="${pageContext.request.contextPath}/logout" style="color:black;position: relative; top: 3px; font-size:16px; left:1210px;">로그아웃</a>
-				<a style="position: relative; top: 3px; font-size:16px; left:650px;">${sessionScope.loginId}님 환영합니다.</a>
-				<a href="${pageContext.request.contextPath}/updatemember" style="color:black; position: relative; top: 3px; font-size:16px; right:-380px;">회원정보수정</a>
+				<a href="${pageContext.request.contextPath}/logout" style="color:black;position: relative; top: 3px; font-size:16px; left:1000px;">로그아웃</a>
+				<a style="position: relative; top: 3px; font-size:16px; left:550px;">${sessionScope.loginId}님 환영합니다.</a>
+				<a href="${pageContext.request.contextPath}/updatemember" style="color:black; position: relative; top: 3px;">회원정보수정</a>
 		
 			</c:if>
-                    <ul class="topbar__nav--right nav mr-md-n3" style="position:relative; left:1280px;">
-                        <li class="nav-item"><a href="${pageContext.request.contextPath}/condition" class="nav-link link-black-100"><i class="fa fa-user-plus fa"></i></a></li>
+                    
                             <!-- Account Sidebar Toggle Button -->
                                <c:if test="${sessionScope.loginId == null}">
 				
+                        <a href="${pageContext.request.contextPath}/condition" style="position: relative; left:1300px;" class="nav-link link-black-100"><i class="fa fa-user-plus fa"></i></a>
 				
 			<font-awesome-icon icon="fa-regular fa-user-pen" />
                             <a id="sidebarNavToggler" href="${pageContext.request.contextPath}/login" role="button" class="nav-link link-black-100">
+                            
                                 
                                 <i class="glph-icon flaticon-user"></i>
                             </a>
                             </c:if>
                             <!-- End Account Sidebar Toggle Button -->
-                        </li>
-                        <li class="nav-item">
-                            <!-- Cart Sidebar Toggle Button -->
-                          
-                            <!-- End Cart Sidebar Toggle Button -->
-                        </li>
+                        
+                        
                     </ul>
                 </div>
             </div>
