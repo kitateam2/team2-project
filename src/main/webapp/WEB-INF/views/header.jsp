@@ -46,7 +46,7 @@
                    
                   
         <c:if test="${sessionScope.loginId != null}">
-				<a href="${pageContext.request.contextPath}/logout" style="color:black;position: relative; top: 3px; font-size:16px; left:1000px;">로그아웃</a>
+				<a href="${pageContext.request.contextPath}/logout" style="color:black;position: relative; top: 3px; font-size:16px; left:1100px;">로그아웃</a>
 				<a style="position: relative; top: 3px; font-size:16px; left:550px;">${sessionScope.loginId}님 환영합니다.</a>
 				<a href="${pageContext.request.contextPath}/updatemember" style="color:black; position: relative; top: 3px;">회원정보수정</a>
 		
