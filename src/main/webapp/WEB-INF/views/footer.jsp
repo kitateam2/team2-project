@@ -14,24 +14,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- CSS Bookworm Template -->
-<link rel="stylesheet" href="resources/assets/css/theme.css">
-   <link rel="stylesheet" href="resources/assets/vendor/font-awesome/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="resources/assets/vendor/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="resources/assets/vendor/animate.css/animate.css">
-    <link rel="stylesheet" href="resources/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="resources/assets/vendor/slick-carousel/slick/slick.css"/>
-     <link rel="stylesheet" href="resources/assets/css/theme.css">
-    <link rel="stylesheet" href="resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
-<link rel="stylesheet" href="resources/css/footer.css">
-<script src="resources/js/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/theme.css">
+   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/vendor/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/vendor/animate.css/animate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/vendor/slick-carousel/slick/slick.css"/>
+     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/theme.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/footer.css">
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <!-- JS Global Compulsory -->
-<script src="resources/assets/vendor/jquery/dist/jquery.min.js"></script>
-<script src="resources//assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
-<script src="resources/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-<script src="resources/assets/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/vendor/jquery/dist/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources//assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
 <!-- JS Bookworm -->
-<script src="resources/assets/js/hs.core.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/hs.core.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 
 </head>
@@ -240,24 +240,24 @@
     </footer>
     <!-- ========== END FOOTER ========== -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="resources/assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="resources/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
-    <script src="resources/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-    <script src="resources/assets/vendor/bootstrap/bootstrap.min.js"></script>
-    <script src="resources/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="resources/assets/vendor/slick-carousel/slick/slick.min.js"></script>
-    <script src="resources/assets/vendor/multilevel-sliding-mobile-menu/dist/jquery.zeynep.js"></script>
-    <script src="resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/vendor/slick-carousel/slick/slick.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/vendor/multilevel-sliding-mobile-menu/dist/jquery.zeynep.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 
 
     <!-- JS HS Components -->
-    <script src="resources/assets/js/hs.core.js"></script>
-    <script src="resources/assets/js/components/hs.unfold.js"></script>
-    <script src="resources/assets/js/components/hs.malihu-scrollbar.js"></script>
-    <script src="resources/assets/js/components/hs.header.js"></script>
-    <script src="resources/assets/js/components/hs.slick-carousel.js"></script>
-    <script src="resources/assets/js/components/hs.selectpicker.js"></script>
-    <script src="resources/assets/js/components/hs.show-animation.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/js/hs.core.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/js/components/hs.unfold.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/js/components/hs.malihu-scrollbar.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/js/components/hs.header.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/js/components/hs.slick-carousel.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/js/components/hs.selectpicker.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/js/components/hs.show-animation.js"></script>
 
     <!-- JS Bookworm -->
     <!-- <script src="../../assets/js/bookworm.js"></script> -->
