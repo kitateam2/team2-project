@@ -10,5 +10,7 @@ public interface MainDataMapper {
 	public ArrayList<Book> datelist();
 	//베스트셀러 도서
 	public ArrayList<Book> bestlist();
+	//베스트셀러 도서
+	public ArrayList<Book> rewardlist();
 
 }
