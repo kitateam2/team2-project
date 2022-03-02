@@ -46,19 +46,19 @@
                    
                   
         <c:if test="${sessionScope.loginId != null}">
-				<a href="logout" style="color:black;position: relative; top: 3px; font-size:16px; left:1210px;">로그아웃</a>
+				<a href="${pageContext.request.contextPath}/logout" style="color:black;position: relative; top: 3px; font-size:16px; left:1210px;">로그아웃</a>
 				<a style="position: relative; top: 3px; font-size:16px; left:650px;">${sessionScope.loginId}님 환영합니다.</a>
-				<a href="updatemember" style="color:black; position: relative; top: 3px; font-size:16px; right:-380px;">회원정보수정</a>
+				<a href="${pageContext.request.contextPath}/updatemember" style="color:black; position: relative; top: 3px; font-size:16px; right:-380px;">회원정보수정</a>
 		
 			</c:if>
                     <ul class="topbar__nav--right nav mr-md-n3" style="position:relative; left:1280px;">
-                        <li class="nav-item"><a href="condition" class="nav-link link-black-100"><i class="fa fa-user-plus fa"></i></a></li>
+                        <li class="nav-item"><a href="${pageContext.request.contextPath}/condition" class="nav-link link-black-100"><i class="fa fa-user-plus fa"></i></a></li>
                             <!-- Account Sidebar Toggle Button -->
                                <c:if test="${sessionScope.loginId == null}">
 				
 				
 			<font-awesome-icon icon="fa-regular fa-user-pen" />
-                            <a id="sidebarNavToggler" href="login" role="button" class="nav-link link-black-100">
+                            <a id="sidebarNavToggler" href="${pageContext.request.contextPath}/login" role="button" class="nav-link link-black-100">
                                 
                                 <i class="glph-icon flaticon-user"></i>
                             </a>
@@ -118,12 +118,12 @@
                            
                             
                             <li class="nav-item dropdown">
-                                <a id="shopDropdownInvoker" href="cart" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
+                                <a id="shopDropdownInvoker" href="${pageContext.request.contextPath}/cart" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Shop
                                 </a>
                                
                             <li class="nav-item">
-                                <a id="featuresDropdownInvoker" href="wish" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
+                                <a id="featuresDropdownInvoker" href="${pageContext.request.contextPath}/wish" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
                                     >
                                     wish
                                 </a>
@@ -152,7 +152,7 @@
                                                         <span class="d-block mb-1 font-size-7 font-weight-regular">Deals in </span>
                                                         <span class="d-block mb-2 font-size-10 text-primary font-weight-bold">Books</span>
                                                     </h3>
-                                                    <a href="#" class="d-block link-black-100 mb-6">Shop Now</a>
+                                                    <!-- <a href="#" class="d-block link-black-100 mb-6">Shop Now</a> -->
                                                     <div class="banner__image">
                                                         <img src="https://placehold.it/280x210" class="img-fluid" alt="image-description">
                                                     </div>
@@ -163,13 +163,13 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="blogDropdownInvoker" href="blogmain" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
+                                <a id="blogDropdownInvoker" href="${pageContext.request.contextPath}/blogmain" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Blog
                                 </a>
                             </li>
                              <c:if test="${sessionScope.loginId != null}">
                             <li class="nav-item dropdown">
-                                <a id="pagesDropdownInvoker" href="myblog/${sessionScope.loginId}" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
+                                <a id="pagesDropdownInvoker" href="${pageContext.request.contextPath}/myblog/${sessionScope.loginId}" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
                                     Myblog
                                 </a>
 
