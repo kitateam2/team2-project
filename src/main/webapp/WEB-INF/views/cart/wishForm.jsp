@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="resources/assets/css/theme.css">
 </head>
 <body>
-<%@ include file="header.jsp" %> 
+<%@ include file="../header.jsp" %> 
 <body class="right-sidebar woocommerce-cart">
 
     <div class="page-header border-bottom">
@@ -300,6 +300,6 @@
         
         <div>
       </div> --%>
-      <%@ include file = "footer.jsp" %>
+      <%@ include file = "../footer.jsp" %>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="header.jsp" %> 
+<%@ include file="../header.jsp" %> 
 	<div class="storefront-breadcrumb"><div class="col-full"><nav class="woocommerce-breadcrumb"><a href="https://themes.woocommerce.com/storefront">Home</a><span class="breadcrumb-separator"> / </span>Cart</nav></div></div>
 	<div id="content" class="site-content" tabindex="-1">
 		<div class="col-full">
@@ -35,6 +35,6 @@
 
 		</div><!-- .col-full -->
 	</div><!-- #content -->
-	 <%@ include file = "footer.jsp" %>
+	 <%@ include file = "../footer.jsp" %>
 </body>
 </html>

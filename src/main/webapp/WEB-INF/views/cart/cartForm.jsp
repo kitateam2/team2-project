@@ -10,7 +10,7 @@
 <body>
 
 <body class="right-sidebar woocommerce-cart">
-<%@ include file="header.jsp" %> 
+<%@ include file="../header.jsp" %> 
     <!--===== HEADER CONTENT =====-->
     
 
@@ -48,7 +48,7 @@
                                                     <th class="product-quantity">Quantity</th>
                                                     <th class="product-subtotal">번호</th>
                                                     <th class="product-subtotal">카트북넘버</th>
-                                                    <th class="product-remove">삭제수정</th>
+                                                    <th class="product-remove">수량변경 및 삭제</th>
                                                 </tr>
                                             </thead>
 
@@ -101,26 +101,14 @@
                                                     <td class="product-remove">
                                              
                                                         <a href="delete?cart_book_no=${cart.cart_book_no}" class="remove" aria-label="Remove this item">삭제</a>
-                                                        <input type="submit" value="수정">                                                            
+                                                        <input type="submit" value="수량변경">                                                            
                                                     </td>
                                                     </tr>
 													 </form>
                                                 </c:forEach>                             
-                                                <tr>
-                                                    <td colspan="5" class="actions">
-                                                        <!-- <div class="coupon">
-                                                            <label for="coupon_code">Coupon:</label>
-                                                            <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code" autocomplete="off"> <input type="submit" class="button" name="apply_coupon" value="Apply coupon">
-                                                        </div> -->
-
-                                                       
-
-                                                        <input type="hidden" id="_wpnonce" name="_wpnonce" value="db025d7a70"><input type="hidden" name="_wp_http_referer" value="/storefront/cart/">
-                                                    </td>
-                                                </tr>
                                             </tbody>
                                         </table>
-                                    </form>
+                                  
                                 </div>
                             </div>
                             <!-- .entry-content -->
@@ -218,7 +206,7 @@
                     </div>
                     <div class="wc-proceed-to-checkout">
 
-                        <a href="orderdetail?user_cart_no=${user_cart_no}" class="checkout-button button alt wc-forward btn btn-dark btn-block rounded-0 py-4">Proceed to checkout</a>
+                        <a href="orderdetail?user_cart_no=${user_cart_no}" onclick="aa()" id="aa" class="checkout-button button alt wc-forward btn btn-dark btn-block rounded-0 py-4">Proceed to checkout</a>
                     
                     </div>
                 </div>
@@ -245,11 +233,24 @@
     <script src="resources/assets/js/components/hs.slick-carousel.js"></script>
     <script src="resources/assets/js/components/hs.selectpicker.js"></script>
     <script src="resources/assets/js/components/hs.show-animation.js"></script>
+    <script>
+    	function aa() {
+    		var bb = document.getElementById('aa');
+    		if (aa < 1) {
+				alert('장바구니가 비었습니다');
+				return false;
+			}
+    		return true;
+    	}
+    	
+    	
+    	 
+    </script>
 
     <!-- JS Bookworm -->
     <!-- <script src="../../assets/js/bookworm.js"></script> -->
    
-    <%@ include file = "footer.jsp" %>
+    <%@ include file = "../footer.jsp" %>
 </body>
  <%-- <div class="container">
         <div class="tab"></div>
