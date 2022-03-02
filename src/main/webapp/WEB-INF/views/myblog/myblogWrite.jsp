@@ -201,7 +201,7 @@
 			enctype="multipart/form-data" onsubmit="return post_formCheck()">
                     <div class="mb-5 mb-lg-8">
                         <h6 class="font-weight-medium font-size-4 mb-4 pb-1">Title</h6>
-                        <input class="list-unstyled mb-0" type="text" name="post_title" id="post_title" placeholder="제목을 입력하세요">
+                        <input class="list-unstyled mb-0" type="text" name="post_title" id="post_title" style="width:30%" placeholder="제목을 입력하세요">
                         
                     </div>
                     <div class="mb-5 mb-lg-9">
@@ -214,7 +214,7 @@
                     </div>
                     <div class="mb-5 mb-lg-10">
                         <h6 class="font-weight-medium font-size-4 mb-4 pb-1">About Book</h6>
-                        <input type="text" onkeyup="javascript:auto_book_complete();" name="post_book_title" id="post_book_title" placeholder="영감을 준 책 제목">
+                        <input type="text" onkeyup="javascript:auto_book_complete();" name="post_book_title" id="post_book_title" style="width:30%" placeholder="영감을 준 책 제목">
 
                     </div>
                         <button class="btn btn-dark btn-wide rounded-0 transition-3d-hover" type="submit" id="post_save">글 저장하기</button>

@@ -227,14 +227,7 @@ function replyEditCancle(div) {
                                     <div class="js-slick-carousel u-slick u-slick--gutters-3 my-5 my-lg-8">
                                 
                                     <img src="../${one_post.user_id}/show_file?post_no=${one_post.post_no}">
-                                    <div class="bg-img-hero min-height-350" style="background-image: url(https://placehold.it/393x350);">
-                                    </div>
-
-                                    <div class="bg-img-hero min-height-350" style="background-image: url(https://placehold.it/393x350);">
-                                    </div>
-
-                                    <div class="bg-img-hero min-height-350" style="background-image: url(https://placehold.it/393x350);">
-                                    </div>
+                                  
                                     </div>
                                 </c:if>		
                                  <!-- End Images Carousel -->

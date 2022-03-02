@@ -98,20 +98,19 @@
 
 			var div = document.getElementById("message_new_form");
 
-			var str = '<div>';
+			var str = '<div class="message-box">';
 			
-				str += '쪽지 보내기';
 				str += '<form id="message_new" action="new" method="post" onsubmit="return message_new_formCheck()">';
 				str += '<table>';
 				str += '<tr>';
 				str += '<td>';
 				str += '<table>';
 				str += '<tr>';
-				str += '<td>발신인  </td>';
-				str += '<td colspan="2">${sessionScope.loginId}</td>';
+				str += '<td><p class="ppp">발신인</p></td>';
+				str += '<td colspan="2"><p class="ppp"> : ${sessionScope.loginId}</p></td>';
 				str += '</tr>';
 				str += '<tr>';
-				str += '<td><label for = "message_recv_id">수신인</label> </td>';
+				str += '<td><label for = "message_recv_id"><p class="ppp">수신인</p></label> </td>';
 				str += '<td><input type="text" onkeyup="javascript:auto_recv_complete();" name="message_recv_id" id="message_recv_id" placeholder="받는 분 아이디"/>';
 				str += '</td>';
 				str += '<td><%= sf2.format(nowTime) %></td>';
@@ -122,7 +121,7 @@
 				str += '<tr>';
 				str += '<td><textarea name="message_contents" id="message_contents" rows="15" style="width:100%"></textarea></td>';
 				str += '</tr>';
-				str += '<tr><td><input type="submit" value="보내기"></td></tr>';
+				str += '<tr><td><div style="text-align:center;"><input type="submit" class="btn btn-dark btn-wide rounded-0 transition-3d-hover" value="보내기"></div></td></tr>';
 				str += '</table>';
 				str += '</form><!-- 쪽지 보내기 폼 -->';
 				str += '</div>';
