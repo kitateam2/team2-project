@@ -62,6 +62,11 @@ public class MemberController {
 			logger.info("{}",session.getAttribute("loginId"));
 			String referer = (String) session.getAttribute("referer");
 			session.removeAttribute("referer");
+			String chatmain = (String) session.getAttribute("chatmain");
+			if(chatmain!=null) {
+				session.removeAttribute("chatmain");
+				return "redirect:/chatmain";
+			}
 			return "redirect:" + referer;
 		}		
 		

@@ -983,8 +983,8 @@
 				<a class="cd-faq__trigger" href="#0"><span>관리자와의 채팅으로 연결해주세요</span></a>
 				<div class="cd-faq__content">
           <div class="text-component">
-            <a href="chatView">전체채팅</a><br>
-            <a href="chatadmin?roomid1=admin,${sessionScope.loginId}">관리자 1:1문의222</a><br>
+            <!-- <a href="chatView">전체채팅</a><br> -->
+            <a href="chatadmin?roomid1=admin,${sessionScope.loginId}">관리자 1:1문의</a><br>
             
           </div>
 				</div> <!-- cd-faq__content -->
