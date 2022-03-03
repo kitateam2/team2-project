@@ -11,6 +11,7 @@ public class BlogPost {
 	private String user_id;
 	private String post_book_isbn;
 	private String post_book_title;
+	private String post_contents_sub;
 	
 	
 	public BlogPost() {
@@ -117,14 +118,24 @@ public class BlogPost {
 	}
 
 
+	public String getPost_contents_sub() {
+		return post_contents_sub;
+	}
+
+
+	public void setPost_contents_sub(String post_contents_sub) {
+		this.post_contents_sub = post_contents_sub;
+	}
+
+
 	@Override
 	public String toString() {
 		return "BlogPost [post_no=" + post_no + ", post_title=" + post_title + ", post_contents=" + post_contents
 				+ ", post_uploaddate=" + post_uploaddate + ", post_hits=" + post_hits + ", post_originalfile="
 				+ post_originalfile + ", post_savedfile=" + post_savedfile + ", user_id=" + user_id
-				+ ", post_book_isbn=" + post_book_isbn + ", post_book_title=" + post_book_title + "]";
+				+ ", post_book_isbn=" + post_book_isbn + ", post_book_title=" + post_book_title + ", post_contents_sub="
+				+ post_contents_sub + "]";
 	}
 
-	
 	
 }

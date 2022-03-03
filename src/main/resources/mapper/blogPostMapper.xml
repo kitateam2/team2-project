@@ -45,7 +45,17 @@
   	<!-- 게시글 목록 읽기 -->
   	<select id="postlist" parameterType="map" resultType="BlogPostVO">
   		select
-  			*
+  			POST_NO
+,   POST_TITLE
+,   POST_CONTENTS
+,   POST_UPLOADDATE
+,   POST_HITS
+,   POST_ORIGINALFILE
+,   POST_SAVEDFILE
+,   USER_ID
+,   POST_BOOK_ISBN
+,   POST_BOOK_TITLE
+, substr(post_contents,0, 600) as post_contents_sub
   		from
   			blog_post
   		where
