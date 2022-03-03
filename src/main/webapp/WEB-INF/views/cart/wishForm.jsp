@@ -56,7 +56,6 @@
                                         <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents">
                                             <thead>
                                                 <tr>
-                                                    <th  class="product-name">위시넘버</th>
                                                     <th class="product-price">책제목</th>                 
                                                     <th class="product-subtotal">번호</th>
                                                     <th class="product-subtotal"></th>
@@ -69,16 +68,7 @@
                                             <tbody>
                                             <c:forEach var="wish" items="${userwishlist}"> 
                                                 <tr class="woocommerce-cart-form__cart-item cart_item">
-                                                    <td  class="product-name" data-title="Product">
-                                                        <div class="d-flex align-items-center">
-                                                            <a href="#">
-                                                                <img src="https://placehold.it/80x120" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
-                                                            </a>
-                                                            <div class="ml-3 m-w-200-lg-down">                                                            
-                                                                ${wish.user_wishlist_no}                                                        
-                                                            </div>
-                                                        </div>
-                                                    </td>
+       
                                                     <td class="product-price" data-title="Price">                                      
                                                          
                                                          ${wish.book_title}
