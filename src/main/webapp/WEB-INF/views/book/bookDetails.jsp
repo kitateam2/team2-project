@@ -474,7 +474,7 @@
                                         <!-- End Quantity -->
                                     </div>
 								<div class="product__hover d-flex align-items-center" value="${book.book_isbn}">
-                                    <button name="add-to-cart" value="7145" class="btn btn-dark border-0 rounded-0 p-3 min-width-250 ml-md-4 single_add_to_cart_button button alt" onclick="bt1Click('${book.book_isbn}');">Add to cart</button>&nbsp;&nbsp;&nbsp;
+                                    <a name="add-to-cart" value="7145" class="btn btn-dark border-0 rounded-0 p-3 min-width-250 ml-md-4 single_add_to_cart_button button alt" onclick="bt1Click('${book.book_isbn}');" style="color:white;">Add to cart</a>&nbsp;&nbsp;&nbsp;
 									 <input type="hidden" id="book_isbn_param${status.count}" value="${book.book_isbn}">
 									 <a href="#" onclick="bt2Click('${book.book_isbn}');" class="fa fa-heart fa"> Add to Wishlist</a>
                                 </div>

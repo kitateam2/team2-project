@@ -36,14 +36,15 @@ public class GradeController {
 			return idnull;
 		}
 		System.out.println("id널아닐때");
-		User_infoVO user_id = memberdao.getMember(object);		
+		User_infoVO user_id = memberdao.getMember(object);			
 		User_infoVO member = new User_infoVO();
-		member.setUser_id(user_id.getUser_id());
+		member.setUser_id(user_id.getUser_id());		
 		Integer grade = gradedao.grade(member);
+		logger.info("{}", grade);
 		if(grade == null) {
 			System.out.println("grade(총합)널일때");
-			String idnull = "null";
-			return idnull;
+			String color = "Bronze";
+			return color;
 		}
 		String color; 		
 		if(grade >= 500000) {
