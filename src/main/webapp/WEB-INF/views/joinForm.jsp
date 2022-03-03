@@ -62,9 +62,9 @@
     cursor: pointer;
   }
   .check {
-  position: fixed; 
-  top: 53px; 
-  right: 500px;;
+  position: relative; 
+  top: -357px; 
+  right: 78px;;
   }
  
   
