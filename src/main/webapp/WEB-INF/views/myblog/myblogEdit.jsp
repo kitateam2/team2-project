@@ -196,17 +196,17 @@
                         <h6 class="font-weight-medium font-size-7 font-size-xs-25 text-center">Post Edit</h6>
                     </div>
 
-                    <form id="post_write" action="post_write" method="post"
+                    <form id="post_write" action="post_edit" method="post"
 			enctype="multipart/form-data" onsubmit="return post_formCheck()">
 					<input type="hidden" name="post_no" value="${blogpost.post_no}">
                     <div class="mb-5 mb-lg-8">
                         <h6 class="font-weight-medium font-size-4 mb-4 pb-1">Title</h6>
-                        <input class="list-unstyled mb-0" type="text" name="post_title" id="post_title" style="width:30%" placeholder="제목을 입력하세요">
+                        <input class="list-unstyled mb-0" type="text" name="post_title" id="post_title" style="width:30%" placeholder="${blogpost.post_title}" value="${blogpost.post_title}">
                         
                     </div>
                     <div class="mb-5 mb-lg-9">
                         <h6 class="font-weight-medium font-size-4 mb-4 pb-1">Contents</h6>
-                        <textarea rows="10" cols="10" class="summernote" id="post_contents" name="post_contents" style="width:100%"></textarea>
+                        <textarea rows="10" cols="10" class="summernote" id="post_contents" name="post_contents" style="width:100%">${blogpost.post_contents}</textarea>
                     </div>
                     <div class="mb-5 mb-lg-10">
                         <h6 class="font-weight-medium font-size-4 mb-4 pb-1">File</h6>
@@ -214,7 +214,7 @@
                     </div>
                     <div class="mb-5 mb-lg-10">
                         <h6 class="font-weight-medium font-size-4 mb-4 pb-1">About Book</h6>
-                        <input type="text" onkeyup="javascript:auto_book_complete();" name="post_book_title" id="post_book_title" style="width:30%" placeholder="영감을 준 책 제목">
+                        <input type="text" onkeyup="javascript:auto_book_complete();" name="post_book_title" id="post_book_title" style="width:30%" placeholder="영감을 준 책 제목" value="${blogpost.post_book_title}">
 
                     </div>
                         <button class="btn btn-dark btn-wide rounded-0 transition-3d-hover" type="submit" id="post_save">글 저장하기</button>
