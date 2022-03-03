@@ -62,22 +62,6 @@ public class BlogMainController {
 			ArrayList<Follow> bloglist = blogmaindao.bloglist();
 			model.addAttribute("bloglist", bloglist);
 			
-			String object = (String) session.getAttribute("loginId");
-			if (object == null) {
-				return "blogmain/blogmainForm";
-			}
-			User_infoVO user_id = memberdao.getMember(object);
-			BlogMain blogmain = new BlogMain();
-			blogmain.setUser_id(user_id.getUser_id());
-			Integer grade = blogmaindao.grade(blogmain);
-			if(grade >= 500000) {
-				model.addAttribute("grade", "gold");
-			} else if(grade < 500000 && grade >= 100000) {
-				model.addAttribute("grade", "silver");
-			} else {
-				model.addAttribute("grade", "bronze");
-			}
-			
 			return "blogmain/blogmainForm";
 		}
 }

@@ -39,7 +39,12 @@ public class GradeController {
 		User_infoVO user_id = memberdao.getMember(object);		
 		User_infoVO member = new User_infoVO();
 		member.setUser_id(user_id.getUser_id());
-		Integer grade = gradedao.grade(member);		
+		Integer grade = gradedao.grade(member);
+		if(grade == null) {
+			System.out.println("grade(총합)널일때");
+			String idnull = "null";
+			return idnull;
+		}
 		String color; 		
 		if(grade >= 500000) {
 			color = "Gold";	

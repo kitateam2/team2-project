@@ -15,6 +15,5 @@ public interface BlogMainMapper {
 	public ArrayList<BlogMain> postlist();
 	
 	public ArrayList<Follow> bloglist();
-	
-	public Integer grade(BlogMain blogmain);
+
 }
