@@ -121,6 +121,7 @@
     
   //bt1 버튼 클릭했을때 실행될 함수
     function bt1Click(n){
+	 	alert(n);
     	alert('장바구니 이동');
     	$.ajax({
     		url:'ajaxcart',
@@ -133,6 +134,7 @@
     }
 
     function bt2Click(n){
+    	alert(n);
     	alert('위시리스트이동');
     	$.ajax({
     		url:'ajaxwishlist',
@@ -559,7 +561,7 @@
                                         </div>
                                         <!-- End Quantity -->
                                     </div>
-								<div class="product__hover d-flex align-items-center" style="value="${book.book_isbn}">
+								<div class="product__hover d-flex align-items-center" value="${book.book_isbn}">
                                     <button name="add-to-cart" value="7145" class="btn btn-dark border-0 rounded-0 p-3 min-width-250 ml-md-4 single_add_to_cart_button button alt" onclick="bt1Click('${book.book_isbn}');">Add to cart</button>&nbsp;&nbsp;&nbsp;
 									 <input type="hidden" id="book_isbn_param${status.count}" value="${book.book_isbn}">
 									 <a href="#" onclick="bt2Click('${book.book_isbn}');" class="fa fa-heart fa"> Add to Wishlist</a>

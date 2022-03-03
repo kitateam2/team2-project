@@ -211,10 +211,10 @@ function replyEditCancle(div) {
                             <div class="ml-xl-4">
                                 <div class="mb-5 mb-lg-7">
                                     <div class="mb-2">
-                                        <span class="font-size-2 text-primary">${one_post.user_id} (글쓴이)</span>
+                                        <span class="font-size-2 text-primary">${one_post.user_id}</span>
                                     </div>
                                     <h6 class="font-size-10 crop-text-2 font-weight-medium text-lh-1dot4">
-                                        ${one_post.post_title}(제목)
+                                        ${one_post.post_title}
                                     </h6>
                                     <div class="font-size-2 text-secondary-gray-700">
                                         <span>작성일 : ${one_post.post_uploaddate}</span>
@@ -232,10 +232,10 @@ function replyEditCancle(div) {
                                 </c:if>		
                                  <!-- End Images Carousel -->
                                 <c:if test="${one_post.post_book_title != null}">
-                                            <p class="font-weight-medium">source : ${one_post.post_book_title} 관련된 책이 있으면 책이 보이게orem ipsum dolor  sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus mollis et.
+                                            <p class="font-weight-medium">${one_post.post_book_title} sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus mollis et.
                                             </p>
                                 </c:if>
-                                <p class="font-size-2 text-lh-1dot72 mb-4">${one_post.post_contents} 내용 Mauris tempus erat laoreet turpis lobortis, eu tincidunt erat fermentum. Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. Proin sed ultrices erat. Praesent varius ultrices massa at faucibus. Aenean dignissim, orci sed faucibus pharetra, dui mi dignissim tortor, sit amet condimentum mi ligula sit amet augue. Pellentesque vitae eros eget enim mollis placerat. Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. Proin sed ultrices erat. Praesent varius ultrices massa at faucibus. Aenean dignissim, orci sed faucibus pharetra, dui mi dignissim tortor, sit amet condimentum mi ligula sit amet augue. Pellentesque vitae eros eget enim mollis placerat.</p>
+                                <p class="font-size-2 text-lh-1dot72 mb-4">${one_post.post_contents} Mauris tempus erat laoreet turpis lobortis, eu tincidunt erat fermentum. Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. Proin sed ultrices erat. Praesent varius ultrices massa at faucibus. Aenean dignissim, orci sed faucibus pharetra, dui mi dignissim tortor, sit amet condimentum mi ligula sit amet augue. Pellentesque vitae eros eget enim mollis placerat. Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. Proin sed ultrices erat. Praesent varius ultrices massa at faucibus. Aenean dignissim, orci sed faucibus pharetra, dui mi dignissim tortor, sit amet condimentum mi ligula sit amet augue. Pellentesque vitae eros eget enim mollis placerat.</p>
                              </div>
                         </div>
                     </div>
