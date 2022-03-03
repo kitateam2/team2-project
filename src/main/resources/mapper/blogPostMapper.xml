@@ -151,6 +151,7 @@
 			, post_comment_writter
 	 		, post_comment_content
 	 		, to_char(post_comment_date, 'YYYY-MM-DD') post_comment_date
+	 		, post_comment_like
 	 	from
 	 		post_comment
 	 	where

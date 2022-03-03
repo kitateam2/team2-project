@@ -257,15 +257,15 @@ function replyEditCancle(div) {
                                     <li class="mb-4 pb-5 border-bottom">
                                         <div class="d-md-flex align-items-center mb-3">
                                         </div>
-                                        <p class="mb-4 text-lh-md">${post_comment.post_comment_content}I read this book shortly after I got it and didn't just put it on my TBR shelf mainly because I saw it on Reese Witherspoon's bookclub September read. It was one of the best books I've read this year, and reminded me some of Kristen Hannah's The Great Alone. </p>
+                                        <p class="mb-4 text-lh-md">${post_comment.post_comment_content}</p>
                                         <div class="text-gray-600 mb-4">${post_comment.post_comment_writter}, February 22, 2020 </div>
                                         <ul class="nav">
                                             <li class="mr-5 mr-md-7">
                                                 <c:if test="${loginId != post_comment.post_comment_writter}">
-	                                                <a onclick="javascript:post_comment_like(${post_comment.post_comment_no}, ${post_comment.post_no} class="text-gray-600 d-flex align-items-center">
-	                                                    <i class="text-dark font-size-5 flaticon-like-1"></i>
-	                                                    <span class="ml-2"></span>
+	                                                <a onclick="javascript:post_comment_like(${post_comment.post_comment_no}, ${post_comment.post_no})">
+	                                                    <i  class="text-dark font-size-5 flaticon-like-1"></i>
 	                                                </a>
+	                                                    <span class="ml-2">${post_comment.post_comment_like}</span>
                                                  </c:if>
                                              </li>
                                              <li class="mr-5 mr-md-7">
