@@ -170,9 +170,9 @@ public class CartDAO {
 		return result;
 		
 	}
-	public int deletewishcart() {
+	public int deletewishcart(cart_book cartbook) {
 		CartMapper mapper = sqlSession.getMapper(CartMapper.class);
-		int result = mapper.deletewishcart();
+		int result = mapper.deletewishcart(cartbook);
 		return result;
 		
 	}

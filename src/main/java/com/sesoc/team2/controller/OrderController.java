@@ -137,7 +137,7 @@ import com.sesoc.team2.vo.User_infoVO;
 				logger.debug("user_cart_no1ddddd : {} ", cartbook);
 				 cartbook.setUser_cart_no(user_cart_no1);
 				dao.gocartinsert(cartbook);
-				dao.deletewishcart();
+				dao.deletewishcart(cartbook);
 			 
 			 return "redirect:/cart"; 
 			  

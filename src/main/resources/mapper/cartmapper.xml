@@ -192,13 +192,15 @@ order_detail_seq.nextval
 	from
 		user_wishlist
 	where
-		user_wish_no = #{user_wish_no}
+		user_wishlist_no = #{user_wishlist_no}
 </delete>
 
-<delete id="deletewishcart" parameterType="int" >
+<delete id="deletewishcart" parameterType="cart_bookVO" >
 	delete
 	from
 		user_wishlist
+	where
+	book_isbn = #{book_isbn}
 </delete>
 
 <delete id="deleteorderdetail" parameterType="int" >

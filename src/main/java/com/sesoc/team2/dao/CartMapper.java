@@ -67,7 +67,7 @@ public interface CartMapper {
 
 	void deletewishlist(cart_book cartbook);
 
-	int deletewishcart();
+	/* int deletewishcart(cart_book cartbook); */
 
 	int deleteorderdetail();
 
@@ -76,6 +76,8 @@ public interface CartMapper {
 	int ordername(Order_list order_list);
 
 	int orderphone(Order_list order_list);
+
+	int deletewishcart(cart_book cartbook);
 
 	
 

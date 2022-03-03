@@ -111,10 +111,10 @@
                                                     <td class="product-remove">
                                              
                                                        <a href="gocart?book_isbn=${wish.book_isbn}">장바구니이동</a>
-                                                       <a href="deletewish?user_wish_no=${wish.user_wish_no}">삭제</a>                                                          
+                                                                                                               
                                                     </td>
                                                     <td class="product-remove">
-                                             	
+                                             	<a href="deletewish?user_wish_no=${wish.user_wishlist_no}">삭제</a>  
                                                   
                                                     </td>
                                                     </tr>
