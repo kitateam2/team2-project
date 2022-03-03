@@ -409,13 +409,7 @@
                                         <a href="latest_up">The Latest</a>
                              
                                     </li>
-                                    <li class="cat-item cat-item-11 cat-parent"><a href="../shop/v7.html">Music</a>
-                                        <ul class="children">
-                                            <li class="cat-item cat-item-15"><a href="#/music/albums/">Albums</a></li>
-                                            <li class="cat-item cat-item-100"><a href="#/music/mp3/">MP3</a></li>
-                                            <li class="cat-item cat-item-13"><a href="#/music/singles/">Singles</a></li>
-                                        </ul>
-                                    </li>
+                  
                          
                                 </ul>
                             </div>

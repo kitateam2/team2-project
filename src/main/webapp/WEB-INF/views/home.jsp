@@ -281,9 +281,7 @@ function bt1Click(n){
                 <li class="nav-item mx-5 mb-1 flex-shrink-0 flex-md-shrink-1">
                     <a class="nav-link px-0" id="onsale-tab" data-toggle="tab" href="#onsale" role="tab" aria-controls="onsale" aria-selected="false">고객 리뷰순</a>
                 </li>
-                <li class="nav-item mx-5 mb-1 flex-shrink-0 flex-md-shrink-1">
-                    <a class="nav-link px-0" id="mostviewed-tab" data-toggle="tab" href="#mostviewed" role="tab" aria-controls="mostviewed" aria-selected="false">Most Viewed</a>
-                </li>
+              
             </ul>
             <div class="tab-content" id="featuredBooksContent">
                 <div class="tab-pane fade show active" id="featured" role="tabpanel" aria-labelledby="featured-tab">
