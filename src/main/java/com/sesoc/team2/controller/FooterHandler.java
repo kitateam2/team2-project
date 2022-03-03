@@ -58,18 +58,20 @@ public class FooterHandler extends AbstractWebSocketHandler {
 				if("chat".equals(cmd) && boardWriterSession != null ) {
 					TextMessage tmpMsg = new TextMessage(sender + "님의 메세지가 " 
 							+ "<a onclick=\"window.open('chatting?roomid=" + index 
-							+ "','','width=500,height=600,top=200,left=1000,toolbar=no,menubar=no,scrollbars=1,resizable=1')\" style=\"text-decoration:none;\">"
+							+ "','','width=500,height=600,top=200,left=1000,toolbar=no,menubar=no,scrollbars=1,resizable=1')\">"
 							+ index + "</a>채팅방에 도착했습니다." );
 					boardWriterSession.sendMessage(tmpMsg);
-				}
+				}//style=\"text-decoration:none;\"
 				else if("reply".equals(cmd) && boardWriterSession != null ) {
-					TextMessage tmpMsg = new TextMessage(sender + "님이 " + index + "번 게시글에 댓글을 달았습니다." );
+					TextMessage tmpMsg = new TextMessage(sender + "님이 " + "<a href=\"myblog/" + receiver + "/one_post?post_no=" + index + "\">"
+							+ index + "</a>" + "번 게시글에 댓글을 달았습니다." );
+					System.out.println(tmpMsg);
 					boardWriterSession.sendMessage(tmpMsg);
 				}
 				else if("admin".equals(cmd) && boardWriterSession != null ) {
 					TextMessage tmpMsg = new TextMessage(sender + "님의 메세지가 " 
 							+ "<a onclick=\"window.open('chatadmin?roomid1=" + index 
-							+ "','','width=500,height=600,top=200,left=1000,toolbar=no,menubar=no,scrollbars=1,resizable=1')\" style=\"text-decoration:none;\">"
+							+ "','','width=500,height=600,top=200,left=1000,toolbar=no,menubar=no,scrollbars=1,resizable=1')\">"
 							+ index + "</a>help에 도착했습니다." );
 					boardWriterSession.sendMessage(tmpMsg);
 				}

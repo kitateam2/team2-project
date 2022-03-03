@@ -36,6 +36,9 @@ public class EchoHandler extends AbstractWebSocketHandler {
 		logger.info("서버측 수신 : {}, ID: {}", message.getPayload(), session.getId());
 		Map<String, Object> map = session.getAttributes();
 		String userId = (String)map.get("userId");
+		if(userId==null) {
+			userId = "notloginedyoushouldlogintouseralert";
+		}
 		
 		TextMessage msg = new TextMessage(userId + "," + message.getPayload());
 		for(WebSocketSession ss: list) {

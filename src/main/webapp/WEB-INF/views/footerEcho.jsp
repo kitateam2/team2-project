@@ -38,21 +38,7 @@ function receiveMessage(msg) {
 	setTimeout( function(){
 		$socketAlert.css('display','none');
 	}, 4000);
-	/* var message = msg.data;
-	var messageArray = message.split(",");
-	var id = messageArray[0];
-	var content = messageArray[1];
-	var LR = ("${sessionScope.loginId}" == id)? "me-chat" : "friend-chat";
-	let today = new Date();   
- 
-	let hours = today.getHours(); // 시
-	let minutes = today.getMinutes();  // 분
-	hours = (hours > 12) ? "오후 " + (hours-12) : "오전 " + hours; 
 	
-	var appendMsg = '<div class="' + LR + '"><div class="' + LR + '-col"><div class="profile-name">' + id +
-					'</div><div class="balloon">' + content + '</div></div>' + 
-					'<time>' + hours + ':' + minutes + '</time></div>';
-	$('.main-chat').append(appendMsg); */
 }
 
 </script>
