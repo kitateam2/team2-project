@@ -305,7 +305,10 @@ function getColor() {
 		success: function(ob) {
 			if(ob == "null") {				
 								
-			} else {			
+			} else {
+				if(ob == "Gold") {$("#grade").css("color", "gold");}
+				else if(ob == "Silver") {$("#grade").css("color", "silver");}
+				else {$("#grade").css("color", "brown");}
 			$("#grade").html(ob);}		
 		},
 		error: function(e) {

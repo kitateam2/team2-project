@@ -18,4 +18,6 @@ public interface MainDataMapper {
 	public ArrayList<Book> bestRating();
 	//최신 도서 리스트업
 	public ArrayList<Book> latest();
+	//뉴스레터 이메일 입력
+	public int insert_email(String bookEmail);
 }

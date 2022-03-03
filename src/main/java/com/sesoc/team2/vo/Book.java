@@ -12,6 +12,7 @@ public class Book {
 	private String book_inputdate; 				//출판일자
 	private int book_stock;						//책 재고량
 	private int book_reward;					//책 추천수
+	private String book_email;					//고객 이메일
 
 	public Book() {	
 	}
@@ -104,13 +105,26 @@ public class Book {
 		this.book_reward = book_reward;
 	}
 
+	
+	public String getBook_email() {
+		return book_email;
+	}
+
+	public void setBook_email(String book_email) {
+		this.book_email = book_email;
+	}
+
 	@Override
 	public String toString() {
 		return "Book [book_no=" + book_no + ", book_title=" + book_title + ", book_isbn=" + book_isbn + ", book_author="
 				+ book_author + ", book_public=" + book_public + ", book_price=" + book_price + ", book_image="
 				+ book_image + ", book_contents=" + book_contents + ", book_inputdate=" + book_inputdate
-				+ ", book_stock=" + book_stock + ", book_reward=" + book_reward + "]";
+				+ ", book_stock=" + book_stock + ", book_reward=" + book_reward + ", book_email=" + book_email + "]";
 	}
+	
+	
+
+	
 
 }
 

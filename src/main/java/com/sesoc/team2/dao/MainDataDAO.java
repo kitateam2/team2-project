@@ -57,6 +57,11 @@ public class MainDataDAO {
 		return latest;
 		}
 
-	
+	//뉴스레터 이메일 _DB에 입력
+	public int insert_email(String bookEmail) {
+		MainDataMapper mapper = sqlSession.getMapper(MainDataMapper.class);
+		int result = mapper.insert_email(bookEmail);
+		return result;
+		}
 
 }
