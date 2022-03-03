@@ -38,6 +38,7 @@
 		<mapper resource="mapper/serviceMapper.xml" />
 		<mapper resource="mapper/reviewMapper.xml" />
 		<mapper resource="mapper/mainDataMapper.xml" />
+		<mapper resource="mapper/gradeMapper.xml" />
 		
 	</mappers>
 </configuration>
