@@ -306,8 +306,8 @@ function getColor() {
 			if(ob == "null") {				
 								
 			} else {
-				if(ob == "Gold") {$("#grade").css("color", "gold");}
-				else if(ob == "Silver") {$("#grade").css("color", "silver");}
+				if(ob == "Gold") {$("#grade").css("color", "goldenrod");}
+				else if(ob == "Silver") {$("#grade").css("color", "grey");}
 				else {$("#grade").css("color", "brown");}
 			$("#grade").html(ob);}		
 		},
