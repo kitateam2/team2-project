@@ -43,9 +43,9 @@
                                         <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents">
                                             <thead>
                                                 <tr>
-                                                    <th  class="product-name">Product</th>
-                                                    <th class="product-price">Price</th>
-                                                    <th class="product-quantity">Quantity</th>
+                                                    <th  class="product-name">책제목</th>
+                                                    <th class="product-price">가격</th>
+                                                    <th class="product-quantity">수량</th>
                                                     <th class="product-subtotal">번호</th>
                                                     <th class="product-subtotal">카트북넘버</th>
                                                     <th class="product-remove">삭제</th>

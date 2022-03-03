@@ -138,7 +138,7 @@ function bt1Click(n){
                         
                             <div style="position:relative; top:-50px;"class="col-lg-12 col-wd-12 mb-4 mb-lg-0">
                            
-                                <img class="img-fluid" src="resources/img/KakaoTalk_20220302_144747131.png" alt="image-description">
+                                <img class="img-fluid" src="resources/img/KakaoTalk_20220303_090003699.png" alt="image-description">
                             </div>
                             
                             
