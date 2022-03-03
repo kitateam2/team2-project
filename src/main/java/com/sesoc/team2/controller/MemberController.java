@@ -46,8 +46,10 @@ public class MemberController {
 	
 	//로그인
 	@RequestMapping (value="login", method=RequestMethod.GET)
-	public String loginForm() {
-		
+	public String loginForm(HttpSession session, HttpServletRequest request) {
+		String referer = request.getHeader("Referer");
+		System.out.println("referererere: "+referer);
+		session.setAttribute("referer", referer);
 		return "loginForm";
 	}
 	
@@ -58,7 +60,9 @@ public class MemberController {
 		if (resultMember != null && member.getUser_pw().equals(resultMember.getUser_pw())) {
 			session.setAttribute("loginId", member.getUser_id());
 			logger.info("{}",session.getAttribute("loginId"));
-			return "redirect:/";
+			String referer = (String) session.getAttribute("referer");
+			session.removeAttribute("referer");
+			return "redirect:" + referer;
 		}		
 		
 		
