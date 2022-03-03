@@ -63,6 +63,21 @@ function sendMessage(evt) {
 	 }
      else
          socket.send(msg);
+     
+     /* 채팅 DB에 저장 */
+     var insertchat = "${sessionScope.loginId}" + '/' + msg + '/' + time + '/' + roomid1;
+	 $.ajax({
+		url : "insertchat",
+		type : "POST", 
+		data : {"insertchat":insertchat}, 			
+		success: function(){
+			console.log(insertchat); 
+		},
+		error:function(request,status,error){
+		       alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); 
+		   }
+	 });	
+		
      console.log("sendmessage끝");
      $("html").scrollTop($(document).height());
 }
@@ -88,19 +103,6 @@ function connectStomp() {
 			'<time>' + time + '</time></div>';
 			
 			$('.main-chat').append(appendMsg);
-			
-			var insertchat = id + '/' + new_chat + '/' + time + '/' + roomid1;
-			$.ajax({
-				url : "insertchat",
-				type : "POST", 
-				data : {"insertchat":insertchat}, 			
-				success: function(){
-					console.log(insertchat); 
-				},
-				error:function(request,status,error){
-			        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); 
-			    }
-			 });	
 			
 			$("html").scrollTop($(document).height());
         });

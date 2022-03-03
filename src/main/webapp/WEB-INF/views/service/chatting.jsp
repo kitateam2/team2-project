@@ -15,7 +15,6 @@
 var socket = null;
 var isStomp = false;
 var roomid = "${roomid}";
-alert(roomid);
 var roomidlist = roomid.split(',');
 for(var i=0; i<roomidlist.length; i++){
 	if(roomidlist[i] === "${sessionScope.loginId}"){
@@ -65,6 +64,20 @@ function sendMessage(evt) {
      else
          socket.send(msg);
      
+     /* 채팅 DB에 저장 */
+     var insertchat = "${sessionScope.loginId}" + '/' + msg + '/' + time + '/' + roomid;
+	 $.ajax({
+		url : "insertchat",
+		type : "POST", 
+		data : {"insertchat":insertchat}, 			
+		success: function(){
+			console.log(insertchat); 
+		},
+		error:function(request,status,error){
+		       alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); 
+		   }
+	 });
+     
      $("html").scrollTop($(document).height());
 }
 
@@ -87,20 +100,7 @@ function connectStomp() {
 			'</div><div class="balloon">' + new_chat + '</div></div>' + 
 			'<time>' + time + '</time></div>';
 			
-			$('.main-chat').append(appendMsg);
-			
-			var insertchat = id + '/' + new_chat + '/' + time + '/' + roomid;
-			$.ajax({
-				url : "insertchat",
-				type : "POST", 
-				data : {"insertchat":insertchat}, 			
-				success: function(){
-					console.log(insertchat); 
-				},
-				error:function(request,status,error){
-			        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); 
-			    }
-			 });	
+			$('.main-chat').append(appendMsg);	
 			
 			$("html").scrollTop($(document).height());
         });

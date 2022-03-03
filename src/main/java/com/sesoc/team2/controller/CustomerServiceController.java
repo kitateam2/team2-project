@@ -157,6 +157,7 @@ public class CustomerServiceController {
 		chat.setChat_time(time);
 		chat.setChatroom_id(roomid);
 		chat.setUser_id(id);
+		logger.info("채팅 인서트 직전");
 		sdao.insertchat(chat);
 		
 		sdao.updatelastchat(chat);

@@ -59,6 +59,6 @@ public class ServiceDAO {
 		int result = mapper.updatelastchat(chat);
 		return result;
 	}
-	
+
 	
 }

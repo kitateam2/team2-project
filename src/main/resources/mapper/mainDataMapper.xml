@@ -102,4 +102,21 @@
 		where rownum between 1 and 12
 </select> 
 
+
+<!-- 뉴스레터 데이터 입력 -->
+<insert id="insert_email" parameterType="String">
+	insert 
+	into 
+		book_sub
+	(
+		book_email_no,
+		book_email
+	)
+	values 
+	(
+		book_email_no_seq.nextval
+		, #{book_email}
+	)
+</insert>
+
 </mapper>

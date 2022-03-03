@@ -3,6 +3,7 @@ package com.sesoc.team2.controller;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.sesoc.team2.dao.ReviewDAO;
 import com.sesoc.team2.util.PageNavigator;
 import com.sesoc.team2.vo.BlogPost;
@@ -153,6 +156,30 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 		logger.info("메서드 끝");
 		String book_isbn = review.getBook_isbn();
 		return "redirect:read?book_isbn="+book_isbn; 
+	}
+	
+	
+	//뉴스레터 이메일 저장
+	@ResponseBody
+	@RequestMapping (value="book_email", method=RequestMethod.GET)    //value 확인!!
+	public void insert(HttpSession session, Model model, HttpServletRequest request, String book_email) {
+
+		logger.debug("book_email 접속 :{}", book_email);
+		logger.info("book_email 접속:{}", book_email);
+		System.out.println("book_email 접속  "+ book_email);
+		
+		logger.info("이메일 주소{}", book_email); 
+		int result = mdao.insert_email(book_email);
+		logger.info("inssert : {}", result); 
+		 
+		if(result != 0) {
+			logger.info("뉴스레터");
+			model.addAttribute("bookEmail", "뉴스레터 이메일 등록이 완료되었습니다.");						
+		}
+		 
+//		String referrer = request.getHeader("referer");
+//		return "redirect:" + referrer;
+	
 	}
 
 		

@@ -34,6 +34,43 @@
 <script src="${pageContext.request.contextPath}/resources/assets/js/hs.core.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 
+<script>
+	$(document).ready(function() {
+		
+		$('#book_email_btn').click(function () {
+			var book_email2 = $('#book_email').val();
+			alert(book_email2);
+		
+			//location.href = "book_email?book_email="+book_email2;
+			$.ajax({
+				url:'book_email',
+				type:'get',
+				data: {book_email: book_email2},
+				success: function() { alert('뉴스레터 이메일 등록이 완료되었습니다.'); },
+				error: function() { alert('뉴스레터 이메일 등록 실패.'); }
+			}); 
+			
+        });
+		
+	});
+	
+/* 	function bookEmailFn(){
+		var bookEmail = '<c:out value="${bookEmail}" />';
+		alert(bookEmail);
+	} */
+	/* $.ajax({
+		url:'book_email',
+		type:'post',
+		dataType:'text',
+		data:{bookEmail: searchText},  //bookEmail : 파라미터값 -> controller에서 입력값으로!
+		success: function() { alert('뉴스레터 이메일 등록이 완료되었습니다.'); },
+		error: function() { alert('등록이 불가합니다.'); }
+	}); */
+
+
+</script>
+
+
 </head>
 
 <body>
@@ -53,19 +90,21 @@
                             <p class="text-gray-700">Signup to be the first to hear about exclusive deals, special offers and upcoming collections</p>
                         </div>
                         <!-- Form Group -->
+                        <!-- <form id="bookEmail" action="book_email" method="get"> -->
                         <div class="form-row justify-content-center">
                             <div class="col-md-5 mb-3 mb-md-2">
                                 <div class="js-form-message">
                                     <div class="input-group">
-                                        <input type="text" class="form-control px-5 height-60 border-dark" name="name" id="signupSrName" placeholder="Enter email for weekly newsletter." aria-label="Your name" required="" data-msg="Name must contain only letters." data-error-class="u-has-error" data-success-class="u-has-success">
+                                        <input type="text" class="form-control px-5 height-60 border-dark" name="bookEmail" id="book_email" placeholder="Enter email for weekly newsletter." aria-label="Your name" required="" data-msg="Name must contain only letters." data-error-class="u-has-error" data-success-class="u-has-success">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-2 ml-md-2">
-                                <button type="submit" class="btn btn-dark rounded-0 btn-wide py-3 font-weight-medium">Subscribe
+                                <button type="submit" class="btn btn-dark rounded-0 btn-wide py-3 font-weight-medium" id="book_email_btn">Subscribe
                                 </button>
                             </div>
                         </div>
+                        <!-- </form> -->
                         <!-- End Form Group -->
                     </div>
                     <!-- End  Newsletter -->

@@ -35,6 +35,8 @@
 <script src="resources/assets/js/hs.core.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 <script>
+
+
 //bt1 버튼 클릭했을때 실행될 함수
 function bt1Click(n){
 	alert(n);
