@@ -36,14 +36,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 <script>
 
-$(document).ready(function() {
-	var bookEmail = '<c:out value="${bookEmail}" />';
-		alert(${bookEmail});
-		alert(bookEmail);
-	if(bookEmail !="" && bookEmail != null){
-	}
-	
-});
 
 //bt1 버튼 클릭했을때 실행될 함수
 function bt1Click(n){

@@ -160,8 +160,9 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	
 	
 	//뉴스레터 이메일 저장
+	@ResponseBody
 	@RequestMapping (value="book_email", method=RequestMethod.GET)    //value 확인!!
-	public String insert(HttpSession session, Model model, HttpServletRequest request, String book_email) {
+	public void insert(HttpSession session, Model model, HttpServletRequest request, String book_email) {
 
 		logger.debug("book_email 접속 :{}", book_email);
 		logger.info("book_email 접속:{}", book_email);
@@ -172,12 +173,12 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 		logger.info("inssert : {}", result); 
 		 
 		if(result != 0) {
+			logger.info("뉴스레터");
 			model.addAttribute("bookEmail", "뉴스레터 이메일 등록이 완료되었습니다.");						
 		}
 		 
 //		String referrer = request.getHeader("referer");
 //		return "redirect:" + referrer;
-		return "home";
 	
 	}
 
