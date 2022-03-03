@@ -29,95 +29,7 @@
     <!-- CSS Bookworm Template -->
     <link rel="stylesheet" href="resources/css/theme.css">
     
-     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="resources/js/jquery.min.js"></script>
-    <script src="resources/js/jquery-migrate.min.js"></script>
-    <script src="resources/js/popper.min.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
-    <script src="resources/js/bootstrap-select.min.js"></script>
-    <script src="resources/js/slick.min.js"></script>
-    <script src="resources/js/jquery.zeynep.js"></script>
-    <script src="resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
-
-
-    <!-- JS HS Components -->
-    <script src="resources/js/hs.core.js"></script>
-    <script src="resources/js/hs.unfold.js"></script>
-    <script src="resources/js/hs.malihu-scrollbar.js"></script>
-    <script src="resources/js//hs.header.js"></script>
-    <script src="resources/js/hs.slick-carousel.js"></script>
-    <script src="resources/js/hs.selectpicker.js"></script>
-    <script src="resources/js/hs.show-animation.js"></script>
-    
-     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="resources/assets/vendor/appear.js"></script>
-    <script src="resources/assets/vendor/fancybox/jquery.fancybox.min.js"></script>
-    <script src="resources/assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
-    
-
-    <!-- JS HS Components -->
-    <script src="resources/assets/js/components/hs.onscroll-animation.js"></script>
-    <script src="resources/assets/js/components/hs.quantity-counter.js"></script>
-    <script src="resources/assets/js/components/hs.scroll-nav.js"></script>
-    
-    <script>
-    $(document).on('ready', function () {
-        // initialization of unfold component
-        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
-
-        // initialization of select picker
-        $.HSCore.components.HSSelectPicker.init('.js-select');
-
-        // initialization of slick carousel
-        $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
-
-        // initialization of malihu scrollbar
-        $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
-
-        // initialization of popups
-        $.HSCore.components.HSFancyBox.init('.js-fancybox');
-
-        // initialization of quantity counter
-        $.HSCore.components.HSQantityCounter.init('.js-quantity');
-
-        // initialization of show animations
-        $.HSCore.components.HSShowAnimation.init('.js-animation-link');
-
-        // initialization of HSScrollNav component
-        $.HSCore.components.HSScrollNav.init($('.js-scroll-nav'), {
-          duration: 700
-        });
-
-        // init zeynepjs
-        var zeynep = $('.zeynep').zeynep({
-            onClosed: function () {
-                // enable main wrapper element clicks on any its children element
-                $("body main").attr("style", "");
-
-                console.log('the side menu is closed.');
-            },
-            onOpened: function () {
-                // disable main wrapper element clicks on any its children element
-                $("body main").attr("style", "pointer-events: none;");
-
-                console.log('the side menu is opened.');
-            }
-        });
-
-        // handle zeynep overlay click
-        $(".zeynep-overlay").click(function () {
-            zeynep.close();
-        });
-
-        // open side menu if the button is clicked
-        $(".cat-menu").click(function () {
-            if ($("html").hasClass("zeynep-opened")) {
-                zeynep.close();
-            } else {
-                zeynep.open();
-            }
-        });
-    });
+  <script>
     
   //bt1 버튼 클릭했을때 실행될 함수
     function bt1Click(n){
@@ -817,5 +729,95 @@
     <!-- ====== END MAIN CONTENT ====== -->
 
    <%@ include file="../footer.jsp" %>
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="resources/js/jquery.min.js"></script>
+    <script src="resources/js/jquery-migrate.min.js"></script>
+    <script src="resources/js/popper.min.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/bootstrap-select.min.js"></script>
+    <script src="resources/js/slick.min.js"></script>
+    <script src="resources/js/jquery.zeynep.js"></script>
+    <script src="resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+    <!-- JS HS Components -->
+    <script src="resources/js/hs.core.js"></script>
+    <script src="resources/js/hs.unfold.js"></script>
+    <script src="resources/js/hs.malihu-scrollbar.js"></script>
+    <script src="resources/js//hs.header.js"></script>
+    <script src="resources/js/hs.slick-carousel.js"></script>
+    <script src="resources/js/hs.selectpicker.js"></script>
+    <script src="resources/js/hs.show-animation.js"></script>
+    
+     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="resources/assets/vendor/appear.js"></script>
+    <script src="resources/assets/vendor/fancybox/jquery.fancybox.min.js"></script>
+    <script src="resources/assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+    
+
+    <!-- JS HS Components -->
+    <script src="resources/assets/js/components/hs.onscroll-animation.js"></script>
+    <script src="resources/assets/js/components/hs.quantity-counter.js"></script>
+    <script src="resources/assets/js/components/hs.scroll-nav.js"></script>
+    
+    <script>
+    $(document).on('ready', function () {
+        // initialization of unfold component
+        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
+
+        // initialization of select picker
+        $.HSCore.components.HSSelectPicker.init('.js-select');
+
+        // initialization of slick carousel
+        $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+
+        // initialization of malihu scrollbar
+        $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+
+        // initialization of popups
+        $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
+        // initialization of quantity counter
+        $.HSCore.components.HSQantityCounter.init('.js-quantity');
+
+        // initialization of show animations
+        $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+
+        // initialization of HSScrollNav component
+        $.HSCore.components.HSScrollNav.init($('.js-scroll-nav'), {
+          duration: 700
+        });
+
+        // init zeynepjs
+        var zeynep = $('.zeynep').zeynep({
+            onClosed: function () {
+                // enable main wrapper element clicks on any its children element
+                $("body main").attr("style", "");
+
+                console.log('the side menu is closed.');
+            },
+            onOpened: function () {
+                // disable main wrapper element clicks on any its children element
+                $("body main").attr("style", "pointer-events: none;");
+
+                console.log('the side menu is opened.');
+            }
+        });
+
+        // handle zeynep overlay click
+        $(".zeynep-overlay").click(function () {
+            zeynep.close();
+        });
+
+        // open side menu if the button is clicked
+        $(".cat-menu").click(function () {
+            if ($("html").hasClass("zeynep-opened")) {
+                zeynep.close();
+            } else {
+                zeynep.open();
+            }
+        });
+    });
+    </script>
 </body>
 </html>

@@ -264,7 +264,7 @@ function bookPage() {
                                     <input type="hidden" id="book_isbn_param${status.count}" value="${book.book_isbn}">
                                     <span class="product__add-to-cart-icon font-size-4"><i class="flaticon-icon-126515"></i></span>
                                 </a>
-                               <a href="#" class="h-p-bg btn btn-outline-primary border-0" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO WISHLIST" onclick="bt2Click(${book.book_isbn});">
+                               <a href="#" class="h-p-bg btn btn-outline-primary border-0" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO WISHLIST" onclick="bt2Click('${book.book_isbn}');">
                                             <i class="fa fa-heart fa"></i>
                                </a>
                             </div>

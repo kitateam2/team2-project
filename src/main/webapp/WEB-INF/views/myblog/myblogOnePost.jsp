@@ -232,10 +232,10 @@ function replyEditCancle(div) {
                                 </c:if>		
                                  <!-- End Images Carousel -->
                                 <c:if test="${one_post.post_book_title != null}">
-                                            <p class="font-weight-medium">${one_post.post_book_title} sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam. Sed lacinia feugiat velit, cursus molestie lectus mollis et.
+                                            <p class="font-weight-medium">${one_post.post_book_title}
                                             </p>
                                 </c:if>
-                                <p class="font-size-2 text-lh-1dot72 mb-4">${one_post.post_contents} Mauris tempus erat laoreet turpis lobortis, eu tincidunt erat fermentum. Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. Proin sed ultrices erat. Praesent varius ultrices massa at faucibus. Aenean dignissim, orci sed faucibus pharetra, dui mi dignissim tortor, sit amet condimentum mi ligula sit amet augue. Pellentesque vitae eros eget enim mollis placerat. Aliquam non tincidunt urna. Integer tincidunt nec nisl vitae ullamcorper. Proin sed ultrices erat. Praesent varius ultrices massa at faucibus. Aenean dignissim, orci sed faucibus pharetra, dui mi dignissim tortor, sit amet condimentum mi ligula sit amet augue. Pellentesque vitae eros eget enim mollis placerat.</p>
+                                <p class="font-size-2 text-lh-1dot72 mb-4">${one_post.post_contents}</p>
                              </div>
                         </div>
                     </div>
