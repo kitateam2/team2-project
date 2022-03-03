@@ -224,6 +224,14 @@ public class CustomerServiceController {
 		return "service/chatmain";
 	}
 	
+	//채팅메인페이지 이동전 로그인인터셉터 피하기위해 만든 메서드
+	@RequestMapping(value = "/prechatmain", method = RequestMethod.GET)
+	public String prechatmain(HttpSession session, Model model) {
+		String id = (String)session.getAttribute("loginId");
+		session.setAttribute("chatmain", "chatmain");
+		return "redirect:/chatmain";
+	}
+	
 	//관리자 페이지로 이동
 		@RequestMapping(value = "/admin", method = RequestMethod.GET)
 		public String admin(HttpSession session, Model model) {

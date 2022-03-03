@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.sesoc.team2.dao.GradeMapper">
+  	<select id="grade" parameterType="User_infoVO" resultType="Integer">
+		select total from(
+			select
+				a.user_id
+				, sum(b.user_pay_price) as total
+			from
+				order_list a, user_pay b
+			where
+				a.order_no = b.order_no
+				and (b.user_pay_date between sysdate -365 and sysdate)
+			group by grouping sets(a.user_id))
+		where user_id = #{user_id}
+	</select>
+	
+	<update id="updateGrade" parameterType="User_infoVO">
+		update
+			user_info
+		set
+			user_grade = #{user_grade}
+		where
+			user_id = #{user_id}
+	</update>	
+ </mapper>

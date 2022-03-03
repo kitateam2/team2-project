@@ -38,7 +38,7 @@
 
 <body>
 <div id="sy-whatshelp">
-	<a class="sywh-open-services" onclick="window.open('${pageContext.request.contextPath}/chatmain','','width=448,height=540,top=200,left=800,toolbar=no,menubar=no,scrollbars=1,resizable=1')" 
+	<a class="sywh-open-services" onclick="window.open('${pageContext.request.contextPath}/prechatmain','','width=448,height=540,top=200,left=800,toolbar=no,menubar=no,scrollbars=1,resizable=1')" 
 				style="text-decoration:none;" ><i class='far fa-comments'></i></a>
 </div>
 <!-- ========== FOOTER ========== -->

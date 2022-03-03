@@ -5,6 +5,7 @@
 
 <html>
 <head>
+
 		    <!-- Required Meta Tags Always Come First -->
 			    <meta charset="utf-8">
 			    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -40,6 +41,39 @@
     <script src="../resources/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+				  
+	<script>
+	function auto_book_complete(){
+		let text = $("#post_book_title").val();
+		if(text.length <2) return;
+
+		$( "#post_book_title" ).autocomplete({
+			autoFocus: true,
+			//source:["aaaaaa", "bbbbbb", "cccccc", "dddddd", "kkkkkk", "hhhhhh", "kkkfff"]
+			source: function(request, response){
+						$.ajax({
+							url:"json_auto_book",
+							type:'get',
+							data:{'text': text},
+							dataType:"json",
+
+							success: function(data){
+								response(
+									data		
+								)
+								},//success
+							erorr: function(){
+								alert("없는 정보 입니다.");
+								}//error
+							});
+				}//function(request, response)
+
+			});
+		}
+	</script>
     <!-- JS HS Components -->
     <script src="../resources/assets/js/hs.core.js"></script>
     <script src="../resources/assets/js/components/hs.unfold.js"></script>
@@ -125,39 +159,7 @@
 		return true;
 	}
 	</script>
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-				  
-	<script>
-	function auto_book_complete(){
-		let text = $("#post_book_title").val();
-		if(text.length <2) return;
-
-		$( "#post_book_title" ).autocomplete({
-			autoFocus: true,
-			//source:["aaaaaa", "bbbbbb", "cccccc", "dddddd", "kkkkkk", "hhhhhh", "kkkfff"]
-			source: function(request, response){
-						$.ajax({
-							url:"json_auto_book",
-							type:'get',
-							data:{'text': text},
-							dataType:"json",
-
-							success: function(data){
-								response(
-									data		
-								)
-								},//success
-							erorr: function(){
-								alert("없는 정보 입니다.");
-								}//error
-							});
-				}//function(request, response)
-
-			});
-		}
-	</script>
+	
 	
 	
 		<script>

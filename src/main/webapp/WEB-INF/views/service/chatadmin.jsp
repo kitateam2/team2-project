@@ -15,7 +15,6 @@
 var socket = null;
 var isStomp = false;
 var roomid1 = "${roomid1}";
-alert(roomid1);
 var roomidlist = roomid1.split(',');
 for(var i=0; i<roomidlist.length; i++){
 	if(roomidlist[i] === "${sessionScope.loginId}"){

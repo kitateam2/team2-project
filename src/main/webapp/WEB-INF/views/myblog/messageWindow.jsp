@@ -56,7 +56,7 @@
 
 		function auto_recv_complete() {
 			let text = $("#message_recv_id").val();
-			if (text.length < 2) return;
+			if (text.length < 1) return;
 			
 			$("#message_recv_id").autocomplete({
 						//source:["aaa", "bbb", "ccc", "ddd", "kkkkkk", "hhhhhh", "kkkfff"]
@@ -513,44 +513,30 @@
 	<div id="message_new_form" class="col-sm-6" style="background-color:lavenderblush;"> 
 	
 			<div class="message-box">
-					<table >
 					
-						<tr>
-							<td colspan="2">
-											<table>
+											<table >
 												<!-- <tr>
 													<td>제목 : </td>
 													<td colspan="2">제목 받아오기</td>
 												</tr> -->
 												<tr>
-													<td><p class="ppp">발신인</p></td>
-													<td colspan="2"><p>: ${message.message_sent_id}</p></td>
+													<td style="width:10%;"><p class="ppp">발신인</p></td>
+													<td colspan="2"><p>: ${one_message.message_sent_id}</p></td>
 												</tr>
 												
 												<tr>
-													<td><p class="ppp">수신인</p></td>
+													<td style="width:10%;"><p class="ppp">수신인</p></td>
 													<td><p>: ${one_message.message_recv_id}</p></td>
 													<td></td>
 												</tr>
 												<tr>
-													<td><p class="ppp">내용</p></td>
+													<td style="width:10%;"><p class="ppp">내용</p></td>
 													<td><p>: ${one_message.message_contents}</p></td>
 													<td></td>
 												</tr>
 											</table>
 							
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2"></td>
-						</tr>
-						<!-- <tr>
-							<td>첨부파일 : </td>
-							<td>파일목록불러오기</td>
-						</tr> -->
 					
-					</table>
-			
 			
 			</div><!-- 쪽지 읽기 div -->
 			

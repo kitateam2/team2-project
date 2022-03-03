@@ -219,7 +219,7 @@ function pagingFormSubmit(currentPage) {
                                             <span class="text-dark">쪽지로 이동하기</span>
                                         </a>
 
-                                        <a class="form-group d-flex align-items-center justify-content-between font-size-2 text-lh-md mb-3" href="../blog/blog-v1.html">
+                                        <a class="form-group d-flex align-items-center justify-content-between font-size-2 text-lh-md mb-3" href="${pageContext.request.contextPath}/updatemember">
                                             <span class="text-dark">정보 수정하기</span>
                                         </a>
 

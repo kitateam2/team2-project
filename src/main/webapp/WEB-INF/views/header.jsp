@@ -45,10 +45,11 @@
                 <div class="topbar__nav d-md-flex justify-content-between align-items-center">
                    
                   
-        <c:if test="${sessionScope.loginId != null}">
-				<a href="${pageContext.request.contextPath}/logout" style="color:black;position: relative; top: 3px; font-size:16px; left:1100px;">로그아웃</a>
-				<a style="position: relative; top: 3px; font-size:16px; left:550px;">${sessionScope.loginId}님 환영합니다.</a>
-				<a href="${pageContext.request.contextPath}/updatemember" style="color:black; position: relative; top: 3px;">회원정보수정</a>
+        <c:if test="${sessionScope.loginId != null}">        		
+				<a id="grade" style="position: relative; top: 3px; font-size:16px; left: 860px; border: black solid 1px;"></a>
+				<a style="position: relative; top: 3px; font-size:16px; left: 660px;">${sessionScope.loginId}님 환영합니다.</a>
+				<a href="${pageContext.request.contextPath}/updatemember" style="color:black; position: relative; top: 3px; left: 350px;">회원정보수정</a>
+				<a href="${pageContext.request.contextPath}/logout" style="color:black;position: relative; top: 3px; font-size:16px;">로그아웃</a>
 		
 			</c:if>
                     
@@ -289,6 +290,29 @@
                 }
             });
         });
+        
+        
+// 등급설정
+$(document).ready(function() {
+	getColor();
+});
+
+function getColor() {
+	$.ajax({
+		url: "${pageContext.request.contextPath}/grade",
+		type: "get",
+		dataType: 'text',
+		success: function(ob) {
+			if(ob == "null") {				
+								
+			} else {			
+			$("#grade").html(ob);}		
+		},
+		error: function(e) {
+			alert(JSON.stringify(e));
+		}
+	});	
+}
     </script>
 </body>
 </html>

@@ -39,12 +39,6 @@ public class BlogMainController {
 	final int countPerPage = 6; //페이지당 글 수
 	final int pagePerGroup = 5; //페이지 이동 링크 표시할 페이지 수
 	
-		//내 블로그 이동
-		@RequestMapping (value="myblog", method=RequestMethod.GET)
-		public String myblogForm() {
-			return "myblogForm";
-		}
-		
 		//블로그 목록
 		@RequestMapping(value="", method=RequestMethod.GET)	
 		public String list(
@@ -75,9 +69,14 @@ public class BlogMainController {
 			User_infoVO user_id = memberdao.getMember(object);
 			BlogMain blogmain = new BlogMain();
 			blogmain.setUser_id(user_id.getUser_id());
-			Integer grade = blogmaindao.grade(blogmain);			
-			model.addAttribute("grade", grade);
-			logger.info("grade", grade);
+			Integer grade = blogmaindao.grade(blogmain);
+			if(grade >= 500000) {
+				model.addAttribute("grade", "gold");
+			} else if(grade < 500000 && grade >= 100000) {
+				model.addAttribute("grade", "silver");
+			} else {
+				model.addAttribute("grade", "bronze");
+			}
 			
 			return "blogmain/blogmainForm";
 		}
