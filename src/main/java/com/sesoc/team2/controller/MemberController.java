@@ -17,6 +17,8 @@ import com.sesoc.team2.vo.User_infoVO;
 
 
 
+
+
 		
 /**
  * 회원 정보에 대한 컨트롤러. 
@@ -77,6 +79,7 @@ public class MemberController {
 		}		
 	}
 	
+	//로그아웃
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logout(HttpSession session, HttpServletRequest request) {
 		session.removeAttribute("loginId");
@@ -85,16 +88,19 @@ public class MemberController {
 	}
 	
 	
+	//홈으로
 	@RequestMapping (value="home", method=RequestMethod.GET)
 	public String home() {
 		return "home";
 	}
 	
+	//이용약관폼
 	@RequestMapping (value="condition", method=RequestMethod.GET)
 	public String condition() {
 		return "condition";
 	}
 	
+	//회원정보수정
 	@RequestMapping(value = "updatemember", method = RequestMethod.GET)
 	public String update(HttpSession session,Model model) {
 		//세션의 아이디를 읽어서 db에서 개인정보를 검색 
@@ -106,6 +112,7 @@ public class MemberController {
 		return "updateForm";
 	}
 	
+	//회원정보수정
 	@RequestMapping(value = "updatemember", method = RequestMethod.POST)
 	public String update(User_infoVO member,HttpSession session) {
 		logger.debug("수정폼에서 전달된 값{}",member);
@@ -116,4 +123,18 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	//id중복체크
+	@RequestMapping (value="idcheck", method=RequestMethod.GET)
+	public String idcheck(Model model) {
+		return "idcheck";
+	}
+	
+	//id중복체크
+	@RequestMapping (value="idcheck", method=RequestMethod.POST)
+	public String idcheck(Model model, String searchId) {
+		User_infoVO member = memberDAO.getMemberid(searchId);
+		model.addAttribute("member", member);		//검색 결과가 없으면 null
+		model.addAttribute("searchId", searchId); 	//사용자가 검색한 ID
+		return "idcheck";
+	}
 }

@@ -68,7 +68,7 @@ CREATE TABLE BLOG_POST
 	-- 게시글 제목
 	post_title varchar2(200) NOT NULL,
 	-- 게시글 내용
-	post_contents varchar2(2000) NOT NULL,
+	post_contents varchar2(3000) NOT NULL,
 	-- 게시글 날짜
 	post_uploaddate date DEFAULT sysdate NOT NULL,
 	-- 게시글 추천
@@ -339,7 +339,7 @@ CREATE TABLE USER_INFO
 	-- bronze
 	-- silver
 	-- gold
-	user_grade varchar2(30) NOT NULL,
+	user_grade varchar2(30) DEFAULT 'Bronze' NOT NULL,
 	PRIMARY KEY (user_id)
 );
 

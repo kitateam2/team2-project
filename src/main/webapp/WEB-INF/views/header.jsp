@@ -115,7 +115,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="shopDropdownInvoker" href="${pageContext.request.contextPath}/cart" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
-                                    Shop
+                                    Cart
                                 </a>
                              </li>  
                             <li class="nav-item">
@@ -173,7 +173,7 @@
                             </c:if>
                             <li class="nav-item dropdown">
                                 <a id="serviceDropdownInvoker" href="${pageContext.request.contextPath}/userService" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
-                                    S/C
+                                    C/S
                                 </a>
                             </li>
                         </ul>

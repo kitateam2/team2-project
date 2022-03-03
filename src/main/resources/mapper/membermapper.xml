@@ -16,7 +16,7 @@ insert into user_info
 	,user_phone
 	,user_address
 	,user_genre
-	,user_grade)
+	)
 					values (
 							#{user_id}
 							,#{user_pw}
@@ -25,12 +25,16 @@ insert into user_info
 							,#{user_phone}
 							,#{user_address}
 							,#{user_genre}
-							,#{user_grade}
+							
 							)
 </insert>
 
 	<select id="selectMember" parameterType="string" resultType="User_infoVO">
 		select * from user_info where user_id = #{user_id} 
+	</select>
+	
+	<select id="getMemberid" parameterType="string" resultType="User_infoVO">
+	select * from user_info where user_id = #{user_id}
 	</select>
 	
 	<insert id ="insertusercart" parameterType="User_infoVO">

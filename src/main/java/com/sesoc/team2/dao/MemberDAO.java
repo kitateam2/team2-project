@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.sesoc.team2.vo.User_infoVO;
 
+
 @Repository
 public class MemberDAO {
 	@Autowired
@@ -47,5 +48,18 @@ public class MemberDAO {
 		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
 		int result = mapper.insertordercart(user_info);
 		return result;
+	}
+
+	public User_infoVO getMemberid(String user_id) {
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		User_infoVO member = null;
+
+		try {
+			member = mapper.getMemberid(user_id);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return member;
 	}
 }
