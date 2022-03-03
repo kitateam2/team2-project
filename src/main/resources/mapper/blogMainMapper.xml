@@ -4,7 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
  <mapper namespace="com.sesoc.team2.dao.BlogMainMapper">
-
 	<!-- 게시글 목록 -->
 	<select id="list" parameterType="string" resultType="BlogMain">
 		select
@@ -71,21 +70,5 @@
     		order by
             	follow_ed_no desc)
 		where <![CDATA[rownum <= 5]]>
-	</select>
-	
-	<!-- 회원등급 -->	
-	<select id="grade" parameterType="BlogMain" resultType="Integer">
-		select total from(
-			select
-				a.user_id
-				, sum(b.user_pay_price) as total
-			from
-				order_list a, user_pay b
-			where
-				a.order_no = b.order_no
-				and (b.user_pay_date between sysdate -365 and sysdate)
-			group by grouping sets(a.user_id))
-		where user_id = #{user_id}
-	</select>	
-		
+	</select>		
  </mapper>
