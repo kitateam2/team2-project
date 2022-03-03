@@ -120,7 +120,7 @@
                             <li class="nav-item">
                                 <a id="featuresDropdownInvoker" href="${pageContext.request.contextPath}/wish" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center"
                                     >
-                                    wish
+                                    Wish
                                 </a>
                                 <div id="featuresDropdownMenu" class="p-0 dropdown-unfold dropdown-menu megamenu font-size-2 rounded-0 border-gray-900" aria-labelledby="featuresDropdownInvoker" style="width:1100px;">
                                     <div class="row no-gutters">
