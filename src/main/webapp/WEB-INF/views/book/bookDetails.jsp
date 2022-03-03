@@ -411,15 +411,7 @@
                             <div class="space-top-2 px-4 px-xl-7 border-bottom pb-5">
                                 <h1 class="product_title entry-title font-size-7 mb-3">${book.book_title}</h1>
                                 <div class="font-size-2 mb-4">
-                                    <span class="text-yellow-darker">
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                    </span>
-                                    <span class="ml-3">(3,714)</span>
-                                    <span class="ml-3 font-weight-medium">By (author)</span>
+                                    <span class="ml-3 font-weight-medium" style="text-align:left;">By (author)</span>
                                     <span class="ml-2 text-gray-600">${book.book_author}</span>
                                 </div>
                                 <p class="price font-size-22 font-weight-medium mb-3">
@@ -568,123 +560,14 @@
                                         <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab pt-9">
                                             <!-- Mockup Block -->
                                             <h4 class="font-size-3">Customer Reviews </h4>
-                                            <div class="row mb-8">
-                                                <div class="col-md-6 mb-6 mb-md-0">
-                                                    <div class="d-flex  align-items-center mb-4">
-                                                        <span class="font-size-15 font-weight-bold">4.6</span>
-                                                        <div class="ml-3 h6 mb-0">
-                                                            <span class="font-weight-normal">3,714 reviews</span>
-                                                            <div class="text-yellow-darker">
-                                                                <small class="fas fa-star"></small>
-                                                                <small class="fas fa-star"></small>
-                                                                <small class="fas fa-star"></small>
-                                                                <small class="fas fa-star"></small>
-                                                                <small class="far fa-star"></small>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                           
 
-                                                    <div class="d-md-flex">
-                                                        <button type="button" class="btn btn-outline-dark rounded-0 px-5 mb-3 mb-md-0">See all reviews</button>
-                                                        <button type="button" class="btn btn-dark ml-md-3 rounded-0 px-5">Write a review</button>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <!-- Ratings -->
-                                                    <ul class="list-unstyled pl-xl-4">
-                                                        <li class="py-2">
-                                                            <a class="row align-items-center mx-gutters-2 font-size-2" href="javascript:;">
-                                                                <div class="col-auto">
-                                                                    <span class="text-dark">5 stars</span>
-                                                                </div>
-                                                                <div class="col px-0">
-                                                                    <div class="progress bg-white-100" style="height: 7px;">
-                                                                        <div class="progress-bar bg-yellow-darker" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-2">
-                                                                    <span class="text-secondary">205</span>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="py-2">
-                                                            <a class="row align-items-center mx-gutters-2 font-size-2" href="javascript:;">
-                                                                <div class="col-auto">
-                                                                    <span class="text-dark">4 stars</span>
-                                                                </div>
-                                                                <div class="col px-0">
-                                                                    <div class="progress bg-white-100" style="height: 7px;">
-                                                                        <div class="progress-bar bg-yellow-darker" role="progressbar" style="width: 53%;" aria-valuenow="53" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-2">
-                                                                    <span class="text-secondary">55</span>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="py-2">
-                                                            <a class="row align-items-center mx-gutters-2 font-size-2" href="javascript:;">
-                                                                <div class="col-auto">
-                                                                    <span class="text-dark">3 stars</span>
-                                                                </div>
-                                                                <div class="col px-0">
-                                                                    <div class="progress bg-white-100" style="height: 7px;">
-                                                                        <div class="progress-bar bg-yellow-darker" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-2">
-                                                                    <span class="text-secondary">23</span>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="py-2">
-                                                            <a class="row align-items-center mx-gutters-2 font-size-2" href="javascript:;">
-                                                                <div class="col-auto">
-                                                                    <span class="text-dark">2 stars</span>
-                                                                </div>
-                                                                <div class="col px-0">
-                                                                    <div class="progress bg-white-100" style="height: 7px;">
-                                                                        <div class="progress-bar bg-yellow-darker" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-2">
-                                                                    <span class="text-secondary">0</span>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="py-2">
-                                                            <a class="row align-items-center mx-gutters-2 font-size-2" href="javascript:;">
-                                                                <div class="col-auto">
-                                                                    <span class="text-dark">1 stars</span>
-                                                                </div>
-                                                                <div class="col px-0">
-                                                                    <div class="progress bg-white-100" style="height: 7px;">
-                                                                        <div class="progress-bar bg-yellow-darker" role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-2">
-                                                                    <span class="text-secondary">4</span>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                    <!-- End Ratings -->
-                                                </div>
-                                            </div>
-
-                                            <h4 class="font-size-3 mb-8">1-5 of 44 reviews</h4>
+                                           
 										 <c:forEach var="book_review" items="${ReviewList}">
                                             <ul class="list-unstyled mb-8">
                                                 <li class="mb-4 pb-5 border-bottom">
                                                     <div class="d-flex align-items-center mb-3">
-                                                        <h6 class="mb-0">제목없음</h6>
-                                                        <div class="text-yellow-darker ml-3">
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="far fa-star"></small>
-                                                        </div>
+                                                      
                                                     </div>
                                                   
                                                     <p class="mb-4 text-lh-md">${book_review.book_review_short}</p>
