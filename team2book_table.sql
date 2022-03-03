@@ -244,13 +244,13 @@ CREATE TABLE MESSAGE
 	-- 메세지 번호
 	message_no number DEFAULT 0 NOT NULL,
 	-- 메세지 내용
-	message_contents varchar2(200) NOT NULL,
+	message_contents varchar2(1000) NOT NULL,
 	-- 메세지 보낸 날짜
 	message_date date DEFAULT sysdate NOT NULL,
 	-- 메세지 조회했는지
 	message_hits number DEFAULT 0 NOT NULL,
 	-- 쪽지 첨부파일
-	message_file varchar2(200),
+	message_file varchar2(1000),
 	-- 메세지 보낸 아이디
 	message_sent_id varchar2(20) NOT NULL,
 	-- 메세지 받은 아이디
@@ -498,25 +498,25 @@ ALTER TABLE EVENT
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (follow_ing_id)
-	REFERENCES USER_INFO (user_id)
-;
-
-
-ALTER TABLE FOLLOW
 	ADD FOREIGN KEY (follow_ed_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
-ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_recv_id)
+ALTER TABLE FOLLOW
+	ADD FOREIGN KEY (follow_ing_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE MESSAGE
 	ADD FOREIGN KEY (message_sent_id)
+	REFERENCES USER_INFO (user_id)
+;
+
+
+ALTER TABLE MESSAGE
+	ADD FOREIGN KEY (message_recv_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
