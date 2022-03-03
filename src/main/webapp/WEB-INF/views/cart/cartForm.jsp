@@ -69,7 +69,7 @@
                                                     </td>
                                                     <td class="product-price" data-title="Price">                                      
                                                          
-                                                         ${cart.book_price}
+                                                         <fmt:formatNumber value="${cart.book_price}" pattern="###,###" />원
                                                                 
                                                     </td>
 
@@ -206,7 +206,7 @@
                                 <tbody>
                                     <tr class="order-total">
                                         <th>Total</th>
-                                        <td data-title="Total">${cart_total}</td>
+                                        <td data-title="Total"><fmt:formatNumber value="${cart_total}" pattern="###,###" />원</td>
                                     </tr>
                                 </tbody>
                             </table>
