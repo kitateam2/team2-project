@@ -33,6 +33,10 @@ insert into user_info
 		select * from user_info where user_id = #{user_id} 
 	</select>
 	
+	<select id="getMemberid" parameterType="string" resultType="User_infoVO">
+	select * from user_info where user_id = #{user_id}
+	</select>
+	
 	<insert id ="insertusercart" parameterType="User_infoVO">
 	insert into user_cart
 	(

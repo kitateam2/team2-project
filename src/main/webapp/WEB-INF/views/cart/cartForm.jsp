@@ -46,7 +46,7 @@
                                                     <th  class="product-name">책제목</th>
                                                     <th class="product-price">가격</th>
                                                     <th class="product-quantity">수량</th>
-                                                    <th class="product-subtotal">번호</th>
+                                                    <th class="product-subtotal">날짜</th>
                                                     <th class="product-subtotal">카트북넘버</th>
                                                     <th class="product-remove">삭제</th>
                                                     <th class="product-remove">수량변경</th>
@@ -91,7 +91,7 @@
 
                                                     <td class="product-subtotal" data-title="Total">
                                                   
-                                                        ${cart.user_cart_no}
+                                                        ${cart.cart_book_inputdate}
                                                         
                                                     </td>
                                                     

@@ -61,6 +61,11 @@
     width: 50%;
     cursor: pointer;
   }
+  .check {
+  position: fixed; 
+  top: 53px; 
+  right: 500px;;
+  }
  
   
  
@@ -87,12 +92,15 @@
 		}
 		return true;
 	}
+	function idcheckOpen() {
+		var w = window.open('idcheck', 'idwin', 'top=200,left=500,width=400,height=300');
+	}
 	</script>
 </head>
 <body>
 	<form action="join" method="post" onsubmit="return validationCheck();">
 	<!-- <h2>[회원가입]</h2> -->
-			<input type="text" placeholder="Enter Userid" id="id" name="user_id">
+			<input type="text" name="user_id" id="id" maxlength="10" placeholder="ID중복확인 이용" readonly="readonly">		
 			<input type="password" placeholder="Enter password" id="password" name="user_pw">
 			<input type="password" placeholder="Enter password" id="password-check">
 			<input type="text" placeholder="Enter Username" id="name" name="user_name">
@@ -102,6 +110,6 @@
 			<input type="text" placeholder="Enter Usergenre" id="genre" name="user_genre">
 			<input type="submit" value="가입">
 	</form>
-	
+	<input type="button" class="check" value="ID중복확인" onclick="idcheckOpen()">	
 </body>
 </html>

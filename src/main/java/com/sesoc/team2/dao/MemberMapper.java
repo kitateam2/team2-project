@@ -15,6 +15,8 @@ public interface MemberMapper {
 	public int insertwishcart(User_infoVO user_info);
 
 	public int insertordercart(User_infoVO user_info);
+
+	public User_infoVO getMemberid(String user_id);
 	
 	
 
