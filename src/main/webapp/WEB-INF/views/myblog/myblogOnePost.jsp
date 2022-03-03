@@ -120,13 +120,18 @@ function bt_edit(){
 //댓글 쓰기 폼 체크
 function post_comment_form() {
 	var text = document.getElementById('post_comment_content');
-
-	if (text.value.length < 3) {
+	if ($("#posttextarea").val().length < 3) {
 		alert('댓글 내용을 3글자 이상 입력하세요.');
 		text.focus();
 		text.select();
 		return false;
 	}
+	
+	if(echosocket){
+ 		console.log("echosocket 댓글 send하기직전")
+ 		echosocket.send("reply/${sessionScope.loginId}/${user_id}/${one_post.post_no}");
+ 	}
+	
 	return true;			
 }
 
@@ -286,11 +291,11 @@ function replyEditCancle(div) {
                                 
            
                                 <h4 class="font-size-3 mb-4">Write a Review</h4>
-                                <form  id="post_comment_form" action="../post_comment?user_id=${one_post.user_id}" method="post"  onsubmit="return post_comment_form()">
+                                <form  id="post_comment_form" action="../post_comment?user_id=${one_post.user_id}" method="post"  onsubmit="return post_comment_form();">
                                     <div class="js-form-message form-group mb-4">
                                         <input type="hidden" name="post_no" value="${one_post.post_no}"/>
                                         <label for="descriptionTextarea" class="form-label text-dark h6 mb-3">Details please! Your review helps other shoppers.</label>
-                                        <textarea class="form-control rounded-0 p-4" name="post_comment_content" rows="7" id="descriptionTextarea" placeholder="What did you like or dislike? What should other shoppers know before buying?" required="" data-msg="Please enter your message." data-error-class="u-has-error" data-success-class="u-has-success"></textarea>
+                                        <textarea id="posttextarea" class="form-control rounded-0 p-4" name="post_comment_content" rows="7" id="descriptionTextarea" placeholder="What did you like or dislike? What should other shoppers know before buying?" required="" data-msg="Please enter your message." data-error-class="u-has-error" data-success-class="u-has-success"></textarea>
                                     </div>
                                     
                                     <div class="d-flex">

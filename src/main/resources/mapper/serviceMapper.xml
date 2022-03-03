@@ -51,6 +51,10 @@
   		where
   			chatroom_id = #{chatroom_id}
 	</update>
+	<!-- 모든 채팅 조회 -->
+	<select id="allchat" resultType="chat">
+		select * from chat
+	</select>
 	
 	<!-- 모든 과거채팅 조회 -->
 	<select id="chatlist" resultType="chat" parameterType="String">
