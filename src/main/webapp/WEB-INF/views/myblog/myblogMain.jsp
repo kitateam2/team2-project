@@ -362,7 +362,7 @@ function pagingFormSubmit(currentPage) {
                                 <h6 class="font-size-7 crop-text-2 font-weight-medium text-lh-1dot4">
                                     <a href="${postlist.user_id}/one_post?post_no=${postlist.post_no}">${postlist.post_title}</a>
                                 </h6>
-                                <p class="font-size-2 text-secondary-gray-700">${postlist.post_contents}</p>
+                                <p class="font-size-2 text-secondary-gray-700">${postlist.post_contents_sub}</p>
                                 <div class="font-size-2 text-secondary-gray-700">
                                     <span>작성일 :  ${postlist.post_uploaddate}</span>
                                     <span class="ml-3">조회수 : ${postlist.post_hits}</span>
