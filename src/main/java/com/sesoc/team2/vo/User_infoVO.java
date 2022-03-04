@@ -4,15 +4,14 @@ public class User_infoVO {
 String user_id;
 String user_pw;
 String user_name;
-int user_birth;
-int user_phone;
+String user_birth;
+String user_phone;
 String user_address;
 String user_genre;
 String user_grade;
 
 
 public User_infoVO() {
-	super();
 
 }
 
@@ -47,22 +46,22 @@ public void setUser_name(String user_name) {
 }
 
 
-public int getUser_birth() {
+public String getUser_birth() {
 	return user_birth;
 }
 
 
-public void setUser_birth(int user_birth) {
+public void setUser_birth(String user_birth) {
 	this.user_birth = user_birth;
 }
 
 
-public int getUser_phone() {
+public String getUser_phone() {
 	return user_phone;
 }
 
 
-public void setUser_phone(int user_phone) {
+public void setUser_phone(String user_phone) {
 	this.user_phone = user_phone;
 }
 
@@ -103,5 +102,9 @@ public String toString() {
 			+ user_birth + ", user_phone=" + user_phone + ", user_address=" + user_address + ", user_genre="
 			+ user_genre + ", user_grade=" + user_grade + "]";
 }
+
+
+
+
 
 }

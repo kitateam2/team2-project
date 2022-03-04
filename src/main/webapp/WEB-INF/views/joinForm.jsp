@@ -51,7 +51,9 @@
   }
   form input[type="text"],
   form input[type="tel"],
-  form input[type="password"] {
+  form input[type="password"]
+  
+   {
     border: solid 2px green;
   }
   form input[type="submit"] {
@@ -63,10 +65,10 @@
   }
   .check {
   position: relative; 
-  top: -357px; 
-  right: 78px;;
+  top: -731px; 
+  right: -229px;;
   }
- 
+ form input[type="date"]
   
  
   
@@ -109,12 +111,13 @@
 			<input type="password" placeholder="Enter password" id="password" name="user_pw">
 			<input type="password" placeholder="Enter password" id="password-check">
 			<input type="text" placeholder="Enter Username" id="name" name="user_name">
-			<input type="text" placeholder="Enter Userbirth" id="birth" name="user_birth">
+			<input type="date" placeholder="Enter Userbirth" id="birth" name="user_birth" style="border: solid 2px green;">
 			<input type="text" placeholder="Enter Userphone" id="phone_number" name="user_phone">
 			<input type="text" placeholder="Enter Useraddress" id="adress" name="user_address">
 			<input type="text" placeholder="Enter Usergenre" id="genre" name="user_genre">
 			<input type="submit" value="가입" onclick="join()">
+			<input type="button" class="check" value="ID중복확인" onclick="idcheckOpen()">	
 	</form>
-	<input type="button" class="check" value="ID중복확인" onclick="idcheckOpen()">	
+
 </body>
 </html>
