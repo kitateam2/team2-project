@@ -36,6 +36,7 @@ DROP SEQUENCE follow_seq;
 DROP SEQUENCE member_seq;
 DROP SEQUENCE message_seq;
 DROP SEQUENCE order_detail_seq;
+DROP SEQUENCE order_no_seq;
 DROP SEQUENCE post_comment_seq;
 DROP SEQUENCE post_no_seq;
 DROP SEQUENCE user_wishlist_no_seq;
@@ -53,6 +54,7 @@ CREATE SEQUENCE follow_seq;
 CREATE SEQUENCE member_seq;
 CREATE SEQUENCE message_seq;
 CREATE SEQUENCE order_detail_seq;
+CREATE SEQUENCE order_no_seq;
 CREATE SEQUENCE post_comment_seq;
 CREATE SEQUENCE post_no_seq;
 CREATE SEQUENCE user_wishlist_no_seq;
@@ -328,7 +330,7 @@ CREATE TABLE USER_INFO
 	-- 회원이름
 	user_name varchar2(20) NOT NULL,
 	-- 회원생년월일
-	user_birth number NOT NULL,
+	user_birth date NOT NULL,
 	-- 회원전화번호
 	user_phone number NOT NULL,
 	-- 회원주소
@@ -510,13 +512,13 @@ ALTER TABLE FOLLOW
 
 
 ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_sent_id)
+	ADD FOREIGN KEY (message_recv_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_recv_id)
+	ADD FOREIGN KEY (message_sent_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
