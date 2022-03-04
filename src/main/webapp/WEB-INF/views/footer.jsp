@@ -39,15 +39,14 @@
 		
 		$('#book_email_btn').click(function () {
 			var book_email2 = $('#book_email').val();
-			alert(book_email2);
-		
+
 			//location.href = "book_email?book_email="+book_email2;
 			$.ajax({
 				url:'book_email',
 				type:'get',
 				data: {book_email: book_email2},
 				success: function() { alert('뉴스레터 이메일 등록이 완료되었습니다.'); },
-				error: function() { alert('뉴스레터 이메일 등록 실패.'); }
+				error: function() { alert('등록 이메일 주소 중복'); }
 			}); 
 			
         });

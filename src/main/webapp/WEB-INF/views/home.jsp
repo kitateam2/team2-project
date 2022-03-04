@@ -39,8 +39,6 @@
 
 //bt1 버튼 클릭했을때 실행될 함수
 function bt1Click(n){
-	alert(n);
-	alert('장바구니 이동');
 	$.ajax({
 		url:'ajaxcart',
 		type:'post',
@@ -52,7 +50,6 @@ function bt1Click(n){
 }
 
 function bt2Click(n){
-	alert('위시리스트이동');
 	$.ajax({
 		url:'ajaxwishlist',
 		type:'post',

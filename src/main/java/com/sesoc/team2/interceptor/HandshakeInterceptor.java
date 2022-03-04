@@ -24,7 +24,8 @@ public class HandshakeInterceptor extends HttpSessionHandshakeInterceptor{
         System.out.println("URI:"+request.getURI());
  
         HttpServletRequest req =  ssreq.getServletRequest();
-
+        
+        String contextpath = req.getContextPath();
         /*String userId = req.getParameter("userid");
         System.out.println("param, id:"+userId);
         attributes.put("userId", userId);*/
@@ -32,6 +33,7 @@ public class HandshakeInterceptor extends HttpSessionHandshakeInterceptor{
         // HttpSession 에 저장된 이용자의 아이디를 추출하는 경우
         String id = (String)req.getSession().getAttribute("loginId");
         attributes.put("userId", id);
+        attributes.put("contextpath", contextpath);
         System.out.println("HttpSession에 저장된 id:"+id);
         
         return super.beforeHandshake(request, response, wsHandler, attributes);
