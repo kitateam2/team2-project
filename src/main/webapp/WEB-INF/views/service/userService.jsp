@@ -954,7 +954,6 @@
 		<li><a class="cd-faq__category truncate" href="#payments">결제</a></li>
 		<li><a class="cd-faq__category truncate" href="#privacy">구매</a></li>
 		<li><a class="cd-faq__category truncate" href="#delivery">블로그</a></li>
-		<li><a class="cd-faq__category truncate" href="admin">관리자 전용</a></li>
 		
 	</ul> <!-- cd-faq__categories -->
 

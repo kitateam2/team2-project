@@ -151,6 +151,7 @@ import com.sesoc.team2.vo.User_infoVO;
 				  logger.info("유저카트넘버ㅡ{}",user_cart_no);
 				  ArrayList<cart_book> cartbook = dao.select_order_book(user_cart_no);
 				  ArrayList<cart_book> cartbook2 = dao.orderlist(user_id1);
+				  logger.info("카트북222222222ㅡ{}",cartbook2);
 				  model.addAttribute("orderlistcart",cartbook);
 				  model.addAttribute("cart_book1", user_cart_no);
 				  for (cart_book cartbook1 : cartbook) {

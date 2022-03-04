@@ -118,7 +118,7 @@
 	  <input type="hidden" name="url"  value="${url}">
       <input type="text" placeholder="Enter Username" id="username" name="user_id">
       <input type="password" placeholder="Enter password" id="password" name="user_pw">
-      <input type="submit" name="" value="Login">
+      <input type="submit" name="" value="Login" >
        <a class="btn" href="javascript:cancel()">cancel</a>
     </form>
     <div class="errorMsg">
