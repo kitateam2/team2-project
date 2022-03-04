@@ -266,29 +266,12 @@
 		<div class="message-box">
 			<table  border="1">
 				<c:forEach var="message_list_recv" items="${message_list_recv}">
-				<%-- 	<tr>
-						<td>보낸사람: </td>
-						<td>${message_list_recv.message_sent_id}</td>
-					</tr>
-					<tr>
-						<td>제목: </td>
-						<td><a href="window?message_no=${message_list_recv.message_no}">
-							${message_list_recv.message_title}</a>
-						</td>
-					</tr>
-				
-					<tr>
-						<td>조회수: </td>
-						<td> ${message_list_recv.message_hits}</td>
-					</tr> --%>
-					
 					<ul>
 						<li><p class="ppp">보낸이: ${message_list_recv.message_sent_id}</p></li>
 						<li><a href="window?message_no=${message_list_recv.message_no}">
 							-> ${message_list_recv.message_title}</a></li>
 							<hr>
 					</ul>
-					
 				</c:forEach>
 			</table>
 		</div>
@@ -329,26 +312,12 @@
 		<div class="message-box">
 			<table  border="1">
 				<c:forEach var="message_list_sent" items="${message_list_sent}">
-					<tr>
-						<td>받는사람: </td>
-						<td> ${message_list_sent.message_recv_id}</td>
-					</tr>
-					<tr>
-						<td>제목: </td>
-						<td><a href="window?message_no=${message_list_sent.message_no}">
-							${message_list_sent.message_title}</a>
-						</td>
-					</tr>
-					<%-- <tr>
-						<td>내용: </td>
-						<td><a href="window?message_no=${message_list_sent.message_no}">
-						 	${message_list_sent.message_contents}</a>
-						 </td>
-					</tr> --%>
-					<tr>
-						<td>조회수: </td>
-						<td> ${message_list_sent.message_hits}</td>
-					</tr>
+					<ul>
+						<li><p class="ppp">받는이: ${message_list_sent.message_recv_id}</p></li>
+						<li><a href="window?message_no=${message_list_sent.message_no}">
+							-> ${message_list_sent.message_title}</a></li>
+							<hr>
+					</ul>
 				</c:forEach>
 			</table>
 		</div>
@@ -388,26 +357,14 @@
 		<div class="message-box">
 			<table  border="1">
 				<c:forEach var="message_list_unopened" items="${message_list_unopened}">
-					<tr>
-						<td>보낸사람: </td>
-						<td>${message_list_unopened.message_sent_id}</td>
-					</tr>
-					<tr>
-						<td>제목: </td>
-						<td><a href="window?message_no=${message_list_unopened.message_no}">
-							${message_list_unopened.message_title}</a>
-						</td>
-					</tr>
-					<%-- <tr>
-						<td>내용: </td>
-						<td><a href="window?message_no=${message_list_unopened.message_no}">
-							${message_list_unopened.message_contents}</a>
-						</td>
-					</tr> --%>
-					<tr>
-						<td>조회수: </td>
-						<td> ${message_list_unopened.message_hits}</td>
-					</tr>
+				
+					<ul>
+						<li><p class="ppp">보낸이: ${message_list_unopened.message_recv_id}</p></li>
+						<li><a href="window?message_no=${message_list_unopened.message_no}">
+							-> ${message_list_unopened.message_title}</a></li>
+							<hr>
+					</ul>
+					
 				</c:forEach>
 			</table>
 		</div>	
@@ -444,31 +401,19 @@
 	</div> <!-- _unopened -->
 	
 	
-	<!-- 읽지 않은 메일 -->
+	<!-- 자주 읽는 메일 -->
 	<div class="col-sm-6 mail_fav" style="background-color:thistle;"> 
 		<div class="message-box">
 			<table  border="1">
 				<c:forEach var="message_list_fav" items="${message_list_fav}">
-					<tr>
-						<td>보낸사람: </td>
-						<td>${message_list_fav.message_sent_id}</td>
-					</tr>
-					<tr>
-						<td>제목: </td>
-						<td><a href="window?message_no=${message_list_fav.message_no}">
-							${message_list_fav.message_title}</a>
-						</td>
-					</tr>
-					<%-- <tr>
-						<td>내용: </td>
-						<td><a href="window?message_no=${message_list_fav.message_no}">
-							${message_list_fav.message_contents}</a>
-						</td>
-					</tr> --%>
-					<tr>
-						<td>조회수: </td>
-						<td> ${message_list_fav.message_hits}</td>
-					</tr>
+					
+					<ul>
+						<li><p class="ppp">보낸이: ${message_list_fav.message_recv_id}</p></li>
+						<li><a href="window?message_no=${message_list_fav.message_no}">
+							-> ${message_list_fav.message_title}</a></li>
+							<hr>
+					</ul>
+					
 				</c:forEach>
 			</table>
 		</div>

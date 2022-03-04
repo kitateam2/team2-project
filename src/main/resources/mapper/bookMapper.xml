@@ -35,6 +35,7 @@
 	<if test="_parameter != null">
 	where 
 		book_title like '%' || #{searchText} || '%'
+		or book_author like '%' || #{searchText} || '%'
 	</if>
 </select>
 
@@ -54,6 +55,7 @@
 	<if test="_parameter != null">
 	where 
 		book_title like '%' || #{searchText} || '%'
+		or book_author like '%' || #{searchText} || '%'
 	</if>
 	order by book_no desc
 </select>

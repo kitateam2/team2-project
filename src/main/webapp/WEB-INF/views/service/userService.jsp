@@ -949,7 +949,7 @@
 
 <section class="cd-faq js-cd-faq container max-width-md margin-top-lg margin-bottom-lg">
 	<ul class="cd-faq__categories">
-		<li><a class="cd-faq__category cd-faq__category-selected truncate" href="#basics">기본</a></li>
+		<li><a class="cd-faq__category cd-faq__category-selected truncate" href="#basics">주요 문의사항 정리</a></li>
 		<li><a class="cd-faq__category truncate" href="#account">계정</a></li>
 		<li><a class="cd-faq__category truncate" href="#payments">결제</a></li>
 		<li><a class="cd-faq__category truncate" href="#privacy">구매</a></li>
@@ -959,25 +959,7 @@
 
 	<div class="cd-faq__items">
 		<ul id="basics" class="cd-faq__group">
-			<li class="cd-faq__title"><h2>기본</h2></li>
-			<li class="cd-faq__item">
-				<a class="cd-faq__trigger" href="#0"><span>회원 가입은 어떻게 하나요?</span></a>
-				<div class="cd-faq__content">
-          <div class="text-component">
-            <p>1</p>
-            </div>
-				</div> <!-- cd-faq__content -->
-			</li>
-
-			<li class="cd-faq__item">
-				<a class="cd-faq__trigger" href="#0"><span>로그인은 어떻게 하나요?</span></a>
-				<div class="cd-faq__content">
-          <div class="text-component">
-            <p>2</p>
-            </div>
-				</div> <!-- cd-faq__content -->
-			</li>
-
+			<li class="cd-faq__title"><h2>주요 문의사항 정리</h2></li>
 			<li class="cd-faq__item">
 				<a class="cd-faq__trigger" href="#0"><span>관리자와의 채팅으로 연결해주세요</span></a>
 				<div class="cd-faq__content">
@@ -988,25 +970,48 @@
           </div>
 				</div> <!-- cd-faq__content -->
 			</li>
+			
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>비회원도 주문할 수 있나요?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>아니오. 책벌레 온라인 사이트에서는 비회원으로 주문이 불가합니다.
+            	주문을 하기 위해서는 회원가입 후 로그인을 한 다음 이용해주시기 바랍니다.</p>
+            </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>회원정보변경은 어떻게 하나요?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p> 1) 회원 로그인 후, 상단 오른쪽의 "회원정보수정"란에서 변경할 수 있습니다.
+
+				2) 직접 변경이 어려우신 경우, 관리자 채팅 1:1 상담을 통해 문의를 남겨주시기 바랍니다</p>
+            </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+	
 		</ul> <!-- cd-faq__group -->
 
 
 		<ul id="account" class="cd-faq__group">
 			<li class="cd-faq__title"><h2>계정</h2></li>
 			<li class="cd-faq__item">
-				<a class="cd-faq__trigger" href="#0"><span>비밀번호는 어떻게 바꾸나요?</span></a>
+				<a class="cd-faq__trigger" href="#0"><span>회원가입을 하면 무엇이 좋은가요?</span></a>
 				<div class="cd-faq__content">
           <div class="text-component">
-            <p>1</p>
+            <p>책벌레 온라인 사이트에서는 회원만 책 구매가 가능합니다. 비회원은 책 정보만 확인하실 수 있는 점 참고 부탁드립니다.</p>
             </div>
 				</div> <!-- cd-faq__content -->
 			</li>
 
 			<li class="cd-faq__item">
-				<a class="cd-faq__trigger" href="#0"><span>계정을 삭제하고 싶어요</span></a>
+				<a class="cd-faq__trigger" href="#0"><span>회원이 되면 회원등급별 기준은 어떻게 되나요?</span></a>
 				<div class="cd-faq__content">
           <div class="text-component">
-            <p>2</p>
+            <p>최근 1년 이내에 10만원 이상 구매할 시 'Silver'등급으로 변경되며, 50만원 이상 구매할 시 'Gold' 등급으로 변경됩니다.</p>
             </div>
 				</div> <!-- cd-faq__content -->
 			</li>
