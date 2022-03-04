@@ -100,7 +100,6 @@ $(document).ready(function () {
 </head>
 <body>
 
-
 <div class="box3">
 
 <br>
@@ -128,6 +127,5 @@ $(document).ready(function () {
 
 </div>
 
-<div class="card-footer">Footer</div>
 </body>
 </html>
