@@ -160,7 +160,7 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	
 	
 	//뉴스레터 이메일 저장
-	@ResponseBody
+	@ResponseBody  //ajax쓸때는 responsebody를!
 	@RequestMapping (value="book_email", method=RequestMethod.GET)    //value 확인!!
 	public void insert(HttpSession session, Model model, HttpServletRequest request, String book_email) {
 
