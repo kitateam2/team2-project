@@ -95,10 +95,15 @@
 	function idcheckOpen() {
 		var w = window.open('idcheck', 'idwin', 'top=200,left=500,width=400,height=300');
 	}
+	
+	function join() {
+		var loginForm = document.loginForm;
+		alert('회원가입이 완료되었습니다.');
+	}
 	</script>
 </head>
 <body>
-	<form action="join" method="post" onsubmit="return validationCheck();">
+	<form action="join" method="post" name="loginForm" onsubmit="return validationCheck();">
 	<!-- <h2>[회원가입]</h2> -->
 			<input type="text" name="user_id" id="id" maxlength="10" placeholder="ID중복확인 이용" readonly="readonly">		
 			<input type="password" placeholder="Enter password" id="password" name="user_pw">
@@ -108,7 +113,7 @@
 			<input type="text" placeholder="Enter Userphone" id="phone_number" name="user_phone">
 			<input type="text" placeholder="Enter Useraddress" id="adress" name="user_address">
 			<input type="text" placeholder="Enter Usergenre" id="genre" name="user_genre">
-			<input type="submit" value="가입">
+			<input type="submit" value="가입" onclick="join()">
 	</form>
 	<input type="button" class="check" value="ID중복확인" onclick="idcheckOpen()">	
 </body>
