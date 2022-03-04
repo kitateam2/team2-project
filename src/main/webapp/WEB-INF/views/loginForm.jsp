@@ -120,10 +120,11 @@
       <input type="password" placeholder="Enter password" id="password" name="user_pw">
       <input type="submit" name="" value="Login" >
        <a class="btn" href="javascript:cancel()">cancel</a>
-    </form>
-    <div class="errorMsg">
+       <div class="errorMsg" style="color:blue;">
 			${errorMsg}
 		</div>
+    </form>
+    
 	
 	
 </body>

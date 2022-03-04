@@ -97,7 +97,7 @@
 
                                                     <td class="product-remove">
                                              
-                                                        <a href="delete?cart_book_no=${cart.cart_book_no}" class="fa fa-trash"></a>
+                                                        <a href="delete?cart_book_no=${cart.cart_book_no}" onclick="alert('삭제되었습니다');" class="fa fa-trash"></a>
                                                                                                                   
                                                     </td>
                                                     

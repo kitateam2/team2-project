@@ -29,7 +29,7 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     width: 500px;
-    height: 600px;
+    height: 650px;
   }
   form h2 {
     margin-top: 20px;
@@ -62,7 +62,36 @@
     cursor: pointer;
   }
   
+   form a {
+    border: none;
+    background: none;
+    text-align: center;
+    outline: none;
+    padding: 10px;
+    margin: 20px;
+    color: black;
+    height: 30px;
+    width: 70%;
+    border-radius: 40px;
+    transition: 0.2s ease-in;
+  }
+  
+    form a[class="btn"]{
+  border: solid 2px #ec3b3b;
+    box-sizing: border-box;
+    height: 40px;
+    width: 50%;
+    cursor: pointer;
+    text-decoration-line: none;
+  }
+  
 </style>
+
+<script>
+function cancel() {
+	location.href = 'http://localhost:8888/team2/'
+}
+</script>
 </head>
 <body>
 
@@ -80,6 +109,7 @@
 장르	<input type="text" name="user_genre" id="genre"value="${member.user_genre}">
 		<br>
 <input type="submit" value="수정">
+<a class="btn" href="javascript:cancel()">취소</a>
 
 
 </form>
