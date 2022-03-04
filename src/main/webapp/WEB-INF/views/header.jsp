@@ -46,7 +46,7 @@
                    
                   
         <c:if test="${sessionScope.loginId != null}">        		
-				<a id="grade" style="position: relative; top: 3px; font-size:14px; left: 980px; font-family:'나눔고딕체';"></a>
+				<a id="grade" title="최근 1년간 구매기록 기준으로 10만원 이상 구매시 Silver, 50만원 이상 구매시 Gold로 회원등급이 올라갑니다." style="position: relative; top: 3px; font-size:14px; left: 980px; font-family:'나눔고딕체'; cursor:help;"></a>
 				<a style="position: relative; top: 3px; font-size:14px; left: 660px; font-family:'나눔고딕체'; font-weight:bold;">${sessionScope.loginId}님 환영합니다.</a>
 				<a href="${pageContext.request.contextPath}/updatemember" style="color:black; position: relative; top: 3px; left: 330px; font-size:14px; font-family:'나눔고딕체';">회원정보수정</a>
 				<a href="${pageContext.request.contextPath}/logout" style="color:black;position: relative; top: 3px; font-size:14px; font-family:'나눔고딕체';">로그아웃</a>
