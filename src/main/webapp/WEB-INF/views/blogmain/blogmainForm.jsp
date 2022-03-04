@@ -98,7 +98,7 @@
                                         aria-expanded="false"
                                         aria-controls="Collapse22">
 
-                                        <h3 class="title mb-0 font-weight-medium font-size-3">Power Blog</h3>
+                                        <h3 class="title mb-0 font-weight-medium font-size-3" title="팔로워가 많은 상위 5개 블로그" style="cursor:pointer;">Power Blog</h3>
 
                                         <svg class="minus" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="2px">
                                             <path fill-rule="evenodd" fill="rgb(22, 22, 25)" d="M0.000,-0.000 L15.000,-0.000 L15.000,2.000 L0.000,2.000 L0.000,-0.000 Z" />
@@ -129,7 +129,7 @@
                                         aria-expanded="false"
                                         aria-controls="Collapse23">
 
-                                        <h3 class="title font-weight-medium font-size-3 mb-0">Best Post</h3>
+                                        <h3 class="title font-weight-medium font-size-3 mb-0" title="30일간 조회수가 높은 상위 5개 포스트" style="cursor:pointer;">Best Post</h3>
 
                                         <svg class="minus" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="2px">
                                             <path fill-rule="evenodd" fill="rgb(22, 22, 25)" d="M0.000,-0.000 L15.000,-0.000 L15.000,2.000 L0.000,2.000 L0.000,-0.000 Z" />

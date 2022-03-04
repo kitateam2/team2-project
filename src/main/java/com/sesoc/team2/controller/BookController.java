@@ -164,16 +164,9 @@ private static final Logger logger = LoggerFactory.getLogger(BookController.clas
 	@RequestMapping (value="book_email", method=RequestMethod.GET)    //value 확인!!
 	public void insert(HttpSession session, Model model, HttpServletRequest request, String book_email) {
 
-		logger.debug("book_email 접속 :{}", book_email);
-		logger.info("book_email 접속:{}", book_email);
-		System.out.println("book_email 접속  "+ book_email);
-		
-		logger.info("이메일 주소{}", book_email); 
 		int result = mdao.insert_email(book_email);
-		logger.info("inssert : {}", result); 
 		 
 		if(result != 0) {
-			logger.info("뉴스레터");
 			model.addAttribute("bookEmail", "뉴스레터 이메일 등록이 완료되었습니다.");						
 		}
 		 
