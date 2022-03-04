@@ -51,11 +51,15 @@ select user_cart_no from USER_cart where user_id = #{user_id1}
 </select> 
 
 <select id ="order_no" parameterType="String" resultType="int">
-select order_no from order_list where user_id = #{user_id1}
+select * from (
+select order_no from order_list where user_id = #{user_id1} order by order_no desc)
+where rownum = 1
 </select> 
 
 <select id ="Order_num" parameterType="String" resultType="Order_listVO">
-select * from order_list where user_id = #{user_id1}
+select * from (
+select * from order_list where user_id = #{user_id1} order by order_no desc)
+where rownum = 1
 </select> 
 
 
@@ -73,7 +77,7 @@ and uc.user_id = #{user_id1}
 
 <select id ="orderlist" resultType="cart_bookVO" parameterType="String">
 select * 
-from order_detail od, order_list ol 
+from order_detail od, order_list ol
 where od.order_no = ol.order_no 
 and ol.user_id = #{user_id1}
 </select>
@@ -219,16 +223,29 @@ order_detail_seq.nextval
 			cart_book_no = #{cart_book_no}
 	</update>  
 
-<update id="updateorder" parameterType="Order_listVO">
-		update
-			Order_list
-		set
-			order_totalprice = #{order_totalprice}
-			,order_date = sysdate
-			,order_state = '준비중입니다'
-		where
-			order_no = #{order_no}
-	</update> 
+<insert id="updateorder" parameterType="Order_listVO">
+	insert into order_list 
+(
+order_no
+,order_date
+,order_totalprice
+,order_state
+,user_id
+,order_address
+,order_name
+,order_phone
+)
+values (
+order_no_seq.nextval
+,sysdate
+,#{order_totalprice}
+,'준비중입니다'
+,#{user_id}
+,#{order_address}
+,#{order_name}
+,#{order_phone}
+)
+	</insert> 
 	
 	<update id="orderaddress" parameterType="Order_listVO">
 		update

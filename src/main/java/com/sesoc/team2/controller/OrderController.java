@@ -19,6 +19,7 @@ import
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sesoc.team2.dao.CartDAO;
+import com.sesoc.team2.dao.MemberDAO;
 import com.sesoc.team2.vo.Order_detail;
 import com.sesoc.team2.vo.Order_list;
 import com.sesoc.team2.vo.User_infoVO;
@@ -33,7 +34,7 @@ import com.sesoc.team2.vo.User_infoVO;
 			  private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 		  
 		  @Autowired CartDAO dao;
-		  
+		  @Autowired MemberDAO memberDAO;
 		  @ResponseBody
 		  //장바구니 담기
 		  @RequestMapping(value = "ajaxcart", method = RequestMethod.POST) //책을 담는 메서드
@@ -69,6 +70,7 @@ import com.sesoc.team2.vo.User_infoVO;
 			  model.addAttribute("user_cart_no",user_cart_no);
 			  int cart_total = dao.total(user_cart_no); 
 			  model.addAttribute("cart_total", cart_total);
+			  cart_total_sum = cart_total;
 		  }
 		  return "cart/cartForm"; 
 		  
@@ -145,26 +147,30 @@ import com.sesoc.team2.vo.User_infoVO;
 			 
 			  //주문상세페이지로
 			  @RequestMapping (value="orderdetail", method=RequestMethod.GET) 
-				 public String orderdetail(HttpSession session, int user_cart_no, Model model, cart_book cart_book1) {
+				 public String orderdetail(HttpSession session, int user_cart_no, Model model) {
 				  String user_id1 = (String) session.getAttribute("loginId");
+				  
+				  System.out.println("오더디테일 시작");
 				  int order_no = dao.order_no(user_id1);		  
 				  logger.info("유저카트넘버ㅡ{}",user_cart_no);
 				  ArrayList<cart_book> cartbook = dao.select_order_book(user_cart_no);
+				  logger.info("카sdfnsdfjsndfjsndfjㅡ{}",cartbook);
 				  ArrayList<cart_book> cartbook2 = dao.orderlist(user_id1);
-				  logger.info("카트북222222222ㅡ{}",cartbook2);
+				  logger.info("카트북222222222ㅡ{}",cartbook);
 				  model.addAttribute("orderlistcart",cartbook);
 				  model.addAttribute("cart_book1", user_cart_no);
 				  for (cart_book cartbook1 : cartbook) {
 					  cartbook1.setOrder_no(order_no);
 					  dao.orderdetailinsert(cartbook1);
 					  dao.deleteorderdetail();
+					  
 				  }
-					
+				  
 				  return "order/orderdetail";
 			  
 			  }
 			  
-		  
+		  int cart_total_sum;
 			  
 			  //수정
 		  @RequestMapping (value="update", method=RequestMethod.GET)
@@ -182,14 +188,17 @@ import com.sesoc.team2.vo.User_infoVO;
 				return "redirect:/cart";
 			}
 		  
+		  //결제메서드
 		  @RequestMapping (value="checkout", method=RequestMethod.POST) 
 		  public String checkout(HttpSession session, String order_address, Model model,String order_name,String order_phone) {
 			  String user_id1 = (String) session.getAttribute("loginId");
-			  Order_list order_list = dao.order_num(user_id1);
+			  //Order_list order_list = dao.order_num(user_id1);
 			  model.addAttribute("order_address",order_address);
 			  model.addAttribute("order_name" , order_name);
 			  model.addAttribute("order_phone",order_phone);
-	
+			  User_infoVO user_info = new User_infoVO();
+			  user_info.setUser_id(user_id1);
+			  memberDAO.insertordercart(user_info);
 				
 			  return "cart/checkoutForm"; 
 			  
@@ -203,13 +212,13 @@ import com.sesoc.team2.vo.User_infoVO;
 			  String user_id1 = (String) session.getAttribute("loginId");
 			  Order_list order_list = dao.order_num(user_id1);
 			  logger.info("아아아아아아앙아{}", order_list);
-				int cart_total = dao.ordertotal(order_list); 
+				/* int cart_total = dao.ordertotal(order_list) */; 
 				order_list.setOrder_no(order_list.getOrder_no());
-				order_list.setOrder_totalprice(cart_total);
+				order_list.setOrder_totalprice(cart_total_sum);
 				order_list.setOrder_address(order_address);
 				order_list.setOrder_name(order_name);
 				order_list.setOrder_phone(order_phone);
-				logger.info("토탈{}", cart_total);
+				
 				logger.info("토탈{}", order_name);
 				
 				dao.updateorder(order_list);

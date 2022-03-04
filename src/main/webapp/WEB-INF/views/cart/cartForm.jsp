@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-    <div class="site-content bg-punch-light overflow-hidden" id="content">
+    
         <div class="container">
 
 
@@ -82,10 +82,9 @@
                                                                        
                                                                    
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- End Quantity -->
-                                                        </div>
+                                                            
+                                       
+                                                        
                                                     </td>
 
                                                     <td class="product-subtotal" data-title="Total">
@@ -106,6 +105,7 @@
                                                         
                                                         <input type="submit" value="수량변경">                                                            
                                                     </td>
+                                                    
                                                     
                                                     </tr>
 													 </form>
