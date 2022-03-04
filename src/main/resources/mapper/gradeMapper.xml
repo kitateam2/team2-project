@@ -5,7 +5,17 @@
   
  <mapper namespace="com.sesoc.team2.dao.GradeMapper">
   	<select id="grade" parameterType="User_infoVO" resultType="Integer">
-		select total from(
+  		select total from(
+			select
+				user_id
+				, sum(order_totalprice) as total
+			from
+				order_list
+			where
+				order_date between sysdate -365 and sysdate
+			group by grouping sets(user_id))
+		where user_id = #{user_id}
+<!-- 	select total from(
 			select
 				a.user_id
 				, sum(b.user_pay_price) as total
@@ -15,7 +25,7 @@
 				a.order_no = b.order_no
 				and (b.user_pay_date between sysdate -365 and sysdate)
 			group by grouping sets(a.user_id))
-		where user_id = #{user_id}
+		where user_id = #{user_id} -->
 	</select>
 	
 	<update id="updateGrade" parameterType="User_infoVO">
