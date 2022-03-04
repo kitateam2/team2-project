@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sesoc.team2.dao.ServiceDAO;
+import com.sesoc.team2.vo.BlogPost;
+import com.sesoc.team2.vo.Book;
 import com.sesoc.team2.vo.Chat;
 import com.sesoc.team2.vo.Chatroom;
+import com.sesoc.team2.vo.PostComment;
 import com.sesoc.team2.vo.Searchid;
 import com.sesoc.team2.vo.User_infoVO;
 
@@ -238,7 +240,58 @@ public class CustomerServiceController {
 		public String admin(HttpSession session, Model model) {
 			String id = (String)session.getAttribute("loginId");
 			ArrayList<Chatroom> adminroomlist = sdao.roomlist(id);
+			ArrayList<User_infoVO> idList = sdao.idList(id);
+			ArrayList<Book> bookList = sdao.bookList();
+			ArrayList<BlogPost> postList = sdao.postList();
+			ArrayList<PostComment> commentList = sdao.commentList();
+			for(Iterator<User_infoVO> it = idList.iterator() ; it.hasNext() ; ) {
+				User_infoVO value = it.next();
+				if(value.getUser_id().equals("admin")) {
+					it.remove();
+				}
+			}
 			model.addAttribute("adminroomlist",adminroomlist);
+			model.addAttribute("idList",idList);
+			model.addAttribute("postList",postList);
+			model.addAttribute("commentList",commentList);
+			model.addAttribute("bookList",bookList);
+			
 			return "service/adminForm";
+		}
+		
+		//관리자페이지. 유저삭제 메서드
+		@RequestMapping(value = "/deleteuser", method = RequestMethod.GET)
+		public String deleteuser(HttpSession session, Model model, String deleteid) {
+			String id = (String)session.getAttribute("loginId");
+			System.out.println("유저삭제 직전");
+			sdao.deleteuser(deleteid);
+			return "redirect:/admin";
+		}
+		
+		//관리자페이지. 책삭제 메서드
+		@RequestMapping(value = "/deletebook", method = RequestMethod.GET)
+		public String deletebook(HttpSession session, Model model, String deletebook) {
+			String id = (String)session.getAttribute("loginId");
+			System.out.println("책삭제 직전");
+			sdao.deletebook(deletebook);
+			return "redirect:/admin";
+		}
+		
+		//관리자페이지. 게시글삭제 메서드
+		@RequestMapping(value = "/deletepost", method = RequestMethod.GET)
+		public String deletepost(HttpSession session, Model model, int deletepost) {
+			String id = (String)session.getAttribute("loginId");
+			System.out.println("게시글삭제 직전");
+			sdao.deletepost(deletepost);
+			return "redirect:/admin";
+		}
+		
+		//관리자페이지. 댓글삭제 메서드
+		@RequestMapping(value = "/deletecomment", method = RequestMethod.GET)
+		public String deletecomment(HttpSession session, Model model, int deletecomment) {
+			String id = (String)session.getAttribute("loginId");
+			System.out.println("댓글삭제 직전");
+			sdao.deletecomment(deletecomment);
+			return "redirect:/admin";
 		}
 }

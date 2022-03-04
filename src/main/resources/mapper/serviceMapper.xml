@@ -67,4 +67,55 @@
 		select * from user_info
 		where user_id != #{user_id} and user_id like '%' || #{searchtext} || '%'
 	</select>
+	
+	<!-- 유저 삭제 -->
+  	<delete id="deleteuser" parameterType="String">
+		delete
+		from
+			user_info
+		where
+			user_id = #{user_id}
+	</delete>
+	
+	<!-- 모든 책 조회-->
+	<select id="bookList" resultType="bookVO">
+		select * from book_info 
+	</select>
+	
+	<!-- 유저 삭제 -->
+  	<delete id="deletebook" parameterType="String">
+		delete
+		from
+			book_info
+		where
+			book_isbn = #{deletebook}
+	</delete>
+	
+	<!-- 모든 게시글 조회-->
+	<select id="postList" resultType="BlogPostVO">
+		select * from blog_post 
+	</select>
+	
+	<!-- 게시글 삭제 -->
+  	<delete id="deletepost" parameterType="int">
+		delete
+		from
+			blog_post
+		where
+			post_no = #{deletepost}
+	</delete>
+	
+	<!-- 모든 댓글 조회-->
+	<select id="commentList" resultType="PostCommentVO">
+		select * from post_comment 
+	</select>
+	
+	<!-- 댓글 삭제 -->
+  	<delete id="deletecomment" parameterType="int">
+		delete
+		from
+			post_comment
+		where
+			post_comment_no = #{deletecomment}
+	</delete>
 </mapper>
