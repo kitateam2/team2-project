@@ -263,7 +263,7 @@ function replyEditCancle(div) {
                                         <div class="d-md-flex align-items-center mb-3">
                                         </div>
                                         <p class="mb-4 text-lh-md">${post_comment.post_comment_content}</p>
-                                        <div class="text-gray-600 mb-4">${post_comment.post_comment_writter}, February 22, 2020 </div>
+                                        <div class="text-gray-600 mb-4">${post_comment.post_comment_writter},${post_comment.post_comment_date}</div>
                                         <ul class="nav">
                                             <li class="mr-5 mr-md-7">
                                                 <c:if test="${loginId != post_comment.post_comment_writter}">
