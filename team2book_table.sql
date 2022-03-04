@@ -332,7 +332,7 @@ CREATE TABLE USER_INFO
 	-- 회원생년월일
 	user_birth date NOT NULL,
 	-- 회원전화번호
-	user_phone number NOT NULL,
+	user_phone varchar2(40) NOT NULL,
 	-- 회원주소
 	user_address varchar2(200) NOT NULL,
 	-- 유저선호장르
@@ -500,25 +500,25 @@ ALTER TABLE EVENT
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (follow_ed_id)
-	REFERENCES USER_INFO (user_id)
-;
-
-
-ALTER TABLE FOLLOW
 	ADD FOREIGN KEY (follow_ing_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
-ALTER TABLE MESSAGE
-	ADD FOREIGN KEY (message_recv_id)
+ALTER TABLE FOLLOW
+	ADD FOREIGN KEY (follow_ed_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
 
 ALTER TABLE MESSAGE
 	ADD FOREIGN KEY (message_sent_id)
+	REFERENCES USER_INFO (user_id)
+;
+
+
+ALTER TABLE MESSAGE
+	ADD FOREIGN KEY (message_recv_id)
 	REFERENCES USER_INFO (user_id)
 ;
 
