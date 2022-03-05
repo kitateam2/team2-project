@@ -68,11 +68,11 @@ $(document).ready(  function() {
                     </a>
                     <a href="chatting.html">
                         <i class="icon-chat" alt="채팅메뉴" title="채팅"></i>
-                        <span class="alert-balloon" alt="알림수">3</span>
+                        <!-- <span class="alert-balloon" alt="알림수">3</span> -->
                     </a>
                     <a href="more_menu.html">
                         <i class="icon-ellipsis" alt="더보기버튼" title="더보기"></i>
-                        <span class="alert-balloon" alt="알림수">N</span>
+                        <!-- <span class="alert-balloon" alt="알림수">N</span> -->
                     </a>
                 </div>
                 <div class="sub-menu">
