@@ -179,7 +179,7 @@
                             <c:if test="${sessionScope.loginId == 'admin'}">
 		                            <li class="nav-item dropdown">
 		                                <a id="adminDropdownInvoker" href="${pageContext.request.contextPath}/admin" class="dropdown-toggle nav-link link-black-100 mx-4 px-0 py-5 font-weight-medium d-flex align-items-center">
-		                                    ADMIN
+		                                    AD
 		                                </a>
 		
 		                            </li>

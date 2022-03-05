@@ -4,7 +4,7 @@ ALTER TABLE POST_COMMENT
 	ADD FOREIGN KEY (post_no)
 	REFERENCES BLOG_POST (post_no)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -12,7 +12,7 @@ ALTER TABLE BOOK_REVIEW
 	ADD FOREIGN KEY (book_isbn)
 	REFERENCES BOOK_INFO (book_isbn)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -20,7 +20,7 @@ ALTER TABLE CART_BOOK
 	ADD FOREIGN KEY (book_isbn)
 	REFERENCES BOOK_INFO (book_isbn)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -28,7 +28,7 @@ ALTER TABLE ORDER_DETAIL
 	ADD FOREIGN KEY (book_isbn)
 	REFERENCES BOOK_INFO (book_isbn)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -36,7 +36,7 @@ ALTER TABLE USER_WISHLIST
 	ADD FOREIGN KEY (book_isbn)
 	REFERENCES BOOK_INFO (book_isbn)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -44,7 +44,7 @@ ALTER TABLE CHAT
 	ADD FOREIGN KEY (chatroom_id)
 	REFERENCES CHATROOM (chatroom_id)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -52,7 +52,7 @@ ALTER TABLE ORDER_DETAIL
 	ADD FOREIGN KEY (order_no)
 	REFERENCES ORDER_LIST (order_no)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -60,7 +60,7 @@ ALTER TABLE USER_PAY
 	ADD FOREIGN KEY (order_no)
 	REFERENCES ORDER_LIST (order_no)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -68,7 +68,7 @@ ALTER TABLE USER_TRANSFER
 	ADD FOREIGN KEY (order_no)
 	REFERENCES ORDER_LIST (order_no)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -76,7 +76,7 @@ ALTER TABLE CART_BOOK
 	ADD FOREIGN KEY (user_cart_no)
 	REFERENCES USER_CART (user_cart_no)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -84,7 +84,7 @@ ALTER TABLE BLOG_POST
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -92,7 +92,7 @@ ALTER TABLE CHAT
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -100,7 +100,7 @@ ALTER TABLE CHATROOM
 	ADD FOREIGN KEY (chatroom_lastid)
 	REFERENCES USER_INFO (user_id)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -108,7 +108,7 @@ ALTER TABLE EVENT
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -116,7 +116,7 @@ ALTER TABLE FOLLOW
 	ADD FOREIGN KEY (follow_ing_id)
 	REFERENCES USER_INFO (user_id)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -124,7 +124,7 @@ ALTER TABLE FOLLOW
 	ADD FOREIGN KEY (follow_ed_id)
 	REFERENCES USER_INFO (user_id)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -132,7 +132,7 @@ ALTER TABLE MESSAGE
 	ADD FOREIGN KEY (message_sent_id)
 	REFERENCES USER_INFO (user_id)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -140,7 +140,7 @@ ALTER TABLE MESSAGE
 	ADD FOREIGN KEY (message_recv_id)
 	REFERENCES USER_INFO (user_id)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -148,7 +148,7 @@ ALTER TABLE ORDER_LIST
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -156,7 +156,7 @@ ALTER TABLE USER_CART
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -164,7 +164,7 @@ ALTER TABLE USER_REWARD_HISTORY
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -172,7 +172,7 @@ ALTER TABLE USER_WISH
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -180,7 +180,7 @@ ALTER TABLE USER_WISHLIST
 	ADD FOREIGN KEY (user_id)
 	REFERENCES USER_INFO (user_id)
 	on delete cascade
-	on update cascade
+
 ;
 
 
@@ -188,6 +188,6 @@ ALTER TABLE USER_WISHLIST
 	ADD FOREIGN KEY (user_wish_no)
 	REFERENCES USER_WISH (user_wish_no)
 	on delete cascade
-	on update cascade
+
 ;
 
