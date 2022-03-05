@@ -113,11 +113,7 @@ $(document).ready(function () {
 	<table class="gnb_main add_1">
 		<tr colspan="5" id="blank"></tr>
 		<tr style= "color: white;"> 
-			<td class="class_item"><a href="url" class="text">국내도서</a></td><td>&nbsp;</td>
-			<td class="class_item"><a href="url" class="text">외국도서</a></td><td>&nbsp;</td>
-			<td class="class_item"><a href="url" class="text">e-book</a></td><td>&nbsp;</td>
-			<td class="class_item"><a href="url" class="text">만화</a></td><td>&nbsp;</td>
-			<td class="class_item"><a href="url" class="text">블로그</a></td><td>&nbsp;</td>
+
 		</tr>
 	</table>
 	</div>

@@ -2,7 +2,7 @@
 
 .box3 {
 	box-sizing: border-box;
-	width: 900px;
+	width: 880px;
 	margin: 0 auto;
 	padding: 0;
 
@@ -11,7 +11,7 @@
 .navigation_bar {
     position: relative;
     z-index: 9998;
-    width:900px;
+    width:880px;
     height:50px;
     background-color: #5e6b9e;
 }
