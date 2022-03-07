@@ -19,8 +19,8 @@
 			blog_post		
 		<if test="_parameter != null">
 		where 
-			post_title like '%' || #{searchText} || '%'
-			OR post_contents like '%' || #{searchText} || '%'
+			lower (post_title) like lower('%' || #{searchText} || '%')
+			OR lower (post_contents) like lower('%' || #{searchText} || '%')
 		</if>
 		order by
 			post_no desc
@@ -34,8 +34,8 @@
 			blog_post
 		<if test="_parameter != null">
 		where 
-			post_title like '%' || #{searchText} || '%'
-			OR post_contents like '%' || #{searchText} || '%'
+			lower (post_title) like lower('%' || #{searchText} || '%')
+			OR lower (post_contents) like lower('%' || #{searchText} || '%')
 		</if>
 		order by
 			post_no desc
