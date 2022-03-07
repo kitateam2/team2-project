@@ -44,6 +44,7 @@
     padding: 10px;
     margin: 20px;
     color: black;
+    font-family: Arial;
     height: 30px;
     width: 60%;
     border-radius: 40px;
@@ -73,9 +74,16 @@
   text-align: center;
   padding: 1px 0px;
   }
- form input[type="date"]
- 
-  
+
+input::placeholder {
+  color: black;
+  font-family: Arial;
+}
+
+
+input[type="date"]::before {content: attr(data-placeholder); width: 100%;}
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {display: none;} 
  
   
 </style>
@@ -117,7 +125,7 @@
 			<input type="password" placeholder="Enter password" id="password" name="user_pw">
 			<input type="password" placeholder="Enter password" id="password-check">
 			<input type="text" placeholder="Enter Username" id="name" name="user_name">
-			<input type="date" placeholder="Enter Userbirth" id="birth" name="user_birth" style="border: solid 2px green; ">
+			<input type="date" data-placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter Userbirth" required aria-required="true" id="birth" name="user_birth" style="border: solid 2px green; ">
 			<input type="text" placeholder="Enter Userphone" id="phone_number" name="user_phone">
 			<input type="text" placeholder="Enter Useraddress" id="adress" name="user_address">
 			<input type="text" placeholder="Enter Usergenre" id="genre" name="user_genre">
