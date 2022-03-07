@@ -19,6 +19,7 @@ body{
     background-size:auto
 }
   body {
+  background-color: ivory;
     display: flex;
     align-items: center;
     justify-content: center;
