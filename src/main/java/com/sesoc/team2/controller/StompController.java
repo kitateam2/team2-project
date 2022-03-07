@@ -13,11 +13,7 @@ public class StompController {
   public ChatMessage ttt(@DestinationVariable("roomid") String roomid,ChatMessage message) throws Exception {
 		System.out.println("컨트롤러>>" + message);
 		System.out.println("roodid 방번호: " + roomid);
-		//System.out.println("ID=" + message.getId());
-		//System.out.println("MSG=" + message.getMsg()); 
-		//messagingTemplate.convertAndSend("/topic/" + message.getRoomid(), message.getMsg());
-		//messagingTemplate.convertAndSendToUser(message.getId(), "/topic/" + message.getRoomid(), message.getMsg());
-		
+
 		return message;
 	}
 	
