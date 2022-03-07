@@ -51,7 +51,9 @@
   }
   form input[type="text"],
   form input[type="tel"],
-  form input[type="password"] {
+  form input[type="password"],
+  form input[type="date"]
+   {
     border: solid 2px green;
   }
   form input[type="submit"] {
@@ -84,7 +86,7 @@
     cursor: pointer;
     text-decoration-line: none;
   }
-  
+  form input[type="date"]
 </style>
 
 <script>
@@ -100,7 +102,7 @@ function cancel() {
 		<br>
 이름		<input type="text" name="user_name" id="user_name" value="${member.user_name}">
 		<br>
-생일		<input type="text" name="user_birth" id="user_birth" value="${member.user_birth}">
+생일		<input type="date" name="user_birth" id="user_birth" value="${member.user_birth}">
 		<br>		
 전화번호	<input type="text" name="user_phone" value="${member.user_phone}">
 		<br>

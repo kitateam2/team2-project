@@ -45,7 +45,7 @@
     margin: 20px;
     color: black;
     height: 30px;
-    width: 70%;
+    width: 60%;
     border-radius: 40px;
     transition: 0.2s ease-in;
   }
@@ -65,10 +65,16 @@
   }
   .check {
   position: relative; 
-  top: -731px; 
-  right: -229px;;
+  top: -728px; 
+  right: -217px;
+  border: solid 2px green;
+  width: 90px;
+  align-items: center;
+  text-align: center;
+  padding: 1px 0px;
   }
  form input[type="date"]
+ 
   
  
   
@@ -107,11 +113,11 @@
 <body>
 	<form action="join" method="post" name="loginForm" onsubmit="return validationCheck();">
 	<!-- <h2>[회원가입]</h2> -->
-			<input type="text" name="user_id" id="id" maxlength="10" placeholder="ID중복확인 이용" readonly="readonly">		
+			<input type="text" name="user_id" id="id" maxlength="10" placeholder="Enter userid" readonly="readonly">		
 			<input type="password" placeholder="Enter password" id="password" name="user_pw">
 			<input type="password" placeholder="Enter password" id="password-check">
 			<input type="text" placeholder="Enter Username" id="name" name="user_name">
-			<input type="date" placeholder="Enter Userbirth" id="birth" name="user_birth" style="border: solid 2px green;">
+			<input type="date" placeholder="Enter Userbirth" id="birth" name="user_birth" style="border: solid 2px green; ">
 			<input type="text" placeholder="Enter Userphone" id="phone_number" name="user_phone">
 			<input type="text" placeholder="Enter Useraddress" id="adress" name="user_address">
 			<input type="text" placeholder="Enter Usergenre" id="genre" name="user_genre">
