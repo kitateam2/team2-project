@@ -64,15 +64,8 @@ public class MemberController {
 			logger.info("{}",session.getAttribute("loginId"));
 			String referer = (String) session.getAttribute("referer");
 			session.removeAttribute("referer");
-			String chatmain = (String) session.getAttribute("chatmain");
-			if(chatmain!=null) {
-				session.removeAttribute("chatmain");
-				return "redirect:/chatmain";
-			}
 			return "redirect:" + referer;
 		}		
-		
-		
 		else {
 			model.addAttribute("errorMsg", "ID 또는 비밀번호가 틀립니다.");
 			return "loginForm";

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sesoc.team2.dao.MemberDAO;
 import com.sesoc.team2.dao.ServiceDAO;
 import com.sesoc.team2.vo.BlogPost;
 import com.sesoc.team2.vo.Book;
@@ -35,6 +36,8 @@ public class CustomerServiceController {
 	private static final Logger logger = LoggerFactory.getLogger(CustomerServiceController.class);
 	@Autowired
 	ServiceDAO sdao;	
+	@Autowired
+	MemberDAO memberDAO;
 	/**
 	 * FAQ 화면으로 이동
 	 */
@@ -227,13 +230,33 @@ public class CustomerServiceController {
 		return "service/chatmain";
 	}
 	
-	//채팅메인페이지 이동전 로그인인터셉터 피하기위해 만든 메서드
-	@RequestMapping(value = "/prechatmain", method = RequestMethod.GET)
-	public String prechatmain(HttpSession session, Model model) {
-		String id = (String)session.getAttribute("loginId");
-		session.setAttribute("chatmain", "chatmain");
-		return "redirect:/chatmain";
-	}
+	//채팅로그인
+		@RequestMapping (value="chatlogin", method=RequestMethod.GET)
+		public String loginForm(HttpSession session, HttpServletRequest request) {
+			/*
+			 * String referer = request.getHeader("Referer");
+			 * System.out.println("referererere: "+referer); session.setAttribute("referer",
+			 * referer);
+			 */
+			return "service/chatloginForm";
+		}
+		@RequestMapping(value = "chatlogin", method = RequestMethod.POST)
+		public String chatlogin(User_infoVO member, HttpSession session, Model model) {
+			User_infoVO resultMember = memberDAO.getMember(member.getUser_id());
+			
+			if (resultMember != null && member.getUser_pw().equals(resultMember.getUser_pw())) {
+				session.setAttribute("loginId", member.getUser_id());
+				/*
+				 * String referer = (String) session.getAttribute("referer");
+				 * session.removeAttribute("referer"); return "redirect:" + referer;
+				 */
+				return "redirect:/chatmain";
+			}		
+			else {
+				model.addAttribute("errorMsg", "ID 또는 비밀번호가 틀립니다.");
+				return "chatloginForm";
+			}		
+		}
 	
 	//관리자 페이지로 이동
 		@RequestMapping(value = "/admin", method = RequestMethod.GET)
