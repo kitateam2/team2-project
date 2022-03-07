@@ -70,6 +70,14 @@
     cursor: pointer;
   }
   
+    form input[type="button"] {
+    border: solid 2px #ec3b3b;
+    box-sizing: border-box;
+    height: 50px;
+    width: 50%;
+    cursor: pointer;
+  }
+  
   form a {
     border: none;
     background: none;
@@ -119,8 +127,8 @@
       <input type="text" placeholder="Enter Username" id="username" name="user_id">
       <input type="password" placeholder="Enter password" id="password" name="user_pw">
       <input type="submit" name="" value="Login" >
-       <a class="btn" href="javascript:cancel()">cancel</a>
-       <div class="errorMsg" style="color:blue;">
+      <input type="button" name="" onclick="javascript:cancel()" value="Cancel" >
+      <div class="errorMsg" style="color:blue;">
 			${errorMsg}
 		</div>
     </form>
