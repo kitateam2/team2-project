@@ -236,7 +236,7 @@ order_no
 ,order_phone
 )
 values (
-order_no_seq.nextval
+order_no_seq.nextval+100000
 ,sysdate
 ,#{order_totalprice}
 ,'준비중입니다'
