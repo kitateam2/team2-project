@@ -239,7 +239,7 @@
                             <h4 class="page-title font-size-3 font-weight-medium m-0 text-lh-lg">MESSAGE</h4>
                              <nav class="woocommerce-breadcrumb font-size-2">
 				                    <a href="/team2/blogmain" class="h-primary">Blog Main</a>
-				                    <a href="${sessionScope.loginId}" class="h-primary">/ My Blog</a>
+				                    <a href="../../myblog/${sessionScope.loginId}" class="h-primary">/ My Blog</a>
 				             </nav>
                         </div>
                     </div>
@@ -359,7 +359,7 @@
 				<c:forEach var="message_list_unopened" items="${message_list_unopened}">
 				
 					<ul>
-						<li><p class="ppp">보낸이: ${message_list_unopened.message_recv_id}</p></li>
+						<li><p class="ppp">보낸이: ${message_list_unopened.message_sent_id}</p></li>
 						<li><a href="window?message_no=${message_list_unopened.message_no}">
 							-> ${message_list_unopened.message_title}</a></li>
 							<hr>
